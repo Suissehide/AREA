@@ -3,6 +3,7 @@ import background from '../assets/img/jungle_background.jpg';
 import '../css/Home.css';
 import Card from "../components/Card";
 import SideMenu from "../components/SideMenu";
+import Sidebar from "../components/Navbar";
 
 class Home extends React.Component {
     state = {
@@ -25,57 +26,7 @@ class Home extends React.Component {
 
                 <div className="main">
 
-                    <nav className="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
-                        <div className="container-fluid">
-                            <div className="navbar-wrapper">
-                                <a className="navbar-brand" href="#home">Dashboard</a>
-                            </div>
-
-                            <div className="collapse navbar-collapse justify-content-end">
-                                <form className="navbar-form">
-                                <span className="bmd-form-group">
-                                    <div className="input-group no-border">
-                                        <input type="text" className="form-control" placeholder="Search..."/>
-                                        <button type="submit" className="btn btn-white btn-round btn-just-icon">
-                                          <i className="fas fa-search"/>
-                                          <div className="ripple-container"/>
-                                        </button>
-                                    </div>
-                                </span>
-                                </form>
-                                <ul className="navbar-nav">
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#0">
-                                            <i className="fas fa-th-list"/>
-                                        </a>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link" href="#0" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="fas fa-bell"/>
-                                            <span className="notification">5</span>
-                                        </a>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link" href="#0" id="navbarDropdownProfile"
-                                           onClick={this.triggerProfile}
-                                           data-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false">
-                                            <i className="fas fa-user"/>
-                                        </a>
-                                        <div
-                                            className={"dropdown-menu dropdown-menu-right " + (this.state.profile ? 'show' : '')}
-                                            aria-labelledby="navbarDropdownProfile">
-                                            <a className="dropdown-item" href="#0">Profile</a>
-                                            <a className="dropdown-item" href="#0">Settings</a>
-                                            <div className="dropdown-divider"/>
-                                            <a className="dropdown-item" href="#0">Log out</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
+                    <Sidebar/>
 
                     <div className="content" onClick={this.resetProfile}>
                         <div className="container-fluid">

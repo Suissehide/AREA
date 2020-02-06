@@ -184,11 +184,11 @@
 }
 
 /* Notification */
-.navbar .collapse .navbar-nav .nav-item .nav-link .notification {
+.navbar .collapse .navbar-nav .nav-item .nav-link .pastille {
     top: 0;
 }
 
-.navbar .notification {
+.navbar .pastille {
     position: absolute;
     top: 5px;
     border: 1px solid #fff;
