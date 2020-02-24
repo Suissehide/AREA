@@ -64,7 +64,7 @@ class Notfound extends React.Component {
     remove = () => {
         this.setState({
             drops: this.state.drops.filter(function (drop) {
-                return parseInt(drop.y) + 25 < window.innerHeight
+                return parseInt(drop.y) + 100 < window.innerHeight
             })
         });
     };
