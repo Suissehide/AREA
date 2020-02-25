@@ -1,12 +1,11 @@
-import React, { Fragment } from "react";
-import { StyleSheet, View } from 'react-native';
-import { Text, Card, Divider } from 'react-native-elements';
+import React from "react";
+import { StyleSheet } from 'react-native';
+import { Text, Card } from 'react-native-elements';
 import { theme } from '../core/theme';
-import { withUser } from "../core/Context";
 import Button from '../components/Button';
 
-export default withUser((props) => (
-    <Fragment>
+export default function CardService(props) {
+    return (
         <Card containerStyle={styles.card}>
             <Text style={styles.title}>{props.title}</Text>
             <Button color={styles.container.backgroundColor} onPress={() => props.value === true ? props.setValue(false) : props.setValue(true)}>
@@ -14,16 +13,13 @@ export default withUser((props) => (
             </Button>
             {props.widget}
         </Card>
-    </Fragment>
-));
+    );
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fafafa',
-    },
-    contentContainer: {
-        paddingTop: 15,
     },
     title: {
         fontSize: 20,
