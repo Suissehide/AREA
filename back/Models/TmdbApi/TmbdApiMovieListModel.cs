@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Entrainement.Models
+namespace back.Models
 {
     public class TmbdApiMovieListModel
     {
