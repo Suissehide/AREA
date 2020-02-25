@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using back.Clients.ItmdbApiClient;
+using back.Clients;
 using back.Models.TmdbApi;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
