@@ -2,10 +2,9 @@ import React, { Fragment } from "react";
 import { StyleSheet, View } from 'react-native';
 import { Text, Card, Divider } from 'react-native-elements';
 import { theme } from '../core/theme';
-import { withUser } from "../core/Context";
-import TextInput from '../components/TextInput';
+import { withWidget } from "../core/Context";
 
-export default withUser((props, { name, setName, activated }) => (
+export default withWidget((props) => (
     <Fragment>
         <Card containerStyle={styles.card}>
             <Text style={styles.title}>{props.title}</Text>

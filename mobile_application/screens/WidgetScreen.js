@@ -3,11 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { Text, Card, Divider } from 'react-native-elements';
 import { theme } from '../core/theme';
-import { withUser } from "../core/Context";
+import { withWidget } from "../core/Context";
 import MyCard from '../widgets/CardTemplate';
 import Oui from '../widgets/Oui';
 
-export default withUser(({ potterS }) => (
+export default withWidget(({ potterS }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {potterS === true ?

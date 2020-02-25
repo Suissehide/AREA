@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Switch } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../components/Button';
-import { withUser } from "../core/Context";
+import { withWidget } from "../core/Context";
 import MyCard from '../components/CardService';
 import PotterService from '../services/PotterService'
 
-export default withUser(({ potterS, setPotterS }) => (
+export default withWidget(({ potterS, setPotterS }) => (
     <View style={styles.container} >
         <Fragment>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LoginScreen from './screens/LoginScreen';
-import UserProvider from "./core/Context";
+import WidgetProvider from "./core/Context";
 
 const Stack = createStackNavigator();
 
@@ -50,8 +50,7 @@ export default function App(props) {
     } else {
         return (
             <View style={styles.container}>
-                <UserProvider>
-
+                <WidgetProvider>
                     {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
                     {isLoginOk === true ?
                         <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
@@ -61,7 +60,7 @@ export default function App(props) {
                         </NavigationContainer>
                         : <LoginScreen isLoginOk={isLoginOk} setIsLoginOk={setIsLoginOk} />
                     }
-                </UserProvider>
+                </WidgetProvider>
             </View>
         );
     }

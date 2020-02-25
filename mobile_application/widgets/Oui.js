@@ -5,11 +5,11 @@ import * as WebBrowser from 'expo-web-browser';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { Text, Card, Divider } from 'react-native-elements';
 import { theme } from '../core/theme';
-import { withUser } from "../core/Context";
+import { withWidget } from "../core/Context";
 import TextInput from '../components/TextInput';
 import MyCard from './CardTemplate';
 
-export default withUser(({ name, setName, activated }) => (
+export default withWidget(({ name, setName, activated }) => (
     <Text>Oui</Text>
 ));
 

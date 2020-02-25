@@ -1,6 +1,6 @@
 import React, { createContext, Component } from "react";
 
-export const UserContext = createContext({
+export const WidgetContext = createContext({
     potterS: false,
     setPotterS: () => { },
     potterSpell: true,
@@ -12,7 +12,7 @@ export const UserContext = createContext({
     setWeatherS: () => { },
 });
 
-class UserProvider extends Component {
+class WidgetProvider extends Component {
     state = {
         potterS: true,
         setPotterS: value => { this.setState({ potterS: value }) },
@@ -28,17 +28,17 @@ class UserProvider extends Component {
 
     render() {
         return (
-            <UserContext.Provider value={this.state}>
+            <WidgetContext.Provider value={this.state}>
                 {this.props.children}
-            </UserContext.Provider>
+            </WidgetContext.Provider>
         );
     }
 }
 
-export const withUser = Component => props => (
-    <UserContext.Consumer>
+export const withWidget = Component => props => (
+    <WidgetContext.Consumer>
         {store => <Component {...props} {...store} />}
-    </UserContext.Consumer>
+    </WidgetContext.Consumer>
 );
 
-export default UserProvider;
+export default WidgetProvider;
