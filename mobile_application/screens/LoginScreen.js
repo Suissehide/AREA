@@ -66,7 +66,7 @@ export default function LoginScreen(props) {
 
                     <Button mode="contained" onPress={_onLoginPressed}>
                         Login
-            </Button>
+                    </Button>
 
                     <View style={styles.row}>
                         <Text style={styles.label}>Don’t have an account? </Text>

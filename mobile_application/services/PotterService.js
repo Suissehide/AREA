@@ -1,19 +1,15 @@
 import React, { Fragment } from "react";
 import { StyleSheet, View } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { Text, Card, Divider } from 'react-native-elements';
 import { theme } from '../core/theme';
 import { withUser } from "../core/Context";
-import MyCard from '../widgets/CardTemplate';
-import Oui from '../widgets/Oui';
 
-export default withUser(({ potterS }) => (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <Fragment>
-            {potterS === true ?
-                <MyCard title="hey" widget={<Oui />} /> : <Text>You don't have any widgets</Text>}
-        </Fragment>
-    </ScrollView>
+export default withUser((props, { potterS, potterSpell, setPotterSpell }) => (
+    < Fragment >
+        {console.log(props.potterS)}
+        {props.potterS === true ?
+            <Text style={styles.title}>PotterSpell</Text> : null}
+    </Fragment >
 ));
 
 const styles = StyleSheet.create({
@@ -25,7 +21,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
     },
     title: {
-        fontSize: 20,
+        fontSize: 15,
         alignSelf: "center",
     },
     card: {

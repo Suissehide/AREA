@@ -17,7 +17,7 @@ export default function App(props) {
     const [initialNavigationState, setInitialNavigationState] = React.useState();
     const containerRef = React.useRef();
     const { getInitialState } = useLinking(containerRef);
-    const [isLoginOk, setIsLoginOk] = React.useState(false);
+    const [isLoginOk, setIsLoginOk] = React.useState(true);
 
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {

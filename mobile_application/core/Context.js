@@ -1,18 +1,29 @@
 import React, { createContext, Component } from "react";
 
 export const UserContext = createContext({
-    name: "",
-    setName: () => { },
-    activated: false,
-    setActivated: () => { },
+    potterS: false,
+    setPotterS: () => { },
+    potterSpell: true,
+    setPotterSpell: () => { },
+    potterCharacters: true,
+    setPotterCharacter: () => { },
+    //
+    weatherS: false,
+    setWeatherS: () => { },
 });
 
 class UserProvider extends Component {
     state = {
-        name: "Random",
-        setName: name => this.setState({ name: name }),
-        activated: false,
-        setActivated: activated => this.setState({ activated: activated }),
+        potterS: true,
+        setPotterS: value => { this.setState({ potterS: value }) },
+        potterSpell: false,
+        setPotterSpell: value => { this.setState({ potterSpell: value }) },
+        potterCharacters: false,
+        setPotterCharacter: value => { this.setState({ potterCharacters: value }) },
+        //
+        weatherS: false,
+        setWeatherS: (value) => { this.setState({ weatherS: value }) },
+
     };
 
     render() {
