@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Switch } from 'react-native';
 import { Text, Card } from 'react-native-elements';
 import { theme } from '../core/theme';
 import Button from '../components/Button';
@@ -8,9 +8,10 @@ export default function CardService(props) {
     return (
         <Card containerStyle={styles.card}>
             <Text style={styles.title}>{props.title}</Text>
-            <Button color={styles.container.backgroundColor} onPress={() => props.value === true ? props.setValue(false) : props.setValue(true)}>
-                {props.value === true ? <Text>Désactiver</Text> : <Text>Activer</Text>}
-            </Button>
+            <Switch
+                style={{ marginTop: 30 }}
+                onValueChange={event => props.setValue(event)}
+                value={props.value} />
             {props.widget}
         </Card>
     );
