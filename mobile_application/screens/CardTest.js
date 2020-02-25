@@ -19,7 +19,7 @@ export default withUser(({ name, setName, activated }) => (
                     <TextInput
                         type="text"
                         value={name}
-                        onChange={event => setName(event.target.value)}
+                        onChangeText={text => setName(text)}
                     />
                 </Card> : null}
         </Fragment>
