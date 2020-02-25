@@ -7,21 +7,14 @@ import { Text, Card, Divider } from 'react-native-elements';
 import { theme } from '../core/theme';
 import { withUser } from "../core/Context";
 import TextInput from '../components/TextInput';
+import MyCard from '../widgets/CardTemplate';
+import Oui from '../widgets/Oui';
 
 export default withUser(({ name, setName, activated }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {activated === true ?
-                <Card containerStyle={styles.card}>
-                    <Text style={styles.title}>
-                        Change ton nom ici, {name}
-                    </Text>
-                    <TextInput
-                        type="text"
-                        value={name}
-                        onChangeText={text => setName(text)}
-                    />
-                </Card> : null}
+                <MyCard title="hey" widget={<Oui />} /> : <Text>You don't have any widgets</Text>}
         </Fragment>
     </ScrollView>
 ));
@@ -33,25 +26,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 15,
-    },
-    optionIconContainer: {
-        marginRight: 12,
-    },
-    option: {
-        backgroundColor: '#fdfdfd',
-        paddingHorizontal: 15,
-        paddingVertical: 15,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderBottomWidth: 0,
-        borderColor: '#ededed',
-    },
-    lastOption: {
-        borderBottomWidth: StyleSheet.hairlineWidth,
-    },
-    optionText: {
-        fontSize: 15,
-        alignSelf: 'flex-start',
-        marginTop: 1,
     },
     title: {
         fontSize: 20,

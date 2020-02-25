@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import CardTest from '../screens/CardTest';
+import WidgetScreen from '../screens/WidgetScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Login';
@@ -17,7 +17,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
             <BottomTab.Screen
                 name="Home"
-                component={CardTest}
+                component={WidgetScreen}
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-paper" />,
