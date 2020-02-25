@@ -9,5 +9,8 @@ namespace back.Clients
     {
         [Get("/search/anime?q={name}&limit=8")]
         Task<JikanAnimeModel> SearchAnime(String name);
+
+        [Get("/search/character?q={name}&limit=20")]
+        Task<JikanCharacterModel> SearchCharacter(String name);
     }
 }

@@ -17,7 +17,7 @@ namespace back.Controllers
             _logger = logger;
             _jikanClient = RestService.For<IJikanClient>("https://api.jikan.moe/v3/");
         }
-        [HttpGet("{name}")]
+        [HttpGet("/anime/{name}")]
         [ProducesResponseType(typeof(JikanAnimeModel), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 404)]
         [ProducesResponseType(typeof(void), 500)]
@@ -31,6 +31,24 @@ namespace back.Controllers
             catch (ApiException exMessage)
             {
                 _logger.LogError($"Jikan search anime : {exMessage.Message}");
+                return NotFound();
+            }
+        }
+        
+        [HttpGet("/character/{name}")]
+        [ProducesResponseType(typeof(JikanCharacterModel), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
+        [ProducesResponseType(typeof(void), 500)]
+        public async Task<IActionResult> ClientCharacterByName(string name)
+        {
+            try
+            {
+                JikanCharacterModel characterSearchResult = await _jikanClient.SearchCharacter(name);
+                return Ok(characterSearchResult);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError(exMessage.Message);
                 return NotFound();
             }
         }
