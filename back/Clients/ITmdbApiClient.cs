@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using Entrainement.Models;
+using back.Models;
 using Refit;
 
-namespace Entrainement.Clients.ItmdbApiClient
+namespace back.Clients.ItmdbApiClient
 {
     interface ITmdbApiClient
     {
