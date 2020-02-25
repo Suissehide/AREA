@@ -7,6 +7,8 @@ using Refit;
 
 namespace back.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class JikanController : ControllerBase
     {
         private readonly ILogger<JikanController> _logger;
