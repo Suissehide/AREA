@@ -1,11 +1,12 @@
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Threading.Tasks;
+using Entrainement.Models;
+using Refit;
 
-namespace Entrainement.Models
+namespace Entrainement.Clients.ItmdbApiClient
 {
-    public class TmbdApiMovieListModel
+    interface ITmdbApiClient
     {
-        [JsonProperty ("results")] 
-        public List<TmdbApiMovieModel> Result { get; set; }
+        [Get("/search/movie?api_key=bec82ed690e629d60b98dc6f4b85bfaf&language=en&query={title}")]
+        Task<TmbdApiMovieListModel> GetMovieInfos(string title);
     }
 }
