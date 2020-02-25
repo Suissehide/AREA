@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using back.Models;
+using back.Models.TmdbApi;
 using Refit;
 
-namespace back.Clients.ItmdbApiClient
+namespace back.Clients
 {
     interface ITmdbApiClient
     {
