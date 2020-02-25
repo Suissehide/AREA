@@ -1,12 +1,12 @@
 using System;
 using System.Threading.Tasks;
-using Entrainement.Clients.ItmdbApiClient;
-using Entrainement.Models;
+using back.Clients.ItmdbApiClient;
+using back.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
 
-namespace Entrainement.Controllers
+namespace back.Controllers
 {
 
     [ApiController]
