@@ -15,7 +15,7 @@ namespace Entrainement.Controllers
     {
         #region MEMBERS
 
-        private readonly ITmdbAPIClient _tmdbApiClient;
+        private readonly ITmdbApiClient _tmdbApiClient;
         private readonly ILogger<TmdbApiController> _logger;
 
         #endregion
@@ -25,7 +25,7 @@ namespace Entrainement.Controllers
         public TmdbApiController(ILogger<TmdbApiController> logger)
         {
             _logger = logger;
-            _tmdbApiClient = RestService.For<ITmdbAPIClient>("https://api.themoviedb.org/3/");
+            _tmdbApiClient = RestService.For<ITmdbApiClient>("https://api.themoviedb.org/3/");
         }
 
         #endregion
