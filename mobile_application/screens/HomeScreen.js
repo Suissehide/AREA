@@ -1,61 +1,38 @@
-import * as React from 'react';
+import React, { Fragment } from "react";
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import * as WebBrowser from 'expo-web-browser';
-
+import Logo from '../components/Logo';
+import Button from '../components/Button';
+import { withUser } from "../core/Context";
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
-    return (
-        <View style={styles.container}>
+export default withUser(({ name, setName, activated, setActivated }) => (
+    <View style={styles.container}>
+        <Fragment>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 <View style={styles.welcomeContainer}>
-                    <Image
-                        source={
-                            __DEV__
-                                ? require('../assets/images/robot-dev.png')
-                                : require('../assets/images/robot-prod.png')
-                        }
-                        style={styles.welcomeImage}
-                    />
+                    <Logo />
                 </View>
 
                 <View style={styles.getStartedContainer}>
-                    <DevelopmentModeNotice />
-
-                    <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
-
-                    <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-                        <MonoText>screens/HomeScreen.js</MonoText>
-                    </View>
-
-                    <Text style={styles.getStartedText}>
-                        Change any of the text, save the file, and your app will automatically reload.
-                        Test
-          </Text>
+                    <Text style={styles.getStartedText}>You don't have any widgets, {name}. Click on Activation !</Text>
                 </View>
+                <Button mode="contained" onPress={() => activated === false ? setActivated(true) : setActivated(false)}>
+                    {activated === false ? <Text>Activation</Text> : <Text>Désactivation</Text>}
+                </Button>
 
-                <View style={styles.helpContainer}>
-                    <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-                        <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-                    </TouchableOpacity>
-                </View>
             </ScrollView>
 
-            <View style={styles.tabBarInfoContainer}>
+            {/* <View style={styles.tabBarInfoContainer}>
                 <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
                 <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
                     <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
                 </View>
-            </View>
-        </View>
-    );
-}
-
-HomeScreen.navigationOptions = {
-    header: null,
-};
+            </View> */}
+        </Fragment>
+    </View>
+));
 
 function DevelopmentModeNotice() {
     if (__DEV__) {
@@ -78,16 +55,6 @@ function DevelopmentModeNotice() {
       </Text>
         );
     }
-}
-
-function handleLearnMorePress() {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/workflow/development-mode/');
-}
-
-function handleHelpPress() {
-    WebBrowser.openBrowserAsync(
-        'https://docs.expo.io/versions/latest/get-started/create-a-new-app/#making-your-first-change'
-    );
 }
 
 const styles = StyleSheet.create({

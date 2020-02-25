@@ -1,34 +1,42 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import CardTest from '../screens/CardTest';
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = 'Home';
+const INITIAL_ROUTE_NAME = 'Login';
 
 export default function BottomTabNavigator({ navigation, route }) {
     // Set the header title on the parent stack navigator depending on the
     // currently active tab. Learn more in the documentation:
     // https://reactnavigation.org/docs/en/screen-options-resolution.html
     navigation.setOptions({ headerTitle: getHeaderTitle(route) });
-
+    const [test, setTest] = useState('a');
     return (
         <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
             <BottomTab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={CardTest}
                 options={{
-                    title: 'Get Started',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+                    title: 'Home',
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-paper" />,
                 }}
             />
             <BottomTab.Screen
-                name="Links"
-                component={LinksScreen}
+                name="ManageWidgets"
+                component={HomeScreen}
                 options={{
-                    title: 'Resources',
-                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+                    title: 'Manage Widgets',
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-build" />,
+                }}
+            />
+            <BottomTab.Screen
+                name="Settings"
+                component={HomeScreen}
+                options={{
+                    title: 'Account Settings',
+                    tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
                 }}
             />
         </BottomTab.Navigator>
@@ -40,8 +48,10 @@ function getHeaderTitle(route) {
 
     switch (routeName) {
         case 'Home':
-            return 'How to get started';
-        case 'Links':
-            return 'Links to learn more';
+            return 'All your widgets in one place';
+        case 'ManageWidgets':
+            return 'Suscribe to new services and widgets';
+        case 'Settings':
+            return 'Account Settings';
     }
 }
