@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using back.Clients.ItmdbApiClient;
-using back.Models;
+using back.Models.TmdbApi;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
