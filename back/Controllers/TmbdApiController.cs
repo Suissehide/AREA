@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using back.Clients.ItmdbApiClient;
 using back.Models;
@@ -39,7 +38,6 @@ namespace back.Controllers
             try
             {
                 var movies = await _tmdbApiClient.GetMovieInfos(title);
-                Console.WriteLine(movies.Result.Count.ToString());
                 return Ok(movies.Result);
             }
             catch (ApiException e)
