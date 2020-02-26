@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Switch } from 'react-native';
+import { StyleSheet, Switch, View } from 'react-native';
 import { Text, Card } from 'react-native-elements';
 import { theme } from '../core/theme';
 import Button from '../components/Button';
@@ -7,11 +7,13 @@ import Button from '../components/Button';
 export default function CardService(props) {
     return (
         <Card containerStyle={styles.card}>
-            <Text style={styles.title}>{props.title}</Text>
-            <Switch
-                style={{ marginTop: 30 }}
-                onValueChange={event => props.setValue(event)}
-                value={props.value} />
+            <View style={styles.container}>
+                <Text style={styles.title}>{props.title}</Text>
+                <Switch
+                    style={{ marginTop: 10 }}
+                    onValueChange={event => props.setValue(event)}
+                    value={props.value} />
+            </View>
             {props.widget}
         </Card>
     );
@@ -19,8 +21,8 @@ export default function CardService(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fafafa',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     title: {
         fontSize: 20,
