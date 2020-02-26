@@ -12,14 +12,24 @@ namespace back.Controllers
     [Route("api/[controller]")]
     public class HeroController : ControllerBase
     {
+        #region MEMBERS
+
         private readonly ILogger<HeroController> _logger;
         private readonly IHeroClient _heroClient;
+
+        #endregion
+
+        #region CONSTRUCTOR
 
         public HeroController(ILogger<HeroController> logger)
         {
             _logger = logger;
             _heroClient = RestService.For<IHeroClient>("https://superheroapi.com");
         }
+
+        #endregion
+
+        #region ROUTE
 
         [HttpGet("id/{idHero}")]
         public async Task<IActionResult> HeroById(int idHero)
@@ -58,5 +68,8 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
+        
+        #endregion
+        
     }
 }
