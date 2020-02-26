@@ -26,17 +26,11 @@ export default function ChuckWidget(props) {
 
     return (
         <View style={{ alignItems: 'center' }}>
-            <View style={{ paddingTop: 10, paddingBottom: 20 }}>
-                <Text>{chuck1}</Text>
-                <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-                    <Divider />
-                </View>
-                <Text>{chuck2}</Text>
-                <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-                    <Divider />
-                </View>
-                <Text>{chuck3}</Text>
-            </View>
+            <Text swag={{ paddingBottom: 10, paddingTop: 15 }}>{chuck1}</Text>
+            <Divider />
+            <Text swag={{ paddingBottom: 10, paddingTop: 10 }}>{chuck2}</Text>
+            <Divider />
+            <Text swag={{ paddingTop: 10 }}>{chuck3}</Text>
             <TextInput
                 id="outlined-name"
                 label="Theme of the Joke"
