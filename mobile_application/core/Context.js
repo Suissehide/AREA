@@ -15,6 +15,11 @@ export const WidgetContext = createContext({
     weatherW: false,
     setWeatherW: () => { },
     //
+    chuckS: true,
+    setChuckS: () => { },
+    chuckW: true,
+    setChuckW: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
@@ -23,15 +28,21 @@ class WidgetProvider extends Component {
         //
         potterS: false,
         setPotterS: value => { this.setState({ potterS: value }) },
-        potterSpell: false,
+        potterSpell: true,
         setPotterSpell: value => { this.setState({ potterSpell: value }) },
-        potterCharacter: false,
+        potterCharacter: true,
         setPotterCharacter: value => { this.setState({ potterCharacter: value }) },
         //
-        weatherS: true,
+        weatherS: false,
         setWeatherS: (value) => { this.setState({ weatherS: value }) },
         weatherW: true,
         setWeatherW: (value) => { this.setState({ weatherW: value }) },
+        //
+        chuckS: true,
+        setChuckS: (value) => { this.setState({ chuckS: value }) },
+        chuckW: true,
+        setChuckW: (value) => { this.setState({ chuckW: value }) },
+        //
     };
 
     render() {
