@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
-import { Text as TText } from 'react-native-elements';
 import Button from '../../components/Button'
 import Text from '../../components/Text'
 import axios from 'axios';
@@ -37,7 +36,7 @@ export default function PotterCharacter(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><TText style={styles.text}>Get a random character</TText></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random character</Text></Button>
             <Text> {name} </Text>
             {role !== null ? <Text>{role}</Text> : null}
             <Text>This Character is a {species} and its blood status is {bloodStatus}.</Text>

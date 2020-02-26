@@ -22,7 +22,7 @@ export default function MovieWidget(props) {
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
                 <View style={{ paddingBottom: 5 }}>
-                    <Text size={{ fontSize: '17px' }}> {title} </Text>
+                    <Text swag={{ fontSize: '17px' }}> {title} </Text>
                 </View>
                 <Text>{overview}</Text>
             </View>

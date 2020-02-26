@@ -51,17 +51,3 @@ export default function ChuckWidget(props) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    button: {
-        width: '80%',
-        marginVertical: 5,
-        backgroundColor: "#3D2314",
-    },
-    text: {
-        color: "#FCCD2D"
-    },
-    font: {
-        fontSize: 25,
-    }
-});
