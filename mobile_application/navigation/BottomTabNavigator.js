@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import ServiceScreen from '../screens/ServiceScreen';
 import WidgetScreen from '../screens/WidgetScreen';
 
 const BottomTab = createBottomTabNavigator();
@@ -25,7 +25,7 @@ export default function BottomTabNavigator({ navigation, route }) {
             />
             <BottomTab.Screen
                 name="ManageWidgets"
-                component={HomeScreen}
+                component={ServiceScreen}
                 options={{
                     title: 'Manage Widgets',
                     tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-build" />,
@@ -33,7 +33,7 @@ export default function BottomTabNavigator({ navigation, route }) {
             />
             <BottomTab.Screen
                 name="Settings"
-                component={HomeScreen}
+                component={ServiceScreen}
                 options={{
                     title: 'Account Settings',
                     tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,

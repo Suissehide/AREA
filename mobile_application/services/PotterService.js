@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Switch } from 'react-native';
 import { Text } from 'react-native-elements';
 
 export default function PotterService(props) {
-    const [value, setValue] = useState(true);
     return (
         <View style={styles.container}>
             {props.potterS === true ?

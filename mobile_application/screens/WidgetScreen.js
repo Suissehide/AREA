@@ -1,21 +1,22 @@
 import React, { Fragment } from "react";
-import { StyleSheet, View } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Text, Card, Divider } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
 import MyCard from '../widgets/CardTemplate';
-import Oui from '../widgets/Oui';
-import PotterSpell from '../widgets/Potter/PotterSpell'
-import PotterCharacter from '../widgets/Potter/PotterCharacter'
+import PotterSpell from '../widgets/Potter/PotterSpell';
+import PotterCharacter from '../widgets/Potter/PotterCharacter';
+import WeatherWidget from '../widgets/WeatherWidget';
 
-export default withWidget(({ potterS, potterSpell, potterCharacter, ip }) => (
+export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {potterS === true && potterSpell === true ?
                 <MyCard title="Harry Potter's Random Spell" widget={<PotterSpell ip={ip} />} /> : null}
             {potterS === true && potterCharacter === true ?
                 <MyCard title="Random Character from Harry Potter" widget={<PotterCharacter ip={ip} />} /> : null}
+            {weatherS === true && weatherW === true ?
+                <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
         </Fragment>
     </ScrollView>
 ));
