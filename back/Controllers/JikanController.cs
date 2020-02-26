@@ -11,15 +11,26 @@ namespace back.Controllers
     [Route("api/[controller]")]
     public class JikanController : ControllerBase
     {
+        #region MEMBERS
+
         private readonly ILogger<JikanController> _logger;
         private readonly IJikanClient _jikanClient;
+
+        #endregion
+
+        #region CONSTRUCTOR
 
         public JikanController(ILogger<JikanController> logger)
         {
             _logger = logger;
             _jikanClient = RestService.For<IJikanClient>("https://api.jikan.moe/v3/");
         }
-        [HttpGet("/anime/{name}")]
+
+        #endregion
+
+        #region ROUTE
+
+        [HttpGet("anime/{name}")]
         [ProducesResponseType(typeof(JikanAnimeModel), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 404)]
         [ProducesResponseType(typeof(void), 500)]
@@ -37,7 +48,7 @@ namespace back.Controllers
             }
         }
         
-        [HttpGet("/character/{name}")]
+        [HttpGet("character/{name}")]
         [ProducesResponseType(typeof(JikanCharacterModel), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 404)]
         [ProducesResponseType(typeof(void), 500)]
@@ -54,5 +65,7 @@ namespace back.Controllers
                 return NotFound();
             }
         }
+        
+        #endregion
     }
 }

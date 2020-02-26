@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("pokemon")]
+    [Route("api/pokemon")]
     public class PokemonController : ControllerBase
     {
         #region MEMBERS

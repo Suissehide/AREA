@@ -11,14 +11,24 @@ namespace back.Controllers
     [Route("api/[controller]")]
     public class ChuckController : ControllerBase
     {
+        #region MEMBERS
+
         private readonly ILogger<ChuckController> _logger;
         private readonly IChuckClient _chuckClient;
+        
+        #endregion
+
+        #region CONTROLLER
 
         public ChuckController(ILogger<ChuckController> logger)
         {
             _logger = logger;
             _chuckClient = RestService.For<IChuckClient>("https://api.chucknorris.io");
         }
+
+        #endregion
+
+        #region ROUTE
 
         [HttpGet("{themeChuck}")]
         public async Task<IActionResult> ChuckByTheme(string themeChuck)
@@ -34,5 +44,7 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
+
+        #endregion
     }
 }
