@@ -20,6 +20,11 @@ export const WidgetContext = createContext({
     chuckW: true,
     setChuckW: () => { },
     //
+    movieS: true,
+    setMovieS: () => { },
+    movieW: true,
+    setMovieW: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
@@ -43,6 +48,10 @@ class WidgetProvider extends Component {
         chuckW: true,
         setChuckW: (value) => { this.setState({ chuckW: value }) },
         //
+        movieS: true,
+        setMovieS: (value) => { this.setState({ movieS: value }) },
+        movieW: true,
+        setMovieW: (value) => { this.setState({ movieW: value }) },
     };
 
     render() {

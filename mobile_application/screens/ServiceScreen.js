@@ -6,10 +6,13 @@ import MyCard from '../components/CardService';
 import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
 import ChuckService from '../services/ChuckService';
+import MovieService from '../services/MovieService';
+
 
 export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
     weatherS, setWeatherS, weatherW, setWeatherW,
-    chuckS, setChuckS, chuckW, setChuckW }) => (
+    chuckS, setChuckS, chuckW, setChuckW,
+    movieS, setMovieS, movieW, setMovieW }) => (
         <View style={styles.container} >
             <Fragment>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -21,6 +24,9 @@ export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, p
                     />
                     <MyCard title="Chuck Norris Service" value={chuckS} setValue={setChuckS}
                         widget={<ChuckService chuckS={chuckS} chuckW={chuckW} setChuckW={setChuckW} />}
+                    />
+                    <MyCard title="The Movie Database Service" value={movieS} setValue={setMovieS}
+                        widget={<MovieService movieS={movieS} movieW={movieW} setMovieW={setMovieW} />}
                     />
                 </ScrollView>
             </Fragment>
