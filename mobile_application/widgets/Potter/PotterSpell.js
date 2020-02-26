@@ -5,14 +5,14 @@ import { theme } from '../../core/theme';
 import Button from '../../components/Button'
 import axios from 'axios';
 
-export default function PotterSpell() {
+export default function PotterSpell(props) {
     const [id, setId] = useState("");
     const [spell, setSpell] = useState("");
     const [type, setType] = useState("");
     const [effect, setEffect] = useState("");
 
     const handleChange = () => {
-        axios.get(`http://localhost:8080/api/PotterApi/randomSpells`)
+        axios.get(`http://${props.ip}:8080/api/PotterApi/randomSpells`)
             .then(response => {
                 setId(response.data.id);
                 setSpell(response.data.spell);

@@ -1,6 +1,8 @@
 import React, { createContext, Component } from "react";
 
 export const WidgetContext = createContext({
+    ip: "localhost",
+    //
     potterS: false,
     setPotterS: () => { },
     potterSpell: true,
@@ -10,10 +12,13 @@ export const WidgetContext = createContext({
     //
     weatherS: false,
     setWeatherS: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
     state = {
+        ip: "localhost",
+        //
         potterS: true,
         setPotterS: value => { this.setState({ potterS: value }) },
         potterSpell: false,
