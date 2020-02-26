@@ -5,19 +5,25 @@ import { Text } from 'react-native-elements';
 export default function PotterService(props) {
     const [value, setValue] = useState(true);
     return (
-        <View>
+        <View style={styles.container}>
             {props.potterS === true ?
-                <View>
-                    <Text style={styles.title}>PotterSpell</Text>
-                    <Switch
-                        style={{ marginTop: 30 }}
-                        onValueChange={event => setValue(event)}
-                        value={value} />
-                    <Text style={styles.title}>PotterCharacter</Text>
-                    <Switch
-                        style={{ marginTop: 30 }}
-                        onValueChange={event => setValue(event)}
-                        value={value} />
+                <View >
+                    <View style={styles.contained}>
+                        <Text style={styles.title}>PotterSpell</Text>
+                        <Switch
+                            style={{ marginTop: 10 }}
+                            onValueChange={event => setValue(event)}
+                            value={value} />
+                    </View>
+                    <View style={styles.contained}>
+
+                        <Text style={styles.title}>PotterCharacter</Text>
+                        <Switch
+                            style={{ marginTop: 10 }}
+                            onValueChange={event => setValue(event)}
+                            value={value} />
+                    </View>
+
                 </View> : null
             }
         </View>
@@ -25,6 +31,10 @@ export default function PotterService(props) {
 }
 
 const styles = StyleSheet.create({
+    contained: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+    },
     title: {
         fontSize: 15,
         alignSelf: "center",
