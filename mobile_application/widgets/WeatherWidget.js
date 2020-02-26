@@ -37,7 +37,7 @@ export default function WeatherWidget(props) {
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
                 <Text style={styles.font}>In {name} : {description}. </Text>
-                <Text>Temperature : {temp.toFixed(2)}C but feels like {feelsLike.toFixed(2)}C</Text>
+                <Text>Temperature is {temp.toFixed(2)}C but feels like {feelsLike.toFixed(2)}C.</Text>
                 <Text>Min : {tempMin.toFixed(2)}C | Max : {tempMax.toFixed(2)}C</Text>
             </View>
             <TextInput
