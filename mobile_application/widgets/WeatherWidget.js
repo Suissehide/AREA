@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, View, FormData } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
 import Text from '../components/Text'
 import { TextInput } from "react-native-paper";
 
 export default function WeatherWidget(props) {
     const [name, setName] = useState('Bordeaux');
-    const [main, setMain] = useState('Sunny');
     const [description, setdescription] = useState('Sunny');
     const [temp, setTemp] = useState(26);
     const [feelsLike, setFeelsLike] = useState(30);
@@ -19,7 +18,6 @@ export default function WeatherWidget(props) {
 
     axios.get(`http://${props.ip}:8080/api/weather/${name}`)
         .then(response => {
-            setMain(response.data.weather[0].main);
             setdescription(response.data.weather[0].description);
             setTemp(response.data.main.temp - 273);
             setFeelsLike(response.data.main.feelsLike - 273);
@@ -35,7 +33,7 @@ export default function WeatherWidget(props) {
     return (
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
-                <Text style={styles.font}>In {name} : {description}. </Text>
+                <Text size={{ fontSize: '17px' }}>In {name} : {description}. </Text>
                 <Text>Temperature is {temp.toFixed(2)}C but feels like {feelsLike.toFixed(2)}C.</Text>
                 <Text>Min : {tempMin.toFixed(2)}C | Max : {tempMax.toFixed(2)}C</Text>
             </View>
@@ -52,17 +50,3 @@ export default function WeatherWidget(props) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    button: {
-        width: '80%',
-        marginVertical: 5,
-        backgroundColor: "#3D2314",
-    },
-    text: {
-        color: "#FCCD2D"
-    },
-    font: {
-        fontSize: 25,
-    }
-});
