@@ -5,9 +5,11 @@ import { withWidget } from "../core/Context";
 import MyCard from '../components/CardService';
 import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
+import ChuckService from '../services/ChuckService';
 
 export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
-    weatherS, setWeatherS, weatherW, setWeatherW }) => (
+    weatherS, setWeatherS, weatherW, setWeatherW,
+    chuckS, setChuckS, chuckW, setChuckW }) => (
         <View style={styles.container} >
             <Fragment>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -16,6 +18,9 @@ export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, p
                     />
                     <MyCard title="Weather Service" value={weatherS} setValue={setWeatherS}
                         widget={<WeatherService weatherS={weatherS} weatherW={weatherW} setWeatherW={setWeatherW} />}
+                    />
+                    <MyCard title="Chuck Norris Service" value={chuckS} setValue={setChuckS}
+                        widget={<ChuckService chuckS={chuckS} chuckW={chuckW} setChuckW={setChuckW} />}
                     />
                 </ScrollView>
             </Fragment>
