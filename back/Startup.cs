@@ -26,7 +26,7 @@ namespace back
             
             services.AddDbContext<DashboardContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("DashboardDatabase"));
+                options.UseNpgsql(Configuration.GetConnectionString("AreaDatabase"));
             });
 
             // Register the swagger generator
@@ -35,8 +35,8 @@ namespace back
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Dashboard API",
-                    Description = "Dashboard API documentation"
+                    Title = "Area API",
+                    Description = "Area API documentation"
                 });
             });
         }
@@ -53,7 +53,7 @@ namespace back
             app.UseSwagger();
             
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc...)
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dashboard API"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Area API"); });
 
             app.UseRouting();
             app.UseAuthorization();
