@@ -6,7 +6,6 @@ import Button from '../../components/Button'
 import axios from 'axios';
 
 export default function PotterSpell(props) {
-    const [id, setId] = useState("");
     const [spell, setSpell] = useState("");
     const [type, setType] = useState("");
     const [effect, setEffect] = useState("");
@@ -14,7 +13,6 @@ export default function PotterSpell(props) {
     const handleChange = () => {
         axios.get(`http://${props.ip}:8080/api/PotterApi/randomSpells`)
             .then(response => {
-                setId(response.data.id);
                 setSpell(response.data.spell);
                 setType(response.data.type);
                 setEffect(response.data.effect);
