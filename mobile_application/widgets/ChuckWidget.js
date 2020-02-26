@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from 'react-native';
-import Button from '../components/Button'
+import { View } from 'react-native';
 import axios from 'axios';
 import Text from '../components/Text'
-import { TextInput, Divider } from "react-native-paper";
+import { Divider } from "react-native-paper";
+import TextInput from '../components/TextInput';
 
 export default function ChuckWidget(props) {
     const [chuck1, setChuck1] = useState("");
@@ -26,42 +26,22 @@ export default function ChuckWidget(props) {
 
     return (
         <View style={{ alignItems: 'center' }}>
-            <View style={{ paddingTop: 10, paddingBottom: 20 }}>
-                <Text>{chuck1}</Text>
-                <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-                    <Divider />
-                </View>
-                <Text>{chuck2}</Text>
-                <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-                    <Divider />
-                </View>
-                <Text>{chuck3}</Text>
-            </View>
+            <Text swag={{ paddingBottom: 10, paddingTop: 15 }}>{chuck1}</Text>
+            <Divider />
+            <Text swag={{ paddingBottom: 10, paddingTop: 10 }}>{chuck2}</Text>
+            <Divider />
+            <Text swag={{ paddingTop: 10 }}>{chuck3}</Text>
             <TextInput
                 id="outlined-name"
                 label="Theme of the Joke"
                 value={theme}
-                onChange={event => {
-                    setTheme(event.target.value);
+                onChangeText={event => {
+                    setTheme(event);
                 }}
+                onSubmitEditing={handleChange}
                 margin="normal"
                 variant="outlined"
             />
-            <Button onPress={handleChange}>OK</Button>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    button: {
-        width: '80%',
-        marginVertical: 5,
-        backgroundColor: "#3D2314",
-    },
-    text: {
-        color: "#FCCD2D"
-    },
-    font: {
-        fontSize: 25,
-    }
-});

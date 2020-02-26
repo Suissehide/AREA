@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
 import Button from '../../components/Button'
 import axios from 'axios';
+import Text from '../../components/Text'
 
 export default function PotterSpell(props) {
     const [spell, setSpell] = useState("");
@@ -22,7 +22,7 @@ export default function PotterSpell(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text style={styles.text}>Get a random spell</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random spell</Text></Button>
             <Text> Spell Name : {spell}</Text>
             <Text> Spell Type : {type}</Text>
             <Text> Spell Effect : {effect}</Text>

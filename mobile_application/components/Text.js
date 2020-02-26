@@ -6,7 +6,7 @@ const MyText = ({ mode, style, children, ...props }) => (
     <Text
         style={[
             styles.onText,
-            props.size,
+            props.swag,
         ]}
         mode={mode}
         {...props}
