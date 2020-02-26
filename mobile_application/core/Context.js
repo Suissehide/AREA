@@ -5,7 +5,7 @@ export const WidgetContext = createContext({
     setPotterS: () => { },
     potterSpell: true,
     setPotterSpell: () => { },
-    potterCharacters: true,
+    potterCharacter: true,
     setPotterCharacter: () => { },
     //
     weatherS: false,
@@ -18,8 +18,8 @@ class WidgetProvider extends Component {
         setPotterS: value => { this.setState({ potterS: value }) },
         potterSpell: false,
         setPotterSpell: value => { this.setState({ potterSpell: value }) },
-        potterCharacters: false,
-        setPotterCharacter: value => { this.setState({ potterCharacters: value }) },
+        potterCharacter: false,
+        setPotterCharacter: value => { this.setState({ potterCharacter: value }) },
         //
         weatherS: false,
         setWeatherS: (value) => { this.setState({ weatherS: value }) },
