@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from 'react-native';
-import Button from '../components/Button'
+import { View } from 'react-native';
 import axios from 'axios';
 import Text from '../components/Text'
-import { TextInput, Divider } from "react-native-paper";
+import { Divider } from "react-native-paper";
+import TextInput from '../components/TextInput';
 
 export default function ChuckWidget(props) {
     const [chuck1, setChuck1] = useState("");
@@ -41,13 +41,13 @@ export default function ChuckWidget(props) {
                 id="outlined-name"
                 label="Theme of the Joke"
                 value={theme}
-                onChange={event => {
-                    setTheme(event.target.value);
+                onChangeText={event => {
+                    setTheme(event);
                 }}
+                onSubmitEditing={handleChange}
                 margin="normal"
                 variant="outlined"
             />
-            <Button onPress={handleChange}>OK</Button>
         </View>
     );
 }
