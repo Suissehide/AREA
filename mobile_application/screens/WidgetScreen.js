@@ -7,8 +7,9 @@ import MyCard from '../widgets/CardTemplate';
 import PotterSpell from '../widgets/Potter/PotterSpell';
 import PotterCharacter from '../widgets/Potter/PotterCharacter';
 import WeatherWidget from '../widgets/WeatherWidget';
+import ChuckWidget from '../widgets/ChuckWidget';
 
-export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW }) => (
+export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {potterS === true && potterSpell === true ?
@@ -17,6 +18,8 @@ export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS
                 <MyCard title="Random Character from Harry Potter" widget={<PotterCharacter ip={ip} />} /> : null}
             {weatherS === true && weatherW === true ?
                 <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
+            {chuckS === true && chuckW === true ?
+                <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
         </Fragment>
     </ScrollView>
 ));

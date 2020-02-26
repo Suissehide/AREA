@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, View, FormData } from 'react-native';
-import Button from '../components/Button'
 import axios from 'axios';
 import Text from '../components/Text'
 import { TextInput } from "react-native-paper";
