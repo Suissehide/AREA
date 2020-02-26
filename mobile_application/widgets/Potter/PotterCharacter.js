@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
+import { Text as TText } from 'react-native-elements';
 import Button from '../../components/Button'
 import Text from '../../components/Text'
 import axios from 'axios';
@@ -36,13 +37,13 @@ export default function PotterCharacter(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text style={styles.text}>Get a random character</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><TText style={styles.text}>Get a random character</TText></Button>
             <Text> {name} </Text>
             {role !== null ? <Text>{role}</Text> : null}
             <Text>This Character is a {species} and its blood status is {bloodStatus}.</Text>
             {school !== null ? <Text> {name} went to {school}</Text> : null}
             {house !== null ? <Text>and more precisely in {house} house.</Text> : house}
-            {ministryOfMagic === false && orderOfThePhoenix === false && dumbledoresArmy === false && deathEater === false ? <Text>{name} doesn't have any affiliation.</Text> : <Text>{name}{"'"}s affiliations are :</Text>}
+            {ministryOfMagic === false && orderOfThePhoenix === false && dumbledoresArmy === false && deathEater === false ? <Text>{name} doesn{"'"}t have any affiliation.</Text> : <Text>{name} {"'"}s affiliations are :</Text>}
             {ministryOfMagic !== false ? <Text>{'['}Ministry of Magic{']'}</Text> : null}
             {orderOfThePhoenix !== false ? <Text>{'['}Order Of The Phoenix{']'}</Text> : null}
             {dumbledoresArmy !== false ? <Text>{'['}Dumbledore{"'"}s Army{']'}</Text> : null}
