@@ -7,11 +7,13 @@ import { withWidget } from "../core/Context";
 import MyCard from '../widgets/CardTemplate';
 import Oui from '../widgets/Oui';
 
-export default withWidget(({ potterS }) => (
+export default withWidget(({ potterS, potterSpell, potterCharacter }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
-            {potterS === true ?
-                <MyCard title="hey" widget={<Oui />} /> : <Text>You don't have any widgets</Text>}
+            {potterS === true && potterSpell === true ?
+                <MyCard title="Harry Potter's Random Spell" widget={<Oui />} /> : null}
+            {potterS === true && potterCharacter === true ?
+                <MyCard title="Random Character from Harry Potter" widget={<Oui />} /> : null}
         </Fragment>
     </ScrollView>
 ));
