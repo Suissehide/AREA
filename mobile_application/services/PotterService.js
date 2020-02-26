@@ -9,19 +9,19 @@ export default function PotterService(props) {
             {props.potterS === true ?
                 <View >
                     <View style={styles.contained}>
-                        <Text style={styles.title}>PotterSpell</Text>
+                        <Text style={styles.title}>Harry Potter's Random Spell</Text>
                         <Switch
                             style={{ marginTop: 10 }}
-                            onValueChange={event => setValue(event)}
-                            value={value} />
+                            onValueChange={event => props.setSpell(event)}
+                            value={props.spell} />
                     </View>
                     <View style={styles.contained}>
 
-                        <Text style={styles.title}>PotterCharacter</Text>
+                        <Text style={styles.title}>Random Character from Harry Potter</Text>
                         <Switch
                             style={{ marginTop: 10 }}
-                            onValueChange={event => setValue(event)}
-                            value={value} />
+                            onValueChange={event => props.setCharacter(event)}
+                            value={props.character} />
                     </View>
 
                 </View> : null

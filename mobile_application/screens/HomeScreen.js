@@ -6,11 +6,13 @@ import { withWidget } from "../core/Context";
 import MyCard from '../components/CardService';
 import PotterService from '../services/PotterService'
 
-export default withWidget(({ potterS, setPotterS }) => (
+export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter }) => (
     <View style={styles.container} >
         <Fragment>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                <MyCard title="Potter Service" value={potterS} setValue={setPotterS} widget={<PotterService potterS={potterS} />} />
+                <MyCard title="Harry Potter Service" value={potterS} setValue={setPotterS}
+                    widget={<PotterService potterS={potterS} spell={potterSpell} setSpell={setPotterSpell} character={potterCharacter} setCharacter={setPotterCharacter} />}
+                />
             </ScrollView>
         </Fragment>
     </View >
