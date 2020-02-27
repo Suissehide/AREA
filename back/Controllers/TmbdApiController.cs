@@ -9,7 +9,7 @@ namespace back.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/tmbd")]
     public class TmdbApiController : ControllerBase
     {
         #region MEMBERS

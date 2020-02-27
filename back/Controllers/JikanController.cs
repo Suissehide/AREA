@@ -8,7 +8,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/jikan")]
     public class JikanController : ControllerBase
     {
         #region MEMBERS
