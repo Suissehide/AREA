@@ -25,11 +25,18 @@ export const WidgetContext = createContext({
     movieW: true,
     setMovieW: () => { },
     //
+    jinkanS: true,
+    setJinkanS: () => { },
+    jinkanAnime: true,
+    setJinkanAnime: () => { },
+    jinkanCharacter: true,
+    setJinkanCharacter: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
     state = {
-        ip: "192.168.1.88",
+        ip: "10.10.253.77",
         //
         potterS: false,
         setPotterS: value => { this.setState({ potterS: value }) },
@@ -43,15 +50,23 @@ class WidgetProvider extends Component {
         weatherW: true,
         setWeatherW: (value) => { this.setState({ weatherW: value }) },
         //
-        chuckS: true,
+        chuckS: false,
         setChuckS: (value) => { this.setState({ chuckS: value }) },
         chuckW: true,
         setChuckW: (value) => { this.setState({ chuckW: value }) },
         //
-        movieS: true,
+        movieS: false,
         setMovieS: (value) => { this.setState({ movieS: value }) },
         movieW: true,
         setMovieW: (value) => { this.setState({ movieW: value }) },
+        //
+        jinkanS: true,
+        setJinkanS: (value) => { this.setState({ jinkanS: value }) },
+        jinkanAnime: true,
+        setJinkanAnime: (value) => { this.setState({ jinkanAnime: value }) },
+        jinkanCharacter: true,
+        setJinkanCharacter: (value) => { this.setState({ jinkanCharacter: value }) },
+        //
     };
 
     render() {
