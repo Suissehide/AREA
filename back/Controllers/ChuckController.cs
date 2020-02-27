@@ -8,7 +8,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/chuck")]
     public class ChuckController : ControllerBase
     {
         private readonly ILogger<ChuckController> _logger;

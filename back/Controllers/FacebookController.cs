@@ -9,7 +9,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/facebook")]
     public class FacebookController : ControllerBase
     {
         #region MEMBERS
