@@ -29,7 +29,7 @@ export default function MovieWidget(props) {
                 <Text>{overview}</Text>
             </View>
             <TextInput
-                id="outlined-name"
+                id="movie"
                 label="Movie Title"
                 value={movie}
                 onChangeText={event => {

@@ -9,8 +9,9 @@ import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
 import RegisterScreen from "./RegisterScreen"
+import { withWidget } from "../core/Context";
 
-export default function LoginScreen(props) {
+function Login(props) {
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
     const [view, setView] = useState('normal');
@@ -103,3 +104,7 @@ const styles = StyleSheet.create({
         color: theme.colors.primary,
     },
 });
+
+export default withWidget(({ token, setToken, setIsLogged }) => (
+    <Login token={token} setToken={setToken} setIsLoginOk={setIsLogged} />
+));

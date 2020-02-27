@@ -32,7 +32,7 @@ export default function ChuckWidget(props) {
             <Divider />
             <Text swag={{ paddingTop: 10 }}>{chuck3}</Text>
             <TextInput
-                id="outlined-name"
+                id="chuck"
                 label="Theme of the Joke"
                 value={theme}
                 onChangeText={event => {

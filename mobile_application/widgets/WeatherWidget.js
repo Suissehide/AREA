@@ -40,7 +40,7 @@ export default function WeatherWidget(props) {
                 <Text>Min : {tempMin.toFixed(2)}C | Max : {tempMax.toFixed(2)}C</Text>
             </View>
             <TextInput
-                id="outlined-name"
+                id="weather"
                 label="City"
                 value={name}
                 onChangeText={event => {
