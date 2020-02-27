@@ -12,7 +12,7 @@ export default function ChuckWidget(props) {
     const [theme, setTheme] = useState("beer");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/Chuck/${theme}`)
+        axios.get(`http://${props.ip}:8080/api/chuck/${theme}`)
             .then(response => {
                 if (response.data.total)
                     setChuck1(response.data.result[Math.floor(Math.random() * response.data.total)].value);
