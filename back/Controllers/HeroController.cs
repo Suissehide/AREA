@@ -9,7 +9,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/hero")]
     public class HeroController : ControllerBase
     {
         #region MEMBERS
@@ -31,16 +31,16 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("id/{idHero}")]
-        public async Task<IActionResult> HeroById(int idHero)
+        [HttpGet("id/{id}")]
+        public async Task<IActionResult> HeroById(int id)
         {
             try
             {
-                if (idHero > 731 || idHero < 1)
+                if (id > 731 || id < 1)
                 {
                     return NotFound();
                 }
-                HeroIdModel heroInfo = await _heroClient.HeroById(idHero);
+                HeroIdModel heroInfo = await _heroClient.HeroById(id);
                 return Ok(heroInfo);
             }
             catch (ApiException exMessage)
@@ -50,12 +50,12 @@ namespace back.Controllers
             }
         }
         
-        [HttpGet("name/{nameHero}")]
-        public async Task<IActionResult> HeroById(String nameHero)
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> HeroById(String name)
         {
             try
             {
-                HeroNameModel heroInfo = await _heroClient.HeroByName(nameHero);
+                HeroNameModel heroInfo = await _heroClient.HeroByName(name);
                 if (heroInfo.Response == "error")
                 {
                     return NotFound();
