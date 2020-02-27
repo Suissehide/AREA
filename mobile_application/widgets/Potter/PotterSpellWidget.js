@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 import axios from 'axios';
 import Text from '../../components/Text'
 
-export default function PotterSpell(props) {
+export default function PotterSpellWidget(props) {
     const [spell, setSpell] = useState("");
     const [type, setType] = useState("");
     const [effect, setEffect] = useState("");

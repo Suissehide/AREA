@@ -4,25 +4,28 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
 import MyCard from '../widgets/CardTemplate';
-import PotterSpell from '../widgets/Potter/PotterSpell';
-import PotterCharacter from '../widgets/Potter/PotterCharacter';
+import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
+import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
 import ChuckWidget from '../widgets/ChuckWidget';
-import MovieWidget from '../widgets/MovieWidget'
+import MovieWidget from '../widgets/MovieWidget';
+import JinkanAnimeWidget from '../widgets/Jinkan/JinkanAnimeWidget';
 
-export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW }) => (
+export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW, jinkanS, jinkanAnime }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {potterS === true && potterSpell === true ?
-                <MyCard title="Harry Potter's Random Spell" widget={<PotterSpell ip={ip} />} /> : null}
+                <MyCard title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
             {potterS === true && potterCharacter === true ?
-                <MyCard title="Random Character from Harry Potter" widget={<PotterCharacter ip={ip} />} /> : null}
+                <MyCard title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
             {weatherS === true && weatherW === true ?
                 <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
             {chuckS === true && chuckW === true ?
                 <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
             {movieS === true && movieW === true ?
                 <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
+            {jinkanS === true && jinkanAnime === true ?
+                <MyCard title="Information on an Anime" widget={<JinkanAnimeWidget ip={ip} />} /> : null}
         </Fragment>
     </ScrollView>
 ));
