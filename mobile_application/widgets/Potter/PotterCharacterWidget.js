@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 import Text from '../../components/Text'
 import axios from 'axios';
 
-export default function PotterCharacter(props) {
+export default function PotterCharacterWidget(props) {
     const [name, setName] = useState("");
     const [role, setRole] = useState("");
     const [house, setHouse] = useState("");
