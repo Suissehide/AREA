@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
@@ -66,7 +66,7 @@ export default function LoginScreen(props) {
 
                     <Button mode="contained" onPress={_onLoginPressed}>
                         Login
-            </Button>
+                    </Button>
 
                     <View style={styles.row}>
                         <Text style={styles.label}>Don’t have an account? </Text>
