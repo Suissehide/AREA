@@ -10,7 +10,7 @@ export default function PotterSpell(props) {
     const [effect, setEffect] = useState("");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/PotterApi/randomSpells`)
+        axios.get(`http://${props.ip}:8080/api/potter/random-spells`)
             .then(response => {
                 setSpell(response.data.spell);
                 setType(response.data.type);

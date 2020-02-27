@@ -17,7 +17,7 @@ export default function PotterCharacter(props) {
     const [species, setspecies] = useState("");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/PotterApi/randomCharacter`)
+        axios.get(`http://${props.ip}:8080/api/potter/random-character`)
             .then(response => {
                 setName(response.data.name);
                 setRole(response.data.role);
