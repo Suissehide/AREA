@@ -5,16 +5,16 @@ import Text from '../../components/Text'
 import axios from 'axios';
 
 export default function PotterCharacterWidget(props) {
-    const [name, setName] = useState("");
-    const [role, setRole] = useState("");
-    const [house, setHouse] = useState("");
-    const [school, setSchool] = useState("");
+    const [name, setName] = useState("Harry Potter");
+    const [role, setRole] = useState("student");
+    const [house, setHouse] = useState("Gryffondor");
+    const [school, setSchool] = useState("Hogwards");
     const [ministryOfMagic, setministryOfMagic] = useState(false);
-    const [orderOfThePhoenix, setorderOfThePhoenix] = useState(false);
-    const [dumbledoresArmy, setdumbledoresArmy] = useState(false);
+    const [orderOfThePhoenix, setorderOfThePhoenix] = useState(true);
+    const [dumbledoresArmy, setdumbledoresArmy] = useState(true);
     const [deathEater, setdeathEater] = useState(false);
-    const [bloodStatus, setbloodStatus] = useState("");
-    const [species, setspecies] = useState("");
+    const [bloodStatus, setbloodStatus] = useState("half-blood");
+    const [species, setspecies] = useState("human");
 
     const handleChange = () => {
         axios.get(`http://${props.ip}:8080/api/potter/random-character`)
@@ -36,7 +36,7 @@ export default function PotterCharacterWidget(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random character</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random Character</Text></Button>
             <Text> {name} </Text>
             {role !== null ? <Text>{role}</Text> : null}
             <Text>This Character is a {species} and its blood status is {bloodStatus}.</Text>
