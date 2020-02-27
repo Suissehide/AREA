@@ -8,7 +8,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/joke")]
     public class JokeController : ControllerBase
     {
         #region MEMBERS
@@ -30,12 +30,12 @@ namespace back.Controllers
 
         #region ROUTE
         
-        [HttpGet("{themeJoke}")]
-        public async Task<IActionResult> ClientGetJokeByThemeAsync(string themeJoke)
+        [HttpGet("{jokeTheme}")]
+        public async Task<IActionResult> ClientGetJokeByThemeAsync(string jokeTheme)
         {
             try
             {
-                JokeModel jokes = await _jokeClient.ApiGetJokeByTheme(themeJoke);
+                JokeModel jokes = await _jokeClient.ApiGetJokeByTheme(jokeTheme);
                 return Ok(jokes);
             }
             catch (ApiException exMessage)
