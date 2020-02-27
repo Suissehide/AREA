@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Switch, View } from 'react-native';
 import { Text, Card } from 'react-native-elements';
 import { theme } from '../core/theme';
-import Button from '../components/Button';
 
 export default function CardService(props) {
     return (

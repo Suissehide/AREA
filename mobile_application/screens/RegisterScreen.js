@@ -29,7 +29,13 @@ export default function RegisterScreen(props) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-
+        axios.post(`http://${props.ip}:8080/database/signup/${name}/${password}/${email}`)
+            .then(response => {
+                props.setToken(response.data.id);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         props.setIsLoginOk(true);
     };
 

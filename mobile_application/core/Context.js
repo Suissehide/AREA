@@ -32,7 +32,7 @@ export const WidgetContext = createContext({
 class WidgetProvider extends Component {
     state = {
         ip: "10.10.253.77",
-        isLogged: false,
+        isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         //
         potterS: false,

@@ -10,6 +10,8 @@ import { emailValidator, passwordValidator } from '../core/utils';
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
 import RegisterScreen from "./RegisterScreen"
 import { withWidget } from "../core/Context";
+import axios from 'axios';
+
 
 function Login(props) {
     const [email, setEmail] = useState({ value: '', error: '' });
@@ -82,7 +84,7 @@ function Login(props) {
         case 'password':
             return (<ForgotPasswordScreen setView={setView} />);
         case 'newUser':
-            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} />);
+            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} ip={ip} setToken={props.setToken} token={props.token} />);
     }
 };
 
@@ -105,6 +107,6 @@ const styles = StyleSheet.create({
     },
 });
 
-export default withWidget(({ token, setToken, setIsLogged }) => (
-    <Login token={token} setToken={setToken} setIsLoginOk={setIsLogged} />
+export default withWidget(({ token, setToken, setIsLogged, ip }) => (
+    <Login token={token} setToken={setToken} setIsLoginOk={setIsLogged} ip={ip} />
 ));
