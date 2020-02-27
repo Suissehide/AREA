@@ -53,6 +53,7 @@ export default function LoginScreen(props) {
                         onChangeText={text => setPassword({ value: text, error: '' })}
                         error={!!password.error}
                         errorText={password.error}
+                        autoCompleteType="password"
                         secureTextEntry
                     />
 

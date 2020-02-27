@@ -19,7 +19,6 @@ export default function JinkanAnimeWidget(props) {
                 console.log(error);
             });
     }
-    console.log(imageUrl);
     return (
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
