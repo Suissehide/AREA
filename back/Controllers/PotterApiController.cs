@@ -9,7 +9,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/potter")]
     public class PotterApiController : ControllerBase
     {
         #region MEMBERS

@@ -8,7 +8,7 @@ using Refit;
 namespace back.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/jinkan")]
     public class JikanController : ControllerBase
     {
         private readonly ILogger<JikanController> _logger;
@@ -19,7 +19,7 @@ namespace back.Controllers
             _logger = logger;
             _jikanClient = RestService.For<IJikanClient>("https://api.jikan.moe/v3/");
         }
-        [HttpGet("/anime/{name}")]
+        [HttpGet("anime/{name}")]
         [ProducesResponseType(typeof(JikanAnimeModel), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 404)]
         [ProducesResponseType(typeof(void), 500)]
@@ -37,7 +37,7 @@ namespace back.Controllers
             }
         }
         
-        [HttpGet("/character/{name}")]
+        [HttpGet("character/{name}")]
         [ProducesResponseType(typeof(JikanCharacterModel), 200)]
         [ProducesResponseType(typeof(NotFoundResult), 404)]
         [ProducesResponseType(typeof(void), 500)]
