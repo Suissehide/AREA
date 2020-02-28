@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace DashboardAPI.Models.CalendarModels
+namespace back.Models.CalendarModel
 {
     public class CalendarModel
     {
