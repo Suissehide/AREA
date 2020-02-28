@@ -36,7 +36,7 @@ export default function PotterCharacter(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random character</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random character</Text></Button>
             <Text> {name} </Text>
             {role !== null ? <Text>{role}</Text> : null}
             <Text>This Character is a {species} and its blood status is {bloodStatus}.</Text>

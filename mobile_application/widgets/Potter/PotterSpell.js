@@ -22,7 +22,7 @@ export default function PotterSpell(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random spell</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random Spell</Text></Button>
             <Text> Spell Name : {spell}</Text>
             <Text> Spell Type : {type}</Text>
             <Text> Spell Effect : {effect}</Text>

@@ -41,7 +41,7 @@ export const WidgetContext = createContext({
 class WidgetProvider extends Component {
     state = {
         ip: "10.10.253.28",
-        isLogged: false,
+        isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
         setToken: (value) => { this.setState({ token: value }) },

@@ -5,7 +5,7 @@ import Text from '../components/Text'
 import TextInput from '../components/TextInput';
 
 export default function MovieWidget(props) {
-    const [movie, setMovie] = useState('Harry Potter');
+    const [movie, setMovie] = useState('');
     const [title, setTitle] = useState('');
     const [overview, setOverview] = useState('');
 

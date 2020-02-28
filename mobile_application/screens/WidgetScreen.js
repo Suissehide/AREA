@@ -9,6 +9,8 @@ import PotterCharacter from '../widgets/Potter/PotterCharacter';
 import WeatherWidget from '../widgets/WeatherWidget';
 import ChuckWidget from '../widgets/ChuckWidget';
 import MovieWidget from '../widgets/MovieWidget'
+import JinkanAnimeWidget from '../widgets/Jinkan/JinkanAnimeWidget';
+import JinkanCharacterWidget from '../widgets/Jinkan/JinkanCharacterWidget';
 
 export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW, jinkanS, jinkanAnime, jinkanCharacter }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

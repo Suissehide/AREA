@@ -7,7 +7,7 @@ import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
 import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
-
+import JinkanService from '../services/JinkanService';
 
 export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
     weatherS, setWeatherS, weatherW, setWeatherW,
