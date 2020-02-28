@@ -217,6 +217,9 @@ namespace back.Controllers
         [HttpGet("editemail/{email}/{newemail}")]
         public bool EditEmail(string email, string newemail)
         {
+            if (email == newemail) {
+                return false;
+            }
             string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
             MySqlConnection conn = new MySqlConnection(connStr);
 
@@ -376,6 +379,39 @@ namespace back.Controllers
             conn.Close();
             return false;
         }
+
+        [HttpGet("delete/{email}")]
+        public bool DeleteUser(string email)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select * from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "DELETE from users where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
         #endregion
     }
+
+
 }
