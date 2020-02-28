@@ -12,7 +12,8 @@ import MovieService from '../services/MovieService';
 export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
     weatherS, setWeatherS, weatherW, setWeatherW,
     chuckS, setChuckS, chuckW, setChuckW,
-    movieS, setMovieS, movieW, setMovieW }) => (
+    movieS, setMovieS, movieW, setMovieW,
+    jinkanS, setJinkanS, jinkanAnime, setJinkanAnime, jinkanCharacter, setJinkanCharacter }) => (
         <View style={styles.container} >
             <Fragment>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -27,6 +28,9 @@ export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, p
                     />
                     <MyCard title="The Movie Database Service" value={movieS} setValue={setMovieS}
                         widget={<MovieService movieS={movieS} movieW={movieW} setMovieW={setMovieW} />}
+                    />
+                    <MyCard title="Jinkan Service" value={jinkanS} setValue={setJinkanS}
+                        widget={<JinkanService jinkanS={jinkanS} jinkanAnime={jinkanAnime} setJinkanAnime={setJinkanAnime} jinkanCharacter={jinkanCharacter} setJinkanCharacter={setJinkanCharacter} />}
                     />
                 </ScrollView>
             </Fragment>

@@ -29,6 +29,13 @@ export const WidgetContext = createContext({
     movieW: true,
     setMovieW: () => { },
     //
+    jinkanS: true,
+    setJinkanS: () => { },
+    jinkanAnime: true,
+    setJinkanAnime: () => { },
+    jinkanCharacter: true,
+    setJinkanCharacter: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
@@ -60,6 +67,14 @@ class WidgetProvider extends Component {
         setMovieS: (value) => { this.setState({ movieS: value }) },
         movieW: true,
         setMovieW: (value) => { this.setState({ movieW: value }) },
+        //
+        jinkanS: true,
+        setJinkanS: (value) => { this.setState({ jinkanS: value }) },
+        jinkanAnime: true,
+        setJinkanAnime: (value) => { this.setState({ jinkanAnime: value }) },
+        jinkanCharacter: true,
+        setJinkanCharacter: (value) => { this.setState({ jinkanCharacter: value }) },
+        //
     };
 
     render() {

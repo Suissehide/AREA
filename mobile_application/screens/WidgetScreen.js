@@ -10,7 +10,7 @@ import WeatherWidget from '../widgets/WeatherWidget';
 import ChuckWidget from '../widgets/ChuckWidget';
 import MovieWidget from '../widgets/MovieWidget'
 
-export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW }) => (
+export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW, jinkanS, jinkanAnime, jinkanCharacter }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
             {potterS === true && potterSpell === true ?
@@ -23,6 +23,10 @@ export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS
                 <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
             {movieS === true && movieW === true ?
                 <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
+            {jinkanS === true && jinkanAnime === true ?
+                <MyCard title="Information on an Anime" widget={<JinkanAnimeWidget ip={ip} />} /> : null}
+            {jinkanS === true && jinkanCharacter === true ?
+                <MyCard title="Information on an Anime Character" widget={<JinkanCharacterWidget ip={ip} />} /> : null}
         </Fragment>
     </ScrollView>
 ));
