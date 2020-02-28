@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
 import Text from '../components/Text';
@@ -29,7 +29,7 @@ function AccountInfo(props) {
     const getData = () => {
         axios.get(`http://${props.ip}:8080/database/users/${props.token}`)
             .then(response => {
-                console.log(response);
+                console.log(response.data);
                 setName({ ...name, value: response.data.users[0].name });
                 setEmail({ ...email, value: response.data.users[0].email });
                 setPassword({ ...password, value: response.data.users[0].pwd });
@@ -75,7 +75,7 @@ function AccountInfo(props) {
             try {
                 axios.get(`http://${props.ip}:8080/database/delete/${email.value}`)
                     .then(response => {
-                        console.log(response.data);
+                        console.log(response.data.users[0]);
                         response.data === true ? props.setIsLogged(false) : null;
                     });
             } catch (error) {
@@ -91,25 +91,20 @@ function AccountInfo(props) {
     }
 
     function Social() {
-        var value = '';
-        for (value in socialToken) {
-            if (value !== null) {
-                return (
-                    <View>
-                        {socialToken.microsoft === true ? <Text>Microsoft</Text> : null}
-                        {socialToken.facebook === true ? <Text>facebbook</Text> : null}
-                        {socialToken.google === true ? <Text>google</Text> : null}
-                    </View>
-                );
-            }
-        }
         return (
-            <Text>You are not authenticated with any social service. Please visit Bananews.com on a web browser for more informations.</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
+                {socialToken.microsoft !== null ? <Image source={require('../assets/images/social/microsoftV.png')} style={styles.image} /> :
+                    <Image source={require('../assets/images/social/microsoftX.png')} style={styles.image} />}
+                {socialToken.facebook !== null ? <Image source={require('../assets/images/social/facebookV.png')} style={styles.image} /> :
+                    <Image source={require('../assets/images/social/facebookX.png')} style={styles.image} />}
+                {socialToken.google !== null ? <Image source={require('../assets/images/social/googleV.png')} style={styles.image} /> :
+                    <Image source={require('../assets/images/social/googleX.png')} style={styles.image} />}
+            </View>
         );
     }
 
     return (
-        <Background>
+        <View style={{ width: '100%' }}  >
             <TextInput
                 label="Name" returnKeyType="next" value={name.value}
                 onChangeText={text => setName({ value: text, error: '' })}
@@ -131,11 +126,11 @@ function AccountInfo(props) {
                 secureTextEntry
             />
             <Social />
-            <Button style={styles.saveButton} onPress={getData} > <Text swag={styles.text} >Get Info</Text></Button>
+            <Button style={styles.saveButton} onPress={getData} > <Text swag={styles.text} >Refresh Informations</Text></Button>
             <Button style={styles.saveButton} onPress={log} > <Text swag={styles.text} >Save Changes</Text></Button>
             <Button style={styles.button} onPress={() => props.setIsLogged(false)}> <Text swag={styles.text} >Log Out </Text></Button>
             <Button style={styles.delButton} onPress={deleteAccount} > <Text swag={styles.text}> Delete Account </Text> </Button>
-        </Background>
+        </View>
     );
 };
 
@@ -143,7 +138,9 @@ function AccountInfo(props) {
 export default withWidget(({ setIsLogged, ip, token, setToken }) => (
     <Fragment>
         <ScrollView style={{ width: '100%' }} >
-            <AccountInfo ip={ip} token={token} setToken={setToken} setIsLogged={setIsLogged} />
+            <Background style={{ width: '100%' }}  >
+                <AccountInfo ip={ip} token={token} setToken={setToken} setIsLogged={setIsLogged} />
+            </Background>
         </ScrollView>
     </Fragment >
 ));
@@ -169,5 +166,11 @@ const styles = StyleSheet.create({
     },
     label: {
         color: theme.colors.secondary,
+    },
+    image: {
+        width: 50,
+        height: 50,
+        marginRight: 15,
+        marginLeft: 15,
     },
 });
