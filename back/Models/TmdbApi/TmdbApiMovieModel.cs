@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace back.Models.TmdbApi
+namespace back.Models
 {
     public class TmdbApiMovieModel
     {
@@ -12,6 +12,15 @@ namespace back.Models.TmdbApi
 
         [JsonProperty("overview")]
         public string Overview { get; set; }
+
+        [JsonProperty("popularity")]
+        public string Popularity { get; set; }
+
+        [JsonProperty("vote_average")]
+        public string VoteAverage { get; set; }
+
+        [JsonProperty ("release_date")]
+        public string Release { get; set; }
 
     }
 }
