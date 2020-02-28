@@ -12,7 +12,7 @@ import {
     passwordValidator,
     nameValidator,
 } from '../core/utils';
-import { ScrollView } from 'react-native-gesture-handler';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 function AccountInfo(props) {
     const [name, setName] = useState({ value: '', error: '' });
@@ -104,7 +104,7 @@ function AccountInfo(props) {
     }
 
     return (
-        <View style={{ width: '100%' }}  >
+        <View style={{ width: '80%', alignSelf: 'center' }} >
             <TextInput
                 label="Name" returnKeyType="next" value={name.value}
                 onChangeText={text => setName({ value: text, error: '' })}
@@ -126,6 +126,7 @@ function AccountInfo(props) {
                 secureTextEntry
             />
             <Social />
+            {/* <Text swag={{ paddingTop: 20 }} >If you want to remove / add more social services, please go to Bananews.com.</Text> */}
             <Button style={styles.saveButton} onPress={getData} > <Text swag={styles.text} >Refresh Informations</Text></Button>
             <Button style={styles.saveButton} onPress={log} > <Text swag={styles.text} >Save Changes</Text></Button>
             <Button style={styles.button} onPress={() => props.setIsLogged(false)}> <Text swag={styles.text} >Log Out </Text></Button>
@@ -136,13 +137,13 @@ function AccountInfo(props) {
 
 
 export default withWidget(({ setIsLogged, ip, token, setToken }) => (
-    <Fragment>
-        <ScrollView style={{ width: '100%' }} >
-            <Background style={{ width: '100%' }}  >
+    <Background style={{ width: '100%' }}  >
+        <KeyboardAwareScrollView style={{ width: '100%' }} >
+            <Fragment>
                 <AccountInfo ip={ip} token={token} setToken={setToken} setIsLogged={setIsLogged} />
-            </Background>
-        </ScrollView>
-    </Fragment >
+            </Fragment >
+        </KeyboardAwareScrollView>
+    </Background>
 ));
 
 const styles = StyleSheet.create({
