@@ -27,7 +27,7 @@ namespace back.Controllers
 
         #endregion
 
-        [HttpPost("signup/{name}/{pwd}/{email}")]
+        [HttpGet("signup/{name}/{pwd}/{email}")]
         public int CreateUser(string name, string pwd, string email)
         {
             string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
@@ -99,32 +99,34 @@ namespace back.Controllers
         }
 
         [HttpGet("users/{id}")]
-        public SqlModel GetUser(int id)
+        public SqlModel GetUser(string id)
         {
             string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
             MySqlConnection conn = new MySqlConnection(connStr);
             SqlModel users = new SqlModel();
-            User user = new User();
+            List<User> listUser = new List<User>();
 
             try
             {
                 conn.Open();
 
-                string sql = "select * from users where id = "+id.ToString()+";";
+                string sql = "select * from users where email = '"+id+"';";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
+                    User user = new User();
+
                     string tmp = rdr[0].ToString();
                     user.Id = int.Parse(rdr[0].ToString());
                     user.Name = rdr[1].ToString();
                     user.Pwd = rdr[2].ToString();
                     user.Email = rdr[3].ToString();
+                    listUser.Add(user);
                 }
                 rdr.Close();
-                users.Users = new User[1];
-                users.Users[0] = user;
+                users.Users = listUser.ToArray();
             }
             catch (Exception ex)
             {
