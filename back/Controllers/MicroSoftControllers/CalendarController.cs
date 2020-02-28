@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace back.Controllers.MicrosoftControllers
 {
     [ApiController]
-    [Route("api/calendar")]
+    [Route("api/microsoft/calendar")]
     public class CalendarController : MicrosoftMainController
     {
         public CalendarController(ILogger<MicrosoftMainController> logger) : base(logger)
