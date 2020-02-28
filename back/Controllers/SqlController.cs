@@ -27,6 +27,8 @@ namespace back.Controllers
 
         #endregion
 
+        #region ROUTES
+    
         [HttpGet("signup/{name}/{pwd}/{email}")]
         public int CreateUser(string name, string pwd, string email)
         {
@@ -72,6 +74,36 @@ namespace back.Controllers
 
             conn.Close();
             return id;
+        }
+
+        [HttpGet("login/{email}/{pwd}")]
+        public bool LoginUser(string email, string pwd)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select pwd from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    if (rdr[0].ToString() == pwd) {
+                        rdr.Close();
+                        conn.Close();
+                        return true;
+                    }
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
         }
 
         [HttpGet("users")]
@@ -149,5 +181,7 @@ namespace back.Controllers
             conn.Close();
             return users;
         }
+
+        #endregion
     }
 }
