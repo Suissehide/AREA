@@ -182,6 +182,200 @@ namespace back.Controllers
             return users;
         }
 
+        [HttpGet("editname/{email}/{name}")]
+        public bool EditName(string email, string name)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select * from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "update users set name = '"+name+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
+
+        [HttpGet("editemail/{email}/{newemail}")]
+        public bool EditEmail(string email, string newemail)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select * from users where email = '"+newemail+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    conn.Close();
+                    return false;
+                }
+                else {
+                    rdr.Close();
+                    sql = "update users set email = '"+newemail+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return true;
+        }
+
+        [HttpGet("editpwd/{email}/{pwd}")]
+        public bool EditPwd(string email, string pwd)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select pwd from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "update users set pwd = '"+pwd+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
+
+        [HttpGet("editmicrosoftToken/{email}/{microsoftToken}")]
+        public bool MicrosoftToken(string email, string microsoftToken)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select microsoftToken from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "update users set microsoftToken = '"+microsoftToken+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
+
+        [HttpGet("editfacebookToken/{email}/{facebookToken}")]
+        public bool FacebookToken(string email, string facebookToken)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select facebookToken from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "update users set facebookToken = '"+facebookToken+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
+
+        [HttpGet("editgoogleToken/{email}/{googleToken}")]
+        public bool GoogleToken(string email, string googleToken)
+        {
+            string connStr = "server=localhost;user=root;database=area;port=3306;password=root";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                string sql = "select googleToken from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdr.Close();
+                    sql = "update users set googleToken = '"+googleToken+"' where email = '"+email+"';";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    return true;
+                }
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return false;
+        }
         #endregion
     }
 }
