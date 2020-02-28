@@ -17,6 +17,9 @@ function Login(props) {
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
     const [view, setView] = useState('normal');
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+
     const _onLoginPressed = () => {
         const emailError = emailValidator(email.value);
         const passwordError = passwordValidator(password.value);
@@ -26,7 +29,25 @@ function Login(props) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-        props.setIsLoginOk(true);
+
+        const loadData = () => {
+            try {
+                axios.get(`http://${props.ip}:8080/database/login/${email.value}/${password.value}`)
+                    .then(response => {
+                        console.log(response.data);
+                        response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email or password invalid." });
+                        response.data === true ? props.setIsLoginOk(true) : setPassword({ ...password, error: "Email or password invalid." });
+                    });
+            } catch (error) {
+                if (axios.isCancel(error)) {
+                    console.log("cancelled");
+                } else {
+                    throw error;
+                }
+            }
+        };
+        loadData();
+        return () => { source.cancel(); };
     };
 
     switch (view) {

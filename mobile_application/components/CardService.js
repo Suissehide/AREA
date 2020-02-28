@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: theme.colors.primary,
         borderWidth: 0,
-        borderRadius: 20
+        borderRadius: 20,
+        width: '100%'
     }
 });

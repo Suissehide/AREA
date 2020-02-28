@@ -33,8 +33,8 @@ export const WidgetContext = createContext({
 
 class WidgetProvider extends Component {
     state = {
-        ip: "10.10.253.28",
-        isLogged: true,
+        ip: "172.20.10.2",
+        isLogged: false,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
         setToken: (value) => { this.setState({ token: value }) },
@@ -68,7 +68,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        chuck: { service: true, widget: true, },
+        chuck: { service: false, widget: true, },
         setChuckService: (value) => {
             this.setState(prevState => ({
                 chuck: { ...prevState.chuck, service: value, }
@@ -80,7 +80,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        movie: { service: true, widget: true, },
+        movie: { service: false, widget: true, },
         setMovieService: (value) => {
             this.setState(prevState => ({
                 movie: { ...prevState.movie, service: value, }
@@ -92,7 +92,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jinkan: { service: true, anime: true, character: true, },
+        jinkan: { service: true, anime: false, character: true, },
         setJinkanService: (value) => {
             this.setState(prevState => ({
                 jinkan: { ...prevState.jinkan, service: value, }

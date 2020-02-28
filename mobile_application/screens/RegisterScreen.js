@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
@@ -37,8 +37,7 @@ export default function RegisterScreen(props) {
                 axios.get(`http://${props.ip}:8080/database/signup/${name.value}/${password.value}/${email.value}`)
                     .then(response => {
                         console.log(response.data);
-                        props.setToken(response.data);
-                        console.log(props.token);
+                        response.data === true ? props.setIsLoginOk(true) : setEmail({ ...email, error: "Email already taken." })
                     });
             } catch (error) {
                 if (axios.isCancel(error)) {
@@ -49,7 +48,6 @@ export default function RegisterScreen(props) {
             }
         };
         loadData();
-        props.setIsLoginOk(true);
         return () => { source.cancel(); };
     }
 
