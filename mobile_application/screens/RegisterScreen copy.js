@@ -31,10 +31,9 @@ export default function RegisterScreen(props) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-        props.setToken(email.value);
         const loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/signup/${name.value}/${password.value}/${email.value}`)
+                axios.post(`http://${props.ip}:8080/database/signup/${name.value}/${password.value}/${email.value}`, { cancelToken: source.token })
                     .then(response => {
                         console.log(response.data);
                         props.setToken(response.data);
@@ -48,8 +47,8 @@ export default function RegisterScreen(props) {
                 }
             }
         };
-        loadData();
         props.setIsLoginOk(true);
+        loadData();
         return () => { source.cancel(); };
     }
 

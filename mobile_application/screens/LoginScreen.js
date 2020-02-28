@@ -84,7 +84,7 @@ function Login(props) {
         case 'password':
             return (<ForgotPasswordScreen setView={setView} />);
         case 'newUser':
-            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} ip={ip} setToken={props.setToken} token={props.token} />);
+            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} ip={props.ip} setToken={props.setToken} token={props.token} />);
     }
 };
 
