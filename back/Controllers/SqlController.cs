@@ -37,15 +37,28 @@ namespace back.Controllers
             try
             {
                 conn.Open();
+                string sql = "select * from users where email = '"+email+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    Console.WriteLine("Error: email "+email+" already exist.");
+                    rdr.Close();
+                    conn.Close();
+                    return id;
+                }
+                rdr.Close();
+            
                 Console.WriteLine(name);
                 Console.WriteLine(pwd);
                 Console.WriteLine(email);
-                string sql = "INSERT INTO users (name, pwd, email) VALUES ('"+name+"', '"+pwd+"', '"+email+"');";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                sql = "INSERT INTO users (name, pwd, email) VALUES ('"+name+"', '"+pwd+"', '"+email+"');";
+                cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 sql = "select id from users where name='"+name+"' AND pwd='"+pwd+"' AND email='"+email+"';";
                 cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     id = int.Parse(rdr[0].ToString());
