@@ -5,14 +5,14 @@ import { Text } from 'react-native-elements';
 export default function PotterService(props) {
     return (
         <View style={styles.container}>
-            {props.potterS === true ?
+            {props.potter.service === true ?
                 <View >
                     <View style={styles.contained}>
                         <Text style={styles.title}>Harry Potter's Random Spell</Text>
                         <Switch
                             style={{ marginTop: 10 }}
                             onValueChange={event => props.setSpell(event)}
-                            value={props.spell} />
+                            value={props.potter.spell} />
                     </View>
                     <View style={styles.contained}>
 
@@ -20,7 +20,7 @@ export default function PotterService(props) {
                         <Switch
                             style={{ marginTop: 10 }}
                             onValueChange={event => props.setCharacter(event)}
-                            value={props.character} />
+                            value={props.potter.character} />
                     </View>
 
                 </View> : null

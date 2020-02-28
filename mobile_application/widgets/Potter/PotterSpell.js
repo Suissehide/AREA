@@ -5,9 +5,9 @@ import axios from 'axios';
 import Text from '../../components/Text'
 
 export default function PotterSpell(props) {
-    const [spell, setSpell] = useState("");
-    const [type, setType] = useState("");
-    const [effect, setEffect] = useState("");
+    const [spell, setSpell] = useState("Oblivates");
+    const [type, setType] = useState("Charm");
+    const [effect, setEffect] = useState("Erases Memories");
 
     const handleChange = () => {
         axios.get(`http://${props.ip}:8080/api/potter/random-spells`)

@@ -9,28 +9,27 @@ import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
 import JinkanService from '../services/JinkanService';
 
-export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
-    weatherS, setWeatherS, weatherW, setWeatherW,
-    chuckS, setChuckS, chuckW, setChuckW,
-    movieS, setMovieS, movieW, setMovieW,
-    jinkanS, setJinkanS, jinkanAnime, setJinkanAnime, jinkanCharacter, setJinkanCharacter }) => (
+export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
+    weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
+    movie, setMovieService, setMovieWidget,
+    jinkan, setJinkanService, setJinkanAnime, setJinkanCharacter }) => (
         <View style={styles.container} >
             <Fragment>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                    <MyCard title="Harry Potter Service" value={potterS} setValue={setPotterS}
-                        widget={<PotterService potterS={potterS} spell={potterSpell} setSpell={setPotterSpell} character={potterCharacter} setCharacter={setPotterCharacter} />}
+                    <MyCard title="Harry Potter Service" value={potter.service} setValue={setPotterService}
+                        widget={<PotterService potter={potter} setSpell={setPotterSpell} setCharacter={setPotterCharacter} />}
                     />
-                    <MyCard title="Weather Service" value={weatherS} setValue={setWeatherS}
-                        widget={<WeatherService weatherS={weatherS} weatherW={weatherW} setWeatherW={setWeatherW} />}
+                    <MyCard title="Weather Service" value={weather.service} setValue={setWeatherService}
+                        widget={<WeatherService weather={weather} setWeatherW={setWeatherWidget} />}
                     />
-                    <MyCard title="Chuck Norris Service" value={chuckS} setValue={setChuckS}
-                        widget={<ChuckService chuckS={chuckS} chuckW={chuckW} setChuckW={setChuckW} />}
+                    <MyCard title="Chuck Norris Service" value={chuck.service} setValue={setChuckService}
+                        widget={<ChuckService chuck={chuck} setChuckW={setChuckWidget} />}
                     />
-                    <MyCard title="The Movie Database Service" value={movieS} setValue={setMovieS}
-                        widget={<MovieService movieS={movieS} movieW={movieW} setMovieW={setMovieW} />}
+                    <MyCard title="The Movie Database Service" value={movie.service} setValue={setMovieService}
+                        widget={<MovieService movie={movie} setMovieW={setMovieWidget} />}
                     />
-                    <MyCard title="Jinkan Service" value={jinkanS} setValue={setJinkanS}
-                        widget={<JinkanService jinkanS={jinkanS} jinkanAnime={jinkanAnime} setJinkanAnime={setJinkanAnime} jinkanCharacter={jinkanCharacter} setJinkanCharacter={setJinkanCharacter} />}
+                    <MyCard title="Jinkan Service" value={jinkan.service} setValue={setJinkanService}
+                        widget={<JinkanService jinkan={jinkan} setJinkanAnime={setJinkanAnime} setJinkanCharacter={setJinkanCharacter} />}
                     />
                 </ScrollView>
             </Fragment>

@@ -5,21 +5,21 @@ import { Text } from 'react-native-elements';
 export default function JinkanService(props) {
     return (
         <View style={styles.container}>
-            {props.jinkanS === true ?
+            {props.jinkan.service === true ?
                 <View >
                     <View style={styles.contained}>
                         <Text style={styles.title}>Information on an Anime</Text>
                         <Switch
                             style={{ marginTop: 10 }}
                             onValueChange={event => props.setJinkanAnime(event)}
-                            value={props.jinkanAnime} />
+                            value={props.jinkan.anime} />
                     </View>
                     <View style={styles.contained}>
                         <Text style={styles.title}>Information on an Anime Character</Text>
                         <Switch
                             style={{ marginTop: 10 }}
                             onValueChange={event => props.setJinkanCharacter(event)}
-                            value={props.jinkanCharacter} />
+                            value={props.jinkan.character} />
                     </View>
                 </View> : null
             }

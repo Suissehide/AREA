@@ -5,16 +5,16 @@ import Text from '../../components/Text'
 import axios from 'axios';
 
 export default function PotterCharacter(props) {
-    const [name, setName] = useState("");
-    const [role, setRole] = useState("");
-    const [house, setHouse] = useState("");
-    const [school, setSchool] = useState("");
+    const [name, setName] = useState("Harry Potter");
+    const [role, setRole] = useState("Student");
+    const [house, setHouse] = useState("Gryffondor");
+    const [school, setSchool] = useState("Hogwards");
     const [ministryOfMagic, setministryOfMagic] = useState(false);
-    const [orderOfThePhoenix, setorderOfThePhoenix] = useState(false);
-    const [dumbledoresArmy, setdumbledoresArmy] = useState(false);
+    const [orderOfThePhoenix, setorderOfThePhoenix] = useState(true);
+    const [dumbledoresArmy, setdumbledoresArmy] = useState(true);
     const [deathEater, setdeathEater] = useState(false);
-    const [bloodStatus, setbloodStatus] = useState("");
-    const [species, setspecies] = useState("");
+    const [bloodStatus, setbloodStatus] = useState("half-blood");
+    const [species, setspecies] = useState("human");
 
     const handleChange = () => {
         axios.get(`http://${props.ip}:8080/api/potter/random-character`)

@@ -12,22 +12,22 @@ import MovieWidget from '../widgets/MovieWidget'
 import JinkanAnimeWidget from '../widgets/Jinkan/JinkanAnimeWidget';
 import JinkanCharacterWidget from '../widgets/Jinkan/JinkanCharacterWidget';
 
-export default withWidget(({ potterS, potterSpell, potterCharacter, ip, weatherS, weatherW, chuckS, chuckW, movieS, movieW, jinkanS, jinkanAnime, jinkanCharacter }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jinkan }) => (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Fragment>
-            {potterS === true && potterSpell === true ?
+            {potter.service === true && potter.spell === true ?
                 <MyCard title="Harry Potter's Random Spell" widget={<PotterSpell ip={ip} />} /> : null}
-            {potterS === true && potterCharacter === true ?
+            {potter.service === true && potter.character === true ?
                 <MyCard title="Random Character from Harry Potter" widget={<PotterCharacter ip={ip} />} /> : null}
-            {weatherS === true && weatherW === true ?
+            {weather.service === true && weather.widget === true ?
                 <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
-            {chuckS === true && chuckW === true ?
+            {chuck.service === true && chuck.widget === true ?
                 <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
-            {movieS === true && movieW === true ?
+            {movie.service === true && movie.widget === true ?
                 <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
-            {jinkanS === true && jinkanAnime === true ?
+            {jinkan.service === true && jinkan.anime === true ?
                 <MyCard title="Information on an Anime" widget={<JinkanAnimeWidget ip={ip} />} /> : null}
-            {jinkanS === true && jinkanCharacter === true ?
+            {jinkan.service === true && jinkan.character === true ?
                 <MyCard title="Information on an Anime Character" widget={<JinkanCharacterWidget ip={ip} />} /> : null}
         </Fragment>
     </ScrollView>
