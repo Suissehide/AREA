@@ -96,7 +96,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jikan: { service: true, anime: false, character: true, },
+        jikan: { service: false, anime: false, character: true, },
         setJikanService: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, service: value, }
@@ -113,7 +113,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: true, ip: false, distance: false },
+        google: { service: true, ip: true, distance: false },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
