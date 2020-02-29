@@ -1,17 +1,13 @@
 import React from 'react';
-import background from '../assets/img/jungle_background.jpg';
 import '../css/Home.css';
 import Card from "../components/Card";
 import SideMenu from "../components/SideMenu";
 import Sidebar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 class Home extends React.Component {
     state = {
-        profile: false,
-    };
 
-    triggerProfile = () => {
-        this.setState({profile: !this.state.profile});
     };
 
     resetProfile = () => {
@@ -25,8 +21,7 @@ class Home extends React.Component {
                 <SideMenu active={1}/>
 
                 <div className="main">
-
-                    <Sidebar/>
+                    <Sidebar title={"Dashboard"}/>
 
                     <div className="content" onClick={this.resetProfile}>
                         <div className="container-fluid">
@@ -43,21 +38,7 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <footer className="footer">
-                        <div className="container-fluid footer__flex">
-                            <nav>
-                                <ul>
-                                    <li><a href="#0">About us</a></li>
-                                    <li><a href="#0">Blog</a></li>
-                                    <li><a href="#0">Licenses</a></li>
-                                </ul>
-                            </nav>
-                            <div className="copyright">
-                                @2020, made with <i className="fas fa-heart"/> by <a href="#0" target="_blank">Léo
-                                Couffinhal</a>
-                            </div>
-                        </div>
-                    </footer>
+                    <Footer/>
                 </div>
             </div>
         );

@@ -6,12 +6,16 @@ class Sidebar extends React.Component {
         profile: false,
     };
 
+    triggerProfile = () => {
+        this.setState({profile: !this.state.profile});
+    };
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
                 <div className="container-fluid">
                     <div className="navbar-wrapper">
-                        <a className="navbar-brand" href="#home">Dashboard</a>
+                        <a className="navbar-brand" href="#home">{this.props.title}</a>
                     </div>
 
                     <div className="collapse navbar-collapse justify-content-end">

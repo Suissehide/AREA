@@ -120,6 +120,24 @@
     margin-top: 20px;
 }
 
+.card-flex {
+    display: flex;
+}
+
+.card-logo {
+    font-size: 34px;
+    margin-right: 10px;
+}
+
+.card [class*=card-header-]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
+    border-radius: 3px;
+    margin-top: -20px;
+    padding: 15px;
+}
+.card .card-header-warning .card-icon, .card .card-header-warning .card-text, .card .card-header-warning:not(.card-header-icon):not(.card-header-text) {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255,152,0,.4);
+}
+
 .card .card-body + .card-footer, .card .card-footer {
     padding: 0;
     padding-top: 10px;

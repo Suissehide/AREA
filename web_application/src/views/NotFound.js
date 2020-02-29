@@ -54,8 +54,10 @@ class Notfound extends React.Component {
                 drops: [...previousState.drops, { type: 'coin', x: Math.random() * window.innerWidth, y: '10' }],
             }));
         }
-        this.state.drops.map(function (drop) {
-            drop.y = parseInt(drop.y) + 10;
+        this.state.drops.map((drop) => {
+            return (
+               drop.y = parseInt(drop.y) + 10
+            );
         });
         this.remove();
         this.setState({ update: !this.state.update });
@@ -64,7 +66,7 @@ class Notfound extends React.Component {
     remove = () => {
         this.setState({
             drops: this.state.drops.filter(function (drop) {
-                return parseInt(drop.y) + 100 < window.innerHeight
+                return parseInt(drop.y) + 95 < window.innerHeight
             })
         });
     };
@@ -80,11 +82,11 @@ class Notfound extends React.Component {
                     <div>All we have here is...</div>
                     <h1>404</h1>
                     <div>
-                        <a>Go back down</a>
-                        <a onClick={() => this.setState({ start: true })} className="start-button">Or hit start</a>
+                        <button>Go back down</button>
+                        <button onClick={() => this.setState({ start: true })} className="start-button">Or hit start</button>
                     </div>
                 </div>
-            )
+            );
         else
             return (
                 <div className="container-404">
@@ -95,7 +97,7 @@ class Notfound extends React.Component {
                     </div>
                     <div className="player" style={{ left: this.state.playerX + '%' }} />
                 </div>
-            )
+            );
     }
 }
 
