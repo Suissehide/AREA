@@ -9,7 +9,7 @@ export default function CardService(props) {
             <View style={styles.container}>
                 <Text style={styles.title}>{props.title}</Text>
                 <Switch
-                    style={{ marginTop: 10 }}
+                    style={{ marginTop: 3 }}
                     onValueChange={event => props.setValue(event)}
                     value={props.value} />
             </View>

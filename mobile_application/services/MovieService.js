@@ -7,9 +7,9 @@ export default function MovieService(props) {
         <View style={styles.container}>
             {props.movie.service === true ?
                 <View style={styles.contained}>
-                    <Text style={styles.title}>Info on a Movie</Text>
+                    <Text style={styles.title}>Get information on a movie</Text>
                     <Switch
-                        style={{ marginTop: 10 }}
+                        style={{ marginTop: 3 }}
                         onValueChange={event => props.setMovieW(event)}
                         value={props.movie.widget} />
                 </View> : null

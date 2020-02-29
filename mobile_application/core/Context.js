@@ -29,13 +29,10 @@ export const WidgetContext = createContext({
     setJikanAnime: () => { },
     setJikanCharacter: () => { },
     //
-    jinkanS: true,
-    setJinkanS: () => { },
-    jinkanAnime: true,
-    setJinkanAnime: () => { },
-    jinkanCharacter: true,
-    setJinkanCharacter: () => { },
-    //
+    google: { service: true, ip: false, distance: false },
+    setGoogleService: () => { },
+    setGoogleIp: () => { },
+    setGoogleDistance: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -113,6 +110,23 @@ class WidgetProvider extends Component {
         setJikanCharacter: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, character: value, }
+            }))
+        },
+
+        google: { service: true, ip: false, distance: false },
+        setGoogleService: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, service: value, }
+            }))
+        },
+        setGoogleIp: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, ip: value, }
+            }))
+        },
+        setGoogleDistance: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, distance: value, }
             }))
         },
 

@@ -1,19 +1,22 @@
 import React, { Fragment } from "react";
 import { StyleSheet, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { withWidget } from "../core/Context";
 import MyCard from '../components/CardService';
+import Background from '../components/Background';
 import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
 import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
 import JikanService from '../services/JikanService';
-import Background from '../components/Background';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import GoogleService from '../services/GoogleService';
 
 export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget,
-    jikan, setJikanService, setJikanAnime, setJikanCharacter }) => (
+    jikan, setJikanService, setJikanAnime, setJikanCharacter,
+    google, setGoogleService, setGoogleIp, setGoogleDistance,
+}) => (
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -27,11 +30,14 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <MyCard title="Chuck Norris Service" value={chuck.service} setValue={setChuckService}
                             widget={<ChuckService chuck={chuck} setChuckW={setChuckWidget} />}
                         />
-                        <MyCard title="The Movie Database Service" value={movie.service} setValue={setMovieService}
+                        <MyCard title={"The Movie Database" + "\n" + "Service"} value={movie.service} setValue={setMovieService}
                             widget={<MovieService movie={movie} setMovieW={setMovieWidget} />}
                         />
                         <MyCard title="Jikan Service" value={jikan.service} setValue={setJikanService}
                             widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter} />}
+                        />
+                        <MyCard title="Google Service" value={google.service} setValue={setGoogleService}
+                            widget={<GoogleService google={google} setGoogleIp={setGoogleIp} setGoogleDistance={setGoogleDistance} />}
                         />
                     </View>
                 </KeyboardAwareScrollView>

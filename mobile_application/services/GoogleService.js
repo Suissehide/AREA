@@ -2,30 +2,28 @@ import React from "react";
 import { StyleSheet, View, Switch } from 'react-native';
 import { Text } from 'react-native-elements';
 
-export default function PotterService(props) {
+export default function GoogleService(props) {
     return (
         <View style={styles.container}>
-            {props.potter.service === true ?
+            {props.google.service === true ?
                 <View >
                     <View style={styles.contained}>
-                        <Text style={styles.title}>Display a random spell</Text>
+                        <Text style={styles.title}>Display your localisation depending{"\n"}on your IP</Text>
                         <Switch
                             style={{ marginTop: 3 }}
-                            onValueChange={event => props.setSpell(event)}
-                            value={props.potter.spell} />
+                            onValueChange={event => props.setGoogleIp(event)}
+                            value={props.google.ip} />
                     </View>
                     <View style={styles.contained}>
-
-                        <Text style={styles.title}>Display a random character</Text>
+                        <Text style={styles.title}>Get the distance and time between {"\n"} two points</Text>
                         <Switch
                             style={{ marginTop: 3 }}
-                            onValueChange={event => props.setCharacter(event)}
-                            value={props.potter.character} />
+                            onValueChange={event => props.setGoogleDistance(event)}
+                            value={props.google.distance} />
                     </View>
-
                 </View> : null
             }
-        </View>
+        </View >
     );
 }
 
