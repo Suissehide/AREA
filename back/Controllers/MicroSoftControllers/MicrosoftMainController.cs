@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace back.Controllers
+namespace back.Controllers.MicroSoftControllers
 {
     public class MicrosoftMainController : ControllerBase
     {
         #region MEMBERS
 
-        private readonly ILogger<MicrosoftMainController> _logger;
+        protected readonly ILogger<MicrosoftMainController> _logger;
         protected const string HostUrl = "https://graph.microsoft.com";
         #endregion
 
