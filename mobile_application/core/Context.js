@@ -2,56 +2,120 @@ import React, { createContext, Component } from "react";
 
 export const WidgetContext = createContext({
     ip: "localhost",
+    isLogged: false,
+    setIsLogged: () => { },
+    token: 1,
+    setToken: () => { },
     //
-    potterS: false,
-    setPotterS: () => { },
-    potterSpell: true,
+    potter: { service: false, spell: true, character: true, },
+    setPotterService: () => { },
     setPotterSpell: () => { },
-    potterCharacter: true,
     setPotterCharacter: () => { },
     //
-    weatherS: false,
-    setWeatherS: () => { },
-    weatherW: false,
-    setWeatherW: () => { },
+    weather: { service: false, widget: false, },
+    setWeatherService: () => { },
+    setWeatherWidget: () => { },
     //
-    chuckS: true,
-    setChuckS: () => { },
-    chuckW: true,
-    setChuckW: () => { },
+    chuck: { service: true, widget: true, },
+    setChuckService: () => { },
+    setChuckWidget: () => { },
     //
-    movieS: true,
-    setMovieS: () => { },
-    movieW: true,
-    setMovieW: () => { },
+    movie: { service: true, widget: true, },
+    setMovieService: () => { },
+    setMovieWidget: () => { },
+    //
+    jikan: { service: true, anime: true, character: true, },
+    setJikanService: () => { },
+    setJikanAnime: () => { },
+    setJikanCharacter: () => { },
+    //
+    jinkanS: true,
+    setJinkanS: () => { },
+    jinkanAnime: true,
+    setJinkanAnime: () => { },
+    jinkanCharacter: true,
+    setJinkanCharacter: () => { },
     //
 });
 
 class WidgetProvider extends Component {
     state = {
         ip: "172.20.10.5",
-        //
-        potterS: false,
-        setPotterS: value => { this.setState({ potterS: value }) },
-        potterSpell: true,
-        setPotterSpell: value => { this.setState({ potterSpell: value }) },
-        potterCharacter: true,
-        setPotterCharacter: value => { this.setState({ potterCharacter: value }) },
-        //
-        weatherS: false,
-        setWeatherS: (value) => { this.setState({ weatherS: value }) },
-        weatherW: true,
-        setWeatherW: (value) => { this.setState({ weatherW: value }) },
-        //
-        chuckS: true,
-        setChuckS: (value) => { this.setState({ chuckS: value }) },
-        chuckW: true,
-        setChuckW: (value) => { this.setState({ chuckW: value }) },
-        //
-        movieS: true,
-        setMovieS: (value) => { this.setState({ movieS: value }) },
-        movieW: true,
-        setMovieW: (value) => { this.setState({ movieW: value }) },
+        isLogged: true,
+        setIsLogged: (value) => { this.setState({ isLogged: value }) },
+        token: 6,
+        setToken: (value) => { this.setState({ token: value }) },
+
+        potter: { service: false, spell: true, character: true, },
+        setPotterService: (value) => {
+            this.setState(prevState => ({
+                potter: { ...prevState.potter, service: value, }
+            }))
+        },
+        setPotterSpell: (value) => {
+            this.setState(prevState => ({
+                potter: { ...prevState.potter, spell: value, }
+            }))
+        },
+        setPotterCharacter: (value) => {
+            this.setState(prevState => ({
+                potter: { ...prevState.potter, character: value, }
+            }))
+        },
+
+        weather: { service: false, widget: false, },
+        setWeatherService: (value) => {
+            this.setState(prevState => ({
+                weather: { ...prevState.weather, service: value, }
+            }))
+        },
+        setWeatherWidget: (value) => {
+            this.setState(prevState => ({
+                weather: { ...prevState.weather, widget: value, }
+            }))
+        },
+
+        chuck: { service: false, widget: true, },
+        setChuckService: (value) => {
+            this.setState(prevState => ({
+                chuck: { ...prevState.chuck, service: value, }
+            }))
+        },
+        setChuckWidget: (value) => {
+            this.setState(prevState => ({
+                chuck: { ...prevState.chuck, widget: value, }
+            }))
+        },
+
+        movie: { service: false, widget: true, },
+        setMovieService: (value) => {
+            this.setState(prevState => ({
+                movie: { ...prevState.movie, service: value, }
+            }))
+        },
+        setMovieWidget: (value) => {
+            this.setState(prevState => ({
+                movie: { ...prevState.movie, widget: value, }
+            }))
+        },
+
+        jikan: { service: true, anime: false, character: true, },
+        setJikanService: (value) => {
+            this.setState(prevState => ({
+                jikan: { ...prevState.jikan, service: value, }
+            }))
+        },
+        setJikanAnime: (value) => {
+            this.setState(prevState => ({
+                jikan: { ...prevState.jikan, anime: value, }
+            }))
+        },
+        setJikanCharacter: (value) => {
+            this.setState(prevState => ({
+                jikan: { ...prevState.jikan, character: value, }
+            }))
+        },
+
     };
 
     render() {

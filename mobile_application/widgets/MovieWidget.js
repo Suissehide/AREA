@@ -5,12 +5,12 @@ import Text from '../components/Text'
 import TextInput from '../components/TextInput';
 
 export default function MovieWidget(props) {
-    const [movie, setMovie] = useState('Harry Potter');
+    const [movie, setMovie] = useState('');
     const [title, setTitle] = useState('');
     const [overview, setOverview] = useState('');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/TmdbApi/movie/${movie}`)
+        axios.get(`http://${props.ip}:8080/api/movie-database/movie/${movie}`)
             .then(response => {
                 setTitle(response.data[0].title);
                 setOverview(response.data[0].overview);
@@ -24,12 +24,12 @@ export default function MovieWidget(props) {
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
                 <View style={{ paddingBottom: 5 }}>
-                    <Text swag={{ fontSize: '17px' }}> {title} </Text>
+                    <Text swag={{ fontSize: 17 }}> {title} </Text>
                 </View>
                 <Text>{overview}</Text>
             </View>
             <TextInput
-                id="outlined-name"
+                id="movie"
                 label="Movie Title"
                 value={movie}
                 onChangeText={event => {

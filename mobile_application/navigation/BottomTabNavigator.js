@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import ServiceScreen from '../screens/ServiceScreen';
 import WidgetScreen from '../screens/WidgetScreen';
+import AccountScreen from '../screens/AccountScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Login';
@@ -33,7 +34,7 @@ export default function BottomTabNavigator({ navigation, route }) {
             />
             <BottomTab.Screen
                 name="Settings"
-                component={ServiceScreen}
+                component={AccountScreen}
                 options={{
                     title: 'Account Settings',
                     tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
