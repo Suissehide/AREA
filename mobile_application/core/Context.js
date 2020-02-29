@@ -34,10 +34,13 @@ export const WidgetContext = createContext({
     setGoogleIp: () => { },
     setGoogleDistance: () => { },
     //
-    joke: { service: true, widget: true },
+    joke: { service: false, widget: true },
     setJokeService: () => { },
     setJokeWidget: () => { },
-
+    //
+    pokemon: { service: true, widget: true },
+    setPokemonService: () => { },
+    setPokemonWidget: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -147,6 +150,17 @@ class WidgetProvider extends Component {
             }))
         },
 
+        pokemon: { service: true, widget: true },
+        setPokemonService: (value) => {
+            this.setState(prevState => ({
+                pokemon: { ...prevState.pokemon, service: value, }
+            }))
+        },
+        setPokemonWidget: (value) => {
+            this.setState(prevState => ({
+                pokemon: { ...prevState.pokemon, widget: value, }
+            }))
+        },
     };
 
     render() {
