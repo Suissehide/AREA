@@ -3,14 +3,13 @@ using Newtonsoft.Json;
 
 namespace back.Models.JikanApi
 {
-    public class JikanTopAnimeModel
+    public class JikanTopMangaModel
     {
         [JsonProperty("top")]
-        public List<TopAnime> Top { get; set; }
-
+        public List<TopManga> Top { get; set; }
     }
-
-    public class TopAnime
+    
+    public class TopManga
     {
         [JsonProperty("rank")]
         public int Rank { get; set; }
@@ -18,14 +17,8 @@ namespace back.Models.JikanApi
         [JsonProperty("title")]
         public string Title { get; set; }
         
-        [JsonProperty("image_url")]
-        public string ImageUrl { get; set; }
-        
         [JsonProperty("type")]
         public string Type { get; set; }
-        
-        [JsonProperty("episodes")]
-        public int Episodes { get; set; }
         
         [JsonProperty("start_date")]
         public string StartDate { get; set; }
@@ -35,5 +28,8 @@ namespace back.Models.JikanApi
         
         [JsonProperty("score")]
         public double Score { get; set; }
+        
+        [JsonProperty("image_url")]
+        public string ImageUrl { get; set; }
     }
 }
