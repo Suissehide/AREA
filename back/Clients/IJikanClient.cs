@@ -12,5 +12,8 @@ namespace back.Clients
 
         [Get("/search/character?q={name}&limit=20")]
         Task<JikanCharacterModel> SearchCharacter(String name);
+        
+        [Get("/top/anime/1")]
+        Task<JikanTopAnimeModel> GetTopAnime();
     }
 }
