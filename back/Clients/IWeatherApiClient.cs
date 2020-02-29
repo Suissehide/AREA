@@ -1,5 +1,5 @@
-using back.Models.WeatherModel;
 using System.Threading.Tasks;
+using back.Models.WeatherApi;
 using Refit;
 
 namespace back.Clients

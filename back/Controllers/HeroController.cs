@@ -12,13 +12,13 @@ namespace back.Controllers
     [Route("api/hero")]
     public class HeroController : ControllerBase
     {
-        #region MEMBERS
-
+        #region MEMBER
+     
         private readonly ILogger<HeroController> _logger;
         private readonly IHeroClient _heroClient;
 
         #endregion
-
+        
         #region CONSTRUCTOR
 
         public HeroController(ILogger<HeroController> logger)
@@ -49,13 +49,13 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
-        
-        [HttpGet("name/{name}")]
-        public async Task<IActionResult> HeroById(String name)
+       
+        [HttpGet("name/{nameHero}")]
+        public async Task<IActionResult> HeroById(String nameHero)
         {
             try
             {
-                HeroNameModel heroInfo = await _heroClient.HeroByName(name);
+                HeroNameModel heroInfo = await _heroClient.HeroByName(nameHero);
                 if (heroInfo.Response == "error")
                 {
                     return NotFound();
@@ -70,6 +70,5 @@ namespace back.Controllers
         }
         
         #endregion
-        
     }
 }
