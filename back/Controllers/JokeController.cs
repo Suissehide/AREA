@@ -30,12 +30,12 @@ namespace back.Controllers
 
         #region ROUTE
         
-        [HttpGet("{jokeTheme}")]
-        public async Task<IActionResult> ClientGetJokeByThemeAsync(string jokeTheme)
+        [HttpGet("{theme}")]
+        public async Task<IActionResult> ClientGetJokeByThemeAsync(string theme)
         {
             try
             {
-                JokeModel jokes = await _jokeClient.ApiGetJokeByTheme(jokeTheme);
+                JokeModel jokes = await _jokeClient.ApiGetJokeByTheme(theme);
                 return Ok(jokes);
             }
             catch (ApiException exMessage)

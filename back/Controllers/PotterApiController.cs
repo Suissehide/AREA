@@ -31,7 +31,7 @@ namespace back.Controllers
 
         #region ROUTES
 
-        [HttpGet("randomSpells")]
+        [HttpGet("spell")]
         public async Task<ActionResult<PotterSpellsModel>> GetRandomSpell()
         {
             try
@@ -48,7 +48,7 @@ namespace back.Controllers
             }
         }
 
-        [HttpGet("randomCharacter")]
+        [HttpGet("character")]
         public async Task<ActionResult<PotterCharactersModel>> GetRandomCharacter()
         {
             try

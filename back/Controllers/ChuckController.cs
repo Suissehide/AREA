@@ -30,12 +30,12 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("{themeChuck}")]
-        public async Task<IActionResult> ChuckByTheme(string themeChuck)
+        [HttpGet("{theme}")]
+        public async Task<IActionResult> ChuckByTheme(string theme)
         {
             try
             {
-                ChuckModel jokes = await _chuckClient.ChuckByTheme(themeChuck);
+                ChuckModel jokes = await _chuckClient.ChuckByTheme(theme);
                 return Ok(jokes);
             }
             catch (ApiException exMessage)

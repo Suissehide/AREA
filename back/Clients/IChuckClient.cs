@@ -6,7 +6,7 @@ namespace back.Clients
 {
     public interface IChuckClient
     {
-        [Get("/jokes/search?query={themeChuck}")]
-        Task<ChuckModel> ChuckByTheme(string themeChuck);
+        [Get("/jokes/search?query={theme}")]
+        Task<ChuckModel> ChuckByTheme(string theme);
     }
 }
