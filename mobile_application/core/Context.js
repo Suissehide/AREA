@@ -29,6 +29,13 @@ export const WidgetContext = createContext({
     setJikanAnime: () => { },
     setJikanCharacter: () => { },
     //
+    jinkanS: true,
+    setJinkanS: () => { },
+    jinkanAnime: true,
+    setJinkanAnime: () => { },
+    jinkanCharacter: true,
+    setJinkanCharacter: () => { },
+    //
 });
 
 class WidgetProvider extends Component {

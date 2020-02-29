@@ -14,7 +14,6 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter }) => (
-        // <View style={styles.container} >
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -38,13 +37,11 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                 </KeyboardAwareScrollView>
             </Fragment>
         </Background>
-        // </View>
     ));
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: '#fff',
         width: '100%',
     },
     contentContainer: {

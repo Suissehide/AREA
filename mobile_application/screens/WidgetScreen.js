@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
 import MyCard from '../widgets/CardTemplate';
-import PotterSpell from '../widgets/Potter/PotterSpell';
-import PotterCharacter from '../widgets/Potter/PotterCharacter';
+import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
+import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
 import ChuckWidget from '../widgets/ChuckWidget';
 import MovieWidget from '../widgets/MovieWidget'
@@ -18,9 +18,9 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan }) => (
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                 {potter.service === true && potter.spell === true ?
-                    <MyCard title="Harry Potter's Random Spell" widget={<PotterSpell ip={ip} />} /> : null}
+                    <MyCard title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.character === true ?
-                    <MyCard title="Random Character from Harry Potter" widget={<PotterCharacter ip={ip} />} /> : null}
+                    <MyCard title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
                 {weather.service === true && weather.widget === true ?
                     <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
                 {chuck.service === true && chuck.widget === true ?
