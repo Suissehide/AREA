@@ -25,7 +25,7 @@ namespace back.Controllers
             _logger = logger;
             _jikanClient = RestService.For<IJikanClient>("https://api.jikan.moe/v3/");
         }
-        
+
         #endregion
 
         #region ROUTE
