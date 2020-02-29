@@ -5,13 +5,13 @@ import { Text } from 'react-native-elements';
 export default function ChuckService(props) {
     return (
         <View style={styles.container}>
-            {props.chuckS === true ?
+            {props.chuck.service === true ?
                 <View style={styles.contained}>
                     <Text style={styles.title}>Chuck Norris Jokes</Text>
                     <Switch
                         style={{ marginTop: 10 }}
                         onValueChange={event => props.setChuckW(event)}
-                        value={props.chuckW} />
+                        value={props.chuck.widget} />
                 </View> : null
             }
         </View>

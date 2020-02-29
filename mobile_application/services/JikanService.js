@@ -2,27 +2,25 @@ import React from "react";
 import { StyleSheet, View, Switch } from 'react-native';
 import { Text } from 'react-native-elements';
 
-export default function PotterService(props) {
+export default function JikanService(props) {
     return (
         <View style={styles.container}>
-            {props.potter.service === true ?
+            {props.jikan.service === true ?
                 <View >
                     <View style={styles.contained}>
-                        <Text style={styles.title}>Harry Potter's Random Spell</Text>
+                        <Text style={styles.title}>Information on an Anime</Text>
                         <Switch
                             style={{ marginTop: 10 }}
-                            onValueChange={event => props.setSpell(event)}
-                            value={props.potter.spell} />
+                            onValueChange={event => props.setJikanAnime(event)}
+                            value={props.jikan.anime} />
                     </View>
                     <View style={styles.contained}>
-
-                        <Text style={styles.title}>Random Character from Harry Potter</Text>
+                        <Text style={styles.title}>Information on an Anime Character</Text>
                         <Switch
                             style={{ marginTop: 10 }}
-                            onValueChange={event => props.setCharacter(event)}
-                            value={props.potter.character} />
+                            onValueChange={event => props.setJikanCharacter(event)}
+                            value={props.jikan.character} />
                     </View>
-
                 </View> : null
             }
         </View>

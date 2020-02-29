@@ -4,15 +4,15 @@ import axios from 'axios';
 import Text from '../../components/Text'
 import TextInput from '../../components/TextInput';
 
-export default function JinkanAnimeWidget(props) {
-    const [anime, setAnime] = useState('Sailor Moon');
-    const [title, setTitle] = useState('');
+export default function JikanAnimeWidget(props) {
+    const [anime, setAnime] = useState('');
+    const [title, setTitle] = useState('Bishoujo Senshi Sailor Moon');
     const [synopsis, setSynopsis] = useState('');
-    const [type, setType] = useState('');
-    const [episodes, setEpisodes] = useState('');
+    const [type, setType] = useState('TV');
+    const [episodes, setEpisodes] = useState('152');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/jinkan/anime/${anime}`)
+        axios.get(`http://${props.ip}:8080/api/jikan/anime/${anime}`)
             .then(response => {
                 setTitle(response.data.result[0].title);
                 setSynopsis(response.data.result[0].synopsis);
@@ -28,13 +28,13 @@ export default function JinkanAnimeWidget(props) {
         <View style={{ alignItems: 'center' }}>
             <View style={{ paddingTop: 10, paddingBottom: 20 }}>
                 <View style={{ paddingBottom: 5 }}>
-                    <Text swag={{ fontSize: '17px' }}> {title} | {type} | {episodes} episodes </Text>
+                    <Text swag={{ fontSize: 17 }}> {title} | {type} | {episodes} episodes </Text>
                 </View>
                 <Text>{synopsis}</Text>
             </View>
             <TextInput
-                id="outlined-name"
-                label="Movie Title"
+                id="anime"
+                label="Anime Title"
                 value={anime}
                 onChangeText={event => {
                     setAnime(event);

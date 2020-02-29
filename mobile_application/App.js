@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LoginScreen from './screens/LoginScreen';
-import WidgetProvider from "./core/Context";
+import WidgetProvider, { WidgetContext } from "./core/Context";
 
 const Stack = createStackNavigator();
 
@@ -17,7 +17,6 @@ export default function App(props) {
     const [initialNavigationState, setInitialNavigationState] = React.useState();
     const containerRef = React.useRef();
     const { getInitialState } = useLinking(containerRef);
-    const [isLoginOk, setIsLoginOk] = React.useState(true);
 
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {
@@ -49,19 +48,21 @@ export default function App(props) {
         return null;
     } else {
         return (
-            <View style={styles.container}>
-                <WidgetProvider>
-                    {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-                    {isLoginOk === true ?
-                        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-                            <Stack.Navigator>
-                                <Stack.Screen name="Root" component={BottomTabNavigator} />
-                            </Stack.Navigator>
-                        </NavigationContainer>
-                        : <LoginScreen isLoginOk={isLoginOk} setIsLoginOk={setIsLoginOk} />
+            <WidgetProvider>
+                {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+                <WidgetContext.Consumer>
+                    {value => <View style={styles.container}>
+                        {value.isLogged === true ?
+                            <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+                                <Stack.Navigator>
+                                    <Stack.Screen name="Root" component={BottomTabNavigator} />
+                                </Stack.Navigator>
+                            </NavigationContainer>
+                            : <LoginScreen />}
+                    </View>
                     }
-                </WidgetProvider>
-            </View>
+                </WidgetContext.Consumer>
+            </WidgetProvider>
         );
     }
 }

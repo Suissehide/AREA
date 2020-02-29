@@ -5,13 +5,13 @@ import { Text } from 'react-native-elements';
 export default function WeatherService(props) {
     return (
         <View style={styles.container}>
-            {props.weatherS === true ?
+            {props.weather.service === true ?
                 <View style={styles.contained}>
                     <Text style={styles.title}>Weather by City</Text>
                     <Switch
                         style={{ marginTop: 10 }}
                         onValueChange={event => props.setWeatherW(event)}
-                        value={props.weatherW} />
+                        value={props.weather.widget} />
                 </View> : null
             }
         </View>
