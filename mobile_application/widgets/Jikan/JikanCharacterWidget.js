@@ -25,7 +25,10 @@ export default function JikanAnimeWidget(props) {
                 <View style={{ paddingBottom: 5 }}>
                     <Text swag={{ fontSize: 17 }}> {name} </Text>
                 </View>
-                <Image style={{ width: 200, height: 200 }} source={{ uri: imageUrl }} />
+                {name === 'Aelita Schaeffer' ? <Image
+                    style={{ width: 200, height: 200, borderRadius: 15 }} source={{ uri: imageUrl }} /> :
+                    <Image
+                        style={{ width: 168.75, height: 262.5, borderRadius: 15 }} source={{ uri: imageUrl }} />}
             </View>
             <TextInput
                 id="outlined-name"
