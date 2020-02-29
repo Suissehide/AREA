@@ -11,21 +11,29 @@ namespace back.Controllers
     [Route("api/photo")]
     public class PhotoController : ControllerBase
     {
-        private const string HostUrl = "https://api.unsplash.com";
+        #region MEMBERS
+
+        private IPhotoApiClient _photoApiClient;
         private readonly ILogger<PhotoController> _logger;
 
+        #endregion
+
+        #region CONSTRUCTOR
         public PhotoController(ILogger<PhotoController> logger)
         {
             _logger = logger;
+            _photoApiClient = RestService.For<IPhotoApiClient>("https://api.unsplash.com");
         }
 
+        #endregion
+
+        #region ROUTES
         [HttpGet("{themePhoto}")]
         public async Task<IActionResult> ClientGetPhotoByThemeAsync(string themePhoto)
         {
-            var photoApiClient = RestService.For<IPhotoApiClient>(HostUrl);
             try
             {
-                var photos = await photoApiClient.ApiGetPhotoByTheme(themePhoto);
+                var photos = await _photoApiClient.ApiGetPhotoByTheme(themePhoto);
                 return Ok(photos);
             }
             catch (ApiException exMessage)
@@ -34,5 +42,7 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
+
+        #endregion
     }
 }
