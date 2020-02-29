@@ -34,7 +34,6 @@ function Login(props) {
             try {
                 axios.get(`http://${props.ip}/database/login/${email.value}/${password.value}`)
                     .then(response => {
-                        console.log(response.data);
                         response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email or password invalid." });
                         response.data === true ? props.setIsLoginOk(true) : setPassword({ ...password, error: "Email or password invalid." });
                     });

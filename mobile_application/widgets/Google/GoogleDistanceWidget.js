@@ -19,7 +19,6 @@ export default function GoogleDistanceWidget(props) {
     const handleChange = () => {
         axios.get(`http://${props.ip}/api/google/maps/distance/origin=${origin}&destination=${destination}&key=${key}`)
             .then(response => {
-                console.log(response.data)
                 setStatus(response.data.rows[0].elements[0].status);
                 setDestinationAddresses(response.data.destinationAddresses[0]);
                 setOriginAddresses(response.data.originAddresses[0]);
