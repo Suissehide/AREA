@@ -1,4 +1,4 @@
-ng System.Threading.Tasks;
+using System.Threading.Tasks;
 using back.Clients.GoogleApi;
 using back.Models.GoogleApi;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +33,8 @@ namespace back.Controllers.GoogleControllers
         #region ROUTES
 
         [HttpGet("origin={origin}&destination={destination}&key={key}")]
-        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin, string destination, string key)
+        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin,
+            string destination, string key)
         {
             try
             {
@@ -50,3 +51,4 @@ namespace back.Controllers.GoogleControllers
 
         #endregion
     }
+}

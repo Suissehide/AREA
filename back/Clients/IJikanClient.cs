@@ -15,5 +15,8 @@ namespace back.Clients
         
         [Get("/top/anime/1")]
         Task<JikanTopAnimeModel> GetTopAnime();
+
+        [Get("/top/manga/1")]
+        Task<JikanTopMangaModel> GetTopManga();
     }
 }
