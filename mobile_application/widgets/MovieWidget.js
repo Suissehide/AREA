@@ -10,7 +10,7 @@ export default function MovieWidget(props) {
     const [overview, setOverview] = useState('');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/movie-database/movie/${movie}`)
+        axios.get(`http://${props.ip}/api/movie-database/movie/${movie}`)
             .then(response => {
                 setTitle(response.data[0].title);
                 setOverview(response.data[0].overview);

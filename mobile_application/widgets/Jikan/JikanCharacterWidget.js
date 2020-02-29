@@ -10,7 +10,7 @@ export default function JikanAnimeWidget(props) {
     const [imageUrl, setImageUrl] = useState('https://fr.gravatar.com/userimage/153874692/c25f3db16ba5560cd9dbb58d53af938e?size=512');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/jikan/character/${character}`)
+        axios.get(`http://${props.ip}/api/jikan/character/${character}`)
             .then(response => {
                 setName(response.data.characterInfo[0].name);
                 setImageUrl(response.data.characterInfo[0].imageUrl);

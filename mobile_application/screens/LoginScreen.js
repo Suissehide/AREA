@@ -32,7 +32,7 @@ function Login(props) {
 
         const loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/login/${email.value}/${password.value}`)
+                axios.get(`http://${props.ip}/database/login/${email.value}/${password.value}`)
                     .then(response => {
                         console.log(response.data);
                         response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email or password invalid." });
@@ -83,7 +83,7 @@ function Login(props) {
 
                         <View style={styles.forgotPassword}>
                             <TouchableOpacity
-                                onPress={() => setView('password')}
+                            // onPress={() => setView('password')}
                             >
                                 <Text style={styles.label}>Forgot your password?</Text>
                             </TouchableOpacity>

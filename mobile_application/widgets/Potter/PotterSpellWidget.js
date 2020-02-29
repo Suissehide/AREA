@@ -10,7 +10,7 @@ export default function PotterSpell(props) {
     const [effect, setEffect] = useState("Erases Memories");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/potter/spell`)
+        axios.get(`http://${props.ip}/api/potter/spell`)
             .then(response => {
                 setSpell(response.data.spell);
                 setType(response.data.type);
