@@ -74,12 +74,12 @@ namespace back.Controllers
         {
             try
             {
-                JikanTopAnimeModel characterSearchResult = await _jikanClient.GetTopAnime();
-                return Ok(characterSearchResult);
+                JikanTopAnimeModel topAnime = await _jikanClient.GetTopAnime();
+                return Ok(topAnime);
             }
             catch (ApiException exMessage)
             {
-                _logger.LogError(exMessage.Message);
+                _logger.LogError($"Jikan top anime : {exMessage.Message}");
                 return NotFound();
             }
         }
