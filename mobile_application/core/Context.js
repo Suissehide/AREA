@@ -33,6 +33,11 @@ export const WidgetContext = createContext({
     setGoogleService: () => { },
     setGoogleIp: () => { },
     setGoogleDistance: () => { },
+    //
+    joke: { service: true, widget: true },
+    setJokeService: () => { },
+    setJokeWidget: () => { },
+
 });
 
 class WidgetProvider extends Component {
@@ -113,7 +118,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: true, ip: false, distance: true },
+        google: { service: false, ip: false, distance: true },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
@@ -127,6 +132,18 @@ class WidgetProvider extends Component {
         setGoogleDistance: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, distance: value, }
+            }))
+        },
+
+        joke: { service: true, widget: true },
+        setJokeService: (value) => {
+            this.setState(prevState => ({
+                joke: { ...prevState.joke, service: value, }
+            }))
+        },
+        setJokeWidget: (value) => {
+            this.setState(prevState => ({
+                joke: { ...prevState.joke, widget: value, }
             }))
         },
 

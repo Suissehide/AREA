@@ -10,10 +10,11 @@ import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
 import JikanService from '../services/JikanService';
 import GoogleService from '../services/GoogleService';
+import JokeService from '../services/JokeService';
 
 export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
-    movie, setMovieService, setMovieWidget,
+    movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter,
     google, setGoogleService, setGoogleIp, setGoogleDistance,
 }) => (
@@ -38,6 +39,9 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         />
                         <MyCard title="Google Service" value={google.service} setValue={setGoogleService}
                             widget={<GoogleService google={google} setGoogleIp={setGoogleIp} setGoogleDistance={setGoogleDistance} />}
+                        />
+                        <MyCard title="Joke Service" value={joke.service} setValue={setJokeService}
+                            widget={<JokeService joke={joke} setJokeWidget={setJokeWidget} />}
                         />
                     </View>
                 </KeyboardAwareScrollView>
