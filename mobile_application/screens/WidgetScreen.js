@@ -13,6 +13,7 @@ import MovieWidget from '../widgets/MovieWidget'
 import JikanAnimeWidget from '../widgets/Jikan/JikanAnimeWidget';
 import JikanCharacterWidget from '../widgets/Jikan/JikanCharacterWidget';
 import GoogleIpWidget from '../widgets/Google/GoogleIpWidget';
+import GoogleDistanceWidget from '../widgets/Google/GoogleDistanceWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google }) => (
     <Background>
@@ -34,6 +35,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google })
                     <MyCard title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
+                {google.service === true && google.distance === true ?
+                    <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
             </KeyboardAwareScrollView>
         </Fragment>
     </Background>

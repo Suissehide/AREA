@@ -113,7 +113,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: true, ip: true, distance: false },
+        google: { service: true, ip: false, distance: true },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
