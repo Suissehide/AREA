@@ -3,7 +3,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace back.Models.WeatherModel
+namespace back.Models.WeatherApi
 {
     public partial class WeatherModel
     {
@@ -130,12 +130,12 @@ namespace back.Models.WeatherModel
 
     public partial class WeatherModel
     {
-        public static WeatherModel FromJson(string json) => JsonConvert.DeserializeObject<WeatherModel>(json, back.Models.WeatherModel.Converter.Settings);
+        public static WeatherModel FromJson(string json) => JsonConvert.DeserializeObject<WeatherModel>(json, Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this WeatherModel self) => JsonConvert.SerializeObject(self, back.Models.WeatherModel.Converter.Settings);
+        public static string ToJson(this WeatherModel self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 
     internal static class Converter

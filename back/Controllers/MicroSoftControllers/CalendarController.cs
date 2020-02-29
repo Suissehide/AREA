@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
 using System.Threading.Tasks;
+using back.Clients.MicrosoftClients;
 using back.Controllers.MicroSoftControllers;
 
 namespace back.Controllers.MicrosoftControllers
@@ -14,8 +15,7 @@ namespace back.Controllers.MicrosoftControllers
         public CalendarController(ILogger<MicrosoftMainController> logger) : base(logger)
         {
         }
-
-
+        
         [HttpGet]
         public async Task<IActionResult> ClientGetCalendarAsync([Header("Authorization")] string authorization)
         {
@@ -32,4 +32,8 @@ namespace back.Controllers.MicrosoftControllers
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 78fd93d... Add outlook route

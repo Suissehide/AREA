@@ -9,6 +9,7 @@ namespace back.Controllers.MicroSoftControllers
 
         protected readonly ILogger<MicrosoftMainController> _logger;
         protected const string HostUrl = "https://graph.microsoft.com";
+        
         #endregion
 
         #region CONSTRUCTOR

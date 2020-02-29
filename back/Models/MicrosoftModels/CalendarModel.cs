@@ -1,7 +1,7 @@
-using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json;
 
-namespace back.Models.CalendarModel
+namespace back.Models
 {
     public class CalendarModel
     {
@@ -9,7 +9,7 @@ namespace back.Models.CalendarModel
         public Value[] Value { get; set; }
     }
 
-    public class Value
+    public partial class Value
     {
         [JsonProperty("subject")]
         public string Subject { get; set; }

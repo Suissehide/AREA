@@ -1,9 +1,9 @@
 using back.Clients;
-using back.Models.WeatherModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
 using System.Threading.Tasks;
+using back.Models.WeatherApi;
 
 namespace back.Controllers
 {
