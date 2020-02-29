@@ -592,6 +592,13 @@ input {
     right: 5px;
 }
 
+.error-msg {
+    margin-top: 10px;
+    width: 260px;
+    font-size: 12px;
+    color: var(--color-error);
+}
+
 /** Checkbox
  ---------------------------------------------------------*/
 
