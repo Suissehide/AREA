@@ -23,6 +23,10 @@ class SideMenu extends React.Component {
                             <i className="fas fa-bell"/>
                             <p>Notifications</p>
                         </a></li>
+                        <li className={"nav-item " + (this.props.active === 4 ? 'active' : '')}><a className="nav-link" href="/account">
+                            <i className="fas fa-cookie"/>
+                            <p>Account</p>
+                        </a></li>
                     </ul>
                 </div>
                 <div className="sidebar__background" style={{backgroundImage: `url(${background})`}}/>

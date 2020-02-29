@@ -696,3 +696,28 @@ input {
     position: absolute;
     width: fit-content;
 }
+
+/** Checkbox
+ ---------------------------------------------------------*/
+
+.fit-content {
+    width: fit-content !important;
+}
+
+.account-form {
+    display: flex;
+    justify-content: flex-start;
+    padding: 30px 20px;
+}
+
+.account-form label {
+    width: auto;
+    padding-right: 15px;
+    margin: 0;
+}
+
+.account-form button {
+    width: auto;
+    padding: 0 15px;
+    margin: 0;
+}
