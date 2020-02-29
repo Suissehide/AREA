@@ -47,7 +47,7 @@ namespace back.Controllers.GoogleControllers
             }
         }
 
-        [HttpGet("detail/place-id={placeId}&key={key}")]
+        [HttpGet("detail/id={placeId}&key={key}")]
         public async Task<ActionResult<PlaceDetailApiModel>> ClientGetPlaceDetail(string placeId, string key)
         {
             try
