@@ -33,7 +33,7 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google })
                 {jikan.service === true && jikan.character === true ?
                     <MyCard title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
-                    <MyCard title="Information on an Anime Character" widget={<GoogleIpWidget ip={ip} />} /> : null}
+                    <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
             </KeyboardAwareScrollView>
         </Fragment>
     </Background>

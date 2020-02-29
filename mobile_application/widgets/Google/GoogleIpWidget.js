@@ -37,32 +37,34 @@ export default function GoogleIpWidget(props) {
 
     return (
         <View style={{ alignItems: 'center' }}>
-            <View style={{ paddingTop: 10, paddingBottom: 20 }}>
-                <View style={{ paddingBottom: 5 }}>
-                    <Text swag={{ fontSize: 17 }}>
-                        Your IP is {query}. {"\n"}You are situated in {city} {zip}, {country}. {"\n"}
-                        Your organisation is {org}.
-                    </Text>
-                </View>
-            </View>
             {lat === 0 ?
                 <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>See</Text></Button>
                 :
-                <View style={{ height: 300, width: 250, marginTop: -10 }}>
-                    <MapView
-                        style={styles.map}
-                        initialRegion={{
-                            latitude: lat,
-                            longitude: lon,
-                            latitudeDelta: 0.0922,
-                            longitudeDelta: 0.0421,
-                        }}
-                        marker={{}}
-                        scrollEnabled={false}
-                        provider={"google"}
-                    >
-                        <Marker coordinate={{ latitude: lat, longitude: lon }} />
-                    </MapView>
+                <View>
+                    <View style={{ paddingTop: 10, paddingBottom: 20 }}>
+                        <View style={{ paddingBottom: 5 }}>
+                            <Text swag={{ fontSize: 17 }}>
+                                Your IP is {query}. {"\n"}You are situated in {city} {zip}, {country}. {"\n"}
+                                Your organisation is {org}.
+                        </Text>
+                        </View>
+                    </View>
+                    <View style={{ height: 300, width: 250, marginTop: -10 }}>
+                        <MapView
+                            style={styles.map}
+                            initialRegion={{
+                                latitude: lat,
+                                longitude: lon,
+                                latitudeDelta: 0.0922,
+                                longitudeDelta: 0.0421,
+                            }}
+                            marker={{}}
+                            scrollEnabled={false}
+                            provider={"google"}
+                        >
+                            <Marker coordinate={{ latitude: lat, longitude: lon }} />
+                        </MapView>
+                    </View>
                 </View>
             }
         </View>
