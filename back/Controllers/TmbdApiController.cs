@@ -33,7 +33,7 @@ namespace back.Controllers
 
 
         [HttpGet("movie/{title}")]
-        public async Task<ActionResult<TmdbApiMovieModel>> GetMovie(string title)
+        public async Task<ActionResult<TmbdApiMovieListModel>> GetMovie(string title)
         {
             try
             {
