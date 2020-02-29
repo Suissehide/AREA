@@ -5,8 +5,8 @@ namespace back.Models.GoogleApi.Maps.PlaceDetail
 {
     public class PlaceDetailApiModel
     {
-        [JsonProperty("results")]
-        public List<Result> Results { get; set; }
+        [JsonProperty("result")]
+        public Result Result { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
