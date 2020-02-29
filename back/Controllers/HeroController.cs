@@ -8,17 +8,16 @@ using Refit;
 
 namespace back.Controllers
 {
-    [ApiController]
-    [Route("api/hero")]
+    [Route("api/[controller]")]
     public class HeroController : ControllerBase
     {
-        #region MEMBERS
-
+        #region MEMBER
+        
         private readonly ILogger<HeroController> _logger;
         private readonly IHeroClient _heroClient;
 
         #endregion
-
+        
         #region CONSTRUCTOR
 
         public HeroController(ILogger<HeroController> logger)
@@ -31,16 +30,16 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("id/{id}")]
-        public async Task<IActionResult> HeroById(int id)
+        [HttpGet("id/{idHero}")]
+        public async Task<IActionResult> HeroById(int idHero)
         {
             try
             {
-                if (id > 731 || id < 1)
+                if (idHero > 731 || idHero < 1)
                 {
                     return NotFound();
                 }
-                HeroIdModel heroInfo = await _heroClient.HeroById(id);
+                HeroIdModel heroInfo = await _heroClient.HeroById(idHero);
                 return Ok(heroInfo);
             }
             catch (ApiException exMessage)
@@ -49,18 +48,18 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
-        
-        [HttpGet("name/{name}")]
-        public async Task<IActionResult> HeroById(String name)
+       
+        [HttpGet("name/{nameHero}")]
+        public async Task<IActionResult> HeroById(String nameHero)
         {
             try
             {
-                HeroNameModel heroInfo = await _heroClient.HeroByName(name);
-                if (heroInfo.Response == "error")
-                {
-                    return NotFound();
-                }
-                return Ok(heroInfo);
+                HeroNameModel heroInfo = await _heroClient.HeroByName(nameHero);
+            if (heroInfo.Response == "error")
+            {
+                return NotFound();
+            }
+            return Ok(heroInfo);
             }
             catch (ApiException exMessage)
             {
@@ -70,6 +69,5 @@ namespace back.Controllers
         }
         
         #endregion
-        
     }
 }
