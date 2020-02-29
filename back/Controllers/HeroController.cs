@@ -13,7 +13,7 @@ namespace back.Controllers
     public class HeroController : ControllerBase
     {
         #region MEMBER
-        
+     
         private readonly ILogger<HeroController> _logger;
         private readonly IHeroClient _heroClient;
 

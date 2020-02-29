@@ -32,8 +32,4 @@ namespace back.Controllers.MicrosoftControllers
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 78fd93d... Add outlook route
