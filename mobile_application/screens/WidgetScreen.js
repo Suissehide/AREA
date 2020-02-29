@@ -14,8 +14,9 @@ import JikanAnimeWidget from '../widgets/Jikan/JikanAnimeWidget';
 import JikanCharacterWidget from '../widgets/Jikan/JikanCharacterWidget';
 import GoogleIpWidget from '../widgets/Google/GoogleIpWidget';
 import GoogleDistanceWidget from '../widgets/Google/GoogleDistanceWidget';
+import JokeWidget from '../widgets/JokeWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -37,6 +38,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google })
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
                     <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
+                {joke.service === true && joke.widget === true ?
+                    <MyCard title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
             </KeyboardAwareScrollView>
         </Fragment>
     </Background>
