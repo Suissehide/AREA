@@ -15,7 +15,7 @@ class SideMenu extends React.Component {
                             <i className="fas fa-list"/>
                             <p>Dashboard</p>
                         </a></li>
-                        <li className={"nav-item " + (this.props.active === 2 ? 'active' : '')}><a className="nav-link" href="#0">
+                        <li className={"nav-item " + (this.props.active === 2 ? 'active' : '')}><a className="nav-link" href="/user">
                             <i className="fas fa-user"/>
                             <p>User profile</p>
                         </a></li>
