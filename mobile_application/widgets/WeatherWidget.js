@@ -5,6 +5,7 @@ import Text from '../components/Text'
 import TextInput from '../components/TextInput';
 
 export default function WeatherWidget(props) {
+    const [city, setCity] = useState('');
     const [name, setName] = useState('Bordeaux');
     const [description, setdescription] = useState('Sunny');
     const [temp, setTemp] = useState(26);
@@ -17,6 +18,7 @@ export default function WeatherWidget(props) {
     const [clouds, setclouds] = useState(0);
 
     const handleChange = () => {
+        setName(city)
         axios.get(`http://${props.ip}:8080/api/weather/${name}`)
             .then(response => {
                 setdescription(response.data.weather[0].description);
@@ -42,9 +44,9 @@ export default function WeatherWidget(props) {
             <TextInput
                 id="weather"
                 label="City"
-                value={name}
+                value={city}
                 onChangeText={event => {
-                    setName(event);
+                    setCity(event);
                 }}
                 onSubmitEditing={handleChange}
                 margin="normal"

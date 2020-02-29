@@ -34,7 +34,7 @@ export default function RegisterScreen(props) {
         props.setToken(email.value);
         const loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/signup/${name.value}/${password.value}/${email.value}`)
+                axios.get(`http://${props.ip}:8080/database/signup/${email.value}/${password.value}/${name.value}`)
                     .then(response => {
                         console.log(response.data);
                         response.data === true ? props.setIsLoginOk(true) : setEmail({ ...email, error: "Email already taken." })

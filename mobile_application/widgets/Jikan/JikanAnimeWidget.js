@@ -4,7 +4,7 @@ import axios from 'axios';
 import Text from '../../components/Text'
 import TextInput from '../../components/TextInput';
 
-export default function JinkanAnimeWidget(props) {
+export default function JikanAnimeWidget(props) {
     const [anime, setAnime] = useState('');
     const [title, setTitle] = useState('Bishoujo Senshi Sailor Moon');
     const [synopsis, setSynopsis] = useState('');
@@ -12,7 +12,7 @@ export default function JinkanAnimeWidget(props) {
     const [episodes, setEpisodes] = useState('152');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/jinkan/anime/${anime}`)
+        axios.get(`http://${props.ip}:8080/api/jikan/anime/${anime}`)
             .then(response => {
                 setTitle(response.data.result[0].title);
                 setSynopsis(response.data.result[0].synopsis);

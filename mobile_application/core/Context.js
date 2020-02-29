@@ -24,17 +24,17 @@ export const WidgetContext = createContext({
     setMovieService: () => { },
     setMovieWidget: () => { },
     //
-    jinkan: { service: true, anime: true, character: true, },
-    setJinkanService: () => { },
-    setJinkanAnime: () => { },
-    setJinkanCharacter: () => { },
+    jikan: { service: true, anime: true, character: true, },
+    setJikanService: () => { },
+    setJikanAnime: () => { },
+    setJikanCharacter: () => { },
     //
 });
 
 class WidgetProvider extends Component {
     state = {
-        ip: "172.20.10.2",
-        isLogged: false,
+        ip: "localhost",
+        isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
         setToken: (value) => { this.setState({ token: value }) },
@@ -92,20 +92,20 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jinkan: { service: true, anime: false, character: true, },
-        setJinkanService: (value) => {
+        jikan: { service: true, anime: false, character: true, },
+        setJikanService: (value) => {
             this.setState(prevState => ({
-                jinkan: { ...prevState.jinkan, service: value, }
+                jikan: { ...prevState.jikan, service: value, }
             }))
         },
-        setJinkanAnime: (value) => {
+        setJikanAnime: (value) => {
             this.setState(prevState => ({
-                jinkan: { ...prevState.jinkan, anime: value, }
+                jikan: { ...prevState.jikan, anime: value, }
             }))
         },
-        setJinkanCharacter: (value) => {
+        setJikanCharacter: (value) => {
             this.setState(prevState => ({
-                jinkan: { ...prevState.jinkan, character: value, }
+                jikan: { ...prevState.jikan, character: value, }
             }))
         },
 

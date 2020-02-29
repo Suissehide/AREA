@@ -8,12 +8,12 @@ import PotterCharacter from '../widgets/Potter/PotterCharacter';
 import WeatherWidget from '../widgets/WeatherWidget';
 import ChuckWidget from '../widgets/ChuckWidget';
 import MovieWidget from '../widgets/MovieWidget'
-import JinkanAnimeWidget from '../widgets/Jinkan/JinkanAnimeWidget';
-import JinkanCharacterWidget from '../widgets/Jinkan/JinkanCharacterWidget';
+import JikanAnimeWidget from '../widgets/Jikan/JikanAnimeWidget';
+import JikanCharacterWidget from '../widgets/Jikan/JikanCharacterWidget';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Background from '../components/Background';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jinkan }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -27,10 +27,10 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jinkan }) => (
                     <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
                 {movie.service === true && movie.widget === true ?
                     <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
-                {jinkan.service === true && jinkan.anime === true ?
-                    <MyCard title="Information on an Anime" widget={<JinkanAnimeWidget ip={ip} />} /> : null}
-                {jinkan.service === true && jinkan.character === true ?
-                    <MyCard title="Information on an Anime Character" widget={<JinkanCharacterWidget ip={ip} />} /> : null}
+                {jikan.service === true && jikan.anime === true ?
+                    <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
+                {jikan.service === true && jikan.character === true ?
+                    <MyCard title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
             </KeyboardAwareScrollView>
         </Fragment>
     </Background>

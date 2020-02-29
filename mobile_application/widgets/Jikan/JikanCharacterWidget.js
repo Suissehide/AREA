@@ -4,13 +4,13 @@ import axios from 'axios';
 import Text from '../../components/Text'
 import TextInput from '../../components/TextInput';
 
-export default function JinkanAnimeWidget(props) {
+export default function JikanAnimeWidget(props) {
     const [character, setCharacter] = useState('');
     const [name, setName] = useState('Aelita Schaeffer');
     const [imageUrl, setImageUrl] = useState('https://fr.gravatar.com/userimage/153874692/c25f3db16ba5560cd9dbb58d53af938e?size=512');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/jinkan/character/${character}`)
+        axios.get(`http://${props.ip}:8080/api/jikan/character/${character}`)
             .then(response => {
                 setName(response.data.characterInfo[0].name);
                 setImageUrl(response.data.characterInfo[0].imageUrl);

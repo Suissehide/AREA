@@ -6,14 +6,14 @@ import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
 import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
-import JinkanService from '../services/JinkanService';
+import JikanService from '../services/JikanService';
 import Background from '../components/Background';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget,
-    jinkan, setJinkanService, setJinkanAnime, setJinkanCharacter }) => (
+    jikan, setJikanService, setJikanAnime, setJikanCharacter }) => (
         // <View style={styles.container} >
         <Background>
             <Fragment>
@@ -31,8 +31,8 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <MyCard title="The Movie Database Service" value={movie.service} setValue={setMovieService}
                             widget={<MovieService movie={movie} setMovieW={setMovieWidget} />}
                         />
-                        <MyCard title="Jinkan Service" value={jinkan.service} setValue={setJinkanService}
-                            widget={<JinkanService jinkan={jinkan} setJinkanAnime={setJinkanAnime} setJinkanCharacter={setJinkanCharacter} />}
+                        <MyCard title="Jikan Service" value={jikan.service} setValue={setJikanService}
+                            widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter} />}
                         />
                     </View>
                 </KeyboardAwareScrollView>
