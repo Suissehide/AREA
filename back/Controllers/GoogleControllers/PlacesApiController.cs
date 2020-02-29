@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using back.Clients.GoogleApi;
-using back.Models.GoogleApi;
+using back.Models.GoogleApi.Maps.PlaceDetail;
+using back.Models.GoogleApi.Maps.Places;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
-using System;
 
 namespace back.Controllers.GoogleControllers
 {
@@ -15,7 +15,7 @@ namespace back.Controllers.GoogleControllers
     {
         #region MEMBERS
 
-        private readonly IPlaceApiClient _placesApiClient;
+        private readonly IPlacesApiClient _placesApiClient;
         private readonly ILogger<DistanceMatrixApiController> _logger;
 
         #endregion
@@ -25,14 +25,14 @@ namespace back.Controllers.GoogleControllers
         public PlacesApiController(ILogger<DistanceMatrixApiController> logger)
         {
             _logger = logger;
-            _placesApiClient = RestService.For<IPlaceApiClient>("https://maps.googleapis.com/");
+            _placesApiClient = RestService.For<IPlacesApiClient>("https://maps.googleapis.com/");
         }
 
         #endregion
 
         #region ROUTES
 
-        [HttpGet("query={place}&key={key}")]
+        [HttpGet("search/query={place}&key={key}")]
         public async Task<ActionResult<PlacesApiModel>> ClientGetPlace(string place, string key)
         {
             try
@@ -47,6 +47,20 @@ namespace back.Controllers.GoogleControllers
             }
         }
 
+        [HttpGet("detail/place-id={placeId}&key={key}")]
+        public async Task<ActionResult<PlaceDetailApiModel>> ClientGetPlaceDetail(string placeId, string key)
+        {
+            try
+            {
+                PlaceDetailApiModel placeDetailModel = await _placesApiClient.GetPlaceDetail(placeId, key);
+                return Ok(placeDetailModel);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError(exMessage.Message);
+                return NotFound();
+            }
+        }
         #endregion
     }
 }

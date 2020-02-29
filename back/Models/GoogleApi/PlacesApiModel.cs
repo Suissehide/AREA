@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace back.Models.GoogleApi
+namespace back.Models.GoogleApi.Maps.Places
 {
     public class PlacesApiModel
     {
-                [JsonProperty("results")]
+        [JsonProperty("results")]
         public List<Result> Results { get; set; }
 
         [JsonProperty("status")]
