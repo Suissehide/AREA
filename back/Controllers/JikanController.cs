@@ -66,6 +66,24 @@ namespace back.Controllers
             }
         }
         
+        [HttpGet("top_anime")]
+        [ProducesResponseType(typeof(JikanTopAnimeModel), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
+        [ProducesResponseType(typeof(void), 500)]
+        public async Task<IActionResult> GetTopAnime()
+        {
+            try
+            {
+                JikanTopAnimeModel topAnime = await _jikanClient.GetTopAnime();
+                return Ok(topAnime);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError($"Jikan top anime : {exMessage.Message}");
+                return NotFound();
+            }
+        }
+        
         #endregion
     }
 }
