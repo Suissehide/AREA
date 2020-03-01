@@ -10,6 +10,6 @@ namespace back.Clients.GoogleApi
         Task<DistanceMatrixApiModel> GetDistanceMatrix(string origin, string destination, string key);
 
         [Get("/maps/api/distancematrix/json?units=metric&origins={origin}&destinations={destination}&mode={mode}&key={key}")]
-        Task<DistanceMatrixApiModel> GetDistanceMatrixWithMode(string origin, string destination, string key);
+        Task<DistanceMatrixApiModel> GetDistanceMatrixWithMode(string origin, string destination, string mode, string key);
     }
 }
