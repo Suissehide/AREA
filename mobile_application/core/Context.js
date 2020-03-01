@@ -47,6 +47,11 @@ export const WidgetContext = createContext({
     picture: { service: false, widget: false },
     setPictureService: () => { },
     setPictureWidget: () => { },
+    //
+    news: { service: false, banana: false, theme: false },
+    setNewsService: () => { },
+    setNewsBanana: () => { },
+    setNewsTheme: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -178,7 +183,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        picture: { service: true, widget: true },
+        picture: { service: false, widget: false },
         setPictureService: (value) => {
             this.setState(prevState => ({
                 picture: { ...prevState.picture, service: value, }
@@ -187,6 +192,23 @@ class WidgetProvider extends Component {
         setPictureWidget: (value) => {
             this.setState(prevState => ({
                 picture: { ...prevState.picture, widget: value, }
+            }))
+        },
+
+        news: { service: true, banana: true, theme: true },
+        setNewsService: (value) => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, service: value, }
+            }))
+        },
+        setNewsBanana: () => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, banana: value, }
+            }))
+        },
+        setNewsTheme: () => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, theme: value, }
             }))
         },
 
