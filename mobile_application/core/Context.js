@@ -221,17 +221,17 @@ class WidgetProvider extends Component {
         hero: { service: true, random: true, name: true },
         setHeroService: (value) => {
             this.setState(prevState => ({
-                hero: { ...prevState.news, service: value, }
+                hero: { ...prevState.hero, service: value, }
             }))
         },
         setHeroRandom: (value) => {
             this.setState(prevState => ({
-                hero: { ...prevState.news, random: value, }
+                hero: { ...prevState.hero, random: value, }
             }))
         },
         setHeroName: (value) => {
             this.setState(prevState => ({
-                hero: { ...prevState.news, name: value, }
+                hero: { ...prevState.hero, name: value, }
             }))
         },
 
