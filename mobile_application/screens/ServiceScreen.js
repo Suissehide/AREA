@@ -38,7 +38,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         />
                         <MyCard title="Jikan Service" value={jikan.service} setValue={setJikanService}
                             widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter}
-                                setJikanTopAnime={setJikanTopAnime} setJikanTopManga={setJikanTopAnime} />}
+                                setJikanTopAnime={setJikanTopAnime} setJikanTopManga={setJikanTopManga} />}
                         />
                         <MyCard title="Google Service" value={google.service} setValue={setGoogleService}
                             widget={<GoogleService google={google} setGoogleIp={setGoogleIp} setGoogleDistance={setGoogleDistance} />}

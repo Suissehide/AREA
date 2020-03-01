@@ -21,6 +21,20 @@ export default function JikanService(props) {
                             onValueChange={event => props.setJikanCharacter(event)}
                             value={props.jikan.character} />
                     </View>
+                    <View style={styles.contained}>
+                        <Text style={styles.title}>Get the current #1 anime</Text>
+                        <Switch
+                            style={{ marginTop: 3 }}
+                            onValueChange={event => props.setJikanTopAnime(event)}
+                            value={props.jikan.topAnime} />
+                    </View>
+                    <View style={styles.contained}>
+                        <Text style={styles.title}>Get the current #1 manga</Text>
+                        <Switch
+                            style={{ marginTop: 3 }}
+                            onValueChange={event => props.setJikanTopManga(event)}
+                            value={props.jikan.topManga} />
+                    </View>
                 </View> : null
             }
         </View>
