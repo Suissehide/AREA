@@ -1,5 +1,6 @@
 using back.Clients;
-using back.Models;
+using back.Models.PokemonApi.Moveset;
+using back.Models.PokemonApi.PokemonDetail;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
@@ -30,7 +31,7 @@ namespace back.Controllers
 
         #region ROUTES
 
-        [HttpGet("{name}")]
+        [HttpGet("{name}/detail")]
         public async Task<ActionResult<PokemonModel>> ClientGetPokemonByNameAsync(string name)
         {
             try
@@ -45,7 +46,7 @@ namespace back.Controllers
             }
         }
 
-        [HttpGet("moves/{pokemonName}")]
+        [HttpGet("{name}/moves")]
         public async Task<ActionResult<PokemonApiMovesModel>> ClientGetPokemonMoveset(string pokemonName)
         {
             try

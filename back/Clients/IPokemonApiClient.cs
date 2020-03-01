@@ -1,4 +1,5 @@
-using back.Models;
+using back.Models.PokemonApi.Moveset;
+using back.Models.PokemonApi.PokemonDetail;
 using System.Threading.Tasks;
 using Refit;
 

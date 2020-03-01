@@ -1,4 +1,4 @@
-namespace back.Models
+namespace back.Models.PokemonApi.PokemonDetail
 {
     using System;
     using System.Globalization;
@@ -134,12 +134,12 @@ namespace back.Models
 
     public partial class PokemonModel
     {
-        public static PokemonModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonModel>(json, back.Models.Converter.Settings);
+        public static PokemonModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonModel>(json, back.Models.PokemonApi.PokemonDetail.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this PokemonModel self) => JsonConvert.SerializeObject(self, back.Models.Converter.Settings);
+        public static string ToJson(this PokemonModel self) => JsonConvert.SerializeObject(self, back.Models.PokemonApi.PokemonDetail.Converter.Settings);
     }
 
     internal static class Converter
