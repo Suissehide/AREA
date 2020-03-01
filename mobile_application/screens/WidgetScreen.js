@@ -19,7 +19,7 @@ import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
 import PictureWidget from '../widgets/PictureWidget';
 import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
-
+import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news }) => (
     <Background>
@@ -46,6 +46,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
                 {news.service === true && news.banana === true ?
                     <MyCard title="Bananews" widget={<NewsBananaWidget ip={ip} />} /> : null}
+                {news.service === true && news.theme === true ?
+                    <MyCard title="News" widget={<NewsThemeWidget ip={ip} />} /> : null}
                 {picture.service === true && picture.widget === true ?
                     <MyCard title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
                 {pokemon.service === true && pokemon.widget === true ?
