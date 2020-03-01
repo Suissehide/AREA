@@ -27,7 +27,10 @@ namespace back.Models.GoogleApi.Maps.PlaceDetail
         public List<Photo> Photos { get; set; }
 
         [JsonProperty("opening_hours")]
-        public OpeningHours OpeningHours { get; set; }
+        public OpeningHours OpeningHours{ get; set; }
+
+        [JsonProperty("types")]
+        public List<string> Types { get; set; }
 
     }
 
