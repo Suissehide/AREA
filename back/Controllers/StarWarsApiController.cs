@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using back.Clients.StarWarsApi;
 using back.Models.StarWarsApi.StarWarsPeopleModel;
 using back.Models.StarWarsApi.StarWarsPlanetModel;
+using back.Models.StarWarsApi.StarWarsStarshipModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
@@ -39,7 +40,6 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(87);
-                Console.WriteLine(id);
                 StarWarsPeopleModel peopleInfo = await _starWarsCient.GetCharacterById(id);
                 return Ok(peopleInfo);
             }
@@ -57,8 +57,24 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(61);
-                Console.WriteLine(id);
-                StarWarsPlanetModel peopleInfo = await _starWarsCient.GetPlanetById(id);
+                StarWarsPlanetModel planetInfo = await _starWarsCient.GetPlanetById(id);
+                return Ok(planetInfo);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError(exMessage.Message);
+                return NotFound(exMessage);
+            }
+        }
+
+        [HttpGet("starship/random")]
+        public async Task<IActionResult> GetRandomStarship()
+        {
+            try
+            {
+                Random rand = new Random();
+                int id = rand.Next(37);
+                StarWarsStarshipModel peopleInfo = await _starWarsCient.GetStarshipById(id);
                 return Ok(peopleInfo);
             }
             catch (ApiException exMessage)
