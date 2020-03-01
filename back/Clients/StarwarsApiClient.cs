@@ -11,6 +11,6 @@ namespace back.Clients.StarWarsApi
         Task<StarWarsPeoplesModel> GetAllCharacters();
 
         [Get("/people/{id}")]
-        Task<StarWarsPeopleModel> getCharacterById(string id);
+        Task<StarWarsPeopleModel> getCharacterById(int id);
     }
 }
