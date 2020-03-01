@@ -52,6 +52,12 @@ export const WidgetContext = createContext({
     setNewsService: () => { },
     setNewsBanana: () => { },
     setNewsTheme: () => { },
+    //
+    hero: { service: false, random: false, name: false },
+    setHeroService: () => { },
+    setHeroRandom: () => { },
+    setHeroName: () => { },
+    //
 });
 
 class WidgetProvider extends Component {
@@ -195,7 +201,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        news: { service: true, banana: true, theme: true },
+        news: { service: false, banana: false, theme: false },
         setNewsService: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, service: value, }
@@ -209,6 +215,23 @@ class WidgetProvider extends Component {
         setNewsTheme: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, theme: value, }
+            }))
+        },
+
+        hero: { service: true, random: true, name: true },
+        setHeroService: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.news, service: value, }
+            }))
+        },
+        setHeroRandom: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.news, random: value, }
+            }))
+        },
+        setHeroName: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.news, name: value, }
             }))
         },
 
