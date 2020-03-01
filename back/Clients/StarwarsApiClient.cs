@@ -4,7 +4,7 @@ using Refit;
 
 namespace back.Clients.StarWarsApi
 {
-    public interface IChuckClient
+    public interface IStarWarsApiClient
     {
         [Get("/people")]
         Task<StarWarsPeoplesModel> GetAllCharacters(string theme);
