@@ -48,7 +48,7 @@ namespace back.Controllers.GoogleControllers
             }
         }
 
-        [HttpGet("origin={origin}&destination={destination}&mode={mode}&key={key}")]
+        [HttpGet("modes/origin={origin}&destination={destination}&mode={mode}&key={key}")]
         public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrixWithMode(string origin,
             string destination, string mode, string key)
         {
