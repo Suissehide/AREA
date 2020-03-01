@@ -24,10 +24,12 @@ export const WidgetContext = createContext({
     setMovieService: () => { },
     setMovieWidget: () => { },
     //
-    jikan: { service: true, anime: true, character: true, },
+    jikan: { service: true, anime: true, character: true, topAnime: true, topManga: true },
     setJikanService: () => { },
     setJikanAnime: () => { },
     setJikanCharacter: () => { },
+    setJikanTopAnime: () => { },
+    setJikanTopManga: () => { },
     //
     google: { service: true, ip: false, distance: false },
     setGoogleService: () => { },
@@ -104,7 +106,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jikan: { service: false, anime: false, character: true, },
+        jikan: { service: true, anime: false, character: true, topAnime: true, topManga: true },
         setJikanService: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, service: value, }
@@ -118,6 +120,16 @@ class WidgetProvider extends Component {
         setJikanCharacter: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, character: value, }
+            }))
+        },
+        setJikanTopAnime: (value) => {
+            this.setState(prevState => ({
+                jikan: { ...prevState.jikan, topAnime: value, }
+            }))
+        },
+        setJikanTopManga: (value) => {
+            this.setState(prevState => ({
+                jikan: { ...prevState.jikan, topManga: value, }
             }))
         },
 
@@ -150,7 +162,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        pokemon: { service: true, widget: true },
+        pokemon: { service: false, widget: true },
         setPokemonService: (value) => {
             this.setState(prevState => ({
                 pokemon: { ...prevState.pokemon, service: value, }
