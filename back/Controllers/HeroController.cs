@@ -31,31 +31,29 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("id/{id}")]
-        public async Task<IActionResult> HeroById(int id)
+        [HttpGet("random")]
+        public async Task<IActionResult> HeroRandom()
         {
             try
             {
-                if (id > 731 || id < 1)
-                {
-                    return NotFound();
-                }
-                HeroIdModel heroInfo = await _heroClient.HeroById(id);
+                Random rand = new Random();
+                int nbrInList = rand.Next(731);
+                HeroIdModel heroInfo = await _heroClient.HeroById(nbrInList);
                 return Ok(heroInfo);
             }
             catch (ApiException exMessage)
             {
-                _logger.LogError($"Hero search by id : {exMessage.Message}");
+                _logger.LogError($"Hero get a random hero : {exMessage.Message}");
                 return NotFound(exMessage);
             }
         }
        
-        [HttpGet("name/{nameHero}")]
-        public async Task<IActionResult> HeroById(String nameHero)
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> HeroById(String name)
         {
             try
             {
-                HeroNameModel heroInfo = await _heroClient.HeroByName(nameHero);
+                HeroNameModel heroInfo = await _heroClient.HeroByName(name);
                 if (heroInfo.Response == "error")
                 {
                     return NotFound();
