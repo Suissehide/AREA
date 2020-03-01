@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
 using System.Threading.Tasks;
-using back.Controllers.MicroSoftControllers;
 
 namespace back.Controllers.MicrosoftControllers
 {
