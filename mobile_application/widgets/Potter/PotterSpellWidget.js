@@ -5,12 +5,12 @@ import axios from 'axios';
 import Text from '../../components/Text'
 
 export default function PotterSpell(props) {
-    const [spell, setSpell] = useState("");
-    const [type, setType] = useState("");
-    const [effect, setEffect] = useState("");
+    const [spell, setSpell] = useState("Oblivates");
+    const [type, setType] = useState("Charm");
+    const [effect, setEffect] = useState("Erases Memories");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/PotterApi/randomSpells`)
+        axios.get(`http://${props.ip}:8080/api/potter/spell`)
             .then(response => {
                 setSpell(response.data.spell);
                 setType(response.data.type);
@@ -22,7 +22,7 @@ export default function PotterSpell(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Get a random spell</Text></Button>
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random Spell</Text></Button>
             <Text> Spell Name : {spell}</Text>
             <Text> Spell Type : {type}</Text>
             <Text> Spell Effect : {effect}</Text>

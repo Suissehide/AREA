@@ -1,8 +1,8 @@
-using back.Models.CalendarModel;
-using Refit;
 using System.Threading.Tasks;
+using back.Models;
+using Refit;
 
-namespace back.Clients
+namespace back.Clients.MicrosoftClients
 {
     public interface ICalendarApi
     {

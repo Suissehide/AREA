@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
@@ -9,11 +9,17 @@ import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
 import RegisterScreen from "./RegisterScreen"
+import { withWidget } from "../core/Context";
+import axios from 'axios';
 
-export default function LoginScreen(props) {
+
+function Login(props) {
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
     const [view, setView] = useState('normal');
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+
     const _onLoginPressed = () => {
         const emailError = emailValidator(email.value);
         const passwordError = passwordValidator(password.value);
@@ -23,65 +29,85 @@ export default function LoginScreen(props) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-        props.setIsLoginOk(true);
+
+        const loadData = () => {
+            try {
+                axios.get(`http://${props.ip}:8080/database/login/${email.value}/${password.value}`)
+                    .then(response => {
+                        console.log(response.data);
+                        response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email or password invalid." });
+                        response.data === true ? props.setIsLoginOk(true) : setPassword({ ...password, error: "Email or password invalid." });
+                    });
+            } catch (error) {
+                if (axios.isCancel(error)) {
+                    console.log("cancelled");
+                } else {
+                    throw error;
+                }
+            }
+        };
+        loadData();
+        return () => { source.cancel(); };
     };
 
     switch (view) {
         case 'normal':
             return (
                 <Background>
-                    <Logo />
-                    <Header>Welcome on Bananews !</Header>
+                    <KeyboardAvoidingView style={styles.container} behavior="padding">
+                        <Logo />
+                        <Header>Welcome on Bananews !</Header>
 
-                    <TextInput
-                        label="Email"
-                        returnKeyType="next"
-                        value={email.value}
-                        onChangeText={text => setEmail({ value: text, error: '' })}
-                        error={!!email.error}
-                        errorText={email.error}
-                        autoCapitalize="none"
-                        autoCompleteType="email"
-                        textContentType="emailAddress"
-                        keyboardType="email-address"
-                    />
+                        <TextInput
+                            label="Email"
+                            returnKeyType="next"
+                            value={email.value}
+                            onChangeText={text => setEmail({ value: text, error: '' })}
+                            error={!!email.error}
+                            errorText={email.error}
+                            autoCapitalize="none"
+                            autoCompleteType="email"
+                            textContentType="emailAddress"
+                            keyboardType="email-address"
+                        />
 
-                    <TextInput
-                        label="Password"
-                        returnKeyType="done"
-                        value={password.value}
-                        onChangeText={text => setPassword({ value: text, error: '' })}
-                        error={!!password.error}
-                        errorText={password.error}
-                        secureTextEntry
-                    />
+                        <TextInput
+                            label="Password"
+                            returnKeyType="done"
+                            value={password.value}
+                            onChangeText={text => setPassword({ value: text, error: '' })}
+                            error={!!password.error}
+                            errorText={password.error}
+                            secureTextEntry
+                        />
 
-                    <View style={styles.forgotPassword}>
-                        <TouchableOpacity
-                            onPress={() => setView('password')}
-                        >
-                            <Text style={styles.label}>Forgot your password?</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <View style={styles.forgotPassword}>
+                            <TouchableOpacity
+                                onPress={() => setView('password')}
+                            >
+                                <Text style={styles.label}>Forgot your password?</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                    <Button mode="contained" onPress={_onLoginPressed}>
-                        Login
+                        <Button mode="contained" onPress={_onLoginPressed}>
+                            Login
                     </Button>
 
-                    <View style={styles.row}>
-                        <Text style={styles.label}>Don’t have an account? </Text>
-                        <TouchableOpacity
-                            onPress={() => setView('newUser')}
-                        >
-                            <Text style={styles.link}>Sign up</Text>
-                        </TouchableOpacity>
-                    </View>
+                        <View style={styles.row}>
+                            <Text style={styles.label}>Don’t have an account? </Text>
+                            <TouchableOpacity
+                                onPress={() => setView('newUser')}
+                            >
+                                <Text style={styles.link}>Sign up</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </KeyboardAvoidingView>
                 </Background>
             );
         case 'password':
             return (<ForgotPasswordScreen setView={setView} />);
         case 'newUser':
-            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} />);
+            return (<RegisterScreen setView={setView} setIsLoginOk={props.setIsLoginOk} ip={props.ip} setToken={props.setToken} token={props.token} />);
     }
 };
 
@@ -102,4 +128,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: theme.colors.primary,
     },
+    container: {
+        flex: 1,
+        padding: 20,
+        width: '100%',
+        maxWidth: 340,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
+
+export default withWidget(({ token, setToken, setIsLogged, ip }) => (
+    <Login token={token} setToken={setToken} setIsLoginOk={setIsLogged} ip={ip} />
+));

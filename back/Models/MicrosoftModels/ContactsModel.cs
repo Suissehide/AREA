@@ -7,7 +7,8 @@ namespace back.Models
         [JsonProperty("value")]
         public Value[] Value { get; set; }
     }
-    public class Value
+
+    public partial class Value
     {
         [JsonProperty("displayName")]
         public string DisplayName { get; set; }

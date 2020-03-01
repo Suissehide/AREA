@@ -1,42 +1,48 @@
 import React, { Fragment } from "react";
 import { StyleSheet, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { withWidget } from "../core/Context";
 import MyCard from '../components/CardService';
 import PotterService from '../services/PotterService';
 import WeatherService from '../services/WeatherService';
 import ChuckService from '../services/ChuckService';
 import MovieService from '../services/MovieService';
+import JikanService from '../services/JikanService';
+import Background from '../components/Background';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-
-export default withWidget(({ potterS, setPotterS, potterSpell, setPotterSpell, potterCharacter, setPotterCharacter,
-    weatherS, setWeatherS, weatherW, setWeatherW,
-    chuckS, setChuckS, chuckW, setChuckW,
-    movieS, setMovieS, movieW, setMovieW }) => (
-        <View style={styles.container} >
+export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
+    weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
+    movie, setMovieService, setMovieWidget,
+    jikan, setJikanService, setJikanAnime, setJikanCharacter }) => (
+        <Background>
             <Fragment>
-                <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                    <MyCard title="Harry Potter Service" value={potterS} setValue={setPotterS}
-                        widget={<PotterService potterS={potterS} spell={potterSpell} setSpell={setPotterSpell} character={potterCharacter} setCharacter={setPotterCharacter} />}
-                    />
-                    <MyCard title="Weather Service" value={weatherS} setValue={setWeatherS}
-                        widget={<WeatherService weatherS={weatherS} weatherW={weatherW} setWeatherW={setWeatherW} />}
-                    />
-                    <MyCard title="Chuck Norris Service" value={chuckS} setValue={setChuckS}
-                        widget={<ChuckService chuckS={chuckS} chuckW={chuckW} setChuckW={setChuckW} />}
-                    />
-                    <MyCard title="The Movie Database Service" value={movieS} setValue={setMovieS}
-                        widget={<MovieService movieS={movieS} movieW={movieW} setMovieW={setMovieW} />}
-                    />
-                </ScrollView>
+                <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                    <View style={{ width: '90%' }}>
+                        <MyCard title="Harry Potter Service" value={potter.service} setValue={setPotterService}
+                            widget={<PotterService potter={potter} setSpell={setPotterSpell} setCharacter={setPotterCharacter} />}
+                        />
+                        <MyCard title="Weather Service" value={weather.service} setValue={setWeatherService}
+                            widget={<WeatherService weather={weather} setWeatherW={setWeatherWidget} />}
+                        />
+                        <MyCard title="Chuck Norris Service" value={chuck.service} setValue={setChuckService}
+                            widget={<ChuckService chuck={chuck} setChuckW={setChuckWidget} />}
+                        />
+                        <MyCard title="The Movie Database Service" value={movie.service} setValue={setMovieService}
+                            widget={<MovieService movie={movie} setMovieW={setMovieWidget} />}
+                        />
+                        <MyCard title="Jikan Service" value={jikan.service} setValue={setJikanService}
+                            widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter} />}
+                        />
+                    </View>
+                </KeyboardAwareScrollView>
             </Fragment>
-        </View >
+        </Background>
     ));
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        width: '100%',
     },
     contentContainer: {
         paddingTop: 30,

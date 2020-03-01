@@ -12,13 +12,13 @@ namespace back.Controllers
     [Route("api/hero")]
     public class HeroController : ControllerBase
     {
-        #region MEMBERS
-
+        #region MEMBER
+     
         private readonly ILogger<HeroController> _logger;
         private readonly IHeroClient _heroClient;
 
         #endregion
-
+        
         #region CONSTRUCTOR
 
         public HeroController(ILogger<HeroController> logger)
@@ -31,25 +31,23 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("id/{id}")]
-        public async Task<IActionResult> HeroById(int id)
+        [HttpGet("random")]
+        public async Task<IActionResult> HeroRandom()
         {
             try
             {
-                if (id > 731 || id < 1)
-                {
-                    return NotFound();
-                }
-                HeroIdModel heroInfo = await _heroClient.HeroById(id);
+                Random rand = new Random();
+                int nbrInList = rand.Next(731);
+                HeroIdModel heroInfo = await _heroClient.HeroById(nbrInList);
                 return Ok(heroInfo);
             }
             catch (ApiException exMessage)
             {
-                _logger.LogError($"Hero search by id : {exMessage.Message}");
+                _logger.LogError($"Hero get a random hero : {exMessage.Message}");
                 return NotFound(exMessage);
             }
         }
-        
+       
         [HttpGet("name/{name}")]
         public async Task<IActionResult> HeroById(String name)
         {
@@ -70,6 +68,5 @@ namespace back.Controllers
         }
         
         #endregion
-        
     }
 }

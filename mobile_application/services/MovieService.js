@@ -5,13 +5,13 @@ import { Text } from 'react-native-elements';
 export default function MovieService(props) {
     return (
         <View style={styles.container}>
-            {props.movieS === true ?
+            {props.movie.service === true ?
                 <View style={styles.contained}>
                     <Text style={styles.title}>Info on a Movie</Text>
                     <Switch
                         style={{ marginTop: 10 }}
                         onValueChange={event => props.setMovieW(event)}
-                        value={props.movieW} />
+                        value={props.movie.widget} />
                 </View> : null
             }
         </View>

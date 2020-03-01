@@ -61,11 +61,47 @@ namespace back.Controllers
             }
             catch (ApiException exMessage)
             {
-                _logger.LogError(exMessage.Message);
+                _logger.LogError($"Jikan search character : {exMessage.Message}");
                 return NotFound();
             }
         }
         
+        [HttpGet("top_anime")]
+        [ProducesResponseType(typeof(JikanTopAnimeModel), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
+        [ProducesResponseType(typeof(void), 500)]
+        public async Task<IActionResult> GetTopAnime()
+        {
+            try
+            {
+                JikanTopAnimeModel topAnime = await _jikanClient.GetTopAnime();
+                return Ok(topAnime);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError($"Jikan top anime : {exMessage.Message}");
+                return NotFound();
+            }
+        }
+        
+        [HttpGet("top_manga")]
+        [ProducesResponseType(typeof(JikanTopMangaModel), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
+        [ProducesResponseType(typeof(void), 500)]
+        public async Task<IActionResult> GetTopManga()
+        {
+            try
+            {
+                JikanTopMangaModel topManga = await _jikanClient.GetTopManga();
+                return Ok(topManga);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError($"Jikan get top manga : {exMessage.Message}");
+                return NotFound();
+            }
+        }
+
         #endregion
     }
 }

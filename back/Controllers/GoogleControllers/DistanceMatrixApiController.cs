@@ -33,7 +33,8 @@ namespace back.Controllers.GoogleControllers
         #region ROUTES
 
         [HttpGet("origin={origin}&destination={destination}&key={key}")]
-        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin, string destination, string key)
+        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin,
+            string destination, string key)
         {
             try
             {
