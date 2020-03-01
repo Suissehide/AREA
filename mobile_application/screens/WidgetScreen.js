@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
 import Background from '../components/Background';
 import MyCard from '../widgets/CardTemplate';
@@ -22,6 +21,7 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+
                 {potter.service === true && potter.spell === true ?
                     <MyCard title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.character === true ?
@@ -46,6 +46,7 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
                 {pokemon.service === true && pokemon.widget === true ?
                     <MyCard title="Get information on a Pokemon" widget={<PokemonWidget ip={ip} />} /> : null}
+
             </KeyboardAwareScrollView>
         </Fragment>
     </Background>
@@ -58,13 +59,4 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingTop: 15,
     },
-    title: {
-        fontSize: 20,
-        alignSelf: "center",
-    },
-    card: {
-        backgroundColor: theme.colors.primary,
-        borderWidth: 0,
-        borderRadius: 20
-    }
 });
