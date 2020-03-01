@@ -39,6 +39,7 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(87);
+                Console.WriteLine(id);
                 StarWarsPeopleModel peopleInfo = await _starWarsCient.getCharacterById(id);
                 return Ok(peopleInfo);
             }
