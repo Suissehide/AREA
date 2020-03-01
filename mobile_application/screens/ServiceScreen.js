@@ -18,12 +18,12 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
     google, setGoogleService, setGoogleIp, setGoogleDistance,
-    pokemon, setPokemonService, setPokemonWidget,
-}) => (
+    pokemon, setPokemonService, setPokemonWidget, }) => (
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                     <View style={{ width: '90%' }}>
+
                         <MyCard title="Harry Potter Service" value={potter.service} setValue={setPotterService}
                             widget={<PotterService potter={potter} setSpell={setPotterSpell} setCharacter={setPotterCharacter} />}
                         />
@@ -49,6 +49,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <MyCard title="Pokemon Service" value={pokemon.service} setValue={setPokemonService}
                             widget={<PokemonService pokemon={pokemon} setPokemonWidget={setPokemonWidget} />}
                         />
+
                     </View>
                 </KeyboardAwareScrollView>
             </Fragment>
@@ -62,9 +63,5 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 30,
-    },
-    getStartedContainer: {
-        alignItems: 'center',
-        marginHorizontal: 50,
-    },
+    }
 });
