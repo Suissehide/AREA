@@ -1,9 +1,8 @@
-namespace back.Models
+using System;
+using Newtonsoft.Json;
+
+namespace back.Models.PokemonApi.PokemonDetail
 {
-    using System;
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
 
     public partial class PokemonModel
     {
@@ -39,7 +38,7 @@ namespace back.Models
     public partial class Ability
     {
         [JsonProperty("ability")]
-        public Species AbilityAbility { get; set; }
+        public Species2 AbilityAbility { get; set; }
 
         [JsonProperty("is_hidden")]
         public bool IsHidden { get; set; }
@@ -48,7 +47,7 @@ namespace back.Models
         public long Slot { get; set; }
     }
 
-    public partial class Species
+    public class Species2
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -63,13 +62,13 @@ namespace back.Models
         public long GameIndexGameIndex { get; set; }
 
         [JsonProperty("version")]
-        public Species Version { get; set; }
+        public Species2 Version { get; set; }
     }
 
     public partial class HeldItem
     {
         [JsonProperty("item")]
-        public Species Item { get; set; }
+        public Species2 Item { get; set; }
 
         [JsonProperty("version_details")]
         public VersionDetail[] VersionDetails { get; set; }
@@ -81,28 +80,7 @@ namespace back.Models
         public long Rarity { get; set; }
 
         [JsonProperty("version")]
-        public Species Version { get; set; }
-    }
-
-    public partial class Move
-    {
-        [JsonProperty("move")]
-        public Species MoveMove { get; set; }
-
-        [JsonProperty("version_group_details")]
-        public VersionGroupDetail[] VersionGroupDetails { get; set; }
-    }
-
-    public partial class VersionGroupDetail
-    {
-        [JsonProperty("level_learned_at")]
-        public long LevelLearnedAt { get; set; }
-
-        [JsonProperty("move_learn_method")]
-        public Species MoveLearnMethod { get; set; }
-
-        [JsonProperty("version_group")]
-        public Species VersionGroup { get; set; }
+        public Species2 Version { get; set; }
     }
 
     public partial class Sprites
@@ -141,7 +119,7 @@ namespace back.Models
         public long Effort { get; set; }
 
         [JsonProperty("stat")]
-        public Species StatStat { get; set; }
+        public Species2 StatStat { get; set; }
     }
 
     public partial class TypeElement
@@ -150,29 +128,7 @@ namespace back.Models
         public long Slot { get; set; }
 
         [JsonProperty("type")]
-        public Species Type { get; set; }
+        public Species2 Type { get; set; }
     }
 
-    public partial class PokemonModel
-    {
-        public static PokemonModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonModel>(json, back.Models.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this PokemonModel self) => JsonConvert.SerializeObject(self, back.Models.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters =
-            {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
 }
