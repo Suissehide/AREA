@@ -138,7 +138,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        joke: { service: true, widget: true },
+        joke: { service: false, widget: true },
         setJokeService: (value) => {
             this.setState(prevState => ({
                 joke: { ...prevState.joke, service: value, }
