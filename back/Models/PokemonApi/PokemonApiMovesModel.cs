@@ -17,11 +17,11 @@ namespace back.Models.PokemonApi.Moveset
 
     public partial class PokemonApiMovesModel
     {
-        [JsonProperty("moves")]
-        public List<Move> Moves { get; set; }
-
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("moves")]
+        public List<Move> Moves { get; set; }
     }
 
     public partial class Species
