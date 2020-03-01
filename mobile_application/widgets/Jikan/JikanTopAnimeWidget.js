@@ -48,7 +48,7 @@ export default function JikanTopAnimeWidget(props) {
             {type === "Movie" ? <Text swag={{ fontSize: 17 }}>{type} </Text> : <Text swag={{ fontSize: 17 }}> {episodes} episodes </Text>}
             <Text swag={{ fontSize: 17 }}> Scored {score}/10 {"\n"} Started: {startDate} | Ended: {endDate} </Text>
             <View style={{ flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'space-around', paddingTop: 15 }} >
-                <TouchableOpacity onPress={() => setNumber(number - 1)}>
+                <TouchableOpacity onPress={() => setNumber(Math.abs(number - 1))}>
                     <MyIcon name="ios-arrow-back" />
                 </TouchableOpacity>
                 <Image style={{ width: 200, height: 310, borderRadius: 15 }} source={{ uri: imageUrl }} />
