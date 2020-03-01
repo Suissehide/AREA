@@ -7,7 +7,7 @@ export const WidgetContext = createContext({
     token: 1,
     setToken: () => { },
     //
-    potter: { service: false, spell: true, character: true, },
+    potter: { service: false, spell: false, character: false, },
     setPotterService: () => { },
     setPotterSpell: () => { },
     setPotterCharacter: () => { },
@@ -16,33 +16,42 @@ export const WidgetContext = createContext({
     setWeatherService: () => { },
     setWeatherWidget: () => { },
     //
-    chuck: { service: true, widget: true, },
+    chuck: { service: false, widget: false, },
     setChuckService: () => { },
     setChuckWidget: () => { },
     //
-    movie: { service: true, widget: true, },
+    movie: { service: false, widget: false, },
     setMovieService: () => { },
     setMovieWidget: () => { },
     //
-    jikan: { service: true, anime: true, character: true, topAnime: true, topManga: true },
+    jikan: { service: false, anime: false, character: false, topAnime: false, topManga: false },
     setJikanService: () => { },
     setJikanAnime: () => { },
     setJikanCharacter: () => { },
     setJikanTopAnime: () => { },
     setJikanTopManga: () => { },
     //
-    google: { service: true, ip: false, distance: false },
+    google: { service: false, ip: false, distance: false },
     setGoogleService: () => { },
     setGoogleIp: () => { },
     setGoogleDistance: () => { },
     //
-    joke: { service: false, widget: true },
+    joke: { service: false, widget: false },
     setJokeService: () => { },
     setJokeWidget: () => { },
     //
-    pokemon: { service: true, widget: true },
+    pokemon: { service: false, widget: false },
     setPokemonService: () => { },
     setPokemonWidget: () => { },
+    //
+    picture: { service: false, widget: false },
+    setPictureService: () => { },
+    setPictureWidget: () => { },
+    //
+    news: { service: false, banana: false, theme: false },
+    setNewsService: () => { },
+    setNewsBanana: () => { },
+    setNewsTheme: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -53,7 +62,7 @@ class WidgetProvider extends Component {
         token: 6,
         setToken: (value) => { this.setState({ token: value }) },
 
-        potter: { service: false, spell: true, character: true, },
+        potter: { service: false, spell: false, character: false, },
         setPotterService: (value) => {
             this.setState(prevState => ({
                 potter: { ...prevState.potter, service: value, }
@@ -82,7 +91,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        chuck: { service: false, widget: true, },
+        chuck: { service: false, widget: false, },
         setChuckService: (value) => {
             this.setState(prevState => ({
                 chuck: { ...prevState.chuck, service: value, }
@@ -94,7 +103,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        movie: { service: false, widget: true, },
+        movie: { service: false, widget: false, },
         setMovieService: (value) => {
             this.setState(prevState => ({
                 movie: { ...prevState.movie, service: value, }
@@ -106,7 +115,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jikan: { service: true, anime: false, character: true, topAnime: true, topManga: true },
+        jikan: { service: false, anime: false, character: false, topAnime: false, topManga: false },
         setJikanService: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, service: value, }
@@ -133,7 +142,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: false, ip: false, distance: true },
+        google: { service: false, ip: false, distance: false },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
@@ -150,7 +159,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        joke: { service: false, widget: true },
+        joke: { service: false, widget: false },
         setJokeService: (value) => {
             this.setState(prevState => ({
                 joke: { ...prevState.joke, service: value, }
@@ -162,7 +171,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        pokemon: { service: false, widget: true },
+        pokemon: { service: false, widget: false },
         setPokemonService: (value) => {
             this.setState(prevState => ({
                 pokemon: { ...prevState.pokemon, service: value, }
@@ -173,6 +182,36 @@ class WidgetProvider extends Component {
                 pokemon: { ...prevState.pokemon, widget: value, }
             }))
         },
+
+        picture: { service: false, widget: false },
+        setPictureService: (value) => {
+            this.setState(prevState => ({
+                picture: { ...prevState.picture, service: value, }
+            }))
+        },
+        setPictureWidget: (value) => {
+            this.setState(prevState => ({
+                picture: { ...prevState.picture, widget: value, }
+            }))
+        },
+
+        news: { service: true, banana: true, theme: true },
+        setNewsService: (value) => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, service: value, }
+            }))
+        },
+        setNewsBanana: (value) => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, banana: value, }
+            }))
+        },
+        setNewsTheme: (value) => {
+            this.setState(prevState => ({
+                news: { ...prevState.news, theme: value, }
+            }))
+        },
+
     };
 
     render() {
