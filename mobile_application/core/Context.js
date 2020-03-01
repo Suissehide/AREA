@@ -70,6 +70,11 @@ export const WidgetContext = createContext({
     setMicrosoftDrive: () => { },
     setMicrosoftGraph: () => { },
     setMicrosoftOutlook: () => { },
+    //
+    iss: { service: false, location: false, person: false },
+    setIssService: () => { },
+    setIssLocation: () => { },
+    setIssPerson: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -296,6 +301,22 @@ class WidgetProvider extends Component {
             }))
         },
 
+        iss: { service: false, location: false, person: false },
+        setIssService: (value) => {
+            this.setState(prevState => ({
+                iss: { ...prevState.iss, service: value, }
+            }))
+        },
+        setIssLocation: (value) => {
+            this.setState(prevState => ({
+                iss: { ...prevState.iss, location: value, }
+            }))
+        },
+        setIssPerson: (value) => {
+            this.setState(prevState => ({
+                iss: { ...prevState.iss, person: value, }
+            }))
+        },
     };
 
     render() {
