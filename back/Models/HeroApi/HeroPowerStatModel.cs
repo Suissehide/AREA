@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 
 namespace back.Models.HeroApi
@@ -5,27 +6,21 @@ namespace back.Models.HeroApi
     public class HeroPowerStatModel
     {
         [JsonProperty("intelligence")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Intelligence { get; set; }
+        public String Intelligence { get; set; }
 
         [JsonProperty("strength")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Strength { get; set; }
+        public String Strength { get; set; }
 
         [JsonProperty("speed")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Speed { get; set; }
+        public String Speed { get; set; }
 
         [JsonProperty("durability")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Durability { get; set; }
+        public String Durability { get; set; }
 
         [JsonProperty("power")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Power { get; set; }
+        public String Power { get; set; }
 
         [JsonProperty("combat")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Combat { get; set; }
+        public String Combat { get; set; }
     }
 }
