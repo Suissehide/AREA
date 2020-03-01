@@ -46,7 +46,7 @@ export const WidgetContext = createContext({
     //
     picture: { service: false, widget: false },
     setPictureService: () => { },
-    setPictureWdiegt: () => { },
+    setPictureWidget: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -184,7 +184,7 @@ class WidgetProvider extends Component {
                 picture: { ...prevState.picture, service: value, }
             }))
         },
-        setPictureWdiegt: (value) => {
+        setPictureWidget: (value) => {
             this.setState(prevState => ({
                 picture: { ...prevState.picture, widget: value, }
             }))
