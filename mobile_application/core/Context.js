@@ -40,9 +40,10 @@ export const WidgetContext = createContext({
     setJokeService: () => { },
     setJokeWidget: () => { },
     //
-    pokemon: { service: false, widget: false },
+    pokemon: { service: false, detail: false, moves: false },
     setPokemonService: () => { },
-    setPokemonWidget: () => { },
+    setPokemonDetail: () => { },
+    setPokemonMoves: () => { },
     //
     picture: { service: false, widget: false },
     setPictureService: () => { },
@@ -188,15 +189,20 @@ class WidgetProvider extends Component {
             }))
         },
 
-        pokemon: { service: false, widget: false },
+        pokemon: { service: false, detail: true, moves: true },
         setPokemonService: (value) => {
             this.setState(prevState => ({
                 pokemon: { ...prevState.pokemon, service: value, }
             }))
         },
-        setPokemonWidget: (value) => {
+        setPokemonDetail: (value) => {
             this.setState(prevState => ({
-                pokemon: { ...prevState.pokemon, widget: value, }
+                pokemon: { ...prevState.pokemon, detail: value, }
+            }))
+        },
+        setPokemonMoves: (value) => {
+            this.setState(prevState => ({
+                pokemon: { ...prevState.pokemon, moves: value, }
             }))
         },
 
@@ -246,7 +252,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        facebook: { service: true, widget: true },
+        facebook: { service: false, widget: false },
         setFacebookService: (value) => {
             this.setState(prevState => ({
                 facebook: { ...prevState.facebook, service: value, }
@@ -258,7 +264,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        microsoft: { service: true, calendar: true, contacts: true, drive: true, graph: true, outlook: true },
+        microsoft: { service: false, calendar: false, contacts: false, drive: false, graph: false, outlook: false },
         setMicrosoftService: (value) => {
             this.setState(prevState => ({
                 microsoft: { ...prevState.microsoft, service: value, }
