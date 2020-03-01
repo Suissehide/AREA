@@ -132,26 +132,4 @@ namespace back.Models.PokemonApi.PokemonDetail
         public Species Type { get; set; }
     }
 
-    public partial class PokemonModel
-    {
-        public static PokemonModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonModel>(json, back.Models.PokemonApi.PokemonDetail.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this PokemonModel self) => JsonConvert.SerializeObject(self, back.Models.PokemonApi.PokemonDetail.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters =
-            {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
 }

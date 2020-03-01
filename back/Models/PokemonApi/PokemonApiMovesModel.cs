@@ -53,28 +53,4 @@ namespace back.Models.PokemonApi.Moveset
         [JsonProperty("version_group")]
         public Species VersionGroup { get; set; }
     }
-
-
-    public partial class PokemonApiMovesModel
-    {
-        public static PokemonApiMovesModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonApiMovesModel>(json, back.Models.PokemonApi.Moveset.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this PokemonApiMovesModel self) => JsonConvert.SerializeObject(self, back.Models.PokemonApi.Moveset.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters =
-            {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
 }
