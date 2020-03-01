@@ -6,7 +6,7 @@ namespace back.Clients.StarWarsApi
 {
     public interface IChuckClient
     {
-        [Get("/jokes/search?query={theme}")]
-        Task<StarWarsPeoplesModel> ChuckByTheme(string theme);
+        [Get("/people")]
+        Task<StarWarsPeoplesModel> GetAllCharacters(string theme);
     }
 }
