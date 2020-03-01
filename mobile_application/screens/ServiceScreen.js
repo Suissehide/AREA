@@ -11,7 +11,8 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
     google, setGoogleService, setGoogleIp, setGoogleDistance,
     pokemon, setPokemonService, setPokemonWidget, picture, setPictureService, setPictureWidget,
-    news, setNewsService, setNewsBanana, setNewsTheme, }) => (
+    news, setNewsService, setNewsBanana, setNewsTheme,
+    hero, setHeroService, setHeroRandom, setHeroName }) => (
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -23,6 +24,10 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
                             w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"} />
+
+                        <Service title="Superhero Service" service={hero} setService={setHeroService}
+                            widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
+                            w2={hero.name} setW2={setHeroName} t2="Display a information about your superhero" />
 
                         <Service title="Jikan Service" service={jikan} setService={setJikanService}
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
