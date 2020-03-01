@@ -30,6 +30,7 @@ import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
 import PokemonMovesWidget from '../widgets/Pokemon/PokemonMovesWidget'
 import IssLocationWidget from '../widgets/Iss/IssLocationWidget';
+import IssPersonWidget from '../widgets/Iss/IssPersonWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft, iss }) => (
     <Background>
@@ -50,6 +51,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
                 {iss.service === true && iss.location === true ?
                     <MyCard title="ISS Location" widget={<IssLocationWidget ip={ip} />} /> : null}
+                {iss.service === true && iss.person === true ?
+                    <MyCard title="People in Space" widget={<IssPersonWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?

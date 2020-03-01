@@ -301,7 +301,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        iss: { service: true, location: true, person: true },
+        iss: { service: true, location: false, person: true },
         setIssService: (value) => {
             this.setState(prevState => ({
                 iss: { ...prevState.iss, service: value, }
