@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { StyleSheet, View, Image } from 'react-native';
 import { theme } from '../core/theme';
 import { withWidget } from "../core/Context";
@@ -26,7 +26,7 @@ function AccountInfo(props) {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
 
-    const getData = () => {
+    useEffect(() => {
         axios.get(`http://${props.ip}/database/users/${props.token}`)
             .then(response => {
                 setName({ ...name, value: response.data.users[0].name });
@@ -40,7 +40,7 @@ function AccountInfo(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    }, []);
 
     const log = () => {
         if (emailError || passwordError || nameError) {
@@ -123,8 +123,7 @@ function AccountInfo(props) {
                 secureTextEntry
             />
             <Social />
-            {/* <Text swag={{ paddingTop: 20 }} >If you want to remove / add more social services, please go to Bananews.com.</Text> */}
-            <Button style={styles.saveButton} onPress={getData} > <Text swag={styles.text} >Refresh Informations</Text></Button>
+            <Text swag={{ paddingTop: 20 }} >If you want to remove / add more social services, please go to Bananews.com.</Text>
             <Button style={styles.saveButton} onPress={log} > <Text swag={styles.text} >Save Changes</Text></Button>
             <Button style={styles.button} onPress={() => props.setIsLogged(false)}> <Text swag={styles.text} >Log Out </Text></Button>
             <Button style={styles.delButton} onPress={deleteAccount} > <Text swag={styles.text}> Delete Account </Text> </Button>
