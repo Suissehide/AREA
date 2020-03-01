@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { withWidget } from "../core/Context";
 import Background from '../components/Background';
-import MyCard from '../widgets/CardTemplate';
+import MyCard from '../components/WidgetTemplate';
 import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import WeatherWidget from '../widgets/WeatherWidget';

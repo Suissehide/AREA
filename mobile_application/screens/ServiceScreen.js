@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { StyleSheet, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { withWidget } from "../core/Context";
-import Service from '../components/CardService';
+import Service from '../components/CardServiceTemplate';
 import Background from '../components/Background';
 
 export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
