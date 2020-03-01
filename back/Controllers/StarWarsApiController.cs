@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using back.Clients.StarWarsApi;
 using back.Models.StarWarsApi.StarWarsPeopleModel;
-using back.Models.StarWarsApi.StarWarsPeoplesModel;
+using back.Models.StarWarsApi.StarWarsPlanetModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;
@@ -58,7 +58,7 @@ namespace back.Controllers
                 Random rand = new Random();
                 int id = rand.Next(61);
                 Console.WriteLine(id);
-                StarWarsPeopleModel peopleInfo = await _starWarsCient.GetCharacterById(id);
+                StarWarsPlanetModel peopleInfo = await _starWarsCient.GetPlanetById(id);
                 return Ok(peopleInfo);
             }
             catch (ApiException exMessage)

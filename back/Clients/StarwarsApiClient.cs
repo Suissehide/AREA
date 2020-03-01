@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using back.Models.StarWarsApi.StarWarsPeopleModel;
-using back.Models.StarWarsApi.StarWarsPeoplesModel;
+using back.Models.StarWarsApi.StarWarsPlanetModel;
 using Refit;
 
 namespace back.Clients.StarWarsApi
