@@ -1,8 +1,8 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { View } from 'react-native';
-import axios from 'axios';
-import Text from '../components/Text'
 import { Divider } from "react-native-paper";
+import Text from '../components/Text';
 import TextInput from '../components/TextInput';
 
 export default function ChuckWidget(props) {
@@ -12,7 +12,7 @@ export default function ChuckWidget(props) {
     const [theme, setTheme] = useState("");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/chuck/${theme}`)
+        axios.get(`http://${props.ip}/api/chuck/${theme}`)
             .then(response => {
                 if (response.data.total)
                     setChuck1(response.data.result[Math.floor(Math.random() * response.data.total)].value);

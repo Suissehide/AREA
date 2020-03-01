@@ -1,18 +1,14 @@
-import React, { Fragment, useState } from "react";
-import { StyleSheet, View, Image } from 'react-native';
-import { theme } from '../core/theme';
-import { withWidget } from "../core/Context";
-import Text from '../components/Text';
-import Button from '../components/Button';
 import axios from 'axios';
-import TextInput from '../components/TextInput';
+import React, { Fragment, useEffect, useState } from "react";
+import { Image, StyleSheet, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Background from '../components/Background';
-import {
-    emailValidator,
-    passwordValidator,
-    nameValidator,
-} from '../core/utils';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Button from '../components/Button';
+import Text from '../components/Text';
+import TextInput from '../components/TextInput';
+import { withWidget } from "../core/Context";
+import { theme } from '../core/theme';
+import { emailValidator, nameValidator, passwordValidator } from '../core/utils';
 
 function AccountInfo(props) {
     const [name, setName] = useState({ value: '', error: '' });
@@ -26,10 +22,9 @@ function AccountInfo(props) {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
 
-    const getData = () => {
-        axios.get(`http://${props.ip}:8080/database/users/${props.token}`)
+    useEffect(() => {
+        axios.get(`http://${props.ip}/database/users/${props.token}`)
             .then(response => {
-                console.log(response.data);
                 setName({ ...name, value: response.data.users[0].name });
                 setEmail({ ...email, value: response.data.users[0].email });
                 setPassword({ ...password, value: response.data.users[0].pwd });
@@ -41,7 +36,7 @@ function AccountInfo(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    }, []);
 
     const log = () => {
         if (emailError || passwordError || nameError) {
@@ -53,9 +48,8 @@ function AccountInfo(props) {
         props.setToken(email.value);
         let loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/editaccount/${name.value}/${password.value}/${email.value}/${props.token}`)
+                axios.get(`http://${props.ip}/database/editaccount/${name.value}/${password.value}/${email.value}/${props.token}`)
                     .then(response => {
-                        console.log(response.data);
                         response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email already taken." });
                     });
             } catch (error) {
@@ -73,9 +67,8 @@ function AccountInfo(props) {
     const deleteAccount = () => {
         let loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/delete/${email.value}`)
+                axios.get(`http://${props.ip}/database/delete/${email.value}`)
                     .then(response => {
-                        console.log(response.data.users[0]);
                         response.data === true ? props.setIsLogged(false) : null;
                     });
             } catch (error) {
@@ -126,8 +119,7 @@ function AccountInfo(props) {
                 secureTextEntry
             />
             <Social />
-            {/* <Text swag={{ paddingTop: 20 }} >If you want to remove / add more social services, please go to Bananews.com.</Text> */}
-            <Button style={styles.saveButton} onPress={getData} > <Text swag={styles.text} >Refresh Informations</Text></Button>
+            <Text swag={{ paddingTop: 20 }} >If you want to remove / add more social services, please go to Bananews.com.</Text>
             <Button style={styles.saveButton} onPress={log} > <Text swag={styles.text} >Save Changes</Text></Button>
             <Button style={styles.button} onPress={() => props.setIsLogged(false)}> <Text swag={styles.text} >Log Out </Text></Button>
             <Button style={styles.delButton} onPress={deleteAccount} > <Text swag={styles.text}> Delete Account </Text> </Button>
@@ -150,20 +142,20 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#FCCD2D",
+        backgroundColor: theme.colors.primary,
     },
     saveButton: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#99CC33",
+        backgroundColor: theme.colors.green,
     },
     delButton: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#D70000",
+        backgroundColor: theme.colors.red,
     },
     text: {
-        color: "#3D2314"
+        color: theme.colors.brown
     },
     label: {
         color: theme.colors.secondary,

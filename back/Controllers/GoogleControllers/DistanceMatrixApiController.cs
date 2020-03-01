@@ -33,12 +33,12 @@ namespace back.Controllers.GoogleControllers
         #region ROUTES
 
         [HttpGet("origin={origin}&destination={destination}&key={key}")]
-        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin, string destination, string key)
+        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrix(string origin,
+            string destination, string key)
         {
             try
             {
                 var distanceMatrix = await _distanceMatrixApiClient.GetDistanceMatrix(origin, destination, key);
-                Console.WriteLine(key);
                 return Ok(distanceMatrix);
             }
             catch (ApiException exMessage)
@@ -48,6 +48,21 @@ namespace back.Controllers.GoogleControllers
             }
         }
 
+        [HttpGet("mode/origin={origin}&destination={destination}&mode={mode}&key={key}")]
+        public async Task<ActionResult<DistanceMatrixApiModel>> ClientGetDistanceMatrixWithMode(string origin,
+            string destination, string mode, string key)
+        {
+            try
+            {
+                var distanceMatrix = await _distanceMatrixApiClient.GetDistanceMatrixWithMode(origin, destination, mode, key);
+                return Ok(distanceMatrix);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError(exMessage.Message);
+                return NotFound();
+            }
+        }
         #endregion
     }
 }

@@ -33,6 +33,10 @@ namespace back.Controllers
         [HttpGet("{theme}")]
         public async Task<IActionResult> ChuckByTheme(string theme)
         {
+            if (theme.Length < 3)
+            {
+                return BadRequest();
+            }
             try
             {
                 ChuckModel jokes = await _chuckClient.ChuckByTheme(theme);

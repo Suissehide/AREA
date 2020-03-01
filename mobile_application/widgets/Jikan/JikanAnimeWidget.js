@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { View } from 'react-native';
-import axios from 'axios';
-import Text from '../../components/Text'
+import Text from '../../components/Text';
 import TextInput from '../../components/TextInput';
 
 export default function JikanAnimeWidget(props) {
@@ -12,7 +12,7 @@ export default function JikanAnimeWidget(props) {
     const [episodes, setEpisodes] = useState('152');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/jikan/anime/${anime}`)
+        axios.get(`http://${props.ip}/api/jikan/anime/${anime}`)
             .then(response => {
                 setTitle(response.data.result[0].title);
                 setSynopsis(response.data.result[0].synopsis);

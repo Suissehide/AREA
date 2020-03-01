@@ -1,8 +1,5 @@
 import React, { memo } from 'react';
-import {
-    ImageBackground,
-    StyleSheet,
-} from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 
 const Background = ({ children }) => (
     <ImageBackground

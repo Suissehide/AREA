@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
-import Button from '../../components/Button'
-import Text from '../../components/Text'
-import axios from 'axios';
+import Button from '../../components/Button';
+import Text from '../../components/Text';
+import { theme } from '../../core/theme';
 
 export default function PotterCharacter(props) {
     const [name, setName] = useState("Harry Potter");
@@ -17,7 +18,7 @@ export default function PotterCharacter(props) {
     const [species, setspecies] = useState("human");
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}:8080/api/potter/character`)
+        axios.get(`http://${props.ip}/api/potter/character`)
             .then(response => {
                 setName(response.data.name);
                 setRole(response.data.role);
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         marginVertical: 10,
-        backgroundColor: "#3D2314",
+        backgroundColor: theme.colors.brown,
     },
     text: {
-        color: "#FCCD2D"
+        color: theme.colors.primary
     },
 });
