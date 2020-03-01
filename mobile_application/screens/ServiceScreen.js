@@ -16,7 +16,7 @@ import PokemonService from '../services/PokemonService';
 export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
-    jikan, setJikanService, setJikanAnime, setJikanCharacter,
+    jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
     google, setGoogleService, setGoogleIp, setGoogleDistance,
     pokemon, setPokemonService, setPokemonWidget,
 }) => (
@@ -37,7 +37,8 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                             widget={<MovieService movie={movie} setMovieW={setMovieWidget} />}
                         />
                         <MyCard title="Jikan Service" value={jikan.service} setValue={setJikanService}
-                            widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter} />}
+                            widget={<JikanService jikan={jikan} setJikanAnime={setJikanAnime} setJikanCharacter={setJikanCharacter}
+                                setJikanTopAnime={setJikanTopAnime} setJikanTopManga={setJikanTopAnime} />}
                         />
                         <MyCard title="Google Service" value={google.service} setValue={setGoogleService}
                             widget={<GoogleService google={google} setGoogleIp={setGoogleIp} setGoogleDistance={setGoogleDistance} />}
