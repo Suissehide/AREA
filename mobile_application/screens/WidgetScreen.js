@@ -21,6 +21,7 @@ import PictureWidget from '../widgets/PictureWidget';
 import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
 import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
 import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget'
+import HeroNameWidget from '../widgets/Hero/HeroNameWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero }) => (
     <Background>
@@ -35,6 +36,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.random === true ?
                     <MyCard title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
+                {hero.service === true && hero.name === true ?
+                    <MyCard title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?

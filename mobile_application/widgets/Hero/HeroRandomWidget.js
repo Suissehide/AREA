@@ -5,9 +5,9 @@ import Button from '../../components/Button';
 import Text from '../../components/Text';
 
 export default function HeroRandomWidget(props) {
-    const [name, setName] = useState("");
+    const [name, setName] = useState("Iron Man");
     const [powerstats, setPowerstats] = useState("");
-    const [url, setUrl] = useState('a');
+    const [url, setUrl] = useState('https://www.superherodb.com/pictures2/portraits/10/100/85.jpg');
 
     const handleChange = () => {
         axios.get(`http://${props.ip}/api/hero/random/`)
@@ -24,11 +24,9 @@ export default function HeroRandomWidget(props) {
 
     return (
         <View style={{ paddingTop: 15, alignItems: 'center' }}>
-
-            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random character</Text></Button>
-
             <Text swag={{ fontSize: 17 }}> {name} </Text>
             <Image style={{ width: 200, height: 310, borderRadius: 15 }} source={{ uri: url }} />
+            <Button style={styles.button} onPress={handleChange}><Text swag={styles.text}>Random character</Text></Button>
         </View >
     );
 }
