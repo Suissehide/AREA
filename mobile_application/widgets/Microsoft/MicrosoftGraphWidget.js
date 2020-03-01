@@ -1,7 +1,6 @@
-import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import Text from '../../components/Text';
 
 export default function MicrosoftDriveWidget(props) {

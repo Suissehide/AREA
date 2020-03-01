@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from "react";
-import { Image, View, StyleSheet } from 'react-native';
-import TextInput from '../../components/TextInput';
+import React, { useState } from "react";
+import { Image, StyleSheet, View } from 'react-native';
 import Text from '../../components/Text';
+import TextInput from '../../components/TextInput';
 
 export default function HeroRandomWidget(props) {
     const [name, setName] = useState("Scarlet Witch");

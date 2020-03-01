@@ -142,20 +142,20 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#FCCD2D",
+        backgroundColor: theme.colors.primary,
     },
     saveButton: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#99CC33",
+        backgroundColor: theme.colors.green,
     },
     delButton: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#D70000",
+        backgroundColor: theme.colors.red,
     },
     text: {
-        color: "#3D2314"
+        color: theme.colors.brown
     },
     label: {
         color: theme.colors.secondary,

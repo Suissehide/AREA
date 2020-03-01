@@ -60,7 +60,7 @@ export default function MicrosoftOutlookWidget(props) {
                     <MyIcon name="ios-arrow-back" />
                 </TouchableOpacity>
                 <View style={{ width: '80%', alignItems: 'center' }} >
-                    <Text swag={{ fontHeigth: 'bold', fontSize: 17 }} > {subject}  </Text>
+                    <Text swag={{ fontWeight: 'bold', fontSize: 17 }} > {subject}  </Text>
                     <Text> {name} | {address} </Text>
                 </View>
                 <TouchableOpacity onPress={() => handleChange(1)}>

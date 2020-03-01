@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
+import { theme } from '../../core/theme';
 
 export default function PotterCharacter(props) {
     const [name, setName] = useState("Harry Potter");
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         marginVertical: 10,
-        backgroundColor: "#3D2314",
+        backgroundColor: theme.colors.brown,
     },
     text: {
-        color: "#FCCD2D"
+        color: theme.colors.primary
     },
 });

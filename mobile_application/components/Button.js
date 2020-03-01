@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     button: {
         width: '100%',
         marginVertical: 10,
-        backgroundColor: "#FFD430",
+        backgroundColor: theme.colors.primary,
     },
     text: {
         fontWeight: 'bold',

@@ -5,29 +5,29 @@ import Background from '../components/Background';
 import MyCard from '../components/WidgetTemplate';
 import { withWidget } from '../core/Context';
 import ChuckWidget from '../widgets/ChuckWidget';
+import FacebookWidget from '../widgets/FacebookWidget';
 import GoogleDistanceWidget from '../widgets/Google/GoogleDistanceWidget';
 import GoogleIpWidget from '../widgets/Google/GoogleIpWidget';
+import HeroNameWidget from '../widgets/Hero/HeroNameWidget';
+import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget';
 import JikanAnimeWidget from '../widgets/Jikan/JikanAnimeWidget';
 import JikanCharacterWidget from '../widgets/Jikan/JikanCharacterWidget';
 import JikanTopAnimeWidget from '../widgets/Jikan/JikanTopAnimeWidget';
 import JikanTopMangaWidget from '../widgets/Jikan/JikanTopMangaWidget';
 import JokeWidget from '../widgets/JokeWidget';
+import MicrosoftCalendarWidget from '../widgets/Microsoft/MicrosoftCalendarWidget';
+import MicrosoftContactsWidget from '../widgets/Microsoft/MicrosoftContactsWidget';
+import MicrosoftDriveWidget from '../widgets/Microsoft/MicrosoftDriveWidget';
+import MicrosoftGraphWidget from '../widgets/Microsoft/MicrosoftGraphWidget';
+import MicrosoftOutlookWidget from '../widgets/Microsoft/MicrosoftOutlookWidget';
 import MovieWidget from '../widgets/MovieWidget';
+import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
+import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
+import PictureWidget from '../widgets/PictureWidget';
 import PokemonWidget from '../widgets/PokemonWidget';
 import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
-import PictureWidget from '../widgets/PictureWidget';
-import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
-import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
-import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget'
-import HeroNameWidget from '../widgets/Hero/HeroNameWidget';
-import FacebookWidget from '../widgets/FacebookWidget';
-import MicrosoftCalendarWidget from '../widgets/Microsoft/MicrosoftCalendarWidget';
-import MicrosoftContactsWidget from '../widgets/Microsoft/MicrosoftContactsWidget';
-import MicrosoftDriveWidget from '../widgets/Microsoft/MicrosoftDriveWidget';
-import MicrosoftGraphWidget from '../widgets/Microsoft/MicrosoftGraphWidget'
-import MicrosoftOutlookWidget from '../widgets/Microsoft/MicrosoftOutlookWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft }) => (
     <Background>

@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity, View, Linking } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import Text from '../components/Text';
 
 export default function FacebookWidget(props) {

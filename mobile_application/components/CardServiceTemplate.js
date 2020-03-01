@@ -1,13 +1,20 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React from "react";
 import { StyleSheet, Switch, View } from 'react-native';
-import { Card, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import { theme } from '../core/theme';
 import ServiceTemplate from './SwitchServiceTemplate';
 
 export default function CardService(props) {
     return (
-        <Card containerStyle={styles.card}>
+        <LinearGradient
+            colors={[theme.colors.green, theme.colors.primary]}
+            style={styles.card}
+            start={[0, 1]}
+            end={[1, 0]}
+        >
             <View style={styles.container}>
+
                 <Text style={styles.title}>{props.title}</Text>
                 <Switch
                     style={{ marginTop: 3 }}
@@ -21,7 +28,7 @@ export default function CardService(props) {
                 w4={props.w4} setW4={props.setW4} t4={props.t4}
                 w5={props.w5} setW5={props.setW5} t5={props.t5}
             />
-        </Card>
+        </LinearGradient>
     );
 }
 
@@ -33,11 +40,17 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         alignSelf: "center",
+        color: theme.colors.brown,
     },
     card: {
+        width: '100%',
         backgroundColor: theme.colors.primary,
-        borderWidth: 0,
-        borderRadius: 20,
-        width: '100%'
+        borderRadius: 10,
+        borderColor: theme.colors.brown,
+        borderStyle: 'solid',
+        borderWidth: 2,
+        padding: 10,
+        marginTop: 10,
+        marginHorizontal: 15,
     }
 });
