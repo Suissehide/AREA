@@ -40,7 +40,7 @@ namespace back.Controllers
                 Random rand = new Random();
                 int id = rand.Next(87);
                 Console.WriteLine(id);
-                StarWarsPeopleModel peopleInfo = await _starWarsCient.getCharacterById(id);
+                StarWarsPeopleModel peopleInfo = await _starWarsCient.GetCharacterById(id);
                 return Ok(peopleInfo);
             }
             catch (ApiException exMessage)
@@ -58,7 +58,7 @@ namespace back.Controllers
                 Random rand = new Random();
                 int id = rand.Next(61);
                 Console.WriteLine(id);
-                StarWarsPeopleModel peopleInfo = await _starWarsCient.getCharacterById(id);
+                StarWarsPeopleModel peopleInfo = await _starWarsCient.GetCharacterById(id);
                 return Ok(peopleInfo);
             }
             catch (ApiException exMessage)
