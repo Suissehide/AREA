@@ -201,12 +201,12 @@ class WidgetProvider extends Component {
                 news: { ...prevState.news, service: value, }
             }))
         },
-        setNewsBanana: () => {
+        setNewsBanana: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, banana: value, }
             }))
         },
-        setNewsTheme: () => {
+        setNewsTheme: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, theme: value, }
             }))
