@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from 'react-native';
 import axios from 'axios';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
 import Text from '../../components/Text';
 
 export default function GoogleIpWidget(props) {
