@@ -246,7 +246,6 @@ class WidgetProvider extends Component {
             }))
         },
 
-
         facebook: { service: true, widget: true },
         setFacebookService: (value) => {
             this.setState(prevState => ({
