@@ -32,8 +32,8 @@ namespace back.Controllers
 
         #region ROUTE
 
-        [HttpGet("random")]
-        public async Task<IActionResult> HeroRandom()
+        [HttpGet("people/random")]
+        public async Task<IActionResult> GetRandomCharacter()
         {
             try
             {
@@ -49,14 +49,17 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
-       
-        [HttpGet("all")]
-        public async Task<IActionResult> GetAllCharacters()
+
+        [HttpGet("planet/random")]
+        public async Task<IActionResult> GetRandomPlanet()
         {
             try
             {
-                StarWarsPeoplesModel peoples = await _starWarsCient.GetAllCharacters();
-                return Ok(peoples);
+                Random rand = new Random();
+                int id = rand.Next(61);
+                Console.WriteLine(id);
+                StarWarsPeopleModel peopleInfo = await _starWarsCient.getCharacterById(id);
+                return Ok(peopleInfo);
             }
             catch (ApiException exMessage)
             {
@@ -64,7 +67,7 @@ namespace back.Controllers
                 return NotFound(exMessage);
             }
         }
-        
+
         #endregion
     }
 }
