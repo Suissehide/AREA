@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import { Image, View } from 'react-native';
-import Text from '../components/Text';
-import TextInput from '../components/TextInput';
+import Text from '../../components/Text';
+import TextInput from '../../components/TextInput';
 
 export default function JikanAnimeWidget(props) {
     const [pokemon, setPokemon] = useState('');

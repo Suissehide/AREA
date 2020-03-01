@@ -61,7 +61,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="Pokemon Service" service={pokemon} setService={setPokemonService}
                             widget={pokemon.detail} setWidget={setPokemonDetail} widgetTitle="Get informations on a Pokemon"
-                            w2={pokemon.moves} setWidget={setPokemonMoves} widgetTitle="Get informations on a Pokemon" />
+                            w2={pokemon.moves} setW2={setPokemonMoves} t2="Get informations on a Pokemon" />
 
                         <Service title="Harry Potter Service" service={potter} setService={setPotterService}
                             widget={potter.spell} setWidget={setPotterSpell} widgetTitle="Display a random spell"

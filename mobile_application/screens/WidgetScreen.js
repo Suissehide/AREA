@@ -24,7 +24,7 @@ import MovieWidget from '../widgets/MovieWidget';
 import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
 import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
 import PictureWidget from '../widgets/PictureWidget';
-import PokemonWidget from '../widgets/PokemonWidget';
+import PokemonDetailWidget from '../widgets/Pokemon/PokemonDetailWidget';
 import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
@@ -74,8 +74,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="News" widget={<NewsThemeWidget ip={ip} />} /> : null}
                 {picture.service === true && picture.widget === true ?
                     <MyCard title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
-                {pokemon.service === true && pokemon.widget === true ?
-                    <MyCard title="Get information on a Pokemon" widget={<PokemonWidget ip={ip} />} /> : null}
+                {pokemon.service === true && pokemon.detail === true ?
+                    <MyCard title="Get information on a Pokemon" widget={<PokemonDetailWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.spell === true ?
                     <MyCard title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.character === true ?

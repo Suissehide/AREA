@@ -189,7 +189,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        pokemon: { service: false, detail: true, moves: true },
+        pokemon: { service: true, detail: true, moves: true },
         setPokemonService: (value) => {
             this.setState(prevState => ({
                 pokemon: { ...prevState.pokemon, service: value, }
