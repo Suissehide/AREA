@@ -45,6 +45,20 @@ namespace back.Controllers
             }
         }
 
+        [HttpGet("moves/{pokemonName}")]
+        public async Task<ActionResult<PokemonApiMovesModel>> ClientGetPokemonMoveset(string pokemonName)
+        {
+            try
+            {
+                var pokemonMoveset = await _pokemonApiClient.ApiGetPokemonMoveset(pokemonName);
+                return Ok(pokemonMoveset);
+            }
+            catch (ApiException exMessage)
+            {
+                _logger.LogError(exMessage.Message);
+                return NotFound();
+            }
+        }
         #endregion
     }
 }

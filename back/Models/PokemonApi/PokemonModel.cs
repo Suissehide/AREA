@@ -84,27 +84,6 @@ namespace back.Models
         public Species Version { get; set; }
     }
 
-    public partial class Move
-    {
-        [JsonProperty("move")]
-        public Species MoveMove { get; set; }
-
-        [JsonProperty("version_group_details")]
-        public VersionGroupDetail[] VersionGroupDetails { get; set; }
-    }
-
-    public partial class VersionGroupDetail
-    {
-        [JsonProperty("level_learned_at")]
-        public long LevelLearnedAt { get; set; }
-
-        [JsonProperty("move_learn_method")]
-        public Species MoveLearnMethod { get; set; }
-
-        [JsonProperty("version_group")]
-        public Species VersionGroup { get; set; }
-    }
-
     public partial class Sprites
     {
         [JsonProperty("back_default")]
