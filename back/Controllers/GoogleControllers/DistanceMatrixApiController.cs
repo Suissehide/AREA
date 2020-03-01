@@ -38,7 +38,6 @@ namespace back.Controllers.GoogleControllers
             try
             {
                 var distanceMatrix = await _distanceMatrixApiClient.GetDistanceMatrix(origin, destination, key);
-                Console.WriteLine(key);
                 return Ok(distanceMatrix);
             }
             catch (ApiException exMessage)
