@@ -9,10 +9,11 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
-    google, setGoogleService, setGoogleIp, setGoogleDistance,
+    google, setGoogleService, setGoogleIp, setGoogleDistance, facebook, setFacebookService, setFacebookWidget,
     pokemon, setPokemonService, setPokemonWidget, picture, setPictureService, setPictureWidget,
-    news, setNewsService, setNewsBanana, setNewsTheme,
-    hero, setHeroService, setHeroRandom, setHeroName }) => (
+    news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
+    microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
+}) => (
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -37,6 +38,13 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="Joke Service" service={joke} setService={setJokeService}
                             setWidget={setJokeWidget} widgetTitle="Get a random themed joke" />
+
+                        <Service title="Microsoft Service" service={microsoft} setService={setMicrosoftService}
+                            widget={microsoft.calendar} setWidget={setMicrosoftCalendar} widgetTitle="Display your upcoming events"
+                            w2={microsoft.contacts} setW2={setMicrosoftContacts} t2="Display your contacts"
+                            w3={microsoft.drive} setW3={setMicrosoftDrive} t3="Display items in your drive"
+                            w4={microsoft.graph} setW4={setMicrosoftGraph} t4="Display your microsoft account informations"
+                            w5={microsoft.outlook} setW5={setMicrosoftOutlook} t5="Display your mails" />
 
                         <Service title={"The Movie Database" + "\n" + "Service"} service={movie} setService={setMovieService}
                             setWidget={setMovieWidget} widgetTitle="Get information on a movie" />
