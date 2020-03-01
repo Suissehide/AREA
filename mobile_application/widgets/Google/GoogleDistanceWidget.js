@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { View } from 'react-native';
-import { StyleSheet } from 'react-native';
 import axios from 'axios';
-import Text from '../../components/Text'
-import TextInput from '../../components/TextInput';
+import React, { useState } from "react";
+import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
+import Text from '../../components/Text';
+import TextInput from '../../components/TextInput';
 
 export default function GoogleDistanceWidget(props) {
-    var key = "AIzaSyCQCPjXryFKgZ9wN9B5E6b05XgYH8yU8j0";
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [destinationAddresses, setDestinationAddresses] = useState('');
@@ -15,6 +13,7 @@ export default function GoogleDistanceWidget(props) {
     const [distance, setDistance] = useState('');
     const [duration, setDuration] = useState('');
     const [status, setStatus] = useState('');
+    var key = "AIzaSyCQCPjXryFKgZ9wN9B5E6b05XgYH8yU8j0";
 
     const handleChange = () => {
         axios.get(`http://${props.ip}/api/google/maps/distance/origin=${origin}&destination=${destination}&key=${key}`)
@@ -32,27 +31,17 @@ export default function GoogleDistanceWidget(props) {
 
     return (
         <View style={{ alignItems: 'center' }}>
-            <TextInput
-                id="origin"
-                label="From"
-                value={origin}
-                onChangeText={event => {
-                    setOrigin(event);
-                }}
-                margin="normal"
-                variant="outlined"
+            <TextInput id="origin" label="From"
+                value={origin} onChangeText={event => { setOrigin(event); }}
+                margin="normal" variant="outlined"
             />
-            <TextInput
-                id="destination"
-                label="To"
+            <TextInput id="destination" label="To"
                 value={destination}
-                onChangeText={event => {
-                    setDestination(event);
-                }}
+                onChangeText={event => { setDestination(event); }}
                 onSubmitEditing={handleChange}
-                margin="normal"
-                variant="outlined"
+                margin="normal" variant="outlined"
             />
+
             {status === "NOT_FOUND" || status === "ZERO_RESULTS" ? <Text>No results found.</Text> : status === "OK" ?
                 <Text swag={{ fontSize: 20 }} >
                     The distance between <Text swag={{ fontWeight: 'bold' }} >{originAddresses}</Text> and <Text swag={{ fontWeight: 'bold' }} >

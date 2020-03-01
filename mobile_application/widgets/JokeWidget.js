@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { View } from 'react-native';
-import axios from 'axios';
-import Text from '../components/Text'
+import Text from '../components/Text';
 import TextInput from '../components/TextInput';
 
 export default function JokeWidget(props) {

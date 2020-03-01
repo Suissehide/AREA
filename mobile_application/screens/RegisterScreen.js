@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import TextInput from '../components/TextInput';
-import BackButton from '../components/BackButton';
-import { theme } from '../core/theme';
 import axios from 'axios';
-import {
-    emailValidator,
-    passwordValidator,
-    nameValidator,
-} from '../core/utils';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import BackButton from '../components/BackButton';
+import Background from '../components/Background';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
+import { theme } from '../core/theme';
+import { emailValidator, nameValidator, passwordValidator } from '../core/utils';
 
 export default function RegisterScreen(props) {
     const [name, setName] = useState({ value: '', error: '' });
@@ -80,7 +76,7 @@ export default function RegisterScreen(props) {
 
                 <Button mode="contained" onPress={log} style={styles.button}>
                     Sign Up
-            </Button>
+                </Button>
 
                 <View style={styles.row}>
                     <Text style={styles.label}>Already have an account? </Text>
