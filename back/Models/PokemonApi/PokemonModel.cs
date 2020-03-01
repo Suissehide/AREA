@@ -1,4 +1,4 @@
-namespace back.Models
+namespace back.Models.PokemonApi.PokemonDetail
 {
     using System;
     using System.Globalization;
@@ -84,27 +84,6 @@ namespace back.Models
         public Species Version { get; set; }
     }
 
-    public partial class Move
-    {
-        [JsonProperty("move")]
-        public Species MoveMove { get; set; }
-
-        [JsonProperty("version_group_details")]
-        public VersionGroupDetail[] VersionGroupDetails { get; set; }
-    }
-
-    public partial class VersionGroupDetail
-    {
-        [JsonProperty("level_learned_at")]
-        public long LevelLearnedAt { get; set; }
-
-        [JsonProperty("move_learn_method")]
-        public Species MoveLearnMethod { get; set; }
-
-        [JsonProperty("version_group")]
-        public Species VersionGroup { get; set; }
-    }
-
     public partial class Sprites
     {
         [JsonProperty("back_default")]
@@ -153,26 +132,4 @@ namespace back.Models
         public Species Type { get; set; }
     }
 
-    public partial class PokemonModel
-    {
-        public static PokemonModel FromJson(string json) => JsonConvert.DeserializeObject<PokemonModel>(json, back.Models.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this PokemonModel self) => JsonConvert.SerializeObject(self, back.Models.Converter.Settings);
-    }
-
-    internal static class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters =
-            {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
-        };
-    }
 }
