@@ -1,9 +1,8 @@
+using System;
+using Newtonsoft.Json;
+
 namespace back.Models.PokemonApi.PokemonDetail
 {
-    using System;
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
 
     public partial class PokemonModel
     {
@@ -39,7 +38,7 @@ namespace back.Models.PokemonApi.PokemonDetail
     public partial class Ability
     {
         [JsonProperty("ability")]
-        public Species AbilityAbility { get; set; }
+        public Species2 AbilityAbility { get; set; }
 
         [JsonProperty("is_hidden")]
         public bool IsHidden { get; set; }
@@ -48,7 +47,7 @@ namespace back.Models.PokemonApi.PokemonDetail
         public long Slot { get; set; }
     }
 
-    public partial class Species
+    public class Species2
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -63,13 +62,13 @@ namespace back.Models.PokemonApi.PokemonDetail
         public long GameIndexGameIndex { get; set; }
 
         [JsonProperty("version")]
-        public Species Version { get; set; }
+        public Species2 Version { get; set; }
     }
 
     public partial class HeldItem
     {
         [JsonProperty("item")]
-        public Species Item { get; set; }
+        public Species2 Item { get; set; }
 
         [JsonProperty("version_details")]
         public VersionDetail[] VersionDetails { get; set; }
@@ -81,7 +80,7 @@ namespace back.Models.PokemonApi.PokemonDetail
         public long Rarity { get; set; }
 
         [JsonProperty("version")]
-        public Species Version { get; set; }
+        public Species2 Version { get; set; }
     }
 
     public partial class Sprites
@@ -120,7 +119,7 @@ namespace back.Models.PokemonApi.PokemonDetail
         public long Effort { get; set; }
 
         [JsonProperty("stat")]
-        public Species StatStat { get; set; }
+        public Species2 StatStat { get; set; }
     }
 
     public partial class TypeElement
@@ -129,7 +128,7 @@ namespace back.Models.PokemonApi.PokemonDetail
         public long Slot { get; set; }
 
         [JsonProperty("type")]
-        public Species Type { get; set; }
+        public Species2 Type { get; set; }
     }
 
 }
