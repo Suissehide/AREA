@@ -22,6 +22,10 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <Service title="Chuck Norris Service" service={chuck} setService={setChuckService}
                             setWidget={setChuckWidget} widgetTitle="Get 3 themed Chuck Norris jokes" />
 
+                        <Service title="Facebook Service" service={facebook} setService={setFacebookService}
+                            setWidget={setFacebookWidget} widgetTitle="Get your 3 last liked contents" />
+
+
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
                             w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"} />
