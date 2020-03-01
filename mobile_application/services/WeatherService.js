@@ -7,9 +7,9 @@ export default function WeatherService(props) {
         <View style={styles.container}>
             {props.weather.service === true ?
                 <View style={styles.contained}>
-                    <Text style={styles.title}>Weather by City</Text>
+                    <Text style={styles.title}>Get the weather of a city</Text>
                     <Switch
-                        style={{ marginTop: 10 }}
+                        style={{ marginTop: 3 }}
                         onValueChange={event => props.setWeatherW(event)}
                         value={props.weather.widget} />
                 </View> : null

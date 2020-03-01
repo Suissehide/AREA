@@ -27,9 +27,8 @@ function AccountInfo(props) {
     const source = CancelToken.source();
 
     const getData = () => {
-        axios.get(`http://${props.ip}:8080/database/users/${props.token}`)
+        axios.get(`http://${props.ip}/database/users/${props.token}`)
             .then(response => {
-                console.log(response.data);
                 setName({ ...name, value: response.data.users[0].name });
                 setEmail({ ...email, value: response.data.users[0].email });
                 setPassword({ ...password, value: response.data.users[0].pwd });
@@ -53,9 +52,8 @@ function AccountInfo(props) {
         props.setToken(email.value);
         let loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/editaccount/${name.value}/${password.value}/${email.value}/${props.token}`)
+                axios.get(`http://${props.ip}/database/editaccount/${name.value}/${password.value}/${email.value}/${props.token}`)
                     .then(response => {
-                        console.log(response.data);
                         response.data === true ? props.setToken(email.value) : setEmail({ ...email, error: "Email already taken." });
                     });
             } catch (error) {
@@ -73,9 +71,8 @@ function AccountInfo(props) {
     const deleteAccount = () => {
         let loadData = () => {
             try {
-                axios.get(`http://${props.ip}:8080/database/delete/${email.value}`)
+                axios.get(`http://${props.ip}/database/delete/${email.value}`)
                     .then(response => {
-                        console.log(response.data.users[0]);
                         response.data === true ? props.setIsLogged(false) : null;
                     });
             } catch (error) {

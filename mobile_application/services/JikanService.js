@@ -8,16 +8,16 @@ export default function JikanService(props) {
             {props.jikan.service === true ?
                 <View >
                     <View style={styles.contained}>
-                        <Text style={styles.title}>Information on an Anime</Text>
+                        <Text style={styles.title}>Get informations on an anime</Text>
                         <Switch
-                            style={{ marginTop: 10 }}
+                            style={{ marginTop: 3 }}
                             onValueChange={event => props.setJikanAnime(event)}
                             value={props.jikan.anime} />
                     </View>
                     <View style={styles.contained}>
-                        <Text style={styles.title}>Information on an Anime Character</Text>
+                        <Text style={styles.title}>Get informations on a character</Text>
                         <Switch
-                            style={{ marginTop: 10 }}
+                            style={{ marginTop: 3 }}
                             onValueChange={event => props.setJikanCharacter(event)}
                             value={props.jikan.character} />
                     </View>

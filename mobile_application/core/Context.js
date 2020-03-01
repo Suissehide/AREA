@@ -29,18 +29,23 @@ export const WidgetContext = createContext({
     setJikanAnime: () => { },
     setJikanCharacter: () => { },
     //
-    jinkanS: true,
-    setJinkanS: () => { },
-    jinkanAnime: true,
-    setJinkanAnime: () => { },
-    jinkanCharacter: true,
-    setJinkanCharacter: () => { },
+    google: { service: true, ip: false, distance: false },
+    setGoogleService: () => { },
+    setGoogleIp: () => { },
+    setGoogleDistance: () => { },
     //
+    joke: { service: false, widget: true },
+    setJokeService: () => { },
+    setJokeWidget: () => { },
+    //
+    pokemon: { service: true, widget: true },
+    setPokemonService: () => { },
+    setPokemonWidget: () => { },
 });
 
 class WidgetProvider extends Component {
     state = {
-        ip: "172.20.10.5",
+        ip: "172.20.10.5:8080",
         isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
@@ -99,7 +104,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jikan: { service: true, anime: false, character: true, },
+        jikan: { service: false, anime: false, character: true, },
         setJikanService: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, service: value, }
@@ -116,6 +121,46 @@ class WidgetProvider extends Component {
             }))
         },
 
+        google: { service: false, ip: false, distance: true },
+        setGoogleService: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, service: value, }
+            }))
+        },
+        setGoogleIp: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, ip: value, }
+            }))
+        },
+        setGoogleDistance: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, distance: value, }
+            }))
+        },
+
+        joke: { service: false, widget: true },
+        setJokeService: (value) => {
+            this.setState(prevState => ({
+                joke: { ...prevState.joke, service: value, }
+            }))
+        },
+        setJokeWidget: (value) => {
+            this.setState(prevState => ({
+                joke: { ...prevState.joke, widget: value, }
+            }))
+        },
+
+        pokemon: { service: true, widget: true },
+        setPokemonService: (value) => {
+            this.setState(prevState => ({
+                pokemon: { ...prevState.pokemon, service: value, }
+            }))
+        },
+        setPokemonWidget: (value) => {
+            this.setState(prevState => ({
+                pokemon: { ...prevState.pokemon, widget: value, }
+            }))
+        },
     };
 
     render() {

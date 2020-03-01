@@ -19,7 +19,7 @@ export default function WeatherWidget(props) {
 
     const handleChange = () => {
         setName(city)
-        axios.get(`http://${props.ip}:8080/api/weather/${name}`)
+        axios.get(`http://${props.ip}/api/weather/${name}`)
             .then(response => {
                 setdescription(response.data.weather[0].description);
                 setTemp(response.data.main.temp - 273);

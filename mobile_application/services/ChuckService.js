@@ -7,9 +7,9 @@ export default function ChuckService(props) {
         <View style={styles.container}>
             {props.chuck.service === true ?
                 <View style={styles.contained}>
-                    <Text style={styles.title}>Chuck Norris Jokes</Text>
+                    <Text style={styles.title}>Get 3 themed Chuck Norris jokes</Text>
                     <Switch
-                        style={{ marginTop: 10 }}
+                        style={{ marginTop: 3 }}
                         onValueChange={event => props.setChuckW(event)}
                         value={props.chuck.widget} />
                 </View> : null
