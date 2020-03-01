@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from 'react-native';
 import axios from 'axios';
-// import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import Text from '../../components/Text';
 
 export default function GoogleIpWidget(props) {
@@ -38,18 +38,14 @@ export default function GoogleIpWidget(props) {
             </Text>
             {lat !== 0 ?
                 <View style={{ height: 300, width: 250, marginTop: 10 }}>
-                    <MapView
-                        style={styles.map}
+                    <MapView style={styles.map}
                         initialRegion={{
                             latitude: lat,
                             longitude: lon,
                             latitudeDelta: 0.0922,
                             longitudeDelta: 0.0421,
                         }}
-                        marker={{}}
-                        scrollEnabled={false}
-                        provider={"google"}
-                    >
+                        scrollEnabled={false} provider={"google"} >
                         <Marker coordinate={{ latitude: lat, longitude: lon }} />
                     </MapView>
                 </View> : null}
