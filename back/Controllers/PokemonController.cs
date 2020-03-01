@@ -47,11 +47,11 @@ namespace back.Controllers
         }
 
         [HttpGet("{name}/moves")]
-        public async Task<ActionResult<PokemonApiMovesModel>> ClientGetPokemonMoveset(string pokemonName)
+        public async Task<ActionResult<PokemonApiMovesModel>> ClientGetPokemonMoveset(string name)
         {
             try
             {
-                var pokemonMoveset = await _pokemonApiClient.ApiGetPokemonMoveset(pokemonName);
+                var pokemonMoveset = await _pokemonApiClient.ApiGetPokemonMoveset(name);
                 return Ok(pokemonMoveset);
             }
             catch (ApiException exMessage)
