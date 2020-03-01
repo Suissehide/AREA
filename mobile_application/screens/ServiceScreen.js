@@ -10,7 +10,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
     google, setGoogleService, setGoogleIp, setGoogleDistance,
-    pokemon, setPokemonService, setPokemonWidget, }) => (
+    pokemon, setPokemonService, setPokemonWidget, picture, setPictureService, setPictureWidget }) => (
         <Background>
             <Fragment>
                 <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -34,6 +34,9 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title={"The Movie Database" + "\n" + "Service"} service={movie} setService={setMovieService}
                             setWidget={setMovieWidget} widgetTitle="Get information on a movie" />
+
+                        <Service title={"Picture Database Service"} service={picture} setService={setPictureService}
+                            setWidget={setPictureWidget} widgetTitle="Get a themed picture" />
 
                         <Service title="Pokemon Service" service={pokemon} setService={setPokemonService}
                             setWidget={setPokemonWidget} widgetTitle="Get informations on a Pokemon" />
