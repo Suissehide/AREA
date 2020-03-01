@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/SideMenu.css';
 import background from "../assets/img/jungle_background.jpg";
+import logo from "../assets/bananews.png";
 
 class SideMenu extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class SideMenu extends React.Component {
             <div className="sidebar">
                 <div className="sidebar__logo">
                     <a href="#0" className="logo-normal simple-text ">BanaNews</a>
+                    <div className="logo" style={{backgroundImage: `url(${logo})`}}/>
                 </div>
                 <div className="sidebar__wrapper">
                     <ul className="nav">

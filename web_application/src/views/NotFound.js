@@ -43,7 +43,6 @@ class Notfound extends React.Component {
             this.setState({ playerX: this.state.playerX - 3 });
         if (event.key === 'd' && this.state.playerX < 93 && this.state.start)
             this.setState({ playerX: this.state.playerX + 3 });
-        console.log(this.state.playerX);
     };
 
 
