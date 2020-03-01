@@ -23,7 +23,8 @@ class Login extends React.Component {
     handleLogin = (e) => {
         e.preventDefault();
 
-        this._auth();
+        // this._auth();
+        this._login();
     };
 
     _login = () => {

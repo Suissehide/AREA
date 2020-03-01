@@ -17,11 +17,20 @@
 }
 
 .sidebar .sidebar__logo {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     padding: 15px 0;
     margin: 0;
-    display: block;
     position: relative;
     z-index: 4;
+}
+
+.sidebar .sidebar__logo .logo {
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .sidebar .sidebar__logo .simple-text {
