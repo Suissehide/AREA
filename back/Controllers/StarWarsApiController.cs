@@ -40,7 +40,6 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(87);
-                Console.WriteLine(id);
                 StarWarsPeopleModel peopleInfo = await _starWarsCient.GetCharacterById(id);
                 return Ok(peopleInfo);
             }
@@ -58,7 +57,6 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(61);
-                Console.WriteLine(id);
                 StarWarsPlanetModel planetInfo = await _starWarsCient.GetPlanetById(id);
                 return Ok(planetInfo);
             }
@@ -76,7 +74,6 @@ namespace back.Controllers
             {
                 Random rand = new Random();
                 int id = rand.Next(37);
-                Console.WriteLine(id);
                 StarWarsStarshipModel peopleInfo = await _starWarsCient.GetStarshipById(id);
                 return Ok(peopleInfo);
             }
