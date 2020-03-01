@@ -4,12 +4,13 @@ import React, { useEffect, useState } from "react";
 import { TouchableOpacity, View } from 'react-native';
 import Text from '../../components/Text';
 
-export default function MicrosoftCalendarWidget(props) {
-    const [subject, setSubject] = useState("");
-    const [dateTime, setDateTime] = useState(0);
+export default function MicrosoftOutlookWidget(props) {
+    const [subject, setSubject] = useState(null);
+    const [address, setAddress] = useState(null);
+    const [name, setName] = useState(null);
     const [number, setNumber] = useState(0);
     const [saveLen, setSaveLen] = useState(2);
-    var token = "a";
+    var token = "";
 
     function MyIcon(props) {
         return (
@@ -22,12 +23,12 @@ export default function MicrosoftCalendarWidget(props) {
     }
 
     useEffect(() => {
-        axios.get(`http://${props.ip}/api/microsoft/calendar?authorization=${token}`)
+        axios.get(`http://${props.ip}/api/microsoft/outlook?authorization=${token}`)
             .then(response => {
                 setSaveLen(response.data.value.length);
                 setSubject(response.data.value[number].subject);
-                setDateTime(response.data.value[number].start.dateTime);
-                setDateTime(String(new Date(dateTime)));
+                setName(response.data.value[number].sender.emailAddress.name);
+                setAddress(response.data.value[number].sender.emailAddress.address);
             })
             .catch(function (error) {
                 console.log(error);
@@ -40,13 +41,12 @@ export default function MicrosoftCalendarWidget(props) {
         else if (value === 1 && number < saveLen)
             setNumber(number + value)
     }
-
     useEffect(() => {
-        axios.get(`http://${props.ip}/api/microsoft/calendar?authorization=${token}`)
+        axios.get(`http://${props.ip}/api/microsoft/outlook?authorization=${token}`)
             .then(response => {
                 setSubject(response.data.value[number].subject);
-                setDateTime(response.data.value[number].start.dateTime);
-                setDateTime(String(new Date(dateTime)));
+                setName(response.data.value[number].sender.emailAddress.name);
+                setAddress(response.data.value[number].sender.emailAddress.address);
             })
             .catch(function (error) {
                 console.log(error);
@@ -60,7 +60,8 @@ export default function MicrosoftCalendarWidget(props) {
                     <MyIcon name="ios-arrow-back" />
                 </TouchableOpacity>
                 <View style={{ width: '80%', alignItems: 'center' }} >
-                    <Text swag={{ fontSize: 15 }} >{subject} on {String(dateTime)} </Text>
+                    <Text swag={{ fontWeight: 'bold', fontSize: 17 }} > {subject}  </Text>
+                    <Text> {name} | {address} </Text>
                 </View>
                 <TouchableOpacity onPress={() => handleChange(1)}>
                     <MyIcon name="ios-arrow-forward" />

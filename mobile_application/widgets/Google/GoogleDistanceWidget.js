@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 import TextInput from '../../components/TextInput';
+import { theme } from '../../core/theme';
 
 export default function GoogleDistanceWidget(props) {
     const [origin, setOrigin] = useState('');
@@ -58,9 +59,9 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         marginVertical: 10,
-        backgroundColor: "#3D2314",
+        backgroundColor: theme.colors.brown,
     },
     text: {
-        color: "#FCCD2D"
+        color: theme.colors.primary
     },
 });

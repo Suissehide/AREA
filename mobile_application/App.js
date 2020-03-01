@@ -55,7 +55,7 @@ export default function App(props) {
                         {value.isLogged === true ?
                             <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
                                 <Stack.Navigator>
-                                    <Stack.Screen name="Root" component={BottomTabNavigator} />
+                                    <Stack.Screen name="Bananews" component={BottomTabNavigator} />
                                 </Stack.Navigator>
                             </NavigationContainer>
                             : <LoginScreen />}

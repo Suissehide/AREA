@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from "react";
-import { Image, View, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { Image, StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
+import { theme } from '../../core/theme';
 
 export default function HeroRandomWidget(props) {
     const [name, setName] = useState("Iron Man");
@@ -35,9 +36,9 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         marginVertical: 10,
-        backgroundColor: "#3D2314",
+        backgroundColor: theme.colors.brown,
     },
     text: {
-        color: "#FCCD2D"
+        color: theme.colors.primary
     },
 });

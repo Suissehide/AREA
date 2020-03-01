@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Switch, View } from 'react-native';
 import { Text } from 'react-native-elements';
+import { theme } from "../core/theme";
 
 function NewWidget(props) {
     return (
@@ -56,5 +57,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 15,
         alignSelf: "center",
+        color: theme.colors.brown,
     },
 });
