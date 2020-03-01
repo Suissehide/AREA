@@ -4,13 +4,11 @@ import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Text from '../../components/Text'
 
-export default function JikanTopAnimeWidget(props) {
+export default function JikanTopMangaWidget(props) {
     const [number, setNumber] = useState(0);
     const [rank, setRank] = useState(1);
     const [title, setTitle] = useState('');
     const [imageUrl, setImageUrl] = useState('a');
-    const [type, setType] = useState("");
-    const [episodes, setEpisodes] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [score, setScore] = useState('');
@@ -26,13 +24,11 @@ export default function JikanTopAnimeWidget(props) {
     }
 
     useEffect(() => {
-        axios.get(`http://${props.ip}/api/jikan/top_anime/`)
+        axios.get(`http://${props.ip}/api/jikan/top_manga/`)
             .then(response => {
                 setRank(response.data.top[number].rank);
                 setTitle(response.data.top[number].title);
                 setImageUrl(response.data.top[number].imageUrl);
-                setType(response.data.top[number].type);
-                setEpisodes(response.data.top[number].episodes);
                 setScore(response.data.top[number].score);
                 setStartDate(response.data.top[number].startDate);
                 setEndDate(response.data.top[number].endDate);
@@ -44,9 +40,7 @@ export default function JikanTopAnimeWidget(props) {
 
     return (
         <View style={{ paddingTop: 15 }}>
-            <Text swag={{ fontSize: 17 }}> #{rank} {title} </Text>
-            {type === "Movie" ? <Text swag={{ fontSize: 17 }}>{type} </Text> : <Text swag={{ fontSize: 17 }}> {episodes} episodes </Text>}
-            <Text swag={{ fontSize: 17 }}> Scored {score}/10 {"\n"} Started: {startDate} | Ended: {endDate} </Text>
+            <Text swag={{ fontSize: 17 }}> #{rank} {title} | Scored: {score}/10 | Started: {startDate} | Ended: {endDate} </Text>
             <View style={{ flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'space-around', paddingTop: 15 }} >
                 <TouchableOpacity onPress={() => setNumber(number - 1)}>
                     <MyIcon name="ios-arrow-back" />
@@ -56,6 +50,6 @@ export default function JikanTopAnimeWidget(props) {
                     <MyIcon name="ios-arrow-forward" />
                 </TouchableOpacity>
             </View>
-        </View >
+        </View>
     );
 }

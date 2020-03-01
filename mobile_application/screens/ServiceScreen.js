@@ -33,7 +33,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
                             w2={jikan.character} setW2={setJikanCharacter} t2="Get informations on a character"
                             w3={jikan.topAnime} setW3={setJikanTopAnime} t3="Display the highest scored animes"
-                            w4={jikan.topManga} setW4={setJikanTopManga} t3="Display the highest scored mangas" />
+                            w4={jikan.topManga} setW4={setJikanTopManga} t4="Display the highest scored mangas" />
 
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
