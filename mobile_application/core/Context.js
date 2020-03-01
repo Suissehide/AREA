@@ -61,6 +61,14 @@ export const WidgetContext = createContext({
     facebook: { service: false, widget: false },
     setFacebookService: () => { },
     setFacebookWidget: () => { },
+    //
+    microsoft: { service: false, calendar: false, contacts: false, drive: false, graph: false, outlook: false },
+    setMicrosoftService: () => { },
+    setMicrosoftCalendar: () => { },
+    setMicrosoftContacts: () => { },
+    setMicrosoftDrive: () => { },
+    setMicrosoftGraph: () => { },
+    setMicrosoftOutlook: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -248,6 +256,38 @@ class WidgetProvider extends Component {
         setFacebookWidget: (value) => {
             this.setState(prevState => ({
                 facebook: { ...prevState.facebook, widget: value, }
+            }))
+        },
+
+        microsoft: { service: true, calendar: true, contacts: true, drive: true, graph: true, outlook: true },
+        setMicrosoftService: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, service: value, }
+            }))
+        },
+        setMicrosoftCalendar: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, calendar: value, }
+            }))
+        },
+        setMicrosoftContacts: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, contacts: value, }
+            }))
+        },
+        setMicrosoftDrive: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, drive: value, }
+            }))
+        },
+        setMicrosoftGraph: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, graph: value, }
+            }))
+        },
+        setMicrosoftOutlook: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, outlook: value, }
             }))
         },
 
