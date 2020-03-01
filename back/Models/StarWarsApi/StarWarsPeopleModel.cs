@@ -1,27 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace back.Models.StarWarsApi
+namespace back.Models.StarWarsApi.StarWarsPeopleModel
 {
-    public partial class StarWarsPeoplesModel
-    {
-        [JsonProperty("count")]
-        public long Count { get; set; }
-
-        [JsonProperty("next")]
-        public Uri Next { get; set; }
-
-        [JsonProperty("previous")]
-        public object Previous { get; set; }
-
-        [JsonProperty("results")]
-        public List<Result> Results { get; set; }
-    }
-
-    public partial class Result
+    public partial class StarWarsPeopleModel
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -47,7 +33,7 @@ namespace back.Models.StarWarsApi
         public string BirthYear { get; set; }
 
         [JsonProperty("gender")]
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
 
         [JsonProperty("homeworld")]
         public Uri Homeworld { get; set; }
@@ -74,16 +60,14 @@ namespace back.Models.StarWarsApi
         public Uri Url { get; set; }
     }
 
-    public enum Gender { Female, Male, NA };
-
-    public partial class StarWarsPeoplesModel
+    public partial class StarWarsPeopleModel
     {
-        public static StarWarsPeoplesModel FromJson(string json) => JsonConvert.DeserializeObject<StarWarsPeoplesModel>(json, back.Models.StarWarsApi.Converter.Settings);
+        public static StarWarsPeopleModel FromJson(string json) => JsonConvert.DeserializeObject<StarWarsPeopleModel>(json, back.Models.StarWarsApi.StarWarsPeopleModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this StarWarsPeoplesModel self) => JsonConvert.SerializeObject(self, back.Models.StarWarsApi.Converter.Settings);
+        public static string ToJson(this StarWarsPeopleModel self) => JsonConvert.SerializeObject(self, back.Models.StarWarsApi.StarWarsPeopleModel.Converter.Settings);
     }
 
     internal static class Converter
@@ -94,56 +78,9 @@ namespace back.Models.StarWarsApi
             DateParseHandling = DateParseHandling.None,
             Converters =
             {
-                GenderConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
-    }
-
-    internal class GenderConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Gender) || t == typeof(Gender?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "female":
-                    return Gender.Female;
-                case "male":
-                    return Gender.Male;
-                case "n/a":
-                    return Gender.NA;
-            }
-            throw new Exception("Cannot unmarshal type Gender");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Gender)untypedValue;
-            switch (value)
-            {
-                case Gender.Female:
-                    serializer.Serialize(writer, "female");
-                    return;
-                case Gender.Male:
-                    serializer.Serialize(writer, "male");
-                    return;
-                case Gender.NA:
-                    serializer.Serialize(writer, "n/a");
-                    return;
-            }
-            throw new Exception("Cannot marshal type Gender");
-        }
-
-        public static readonly GenderConverter Singleton = new GenderConverter();
     }
 
     internal class ParseStringConverter : JsonConverter

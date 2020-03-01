@@ -78,12 +78,12 @@ namespace back.Models.StarWarsApi.StarWarsPeoplesModel
 
     public partial class StarWarsPeoplesModel
     {
-        public static StarWarsPeoplesModel FromJson(string json) => JsonConvert.DeserializeObject<StarWarsPeoplesModel>(json, back.Models.StarWarsApi.Converter.Settings);
+        public static StarWarsPeoplesModel FromJson(string json) => JsonConvert.DeserializeObject<StarWarsPeoplesModel>(json, back.Models.StarWarsApi.StarWarsPeoplesModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this StarWarsPeoplesModel self) => JsonConvert.SerializeObject(self, back.Models.StarWarsApi.Converter.Settings);
+        public static string ToJson(this StarWarsPeoplesModel self) => JsonConvert.SerializeObject(self, back.Models.StarWarsApi.StarWarsPeoplesModel.Converter.Settings);
     }
 
     internal static class Converter
