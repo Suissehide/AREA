@@ -10,7 +10,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
     google, setGoogleService, setGoogleIp, setGoogleDistance, facebook, setFacebookService, setFacebookWidget,
-    pokemon, setPokemonService, setPokemonWidget, picture, setPictureService, setPictureWidget,
+    pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
     news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
     microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
 }) => (
@@ -60,7 +60,8 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                             setWidget={setPictureWidget} widgetTitle="Get a themed picture" />
 
                         <Service title="Pokemon Service" service={pokemon} setService={setPokemonService}
-                            setWidget={setPokemonWidget} widgetTitle="Get informations on a Pokemon" />
+                            widget={pokemon.detail} setWidget={setPokemonDetail} widgetTitle="Get informations on a Pokemon"
+                            w2={pokemon.moves} setW2={setPokemonMoves} t2="Get 5 abilities of a Pokemon" />
 
                         <Service title="Harry Potter Service" service={potter} setService={setPotterService}
                             widget={potter.spell} setWidget={setPotterSpell} widgetTitle="Display a random spell"
