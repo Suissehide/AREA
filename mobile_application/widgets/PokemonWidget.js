@@ -12,11 +12,11 @@ export default function JikanAnimeWidget(props) {
     const [type2, setType2] = useState('');
     const [height, setHeight] = useState('');
     const [weigth, setWeight] = useState('');
-    const [sprite, setSprite] = useState('');
-    const [shiny, setShiny] = useState('');
+    const [sprite, setSprite] = useState('a');
+    const [shiny, setShiny] = useState('a');
 
     const handleChange = () => {
-        axios.get(`http://${props.ip}/api/pokemon/${pokemon}`)
+        axios.get(`http://${props.ip}/api/pokemon/${pokemon}/detail`)
             .then(response => {
                 setId(response.data.id);
                 setName(response.data.name);
@@ -58,7 +58,7 @@ export default function JikanAnimeWidget(props) {
                 onChangeText={event => { setPokemon(event); }}
                 onSubmitEditing={handleChange}
                 margin="normal"
-                variant="outlined"
+                variant="outlined" autoCapitalize="none"
             />
         </View>
     );
