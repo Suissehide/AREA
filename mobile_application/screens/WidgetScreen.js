@@ -27,6 +27,7 @@ import MicrosoftCalendarWidget from '../widgets/Microsoft/MicrosoftCalendarWidge
 import MicrosoftContactsWidget from '../widgets/Microsoft/MicrosoftContactsWidget';
 import MicrosoftDriveWidget from '../widgets/Microsoft/MicrosoftDriveWidget';
 import MicrosoftGraphWidget from '../widgets/Microsoft/MicrosoftGraphWidget'
+import MicrosoftOutlookWidget from '../widgets/Microsoft/MicrosoftOutlookWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft }) => (
     <Background>
@@ -63,6 +64,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Microsoft Drive" widget={<MicrosoftDriveWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.graph === true ?
                     <MyCard title="Microsoft Graph" widget={<MicrosoftGraphWidget ip={ip} />} /> : null}
+                {microsoft.service === true && microsoft.outlook === true ?
+                    <MyCard title="Microsoft Outlook" widget={<MicrosoftOutlookWidget ip={ip} />} /> : null}
                 {movie.service === true && movie.widget === true ?
                     <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
                 {news.service === true && news.banana === true ?
