@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
-import { theme } from '../core/theme';
-import { emailValidator, passwordValidator, nameValidator, } from '../core/utils';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import TextInput from '../components/TextInput';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import BackButton from '../components/BackButton';
+import Background from '../components/Background';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
+import { theme } from '../core/theme';
+import { emailValidator, nameValidator, passwordValidator } from '../core/utils';
 
 export default function RegisterScreen(props) {
     const [name, setName] = useState({ value: '', error: '' });

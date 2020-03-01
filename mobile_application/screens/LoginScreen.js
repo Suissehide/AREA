@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
-import { theme } from '../core/theme';
-import { emailValidator, passwordValidator } from '../core/utils';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
 import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
 import TextInput from '../components/TextInput';
 import { withWidget } from "../core/Context";
-import RegisterScreen from "./RegisterScreen"
+import { theme } from '../core/theme';
+import { emailValidator, passwordValidator } from '../core/utils';
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
+import RegisterScreen from "./RegisterScreen";
 
 function Login(props) {
     const [email, setEmail] = useState({ value: '', error: '' });

@@ -1,18 +1,14 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { StyleSheet, View, Image } from 'react-native';
-import { theme } from '../core/theme';
-import { withWidget } from "../core/Context";
-import Text from '../components/Text';
-import Button from '../components/Button';
 import axios from 'axios';
-import TextInput from '../components/TextInput';
+import React, { Fragment, useEffect, useState } from "react";
+import { Image, StyleSheet, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Background from '../components/Background';
-import {
-    emailValidator,
-    passwordValidator,
-    nameValidator,
-} from '../core/utils';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Button from '../components/Button';
+import Text from '../components/Text';
+import TextInput from '../components/TextInput';
+import { withWidget } from "../core/Context";
+import { theme } from '../core/theme';
+import { emailValidator, nameValidator, passwordValidator } from '../core/utils';
 
 function AccountInfo(props) {
     const [name, setName] = useState({ value: '', error: '' });

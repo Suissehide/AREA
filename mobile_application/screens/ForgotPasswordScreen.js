@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { emailValidator } from '../core/utils';
-import { theme } from '../core/theme';
-import Background from '../components/Background';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import BackButton from '../components/BackButton';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import TextInput from '../components/TextInput';
+import Background from '../components/Background';
 import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
+import { theme } from '../core/theme';
+import { emailValidator } from '../core/utils';
 
 export default function ForgotPasswordScreen(props) {
     const [email, setEmail] = useState({ value: '', error: '' });

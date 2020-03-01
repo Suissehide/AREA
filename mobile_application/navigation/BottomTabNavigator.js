@@ -1,9 +1,9 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
+import AccountScreen from '../screens/AccountScreen';
 import ServiceScreen from '../screens/ServiceScreen';
 import WidgetScreen from '../screens/WidgetScreen';
-import AccountScreen from '../screens/AccountScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Login';

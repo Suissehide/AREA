@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { View, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
-import Text from '../../components/Text'
+import React, { useEffect, useState } from "react";
+import { Image, TouchableOpacity, View } from 'react-native';
+import Text from '../../components/Text';
 
 export default function JikanTopMangaWidget(props) {
     const [number, setNumber] = useState(0);

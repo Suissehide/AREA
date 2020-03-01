@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { View } from 'react-native';
-import { StyleSheet } from 'react-native';
 import axios from 'axios';
-import Text from '../../components/Text'
-import TextInput from '../../components/TextInput';
+import React, { useState } from "react";
+import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
+import Text from '../../components/Text';
+import TextInput from '../../components/TextInput';
 
 export default function GoogleDistanceWidget(props) {
     const [origin, setOrigin] = useState('');

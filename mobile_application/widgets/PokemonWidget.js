@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { View, Image } from 'react-native';
 import axios from 'axios';
-import Text from '../components/Text'
+import React, { useState } from "react";
+import { Image, View } from 'react-native';
+import Text from '../components/Text';
 import TextInput from '../components/TextInput';
 
 export default function JikanAnimeWidget(props) {

@@ -1,8 +1,8 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { StyleSheet, View } from 'react-native';
-import Button from '../../components/Button'
-import axios from 'axios';
-import Text from '../../components/Text'
+import Button from '../../components/Button';
+import Text from '../../components/Text';
 
 export default function PotterSpell(props) {
     const [spell, setSpell] = useState("Oblivates");

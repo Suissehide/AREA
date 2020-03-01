@@ -1,4 +1,4 @@
-import React, { createContext, Component } from "react";
+import React, { Component, createContext } from "react";
 
 export const WidgetContext = createContext({
     ip: "localhost",

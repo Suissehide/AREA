@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { SplashScreen } from 'expo';
-import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SplashScreen } from 'expo';
+import * as Font from 'expo-font';
+import React from 'react';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import WidgetProvider, { WidgetContext } from "./core/Context";
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import LoginScreen from './screens/LoginScreen';
-import WidgetProvider, { WidgetContext } from "./core/Context";
 
 const Stack = createStackNavigator();
 
