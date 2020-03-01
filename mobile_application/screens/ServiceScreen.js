@@ -36,7 +36,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="ISS Service" service={iss} setService={setIssService}
                             widget={iss.location} setWidget={setIssLocation} widgetTitle="Display the location of the ISS"
-                            w2={iss.person} setW2={setIssPerson} t2="Display information about the humans in Space" />
+                            w2={iss.person} setW2={setIssPerson} t2={"Display informations about " + "\n" + "humans in Space"} />
 
                         <Service title="Jikan Service" service={jikan} setService={setJikanService}
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"

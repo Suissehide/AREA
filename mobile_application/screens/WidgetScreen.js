@@ -29,8 +29,9 @@ import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
 import PokemonMovesWidget from '../widgets/Pokemon/PokemonMovesWidget'
+import IssLocationWidget from '../widgets/Iss/IssLocationWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft, iss }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -47,6 +48,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.name === true ?
                     <MyCard title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
+                {iss.service === true && iss.location === true ?
+                    <MyCard title="ISS Location" widget={<IssLocationWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?
