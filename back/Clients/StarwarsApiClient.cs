@@ -8,6 +8,9 @@ namespace back.Clients.StarWarsApi
     public interface IStarWarsApiClient
     {
         [Get("/people/{id}")]
-        Task<StarWarsPeopleModel> getCharacterById(int id);
+        Task<StarWarsPeopleModel> GetCharacterById(int id);
+
+        [Get("/planets/{id}")]
+        Task<StarWarsPlanetModel> GetPlanetById(int id);
     }
 }
