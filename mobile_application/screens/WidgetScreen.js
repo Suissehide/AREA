@@ -22,14 +22,17 @@ import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
 import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
 import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget'
 import HeroNameWidget from '../widgets/Hero/HeroNameWidget';
+import FacebookWidget from '../widgets/FacebookWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
                 {chuck.service === true && chuck.widget === true ?
                     <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
+                {facebook.service === true && facebook.widget === true ?
+                    <MyCard title="Facebook Likes" widget={<FacebookWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?

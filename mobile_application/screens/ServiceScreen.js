@@ -23,8 +23,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                             setWidget={setChuckWidget} widgetTitle="Get 3 themed Chuck Norris jokes" />
 
                         <Service title="Facebook Service" service={facebook} setService={setFacebookService}
-                            setWidget={setFacebookWidget} widgetTitle="Get your 3 last liked contents" />
-
+                            setWidget={setFacebookWidget} widgetTitle="Display your liked contents" />
 
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
@@ -47,7 +46,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                             widget={microsoft.calendar} setWidget={setMicrosoftCalendar} widgetTitle="Display your upcoming events"
                             w2={microsoft.contacts} setW2={setMicrosoftContacts} t2="Display your contacts"
                             w3={microsoft.drive} setW3={setMicrosoftDrive} t3="Display items in your drive"
-                            w4={microsoft.graph} setW4={setMicrosoftGraph} t4="Display your microsoft account informations"
+                            w4={microsoft.graph} setW4={setMicrosoftGraph} t4={"Display your microsoft account" + "\n" + "informations"}
                             w5={microsoft.outlook} setW5={setMicrosoftOutlook} t5="Display your mails" />
 
                         <Service title={"The Movie Database" + "\n" + "Service"} service={movie} setService={setMovieService}
