@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace back.Models.GoogleApi.Maps.PlaceDetail
+namespace back.Models.GoogleApi
 {
     public class PlaceDetailApiModel
     {

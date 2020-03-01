@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using back.Clients.GoogleApi;
-using back.Models.GoogleApi.Maps.PlaceDetail;
-using back.Models.GoogleApi.Maps.Places;
+using back.Models.GoogleApi;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Refit;

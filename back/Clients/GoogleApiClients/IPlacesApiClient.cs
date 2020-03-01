@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
+using back.Models.GoogleApi;
 using Refit;
-using back.Models.GoogleApi.Maps.Places;
-using back.Models.GoogleApi.Maps.PlaceDetail;
 
 namespace back.Clients.GoogleApi
 {
