@@ -21,14 +21,14 @@ export default function JikanAnimeWidget(props) {
     }
     return (
         <View style={{ alignItems: 'center' }}>
-            <View style={{ paddingTop: 10, paddingBottom: 20 }}>
+            <View style={{ paddingTop: 10 }}>
                 <View style={{ paddingBottom: 5 }}>
                     <Text swag={{ fontSize: 17 }}> {name} </Text>
                 </View>
                 {name === 'Aelita Schaeffer' ? <Image
                     style={{ width: 200, height: 200, borderRadius: 15 }} source={{ uri: imageUrl }} /> :
                     <Image
-                        style={{ width: 168.75, height: 262.5, borderRadius: 15 }} source={{ uri: imageUrl }} />}
+                        style={{ width: 187, height: 290, borderRadius: 15 }} source={{ uri: imageUrl }} />}
             </View>
             <TextInput
                 id="outlined-name"
