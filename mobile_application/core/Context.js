@@ -58,6 +58,9 @@ export const WidgetContext = createContext({
     setHeroRandom: () => { },
     setHeroName: () => { },
     //
+    facebook: { service: false, widget: false },
+    setFacebookService: () => { },
+    setFacebookWidget: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -218,7 +221,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        hero: { service: true, random: true, name: true },
+        hero: { service: false, random: false, name: false },
         setHeroService: (value) => {
             this.setState(prevState => ({
                 hero: { ...prevState.hero, service: value, }
@@ -232,6 +235,19 @@ class WidgetProvider extends Component {
         setHeroName: (value) => {
             this.setState(prevState => ({
                 hero: { ...prevState.hero, name: value, }
+            }))
+        },
+
+
+        facebook: { service: true, widget: true },
+        setFacebookService: (value) => {
+            this.setState(prevState => ({
+                facebook: { ...prevState.facebook, service: value, }
+            }))
+        },
+        setFacebookWidget: (value) => {
+            this.setState(prevState => ({
+                facebook: { ...prevState.facebook, widget: value, }
             }))
         },
 
