@@ -12,6 +12,7 @@ import ChuckWidget from '../widgets/ChuckWidget';
 import MovieWidget from '../widgets/MovieWidget'
 import JikanAnimeWidget from '../widgets/Jikan/JikanAnimeWidget';
 import JikanCharacterWidget from '../widgets/Jikan/JikanCharacterWidget';
+import JikanTopAnimeWidget from '../widgets/Jikan/JikanTopAnimeWidget';
 import GoogleIpWidget from '../widgets/Google/GoogleIpWidget';
 import GoogleDistanceWidget from '../widgets/Google/GoogleDistanceWidget';
 import JokeWidget from '../widgets/JokeWidget';
@@ -35,6 +36,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?
                     <MyCard title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
+                {jikan.service === true && jikan.topAnime === true ?
+                    <MyCard title="Top Animes" widget={<JikanTopAnimeWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
