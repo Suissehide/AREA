@@ -8,5 +8,8 @@ namespace back.Clients
     {
         [Get("/iss-now.json")]
         Task<IssLocationModel> StationLocation();
+        
+        [Get("/astros.json")]
+        Task<IssPersonModel> PersonInStation();
     }
 }

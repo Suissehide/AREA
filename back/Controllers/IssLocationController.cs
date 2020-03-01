@@ -15,7 +15,7 @@ namespace back.Controllers
         #region MEMBERS
 
         private readonly ILogger<IssLocationController> _logger;
-        private readonly IIssLocationClient _location;
+        private readonly IIssLocationClient _iss;
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace back.Controllers
         public IssLocationController(ILogger<IssLocationController> logger)
         {
             _logger = logger;
-            _location = RestService.For<IIssLocationClient>("http://api.open-notify.org/");
+            _iss = RestService.For<IIssLocationClient>("http://api.open-notify.org/");
         }
 
         #endregion
@@ -36,7 +36,7 @@ namespace back.Controllers
         {
             try
             {
-                IssLocationModel location = await _location.StationLocation();
+                IssLocationModel location = await _iss.StationLocation();
                 return Ok(location);
             }
             catch (Exception exMessage)
@@ -46,6 +46,21 @@ namespace back.Controllers
             }
         }
 
+        [HttpGet("person")]
+        public async Task<IActionResult> PersonInStation()
+        {
+            try
+            {
+                IssPersonModel personInStation = await _iss.PersonInStation();
+                return Ok(personInStation);
+            }
+            catch (Exception exMessage)
+            {
+                _logger.LogError($"ISS nbr of person in space : {exMessage.Message}");
+                return NotFound(exMessage);
+            }
+        }
+        
         #endregion
     }
 }
