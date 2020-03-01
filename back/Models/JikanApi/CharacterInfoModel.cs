@@ -11,21 +11,21 @@ namespace back.Models.JikanApi
         public int MalId { get; set; }
         
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string? Url { get; set; }
         
         [JsonProperty("image_url")]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
         
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         
         [JsonProperty("alternative_names")]
         public string[]? AlternativeNames { get; set; }
         
         [JsonProperty("anime")]
-        public List<OriginCharacterModel?> Anime { get; set; }
+        public List<OriginCharacterModel?>? Anime { get; set; }
 
         [JsonProperty("manga")]
-        public List<OriginCharacterModel?> Manga { get; set; }
+        public List<OriginCharacterModel?>? Manga { get; set; }
     }
 }

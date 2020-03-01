@@ -1,4 +1,3 @@
-using DashboardApi.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,11 +22,6 @@ namespace back
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
-            services.AddDbContext<DashboardContext>(options =>
-            {
-                options.UseNpgsql(Configuration.GetConnectionString("AreaDatabase"));
-            });
 
             // Register the swagger generator
             services.AddSwaggerGen(c =>
