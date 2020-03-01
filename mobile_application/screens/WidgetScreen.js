@@ -20,8 +20,9 @@ import WeatherWidget from '../widgets/WeatherWidget';
 import PictureWidget from '../widgets/PictureWidget';
 import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
 import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
+import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget'
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -32,6 +33,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
                     <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
+                {hero.service === true && hero.random === true ?
+                    <MyCard title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?
