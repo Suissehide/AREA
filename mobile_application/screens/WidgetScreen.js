@@ -17,8 +17,9 @@ import PokemonWidget from '../widgets/PokemonWidget';
 import PotterCharacterWidget from '../widgets/Potter/PotterCharacterWidget';
 import PotterSpellWidget from '../widgets/Potter/PotterSpellWidget';
 import WeatherWidget from '../widgets/WeatherWidget';
+import PictureWidget from '../widgets/PictureWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -41,6 +42,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
                 {movie.service === true && movie.widget === true ?
                     <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
+                {picture.service === true && picture.widget === true ?
+                    <MyCard title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
                 {pokemon.service === true && pokemon.widget === true ?
                     <MyCard title="Get information on a Pokemon" widget={<PokemonWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.spell === true ?
