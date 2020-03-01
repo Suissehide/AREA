@@ -27,7 +27,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="Superhero Service" service={hero} setService={setHeroService}
                             widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
-                            w2={hero.name} setW2={setHeroName} t2="Display a information about your superhero" />
+                            w2={hero.name} setW2={setHeroName} t2={"Display a information about your" + "\n" + "superhero"} />
 
                         <Service title="Jikan Service" service={jikan} setService={setJikanService}
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
