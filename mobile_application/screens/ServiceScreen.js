@@ -13,6 +13,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
     news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
     microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
+    iss, setIssService, setIssLocation, setIssPerson,
 }) => (
         <Background>
             <Fragment>
@@ -32,6 +33,10 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <Service title="Superhero Service" service={hero} setService={setHeroService}
                             widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
                             w2={hero.name} setW2={setHeroName} t2={"Display a information about your" + "\n" + "superhero"} />
+
+                        <Service title="ISS Service" service={iss} setService={setIssService}
+                            widget={iss.location} setWidget={setIssLocation} widgetTitle="Display the location of the ISS"
+                            w2={iss.person} setW2={setIssPerson} t2="Display information about the humans in Space" />
 
                         <Service title="Jikan Service" service={jikan} setService={setJikanService}
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
