@@ -14,7 +14,6 @@ export default function PokemonMovesWidget(props) {
         axios.get(`http://${props.ip}/api/pokemon/${pokemon}/moves`)
             .then(response => {
                 setName(response.data.name);
-                console.log(response.data.moves);
                 setMoves(response.data.moves);
             })
             .catch(function (error) {
