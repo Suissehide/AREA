@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
-using back.Models.StarWarsApi;
+using back.Models.StarWarsApi.StarWarsPeopleModel;
+using back.Models.StarWarsApi.StarWarsPeoplesModel;
 using Refit;
 
 namespace back.Clients.StarWarsApi
@@ -8,5 +9,8 @@ namespace back.Clients.StarWarsApi
     {
         [Get("/people")]
         Task<StarWarsPeoplesModel> GetAllCharacters();
+
+        [Get("/people/{id}")]
+        Task<StarWarsPeopleModel> getCharacterById(string id);
     }
 }
