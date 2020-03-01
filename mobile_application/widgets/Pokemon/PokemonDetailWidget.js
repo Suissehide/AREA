@@ -4,7 +4,7 @@ import { Image, View } from 'react-native';
 import Text from '../../components/Text';
 import TextInput from '../../components/TextInput';
 
-export default function JikanAnimeWidget(props) {
+export default function PokemonDetailWidget(props) {
     const [pokemon, setPokemon] = useState('');
     const [name, setName] = useState('');
     const [id, setId] = useState('');
