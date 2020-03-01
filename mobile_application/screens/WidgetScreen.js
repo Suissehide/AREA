@@ -20,18 +20,28 @@ import WeatherWidget from '../widgets/WeatherWidget';
 import PictureWidget from '../widgets/PictureWidget';
 import NewsBananaWidget from '../widgets/News/NewsBananaWidget';
 import NewsThemeWidget from '../widgets/News/NewsThemeWidget';
+import HeroRandomWidget from '../widgets/Hero/HeroRandomWidget'
+import HeroNameWidget from '../widgets/Hero/HeroNameWidget';
+import FacebookWidget from '../widgets/FacebookWidget';
+import MicrosoftCalendarWidget from '../widgets/Microsoft/MicrosoftCalendarWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news }) => (
+export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft }) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
                 {chuck.service === true && chuck.widget === true ?
                     <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
+                {facebook.service === true && facebook.widget === true ?
+                    <MyCard title="Facebook Likes" widget={<FacebookWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
                     <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
                     <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
+                {hero.service === true && hero.random === true ?
+                    <MyCard title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
+                {hero.service === true && hero.name === true ?
+                    <MyCard title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
                     <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?
@@ -42,6 +52,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Top Mangas" widget={<JikanTopMangaWidget ip={ip} />} /> : null}
                 {joke.service === true && joke.widget === true ?
                     <MyCard title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
+                {microsoft.service === true && microsoft.calendar === true ?
+                    <MyCard title="Calendar Events" widget={<MicrosoftCalendarWidget ip={ip} />} /> : null}
                 {movie.service === true && movie.widget === true ?
                     <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
                 {news.service === true && news.banana === true ?

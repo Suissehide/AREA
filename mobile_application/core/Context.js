@@ -52,6 +52,23 @@ export const WidgetContext = createContext({
     setNewsService: () => { },
     setNewsBanana: () => { },
     setNewsTheme: () => { },
+    //
+    hero: { service: false, random: false, name: false },
+    setHeroService: () => { },
+    setHeroRandom: () => { },
+    setHeroName: () => { },
+    //
+    facebook: { service: false, widget: false },
+    setFacebookService: () => { },
+    setFacebookWidget: () => { },
+    //
+    microsoft: { service: false, calendar: false, contacts: false, drive: false, graph: false, outlook: false },
+    setMicrosoftService: () => { },
+    setMicrosoftCalendar: () => { },
+    setMicrosoftContacts: () => { },
+    setMicrosoftDrive: () => { },
+    setMicrosoftGraph: () => { },
+    setMicrosoftOutlook: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -195,7 +212,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        news: { service: true, banana: true, theme: true },
+        news: { service: false, banana: false, theme: false },
         setNewsService: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, service: value, }
@@ -209,6 +226,67 @@ class WidgetProvider extends Component {
         setNewsTheme: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, theme: value, }
+            }))
+        },
+
+        hero: { service: false, random: false, name: false },
+        setHeroService: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.hero, service: value, }
+            }))
+        },
+        setHeroRandom: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.hero, random: value, }
+            }))
+        },
+        setHeroName: (value) => {
+            this.setState(prevState => ({
+                hero: { ...prevState.hero, name: value, }
+            }))
+        },
+
+        facebook: { service: true, widget: true },
+        setFacebookService: (value) => {
+            this.setState(prevState => ({
+                facebook: { ...prevState.facebook, service: value, }
+            }))
+        },
+        setFacebookWidget: (value) => {
+            this.setState(prevState => ({
+                facebook: { ...prevState.facebook, widget: value, }
+            }))
+        },
+
+        microsoft: { service: true, calendar: true, contacts: true, drive: true, graph: true, outlook: true },
+        setMicrosoftService: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, service: value, }
+            }))
+        },
+        setMicrosoftCalendar: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, calendar: value, }
+            }))
+        },
+        setMicrosoftContacts: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, contacts: value, }
+            }))
+        },
+        setMicrosoftDrive: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, drive: value, }
+            }))
+        },
+        setMicrosoftGraph: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, graph: value, }
+            }))
+        },
+        setMicrosoftOutlook: (value) => {
+            this.setState(prevState => ({
+                microsoft: { ...prevState.microsoft, outlook: value, }
             }))
         },
 
