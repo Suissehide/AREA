@@ -75,6 +75,11 @@ export const WidgetContext = createContext({
     setIssService: () => { },
     setIssLocation: () => { },
     setIssPerson: () => { },
+    //
+    starwars: { service: false, people: false, planet: false },
+    setStarwarsService: () => { },
+    setStarwarsPeople: () => { },
+    setStarwarsPlanet: () => { },
 });
 
 class WidgetProvider extends Component {
@@ -301,7 +306,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        iss: { service: true, location: false, person: true },
+        iss: { service: false, location: false, person: false },
         setIssService: (value) => {
             this.setState(prevState => ({
                 iss: { ...prevState.iss, service: value, }
@@ -317,6 +322,24 @@ class WidgetProvider extends Component {
                 iss: { ...prevState.iss, person: value, }
             }))
         },
+
+        starwars: { service: true, people: true, planet: true },
+        setStarwarsService: (value) => {
+            this.setState(prevState => ({
+                starwars: { ...prevState.starwars, service: value, }
+            }))
+        },
+        setStarwarsPeople: (value) => {
+            this.setState(prevState => ({
+                starwars: { ...prevState.starwars, people: value, }
+            }))
+        },
+        setStarwarsPlanet: (value) => {
+            this.setState(prevState => ({
+                starwars: { ...prevState.starwars, planet: value, }
+            }))
+        },
+
     };
 
     render() {
