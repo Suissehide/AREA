@@ -171,7 +171,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: true, ip: false, distance: true, place: true },
+        google: { service: false, ip: true, distance: true, place: true },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
@@ -312,7 +312,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        iss: { service: false, location: true, person: true },
+        iss: { service: true, location: true, person: true },
         setIssService: (value) => {
             this.setState(prevState => ({
                 iss: { ...prevState.iss, service: value, }

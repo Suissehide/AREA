@@ -33,6 +33,7 @@ import IssLocationWidget from '../widgets/Iss/IssLocationWidget';
 import IssPersonWidget from '../widgets/Iss/IssPersonWidget';
 import StarwarsCharacterWidget from '../widgets/Starwars/StarwarsCharacterWidget';
 import StarwarsPlanetWidget from '../widgets/Starwars/StarwarsPlanetWidget';
+import GooglePlaceWidget from '../widgets/Google/GooglePlaceWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft, iss, starwars }) => (
     <Background>
@@ -47,6 +48,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <Widget title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
                     <Widget title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
+                {google.service === true && google.place === true ?
+                    <Widget title="Information on a place" widget={<GooglePlaceWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.random === true ?
                     <Widget title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.name === true ?
