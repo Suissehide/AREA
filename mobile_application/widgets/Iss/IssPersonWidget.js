@@ -4,8 +4,6 @@ import { FlatList, View } from 'react-native';
 import Text from '../../components/Text';
 
 export default function IssPersonWidget(props) {
-    const [name, setName] = useState(null);
-    const [craft, setCraft] = useState(null);
     const [number, setNumber] = useState(null);
     const [people, setPeople] = useState(null);
 

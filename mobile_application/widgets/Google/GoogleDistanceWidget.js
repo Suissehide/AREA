@@ -42,7 +42,6 @@ export default function GoogleDistanceWidget(props) {
                 onSubmitEditing={handleChange}
                 margin="normal" variant="outlined"
             />
-
             {status === "NOT_FOUND" || status === "ZERO_RESULTS" ? <Text>No results found.</Text> : status === "OK" ?
                 <Text swag={{ fontSize: 20 }} >
                     The distance between <Text swag={{ fontWeight: 'bold' }} >{originAddresses}</Text> and <Text swag={{ fontWeight: 'bold' }} >
