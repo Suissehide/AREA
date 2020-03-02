@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
@@ -27,8 +27,6 @@ export default function GoogleDistanceWidget(props) {
             />
         );
     }
-
-    const handleChange = () => { };
 
     useEffect(() => {
         mode !== null ?
@@ -64,10 +62,10 @@ export default function GoogleDistanceWidget(props) {
                 </Text> : status === null ? null : <Text> No results found. </Text>
             }
             <View style={{ flexDirection: 'row', marginHorizontal: 10 }} >
-                <Button style={styles.button} onPress={() => { setMode('driving'); handleChange() }}><MyIcon name="md-car" /> </Button>
-                <Button style={styles.button} onPress={() => { setMode('walking'); handleChange() }}><MyIcon name="md-walk" /></Button>
-                <Button style={styles.button} onPress={() => { setMode('bicycling'); handleChange() }}><MyIcon name="md-bicycle" /></Button>
-                <Button style={styles.button} onPress={() => { setMode('transit'); handleChange() }}><MyIcon name="md-train" /></Button>
+                <Button style={styles.button} onPress={() => { setMode('driving'); }}><MyIcon name="md-car" /> </Button>
+                <Button style={styles.button} onPress={() => { setMode('walking'); }}><MyIcon name="md-walk" /></Button>
+                <Button style={styles.button} onPress={() => { setMode('bicycling'); }}><MyIcon name="md-bicycle" /></Button>
+                <Button style={styles.button} onPress={() => { setMode('transit'); }}><MyIcon name="md-train" /></Button>
             </View>
         </View >
     );
