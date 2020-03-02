@@ -1,89 +1,79 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Background from '../components/Background';
 import Service from '../components/CardServiceTemplate';
 import { withWidget } from '../core/Context';
 
-export default withWidget(({ potter, setPotterService, setPotterSpell, setPotterCharacter,
-    weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
-    movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
-    jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
-    google, setGoogleService, setGoogleIp, setGoogleDistance, setGooglePlace, facebook, setFacebookService, setFacebookWidget,
-    pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
-    news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
-    microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
-    iss, setIssService, setIssLocation, setIssPerson, starwars, setStarwarsService, setStarwarsPeople, setStarwarsPlanet
-}) => (
-        <Background>
-            <Fragment>
-                <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-                    <View style={{ width: '90%' }}>
+export default withWidget((props) => (
+    <Background>
+        <Fragment>
+            <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                <View style={{ width: '90%' }}>
+                    <Service title="Chuck Norris Service" service={props.chuck} setService={props.setChuckService}
+                        setWidget={props.setChuckWidget} widgetTitle="Themed Chuck Norris Jokes" />
 
-                        <Service title="Chuck Norris Service" service={chuck} setService={setChuckService}
-                            setWidget={setChuckWidget} widgetTitle="Get 3 themed Chuck Norris jokes" />
+                    <Service title="Facebook Service" service={props.facebook} setService={props.setFacebookService}
+                        setWidget={props.setFacebookWidget} widgetTitle="Liked Pages" />
 
-                        <Service title="Facebook Service" service={facebook} setService={setFacebookService}
-                            setWidget={setFacebookWidget} widgetTitle="Display your liked contents" />
+                    <Service title="Google Service" service={props.google} setService={props.setGoogleService}
+                        widget={props.google.ip} setWidget={props.setGoogleIp} widgetTitle={"Your IP Location"}
+                        w2={props.google.distance} setW2={props.setGoogleDistance} t2={"Distance and Time between 2 Spots"}
+                        w3={props.google.place} setW3={props.setGooglePlace} t3={"Place Information"} />
 
-                        <Service title="Google Service" service={google} setService={setGoogleService}
-                            widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
-                            w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"}
-                            w3={google.place} setW3={setGooglePlace} t3={"Search a place"} />
+                    <Service title="Superhero Service" service={props.hero} setService={props.setHeroService}
+                        widget={props.hero.random} setWidget={props.setHeroRandom} widgetTitle="Random Superhero"
+                        w2={props.hero.name} setW2={props.setHeroName} t2={"Your Superhero"} />
 
-                        <Service title="Superhero Service" service={hero} setService={setHeroService}
-                            widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
-                            w2={hero.name} setW2={setHeroName} t2={"Display a information about your" + "\n" + "superhero"} />
+                    <Service title="ISS Service" service={props.iss} setService={props.setIssService}
+                        widget={props.iss.location} setWidget={props.setIssLocation} widgetTitle="ISS Location"
+                        w2={props.iss.person} setW2={props.setIssPerson} t2={"People in Space"} />
 
-                        <Service title="ISS Service" service={iss} setService={setIssService}
-                            widget={iss.location} setWidget={setIssLocation} widgetTitle="Display the location of the ISS"
-                            w2={iss.person} setW2={setIssPerson} t2={"Display informations about " + "\n" + "humans in Space"} />
+                    <Service title="Jikan Service" service={props.jikan} setService={props.setJikanService}
+                        widget={props.jikan.anime} setWidget={props.setJikanAnime} widgetTitle="Anime Information"
+                        w2={props.jikan.character} setW2={props.setJikanCharacter} t2="Character Information"
+                        w3={props.jikan.topAnime} setW3={props.setJikanTopAnime} t3="Highest Scored Animes"
+                        w4={props.jikan.topManga} setW4={props.setJikanTopManga} t4="Highest Scored Mangas" />
 
-                        <Service title="Jikan Service" service={jikan} setService={setJikanService}
-                            widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
-                            w2={jikan.character} setW2={setJikanCharacter} t2="Get informations on a character"
-                            w3={jikan.topAnime} setW3={setJikanTopAnime} t3="Display the highest scored animes"
-                            w4={jikan.topManga} setW4={setJikanTopManga} t4="Display the highest scored mangas" />
+                    <Service title="Joke Service" service={props.joke} setService={props.setJokeService}
+                        setWidget={props.setJokeWidget} widgetTitle="Themed Joke" />
 
-                        <Service title="Joke Service" service={joke} setService={setJokeService}
-                            setWidget={setJokeWidget} widgetTitle="Get a random themed joke" />
+                    <Service title="Microsoft Service" service={props.microsoft} setService={props.setMicrosoftService}
+                        widget={props.microsoft.calendar} setWidget={props.setMicrosoftCalendar} widgetTitle="Calendar Events"
+                        w2={props.microsoft.contacts} setW2={props.setMicrosoftContacts} t2="Contact List"
+                        w3={props.microsoft.drive} setW3={props.setMicrosoftDrive} t3="OneDrive Items"
+                        w4={props.microsoft.graph} setW4={props.setMicrosoftGraph} t4={"Microsoft Account Information"}
+                        w5={props.microsoft.outlook} setW5={props.setMicrosoftOutlook} t5="Outlook Mails" />
 
-                        <Service title="Microsoft Service" service={microsoft} setService={setMicrosoftService}
-                            widget={microsoft.calendar} setWidget={setMicrosoftCalendar} widgetTitle="Display your upcoming events"
-                            w2={microsoft.contacts} setW2={setMicrosoftContacts} t2="Display your contacts"
-                            w3={microsoft.drive} setW3={setMicrosoftDrive} t3="Display items in your drive"
-                            w4={microsoft.graph} setW4={setMicrosoftGraph} t4={"Display your microsoft account" + "\n" + "informations"}
-                            w5={microsoft.outlook} setW5={setMicrosoftOutlook} t5="Display your mails" />
+                    <Service title={"The Movie Database" + "\n" + "Service"} service={props.movie} setService={props.setMovieService}
+                        setWidget={props.setMovieWidget} widgetTitle="Movie Information" />
 
-                        <Service title={"The Movie Database" + "\n" + "Service"} service={movie} setService={setMovieService}
-                            setWidget={setMovieWidget} widgetTitle="Get information on a movie" />
+                    <Service title="News Service" service={props.news} setService={props.setNewsService}
+                        widget={props.news.banana} setWidget={props.setNewsBanana} widgetTitle="Bananews"
+                        w2={props.news.theme} setW2={props.setNewsTheme} t2="Themed News" />
 
-                        <Service title="News Service" service={news} setService={setNewsService}
-                            widget={news.banana} setWidget={setNewsBanana} widgetTitle="Display news about bananas"
-                            w2={news.theme} setW2={setNewsTheme} t2="Display themed news" />
+                    <Service title={"Picture Database Service"} service={props.picture} setService={props.setPictureService}
+                        setWidget={props.setPictureWidget} widgetTitle="Themed Picture" />
 
-                        <Service title={"Picture Database Service"} service={picture} setService={setPictureService}
-                            setWidget={setPictureWidget} widgetTitle="Get a themed picture" />
+                    <Service title="Pokemon Service" service={props.pokemon} setService={props.setPokemonService}
+                        widget={props.pokemon.detail} setWidget={props.setPokemonDetail} widgetTitle="Pokemon Information"
+                        w2={props.pokemon.moves} setW2={props.setPokemonMoves} t2="Pokemon Abilites" />
 
-                        <Service title="Pokemon Service" service={pokemon} setService={setPokemonService}
-                            widget={pokemon.detail} setWidget={setPokemonDetail} widgetTitle="Get informations on a Pokemon"
-                            w2={pokemon.moves} setW2={setPokemonMoves} t2="Get 5 abilities of a Pokemon" />
+                    <Service title="Harry Potter Service" service={props.potter} setService={props.setPotterService}
+                        widget={props.potter.spell} setWidget={props.setPotterSpell} widgetTitle="Random Spell"
+                        w2={props.potter.character} setW2={props.setPotterCharacter} t2="Random Character" />
 
-                        <Service title="Harry Potter Service" service={potter} setService={setPotterService}
-                            widget={potter.spell} setWidget={setPotterSpell} widgetTitle="Display a random spell"
-                            w2={potter.character} setW2={setPotterCharacter} t2="Display a random character" />
+                    <Service title="Star Wars Service" service={props.starwars} setService={props.setStarwarsService}
+                        widget={props.starwars.people} setWidget={props.setStarwarsPeople} widgetTitle="Random Character"
+                        w2={props.starwars.planet} setW2={props.setStarwarsPlanet} t2="Random Planet" />
 
-                        <Service title="Star Wars Service" service={starwars} setService={setStarwarsService}
-                            widget={starwars.people} setWidget={setStarwarsPeople} widgetTitle="Display a random character"
-                            w2={starwars.planet} setW2={setStarwarsPlanet} t2="Display a random planet" />
-
-                        <Service title="Weather Service" service={weather} setService={setWeatherService}
-                            setWidget={setWeatherWidget} widgetTitle="Get the weather of a city" />
-                    </View>
-                </KeyboardAwareScrollView>
-            </Fragment>
-        </Background>
-    ));
+                    <Service title="Weather Service" service={props.weather} setService={props.setWeatherService}
+                        setWidget={props.setWeatherWidget} widgetTitle="City Weather" />
+                </View>
+            </KeyboardAwareScrollView>
+        </Fragment>
+    </Background>
+));
 
 const styles = StyleSheet.create({
     container: {

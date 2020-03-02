@@ -1,7 +1,7 @@
 import React, { Component, createContext } from "react";
 
 export const WidgetContext = createContext({
-    ip: "localhost",
+    ip: "localhost:8080",
     isLogged: false,
     setIsLogged: () => { },
     token: 1,
@@ -85,7 +85,7 @@ export const WidgetContext = createContext({
 
 class WidgetProvider extends Component {
     state = {
-        ip: "10.10.253.77:8080",
+        ip: "10.10.253.28:8080",
         isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
@@ -312,7 +312,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        iss: { service: true, location: true, person: true },
+        iss: { service: true, location: false, person: true },
         setIssService: (value) => {
             this.setState(prevState => ({
                 iss: { ...prevState.iss, service: value, }

@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import Text from '../../components/Text';
 import TextInput from '../../components/TextInput';
 import { theme } from '../../core/theme';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
 
 export default function GooglePlaceWidget(props) {
     const [query, setQuery] = useState('');

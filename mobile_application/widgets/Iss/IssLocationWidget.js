@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from "react";
 import { View, StyleSheet } from 'react-native';
 import Text from '../../components/Text';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
 
 export default function IssLocationWidget(props) {
     const [latitude, setLatitude] = useState(0);

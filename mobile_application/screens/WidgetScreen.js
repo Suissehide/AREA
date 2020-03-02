@@ -35,71 +35,71 @@ import StarwarsCharacterWidget from '../widgets/Starwars/StarwarsCharacterWidget
 import StarwarsPlanetWidget from '../widgets/Starwars/StarwarsPlanetWidget';
 import GooglePlaceWidget from '../widgets/Google/GooglePlaceWidget';
 
-export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft, iss, starwars }) => (
+export default withWidget((props) => (
     <Background>
         <Fragment>
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-                {chuck.service === true && chuck.widget === true ?
-                    <Widget title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
-                {facebook.service === true && facebook.widget === true ?
-                    <Widget title="Facebook Likes" widget={<FacebookWidget ip={ip} />} /> : null}
-                {google.service === true && google.ip === true ?
-                    <Widget title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
-                {google.service === true && google.distance === true ?
-                    <Widget title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
-                {google.service === true && google.place === true ?
-                    <Widget title="Information on a place" widget={<GooglePlaceWidget ip={ip} />} /> : null}
-                {hero.service === true && hero.random === true ?
-                    <Widget title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
-                {hero.service === true && hero.name === true ?
-                    <Widget title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
-                {iss.service === true && iss.location === true ?
-                    <Widget title="ISS Location" widget={<IssLocationWidget ip={ip} />} /> : null}
-                {iss.service === true && iss.person === true ?
-                    <Widget title="People in Space" widget={<IssPersonWidget ip={ip} />} /> : null}
-                {jikan.service === true && jikan.anime === true ?
-                    <Widget title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
-                {jikan.service === true && jikan.character === true ?
-                    <Widget title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
-                {jikan.service === true && jikan.topAnime === true ?
-                    <Widget title="Top Animes" widget={<JikanTopAnimeWidget ip={ip} />} /> : null}
-                {jikan.service === true && jikan.topManga === true ?
-                    <Widget title="Top Mangas" widget={<JikanTopMangaWidget ip={ip} />} /> : null}
-                {joke.service === true && joke.widget === true ?
-                    <Widget title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
-                {microsoft.service === true && microsoft.calendar === true ?
-                    <Widget title="Calendar Events" widget={<MicrosoftCalendarWidget ip={ip} />} /> : null}
-                {microsoft.service === true && microsoft.contacts === true ?
-                    <Widget title="Microsoft Contacts" widget={<MicrosoftContactsWidget ip={ip} />} /> : null}
-                {microsoft.service === true && microsoft.drive === true ?
-                    <Widget title="Microsoft Drive" widget={<MicrosoftDriveWidget ip={ip} />} /> : null}
-                {microsoft.service === true && microsoft.graph === true ?
-                    <Widget title="Microsoft Graph" widget={<MicrosoftGraphWidget ip={ip} />} /> : null}
-                {microsoft.service === true && microsoft.outlook === true ?
-                    <Widget title="Microsoft Outlook" widget={<MicrosoftOutlookWidget ip={ip} />} /> : null}
-                {movie.service === true && movie.widget === true ?
-                    <Widget title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
-                {news.service === true && news.banana === true ?
-                    <Widget title="Bananews" widget={<NewsBananaWidget ip={ip} />} /> : null}
-                {news.service === true && news.theme === true ?
-                    <Widget title="News" widget={<NewsThemeWidget ip={ip} />} /> : null}
-                {picture.service === true && picture.widget === true ?
-                    <Widget title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
-                {pokemon.service === true && pokemon.detail === true ?
-                    <Widget title="Get information on a Pokemon" widget={<PokemonDetailWidget ip={ip} />} /> : null}
-                {pokemon.service === true && pokemon.moves === true ?
-                    <Widget title="Get Pokemon's 5 random abilities" widget={<PokemonMovesWidget ip={ip} />} /> : null}
-                {potter.service === true && potter.spell === true ?
-                    <Widget title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
-                {potter.service === true && potter.character === true ?
-                    <Widget title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
-                {starwars.service === true && starwars.people === true ?
-                    <Widget title="Random Character from Star Wars" widget={<StarwarsCharacterWidget ip={ip} />} /> : null}
-                {starwars.service === true && starwars.planet === true ?
-                    <Widget title="Random Planet from Star Wars" widget={<StarwarsPlanetWidget ip={ip} />} /> : null}
-                {weather.service === true && weather.widget === true ?
-                    <Widget title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
+                {props.chuck.service === true && props.chuck.widget === true ?
+                    <Widget title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={props.ip} />} /> : null}
+                {props.facebook.service === true && props.facebook.widget === true ?
+                    <Widget title="Facebook Likes" widget={<FacebookWidget ip={props.ip} />} /> : null}
+                {props.google.service === true && props.google.ip === true ?
+                    <Widget title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={props.ip} />} /> : null}
+                {props.google.service === true && props.google.distance === true ?
+                    <Widget title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={props.ip} />} /> : null}
+                {props.google.service === true && props.google.place === true ?
+                    <Widget title="Information on a place" widget={<GooglePlaceWidget ip={props.ip} />} /> : null}
+                {props.hero.service === true && props.hero.random === true ?
+                    <Widget title="Random Superhero" widget={<HeroRandomWidget ip={props.ip} />} /> : null}
+                {props.hero.service === true && props.hero.name === true ?
+                    <Widget title="Information on your Superhero" widget={<HeroNameWidget ip={props.ip} />} /> : null}
+                {props.iss.service === true && props.iss.location === true ?
+                    <Widget title="ISS Location" widget={<IssLocationWidget ip={props.ip} />} /> : null}
+                {props.iss.service === true && props.iss.person === true ?
+                    <Widget title="People in Space" widget={<IssPersonWidget ip={props.ip} />} /> : null}
+                {props.jikan.service === true && props.jikan.anime === true ?
+                    <Widget title="Information on an Anime" widget={<JikanAnimeWidget ip={props.ip} />} /> : null}
+                {props.jikan.service === true && props.jikan.character === true ?
+                    <Widget title="Information on an Anime Character" widget={<JikanCharacterWidget ip={props.ip} />} /> : null}
+                {props.jikan.service === true && props.jikan.topAnime === true ?
+                    <Widget title="Top Animes" widget={<JikanTopAnimeWidget ip={props.ip} />} /> : null}
+                {props.jikan.service === true && props.jikan.topManga === true ?
+                    <Widget title="Top Mangas" widget={<JikanTopMangaWidget ip={props.ip} />} /> : null}
+                {props.joke.service === true && props.joke.widget === true ?
+                    <Widget title="Get a random themed joke" widget={<JokeWidget ip={props.ip} />} /> : null}
+                {props.microsoft.service === true && props.microsoft.calendar === true ?
+                    <Widget title="Calendar Events" widget={<MicrosoftCalendarWidget ip={props.ip} />} /> : null}
+                {props.microsoft.service === true && props.microsoft.contacts === true ?
+                    <Widget title="Microsoft Contacts" widget={<MicrosoftContactsWidget ip={props.ip} />} /> : null}
+                {props.microsoft.service === true && props.microsoft.drive === true ?
+                    <Widget title="Microsoft Drive" widget={<MicrosoftDriveWidget ip={props.ip} />} /> : null}
+                {props.microsoft.service === true && props.microsoft.graph === true ?
+                    <Widget title="Microsoft Graph" widget={<MicrosoftGraphWidget ip={props.ip} />} /> : null}
+                {props.microsoft.service === true && props.microsoft.outlook === true ?
+                    <Widget title="Microsoft Outlook" widget={<MicrosoftOutlookWidget ip={props.ip} />} /> : null}
+                {props.movie.service === true && props.movie.widget === true ?
+                    <Widget title="Information on a Movie" widget={<MovieWidget ip={props.ip} />} /> : null}
+                {props.news.service === true && props.news.banana === true ?
+                    <Widget title="Bananews" widget={<NewsBananaWidget ip={props.ip} />} /> : null}
+                {props.news.service === true && props.news.theme === true ?
+                    <Widget title="News" widget={<NewsThemeWidget ip={props.ip} />} /> : null}
+                {props.picture.service === true && props.picture.widget === true ?
+                    <Widget title="Themed Picture" widget={<PictureWidget ip={props.ip} />} /> : null}
+                {props.pokemon.service === true && props.pokemon.detail === true ?
+                    <Widget title="Get information on a Pokemon" widget={<PokemonDetailWidget ip={props.ip} />} /> : null}
+                {props.pokemon.service === true && props.pokemon.moves === true ?
+                    <Widget title="Get Pokemon's 5 random abilities" widget={<PokemonMovesWidget ip={props.ip} />} /> : null}
+                {props.potter.service === true && props.potter.spell === true ?
+                    <Widget title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={props.ip} />} /> : null}
+                {props.potter.service === true && props.potter.character === true ?
+                    <Widget title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={props.ip} />} /> : null}
+                {props.starwars.service === true && props.starwars.people === true ?
+                    <Widget title="Random Character from Star Wars" widget={<StarwarsCharacterWidget ip={props.ip} />} /> : null}
+                {props.starwars.service === true && props.starwars.planet === true ?
+                    <Widget title="Random Planet from Star Wars" widget={<StarwarsPlanetWidget ip={props.ip} />} /> : null}
+                {props.weather.service === true && props.weather.widget === true ?
+                    <Widget title="Weather by City" widget={<WeatherWidget ip={props.ip} />} /> : null}
 
             </KeyboardAwareScrollView>
         </Fragment>

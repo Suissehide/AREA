@@ -14,7 +14,7 @@ function AccountInfo(props) {
     const [name, setName] = useState({ value: '', error: '' });
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
-    const [socialToken, setSocialToken] = useState({ microsoft: null, facebook: null, google: null });
+    const [socialToken, setSocialToken] = useState({ microsoft: "", facebook: "", google: "" });
 
     const nameError = nameValidator(name.value);
     const emailError = emailValidator(email.value);
@@ -86,11 +86,11 @@ function AccountInfo(props) {
     function Social() {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
-                {socialToken.microsoft !== null ? <Image source={require('../assets/images/social/microsoftV.png')} style={styles.image} /> :
+                {socialToken.microsoft !== "" ? <Image source={require('../assets/images/social/microsoftV.png')} style={styles.image} /> :
                     <Image source={require('../assets/images/social/microsoftX.png')} style={styles.image} />}
-                {socialToken.facebook !== null ? <Image source={require('../assets/images/social/facebookV.png')} style={styles.image} /> :
+                {socialToken.facebook !== "" ? <Image source={require('../assets/images/social/facebookV.png')} style={styles.image} /> :
                     <Image source={require('../assets/images/social/facebookX.png')} style={styles.image} />}
-                {socialToken.google !== null ? <Image source={require('../assets/images/social/googleV.png')} style={styles.image} /> :
+                {socialToken.google !== "" ? <Image source={require('../assets/images/social/googleV.png')} style={styles.image} /> :
                     <Image source={require('../assets/images/social/googleX.png')} style={styles.image} />}
             </View>
         );
