@@ -9,10 +9,11 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
-    google, setGoogleService, setGoogleIp, setGoogleDistance, facebook, setFacebookService, setFacebookWidget,
+    google, setGoogleService, setGoogleIp, setGoogleDistance, setGooglePlace, facebook, setFacebookService, setFacebookWidget,
     pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
     news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
     microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
+    iss, setIssService, setIssLocation, setIssPerson, starwars, setStarwarsService, setStarwarsPeople, setStarwarsPlanet
 }) => (
         <Background>
             <Fragment>
@@ -27,11 +28,16 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
-                            w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"} />
+                            w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"}
+                            w3={google.place} setW3={setGooglePlace} t3={"Search a place"} />
 
                         <Service title="Superhero Service" service={hero} setService={setHeroService}
                             widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
                             w2={hero.name} setW2={setHeroName} t2={"Display a information about your" + "\n" + "superhero"} />
+
+                        <Service title="ISS Service" service={iss} setService={setIssService}
+                            widget={iss.location} setWidget={setIssLocation} widgetTitle="Display the location of the ISS"
+                            w2={iss.person} setW2={setIssPerson} t2={"Display informations about " + "\n" + "humans in Space"} />
 
                         <Service title="Jikan Service" service={jikan} setService={setJikanService}
                             widget={jikan.anime} setWidget={setJikanAnime} widgetTitle="Get informations on an anime"
@@ -66,6 +72,10 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <Service title="Harry Potter Service" service={potter} setService={setPotterService}
                             widget={potter.spell} setWidget={setPotterSpell} widgetTitle="Display a random spell"
                             w2={potter.character} setW2={setPotterCharacter} t2="Display a random character" />
+
+                        <Service title="Star Wars Service" service={starwars} setService={setStarwarsService}
+                            widget={starwars.people} setWidget={setStarwarsPeople} widgetTitle="Display a random character"
+                            w2={starwars.planet} setW2={setStarwarsPlanet} t2="Display a random planet" />
 
                         <Service title="Weather Service" service={weather} setService={setWeatherService}
                             setWidget={setWeatherWidget} widgetTitle="Get the weather of a city" />
