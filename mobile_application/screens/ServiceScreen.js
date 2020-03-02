@@ -13,7 +13,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
     news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
     microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
-    iss, setIssService, setIssLocation, setIssPerson,
+    iss, setIssService, setIssLocation, setIssPerson, starwars, setStarwarsService, setStarwarsPeople, setStarwarsPlanet
 }) => (
         <Background>
             <Fragment>
@@ -71,6 +71,10 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
                         <Service title="Harry Potter Service" service={potter} setService={setPotterService}
                             widget={potter.spell} setWidget={setPotterSpell} widgetTitle="Display a random spell"
                             w2={potter.character} setW2={setPotterCharacter} t2="Display a random character" />
+
+                        <Service title="Star Wars Service" service={starwars} setService={setStarwarsService}
+                            widget={starwars.people} setWidget={setStarwarsPeople} widgetTitle="Display a random character"
+                            w2={starwars.planet} setW2={setStarwarsPlanet} t2="Display a random planet" />
 
                         <Service title="Weather Service" service={weather} setService={setWeatherService}
                             setWidget={setWeatherWidget} widgetTitle="Get the weather of a city" />
