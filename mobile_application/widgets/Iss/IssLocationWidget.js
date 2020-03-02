@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from "react";
 import { View, StyleSheet } from 'react-native';
 import Text from '../../components/Text';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
 
 export default function IssLocationWidget(props) {
     const [latitude, setLatitude] = useState(0);
@@ -41,13 +41,13 @@ export default function IssLocationWidget(props) {
             <View style={{ height: 300, width: 250, marginVertical: 10 }}>
                 <MapView style={styles.map}
                     region={{
-                        latitude: latitude,
-                        longitude: longitude,
+                        latitude: latitude.toString(),
+                        longitude: longitude.toString(),
                         latitudeDelta: 25,
                         longitudeDelta: 0.0421,
                     }}
                     scrollEnabled={false} provider={"google"} >
-                    <Marker coordinate={{ latitude: latitude, longitude: longitude }} title="ISS" />
+                    <Marker coordinate={{ latitude: latitude.toString(), longitude: longitude.toString() }} title="ISS" />
                 </MapView>
             </View>
             <Text>This is actualised every 2 secondes.</Text>

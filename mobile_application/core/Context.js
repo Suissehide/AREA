@@ -31,10 +31,11 @@ export const WidgetContext = createContext({
     setJikanTopAnime: () => { },
     setJikanTopManga: () => { },
     //
-    google: { service: false, ip: false, distance: false },
+    google: { service: false, ip: false, distance: false, place: false },
     setGoogleService: () => { },
     setGoogleIp: () => { },
     setGoogleDistance: () => { },
+    setGooglePlace: () => { },
     //
     joke: { service: false, widget: false },
     setJokeService: () => { },
@@ -84,13 +85,13 @@ export const WidgetContext = createContext({
 
 class WidgetProvider extends Component {
     state = {
-        ip: "172.20.10.5:8080",
+        ip: "10.10.253.77:8080",
         isLogged: true,
         setIsLogged: (value) => { this.setState({ isLogged: value }) },
         token: 6,
         setToken: (value) => { this.setState({ token: value }) },
 
-        potter: { service: false, spell: false, character: false, },
+        potter: { service: false, spell: true, character: true, },
         setPotterService: (value) => {
             this.setState(prevState => ({
                 potter: { ...prevState.potter, service: value, }
@@ -107,7 +108,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        weather: { service: false, widget: false, },
+        weather: { service: false, widget: true, },
         setWeatherService: (value) => {
             this.setState(prevState => ({
                 weather: { ...prevState.weather, service: value, }
@@ -119,7 +120,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        chuck: { service: false, widget: false, },
+        chuck: { service: false, widget: true, },
         setChuckService: (value) => {
             this.setState(prevState => ({
                 chuck: { ...prevState.chuck, service: value, }
@@ -131,7 +132,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        movie: { service: false, widget: false, },
+        movie: { service: false, widget: true, },
         setMovieService: (value) => {
             this.setState(prevState => ({
                 movie: { ...prevState.movie, service: value, }
@@ -143,7 +144,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        jikan: { service: false, anime: false, character: false, topAnime: false, topManga: false },
+        jikan: { service: false, anime: true, character: true, topAnime: true, topManga: true },
         setJikanService: (value) => {
             this.setState(prevState => ({
                 jikan: { ...prevState.jikan, service: value, }
@@ -170,7 +171,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        google: { service: false, ip: false, distance: false },
+        google: { service: true, ip: false, distance: true, place: true },
         setGoogleService: (value) => {
             this.setState(prevState => ({
                 google: { ...prevState.google, service: value, }
@@ -186,8 +187,13 @@ class WidgetProvider extends Component {
                 google: { ...prevState.google, distance: value, }
             }))
         },
+        setGooglePlace: (value) => {
+            this.setState(prevState => ({
+                google: { ...prevState.google, place: value, }
+            }))
+        },
 
-        joke: { service: false, widget: false },
+        joke: { service: false, widget: true },
         setJokeService: (value) => {
             this.setState(prevState => ({
                 joke: { ...prevState.joke, service: value, }
@@ -199,7 +205,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        pokemon: { service: false, detail: false, moves: false },
+        pokemon: { service: false, detail: true, moves: true },
         setPokemonService: (value) => {
             this.setState(prevState => ({
                 pokemon: { ...prevState.pokemon, service: value, }
@@ -216,7 +222,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        picture: { service: false, widget: false },
+        picture: { service: false, widget: true },
         setPictureService: (value) => {
             this.setState(prevState => ({
                 picture: { ...prevState.picture, service: value, }
@@ -228,7 +234,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        news: { service: false, banana: false, theme: false },
+        news: { service: false, banana: true, theme: true },
         setNewsService: (value) => {
             this.setState(prevState => ({
                 news: { ...prevState.news, service: value, }
@@ -245,7 +251,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        hero: { service: false, random: false, name: false },
+        hero: { service: false, random: true, name: true },
         setHeroService: (value) => {
             this.setState(prevState => ({
                 hero: { ...prevState.hero, service: value, }
@@ -262,7 +268,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        facebook: { service: false, widget: false },
+        facebook: { service: false, widget: true },
         setFacebookService: (value) => {
             this.setState(prevState => ({
                 facebook: { ...prevState.facebook, service: value, }
@@ -274,7 +280,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        microsoft: { service: false, calendar: false, contacts: false, drive: false, graph: false, outlook: false },
+        microsoft: { service: false, calendar: true, contacts: true, drive: true, graph: true, outlook: true },
         setMicrosoftService: (value) => {
             this.setState(prevState => ({
                 microsoft: { ...prevState.microsoft, service: value, }
@@ -306,7 +312,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        iss: { service: false, location: false, person: false },
+        iss: { service: false, location: true, person: true },
         setIssService: (value) => {
             this.setState(prevState => ({
                 iss: { ...prevState.iss, service: value, }
@@ -323,7 +329,7 @@ class WidgetProvider extends Component {
             }))
         },
 
-        starwars: { service: true, people: true, planet: true },
+        starwars: { service: false, people: true, planet: true },
         setStarwarsService: (value) => {
             this.setState(prevState => ({
                 starwars: { ...prevState.starwars, service: value, }

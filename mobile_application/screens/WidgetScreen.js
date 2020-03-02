@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Background from '../components/Background';
-import MyCard from '../components/WidgetTemplate';
+import Widget from '../components/WidgetTemplate';
 import { withWidget } from '../core/Context';
 import ChuckWidget from '../widgets/ChuckWidget';
 import FacebookWidget from '../widgets/FacebookWidget';
@@ -40,63 +40,63 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
             <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
                 {chuck.service === true && chuck.widget === true ?
-                    <MyCard title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
+                    <Widget title="Latest Chuck Norris Jokes" widget={<ChuckWidget ip={ip} />} /> : null}
                 {facebook.service === true && facebook.widget === true ?
-                    <MyCard title="Facebook Likes" widget={<FacebookWidget ip={ip} />} /> : null}
+                    <Widget title="Facebook Likes" widget={<FacebookWidget ip={ip} />} /> : null}
                 {google.service === true && google.ip === true ?
-                    <MyCard title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
+                    <Widget title="Display your localisation depending on your IP" widget={<GoogleIpWidget ip={ip} />} /> : null}
                 {google.service === true && google.distance === true ?
-                    <MyCard title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
+                    <Widget title="Calculate distance and duration between two places" widget={<GoogleDistanceWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.random === true ?
-                    <MyCard title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
+                    <Widget title="Random Superhero" widget={<HeroRandomWidget ip={ip} />} /> : null}
                 {hero.service === true && hero.name === true ?
-                    <MyCard title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
+                    <Widget title="Information on your Superhero" widget={<HeroNameWidget ip={ip} />} /> : null}
                 {iss.service === true && iss.location === true ?
-                    <MyCard title="ISS Location" widget={<IssLocationWidget ip={ip} />} /> : null}
+                    <Widget title="ISS Location" widget={<IssLocationWidget ip={ip} />} /> : null}
                 {iss.service === true && iss.person === true ?
-                    <MyCard title="People in Space" widget={<IssPersonWidget ip={ip} />} /> : null}
+                    <Widget title="People in Space" widget={<IssPersonWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.anime === true ?
-                    <MyCard title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
+                    <Widget title="Information on an Anime" widget={<JikanAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.character === true ?
-                    <MyCard title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
+                    <Widget title="Information on an Anime Character" widget={<JikanCharacterWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.topAnime === true ?
-                    <MyCard title="Top Animes" widget={<JikanTopAnimeWidget ip={ip} />} /> : null}
+                    <Widget title="Top Animes" widget={<JikanTopAnimeWidget ip={ip} />} /> : null}
                 {jikan.service === true && jikan.topManga === true ?
-                    <MyCard title="Top Mangas" widget={<JikanTopMangaWidget ip={ip} />} /> : null}
+                    <Widget title="Top Mangas" widget={<JikanTopMangaWidget ip={ip} />} /> : null}
                 {joke.service === true && joke.widget === true ?
-                    <MyCard title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
+                    <Widget title="Get a random themed joke" widget={<JokeWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.calendar === true ?
-                    <MyCard title="Calendar Events" widget={<MicrosoftCalendarWidget ip={ip} />} /> : null}
+                    <Widget title="Calendar Events" widget={<MicrosoftCalendarWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.contacts === true ?
-                    <MyCard title="Microsoft Contacts" widget={<MicrosoftContactsWidget ip={ip} />} /> : null}
+                    <Widget title="Microsoft Contacts" widget={<MicrosoftContactsWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.drive === true ?
-                    <MyCard title="Microsoft Drive" widget={<MicrosoftDriveWidget ip={ip} />} /> : null}
+                    <Widget title="Microsoft Drive" widget={<MicrosoftDriveWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.graph === true ?
-                    <MyCard title="Microsoft Graph" widget={<MicrosoftGraphWidget ip={ip} />} /> : null}
+                    <Widget title="Microsoft Graph" widget={<MicrosoftGraphWidget ip={ip} />} /> : null}
                 {microsoft.service === true && microsoft.outlook === true ?
-                    <MyCard title="Microsoft Outlook" widget={<MicrosoftOutlookWidget ip={ip} />} /> : null}
+                    <Widget title="Microsoft Outlook" widget={<MicrosoftOutlookWidget ip={ip} />} /> : null}
                 {movie.service === true && movie.widget === true ?
-                    <MyCard title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
+                    <Widget title="Information on a Movie" widget={<MovieWidget ip={ip} />} /> : null}
                 {news.service === true && news.banana === true ?
-                    <MyCard title="Bananews" widget={<NewsBananaWidget ip={ip} />} /> : null}
+                    <Widget title="Bananews" widget={<NewsBananaWidget ip={ip} />} /> : null}
                 {news.service === true && news.theme === true ?
-                    <MyCard title="News" widget={<NewsThemeWidget ip={ip} />} /> : null}
+                    <Widget title="News" widget={<NewsThemeWidget ip={ip} />} /> : null}
                 {picture.service === true && picture.widget === true ?
-                    <MyCard title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
+                    <Widget title="Themed Picture" widget={<PictureWidget ip={ip} />} /> : null}
                 {pokemon.service === true && pokemon.detail === true ?
-                    <MyCard title="Get information on a Pokemon" widget={<PokemonDetailWidget ip={ip} />} /> : null}
+                    <Widget title="Get information on a Pokemon" widget={<PokemonDetailWidget ip={ip} />} /> : null}
                 {pokemon.service === true && pokemon.moves === true ?
-                    <MyCard title="Get Pokemon's 5 random abilities" widget={<PokemonMovesWidget ip={ip} />} /> : null}
+                    <Widget title="Get Pokemon's 5 random abilities" widget={<PokemonMovesWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.spell === true ?
-                    <MyCard title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
+                    <Widget title="Harry Potter's Random Spell" widget={<PotterSpellWidget ip={ip} />} /> : null}
                 {potter.service === true && potter.character === true ?
-                    <MyCard title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
+                    <Widget title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
                 {starwars.service === true && starwars.people === true ?
-                    <MyCard title="Random Character from Star Wars" widget={<StarwarsCharacterWidget ip={ip} />} /> : null}
+                    <Widget title="Random Character from Star Wars" widget={<StarwarsCharacterWidget ip={ip} />} /> : null}
                 {starwars.service === true && starwars.planet === true ?
-                    <MyCard title="Random Planet from Star Wars" widget={<StarwarsPlanetWidget ip={ip} />} /> : null}
+                    <Widget title="Random Planet from Star Wars" widget={<StarwarsPlanetWidget ip={ip} />} /> : null}
                 {weather.service === true && weather.widget === true ?
-                    <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
+                    <Widget title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
 
             </KeyboardAwareScrollView>
         </Fragment>

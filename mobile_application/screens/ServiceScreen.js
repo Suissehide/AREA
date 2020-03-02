@@ -9,7 +9,7 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
     weather, setWeatherService, setWeatherWidget, chuck, setChuckService, setChuckWidget,
     movie, setMovieService, setMovieWidget, joke, setJokeService, setJokeWidget,
     jikan, setJikanService, setJikanAnime, setJikanCharacter, setJikanTopAnime, setJikanTopManga,
-    google, setGoogleService, setGoogleIp, setGoogleDistance, facebook, setFacebookService, setFacebookWidget,
+    google, setGoogleService, setGoogleIp, setGoogleDistance, setGooglePlace, facebook, setFacebookService, setFacebookWidget,
     pokemon, setPokemonService, setPokemonDetail, setPokemonMoves, picture, setPictureService, setPictureWidget,
     news, setNewsService, setNewsBanana, setNewsTheme, hero, setHeroService, setHeroRandom, setHeroName,
     microsoft, setMicrosoftService, setMicrosoftCalendar, setMicrosoftContacts, setMicrosoftDrive, setMicrosoftGraph, setMicrosoftOutlook,
@@ -28,7 +28,8 @@ export default withWidget(({ potter, setPotterService, setPotterSpell, setPotter
 
                         <Service title="Google Service" service={google} setService={setGoogleService}
                             widget={google.ip} setWidget={setGoogleIp} widgetTitle={"Display your localisation depending" + "\n" + "on your IP"}
-                            w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"} />
+                            w2={google.distance} setW2={setGoogleDistance} t2={"Get the distance and time between" + "\n" + "two points"}
+                            w3={google.place} setW3={setGooglePlace} t3={"Search a place"} />
 
                         <Service title="Superhero Service" service={hero} setService={setHeroService}
                             widget={hero.random} setWidget={setHeroRandom} widgetTitle="Display a random superhero"
