@@ -46,7 +46,8 @@ class Home extends React.Component {
                 "PokemonService": {
                     "service": true,
                     "widgets": {
-                        "PokemonWidget": true
+                        "DetailWidget": true,
+                        "MovesWidget": true
                     }
                 },
                 "MicrosoftService": {
@@ -95,8 +96,8 @@ class Home extends React.Component {
                 "JikanService": {
                     "service": true,
                     "widgets": {
-                        "JikanWidgetAnime": false,
-                        "JikanWidgetCharacter": true,
+                        "AnimeWidget": true,
+                        "JikanWidget": true,
                         "TopAnimeWidget": true,
                         "TopMangaWidget": true
                     }

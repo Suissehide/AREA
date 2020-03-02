@@ -26,6 +26,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     )} />
 );
 
+IDOIA VIRUS_DETECTED : ALERT 3000
+
 class Index extends React.Component {
 
     render () {

@@ -46,7 +46,8 @@ class Account extends React.Component {
                 "PokemonService": {
                     "service": true,
                     "widgets": {
-                        "PokemonWidget": true
+                        "MovesWidget": true,
+                        "DetailWidget": true
                     }
                 },
                 "MicrosoftService": {
@@ -95,8 +96,8 @@ class Account extends React.Component {
                 "JikanService": {
                     "service": true,
                     "widgets": {
-                        "JikanWidgetAnime": false,
-                        "JikanWidgetCharacter": true,
+                        "AnimeWidget": true,
+                        "CharacterWidget": true,
                         "TopAnimeWidget": true,
                         "TopMangaWidget": true
                     }

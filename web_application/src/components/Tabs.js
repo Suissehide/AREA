@@ -7,6 +7,18 @@ import SpellWidget from "./widgets/Potter/SpellWidget";
 import CharacterWidget from "./widgets/Potter/CharacterWidget";
 import WeatherWidget from "./widgets/WeatherWidget";
 import MovieWidget from "./widgets/MovieWidget";
+import MovesWidget from "./widgets/Pokemon/MovesWidget";
+import DetailWidget from "./widgets/Pokemon/DetailWidget";
+import PhotoWidget from "./widgets/PhotoWidget";
+import IdWidget from "./widgets/Hero/IdWidget";
+import NameWidget from "./widgets/Hero/NameWidget";
+import TopMangaWidget from "./widgets/Jikan/TopMangaWidget";
+import TopAnimeWidget from "./widgets/Jikan/TopAnimeWidget";
+import JikanWidget from "./widgets/Jikan/JikanWidget";
+import AnimeWidget from "./widgets/Jikan/AnimeWidget";
+import NewsWidget from "./widgets/News/NewsWidget";
+import BananeWidget from "./widgets/News/BananaWidget";
+import IpMapWidget from "./widgets/Google/IpMapWidget";
 
 class Tabs extends React.Component {
 
@@ -38,6 +50,42 @@ class Tabs extends React.Component {
             case 'MovieWidget':
                 return <MovieWidget />;
 
+            //POKEMON
+            case 'MovesWidget':
+                return <MovesWidget />;
+            case 'DetailWidget':
+                return <DetailWidget />;
+
+            //PICTURE
+            case 'PhotoWidget':
+                return <PhotoWidget />;
+
+            //HERO
+            case 'IdWidget':
+                return <IdWidget />;
+            case 'NameWidget':
+                return <NameWidget />;
+
+            //JIKAN
+            case 'TopMangaWidget':
+                return <TopMangaWidget />;
+            case 'TopAnimeWidget':
+                return <TopAnimeWidget />;
+            case 'JikanWidget':
+                return <JikanWidget />;
+            case 'AnimeWidget':
+                return <AnimeWidget />;
+
+            //NEWS
+            case 'NewsWidget':
+                return <NewsWidget />;
+            case 'BananaWidget':
+                return <BananeWidget />;
+
+            //GOOGLE
+            case 'IpMapWidget':
+                return <IpMapWidget />;
+
             default:
                 return <div>error</div>;
         }
@@ -52,8 +100,9 @@ class Tabs extends React.Component {
     _generateTabs = (tabs) => {
         if (tabs) {
             return (
-                Object.keys(tabs).map((tab, i) => {
-                    if (tabs[tab]) {
+                Object.keys(tabs)
+                    .filter(tab => tabs[tab])
+                    .map((tab, i) => {
                         return (
                             <li className="nav-item" ref={i + 1} key={i + 1}>
                                 <button onClick={this._handleActive.bind(null, i)} className={"nav-link " + (this.state.active === i ? 'active' : '')} data-id={i}
@@ -62,10 +111,7 @@ class Tabs extends React.Component {
                                 </button>
                             </li>
                         )
-                    } else {
-                        return null
-                    }
-                })
+                    })
             )
         }
     };

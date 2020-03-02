@@ -72,7 +72,7 @@ class WeatherWidget extends React.Component {
                         </div>
                     </div>
                     <div className="flex">
-                        <input onChange={this._handleChange} name="theme"
+                        <input onChange={this._handleChange} name="city"
                                type="text" placeholder="City"/>
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>

@@ -3,7 +3,7 @@ import React from 'react';
 class SpellWidget extends React.Component {
 
     state = {
-        data: [],
+        data: null,
     };
 
     componentDidMount() {

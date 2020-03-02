@@ -209,7 +209,16 @@ iframe {
     justify-content: center;
 }
 
+.flex-100 {
+    padding: 0 25px;
+    width: 100%;
+}
+
 .flex button {
+    margin: 0;
+}
+
+.flex .refresh {
     margin: 0 0 0 20px;
 }
 
@@ -871,4 +880,59 @@ h1, h2, h3 {
 .popularity {
     font-size: 42px;
     flex: 1;
+}
+
+.pokemon-sprite {
+    width: 75px;
+    height: 75px;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+}
+
+.hero {
+    margin-right: 40px;
+}
+
+.chevron {
+    margin: 0;
+    width: fit-content;
+    padding: 5px 11px;
+    border-width: 2px;
+}
+
+.manga-content {
+    margin: 0 10px;
+}
+
+.manga-title {
+    color: var(--color-yellowgreen);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 24px;
+}
+
+.rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 115px;
+    border: 3px solid black;
+    border-radius: 50%;
+    font-size: 42px;
+    margin-right: 10px;
+}
+
+.article-link {
+    margin-top: 10px;
+}
+
+.map {
+    height: 200px;
 }
