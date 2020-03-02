@@ -32,6 +32,7 @@ import PokemonMovesWidget from '../widgets/Pokemon/PokemonMovesWidget'
 import IssLocationWidget from '../widgets/Iss/IssLocationWidget';
 import IssPersonWidget from '../widgets/Iss/IssPersonWidget';
 import StarwarsCharacterWidget from '../widgets/Starwars/StarwarsCharacterWidget';
+import StarwarsPlanetWidget from '../widgets/Starwars/StarwarsPlanetWidget';
 
 export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, joke, pokemon, picture, news, hero, facebook, microsoft, iss, starwars }) => (
     <Background>
@@ -92,6 +93,8 @@ export default withWidget(({ potter, ip, weather, chuck, movie, jikan, google, j
                     <MyCard title="Random Character from Harry Potter" widget={<PotterCharacterWidget ip={ip} />} /> : null}
                 {starwars.service === true && starwars.people === true ?
                     <MyCard title="Random Character from Star Wars" widget={<StarwarsCharacterWidget ip={ip} />} /> : null}
+                {starwars.service === true && starwars.planet === true ?
+                    <MyCard title="Random Planet from Star Wars" widget={<StarwarsPlanetWidget ip={ip} />} /> : null}
                 {weather.service === true && weather.widget === true ?
                     <MyCard title="Weather by City" widget={<WeatherWidget ip={ip} />} /> : null}
 
