@@ -8,7 +8,7 @@ import { withWidget } from '../core/Context';
 export default withWidget((props) => (
     <Background>
         <Fragment>
-            <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <KeyboardAwareScrollView style={styles.container}>
                 <View style={{ width: '90%' }}>
                     <Service title="Chuck Norris Service" service={props.chuck} setService={props.setChuckService}
                         setWidget={props.setChuckWidget} widgetTitle="Themed Chuck Norris Jokes" />
@@ -80,7 +80,4 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
     },
-    contentContainer: {
-        paddingTop: 30,
-    }
 });

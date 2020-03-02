@@ -9,7 +9,7 @@ import * as W from './widgets';
 export default withWidget((props) => (
     <Background>
         <Fragment>
-            <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <KeyboardAwareScrollView style={styles.container}>
 
                 {props.chuck.service === true && props.chuck.widget === true ?
                     <Widget title="Latest Chuck Norris Jokes" widget={<W.ChuckWidget ip={props.ip} />} /> : null}
@@ -80,8 +80,5 @@ export default withWidget((props) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    contentContainer: {
-        paddingTop: 15,
     },
 });

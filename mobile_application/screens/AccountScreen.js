@@ -130,7 +130,7 @@ function AccountInfo(props) {
 
 export default withWidget(({ setIsLogged, ip, token, setToken }) => (
     <Background style={{ width: '100%' }}  >
-        <KeyboardAwareScrollView style={{ width: '100%' }} >
+        <KeyboardAwareScrollView style={{ width: '100%', marginTop: -8 }} >
             <Fragment>
                 <AccountInfo ip={ip} token={token} setToken={setToken} setIsLogged={setIsLogged} />
             </Fragment >
