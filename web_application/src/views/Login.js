@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
+import config from '../services/Config';
 import UserAuth from "../services/UserAuth";
 
 class Login extends React.Component {
@@ -23,40 +24,62 @@ class Login extends React.Component {
     handleLogin = (e) => {
         e.preventDefault();
 
-        // this._auth();
-        console.log('auth');
+        this._auth();
+        // this._login();
+    };
+
+    _login = (email) => {
         UserAuth.authenticate(() => {
             this.setState(() => ({
                 redirectToReferrer: true
             }))
         });
-
+        localStorage.setItem('email', email);
         this.props.history.push('/home');
     };
 
     _auth = async () => {
-        const {username, password} = this.state;
-        const url = `http://127.0.0.1:8080/${username}/auth`;
+        const {loginEmail, loginPassword} = this.state;
+        const url = `${config.serverIp}/database/login/${loginEmail}/${loginPassword}`;
 
         await fetch(url, {
-            method: "POST",
+            method: "GET",
             headers: {},
-            body: {
-                password: password,
-            },
-        }).then(response => {
-            console.log(response)
-        }).catch(error => {
-            this.setState({error, loading: false});
-            console.error('Error: ', error);
+        })
+            .then(response => response.json())
+            .then(responseJson => {
+                this.setState({error: null});
+                if (responseJson === true) this._login(loginEmail);
+                else this.setState({error: 'Email or password invalid.'});
+            })
+            .catch(error => {
+                console.error('Error: ', error);
         })
     };
 
     handleRegister = (e) => {
+        e.preventDefault();
 
+        this._register();
     };
 
     _register = async () => {
+        const {registerEmail, registerPassword, registerUsername} = this.state;
+        const url = `${config.serverIp}/database/signup/${registerEmail}/${registerPassword}/${registerUsername}`;
+
+        await fetch(url, {
+            method: "GET",
+            headers: {},
+        })
+            .then(response => response.json())
+            .then(responseJson => {
+                this.setState({error: null});
+                if (responseJson === true) this._login(registerEmail);
+                else this.setState({error: 'Email already taken.'});
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
     };
 
     _handleChange = (e) => {
@@ -91,6 +114,7 @@ class Login extends React.Component {
                                    type="password" autoComplete="current-password"/>
                         </label>
                         <p className="forgot-pass">Forgot password?</p>
+                        <p className="error-msg">{this.state.error}</p>
                         <button type="button" className="submit" onClick={this.handleLogin}>Sign In</button>
                         <button type="button" className="fb-btn">Connect with <span>microsoft</span></button>
                     </div>
@@ -131,6 +155,7 @@ class Login extends React.Component {
                                 <input value={this.state.registerConfirmPassword} onChange={this._handleChange} name="registerConfirmPassword"
                                        type="password"/>
                             </label>
+                            <p className="error-msg">{this.state.error}</p>
                             <button type="button" className="submit" onClick={this.handleRegister}>Sign Up</button>
                             <button type="button" className="fb-btn">Join with <span>microsoft</span></button>
                         </div>

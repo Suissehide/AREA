@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
 
 import './css/index.css';
 
 import UserAuth from "./services/UserAuth";
-import Home from './views/Home'
+import Home from "./views/Home";
+import User from "./views/User";
 import Login from "./views/Login";
 import Notfound from "./views/NotFound";
 import Notifications from "./views/Notifications";
 
 import * as serviceWorker from './serviceWorker';
+import Account from "./views/Account";
+import Microsoft from "./components/oath2/Microsoft";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -25,16 +28,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 class Index extends React.Component {
 
-    render () {
+    render() {
         return (
             <Router>
                 <div className={"container"}>
                     <Switch>
-                        <PrivateRoute exact activeClassName="active" path="/" component={Login}/>
-                        <PrivateRoute activeClassName="active" path="/home" component={Home}/>
-                        <PrivateRoute activeClassName="active" path="/notifications" component={Notifications}/>
-                        <Route activeClassName="active" path="/login" component={Login}/>
-                        <Route activeClassName="active" component={Notfound}/>
+                        <PrivateRoute exact activeClassName="active" path="/" component={Login} />
+                        <PrivateRoute activeClassName="active" path="/user" component={User} />
+                        <PrivateRoute activeClassName="active" path="/home" component={Home} />
+                        <PrivateRoute activeClassName="active" path="/notifications" component={Notifications} />
+                        <PrivateRoute activeClassName="active" path="/account" component={Account} />
+
+                        <Route activeClassName="active" path="/microsoft" component={Microsoft} />
+
+                        <Route activeClassName="active" path="/login" component={Login} />
+                        <Route activeClassName="active" component={Notfound} />
                     </Switch>
                 </div>
             </Router>
