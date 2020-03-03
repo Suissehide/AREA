@@ -4,12 +4,13 @@
     <NoWarn>$(NoWarn);NU1701</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
-    <PackageReference Include="refit" Version="5.0.23" />
-    <PackageReference Include="Swagger-Net" Version="8.3.25.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />    
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2"/>
+    <PackageReference Include="refit" Version="5.0.23"/>
+    <PackageReference Include="Swagger-Net" Version="8.3.25.2"/>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0"/>
+    <PackageReference Include="MySql.Data" Version="8.0.19"/>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models" />
+    <Folder Include="Models"/>
   </ItemGroup>
 </Project>
