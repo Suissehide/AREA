@@ -5,6 +5,7 @@ import SideMenu from "../components/SideMenu";
 import Sidebar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Tabs from "../components/Tabs";
+import config from '../services/Config';
 
 class Home extends React.Component {
     state = {
@@ -108,9 +109,23 @@ class Home extends React.Component {
     };
 
     componentDidMount() {
-        this.setState({
-            obj: JSON.parse(this.state.json).preferences,
-        });
+        localStorage.setItem('email', 'idoia.reinares@epitech.eu');
+        const token = localStorage.getItem('email') === null ? '' : localStorage.getItem('email');
+        const url = `${config.serverIp}/database/preferences/${token}`;
+
+        fetch(url, {
+            method: "GET",
+            headers: {},
+        })
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson)
+                this.setState({ obj: responseJson.services });
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
+
     }
 
     resetProfile = () => {

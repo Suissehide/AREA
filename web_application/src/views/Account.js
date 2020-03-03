@@ -4,6 +4,7 @@ import SideMenu from "../components/SideMenu";
 import Sidebar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Select from "../components/Select";
+import config from '../services/Config';
 
 class Account extends React.Component {
     state = {
@@ -13,45 +14,45 @@ class Account extends React.Component {
             "email": "i@i.i",
             "preferences": {
                 "Chuck_Norris_Service": {
-                    "service": false,
+                    "state": false,
                     "widgets": {
-                        "ChuckWidget": true
+                        "Themed Chuck Norris Jokes": true
                     }
                 },
                 "Joke_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
-                        "JokeWidget": true
+                        "Themed Joke": true
                     }
                 },
-                "Potter_Service": {
-                    "service": true,
+                "Harry_Potter_Service": {
+                    "state": true,
                     "widgets": {
-                        "SpellWidget": true,
-                        "CharacterWidget": true
+                        "Random Spell": true,
+                        "Random Character": true
                     }
                 },
                 "Weather_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
-                        "WeatherWidget": true
+                        "City Weather": true
                     }
                 },
-                "Movie_Service": {
-                    "service": true,
+                "The_Movie_Database_Service": {
+                    "state": true,
                     "widgets": {
-                        "MovieWidget": true
+                        "Movie Information": true
                     }
                 },
                 "Pokemon_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
-                        "MovesWidget": true,
-                        "DetailWidget": true
+                        "Pokemon Information": true,
+                        "Pokemon Abilities": true
                     }
                 },
                 "Microsoft_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "OutlookWidget": true,
                         "CalendarWidget": true,
@@ -61,40 +62,40 @@ class Account extends React.Component {
                     }
                 },
                 "Google_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "IpMapWidget": true,
                         "DistanceMatrixWidget": true
                     }
                 },
                 "Facebook_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "FacebookWidget": true
                     }
                 },
                 "News_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "BananaWidget": true,
                         "NewsWidget": true
                     }
                 },
                 "Photo_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "PhotoWidget": true
                     }
                 },
                 "Hero_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "IdWidget": true,
                         "NameWidget": true
                     }
                 },
                 "Jikan_Service": {
-                    "service": true,
+                    "state": true,
                     "widgets": {
                         "AnimeWidget": true,
                         "CharacterWidget": true,
@@ -103,7 +104,7 @@ class Account extends React.Component {
                     }
                 },
                 "Iss _Service":{
-                    "service": true,
+                    "state": true,
                     "widgets" :{
                         "ISS Location": true,
                         "People in Space": true
@@ -115,9 +116,21 @@ class Account extends React.Component {
     };
 
     componentDidMount() {
-        this.setState({
-            obj: JSON.parse(this.state.json).preferences,
-        });
+        localStorage.setItem('email', 'idoia.reinares@epitech.eu');
+        const token = localStorage.getItem('email') === null ? '' : localStorage.getItem('email');
+        const url = `${config.serverIp}/database/preferences/${token}`;
+
+        fetch(url, {
+            method: "GET",
+            headers: {},
+        })
+            .then(response => response.json())
+            .then(responseJson => {
+                this.setState({ obj: JSON.parse(responseJson) });
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
     }
 
     _generate_Service = (services) => {
@@ -128,7 +141,7 @@ class Account extends React.Component {
                         <div ref={i + 1} key={i + 1}>
                             <Select
                                 title={service}
-                                status={services[service]["service"]}
+                                status={services[service]["state"]}
                                 tabs={services[service]["widgets"]}
                             />
                         </div>
