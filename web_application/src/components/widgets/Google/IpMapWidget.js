@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import config from '../../../services/Config';
 
 class IpMapWidget extends React.Component {
 

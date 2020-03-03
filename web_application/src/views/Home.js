@@ -119,7 +119,6 @@ class Home extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                console.log(responseJson)
                 this.setState({ obj: responseJson.services });
             })
             .catch(error => {

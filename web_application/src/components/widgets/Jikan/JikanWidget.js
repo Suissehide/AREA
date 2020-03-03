@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../../services/Config';
 
 class JikanWidget extends React.Component {
 
