@@ -12,45 +12,45 @@ class Account extends React.Component {
             "id": 0,
             "email": "i@i.i",
             "preferences": {
-                "ChuckService": {
+                "Chuck_Norris_Service": {
                     "service": false,
                     "widgets": {
                         "ChuckWidget": true
                     }
                 },
-                "JokeService": {
+                "Joke_Service": {
                     "service": true,
                     "widgets": {
                         "JokeWidget": true
                     }
                 },
-                "PotterService": {
+                "Potter_Service": {
                     "service": true,
                     "widgets": {
                         "SpellWidget": true,
                         "CharacterWidget": true
                     }
                 },
-                "WeatherService": {
+                "Weather_Service": {
                     "service": true,
                     "widgets": {
                         "WeatherWidget": true
                     }
                 },
-                "MovieService": {
+                "Movie_Service": {
                     "service": true,
                     "widgets": {
                         "MovieWidget": true
                     }
                 },
-                "PokemonService": {
+                "Pokemon_Service": {
                     "service": true,
                     "widgets": {
                         "MovesWidget": true,
                         "DetailWidget": true
                     }
                 },
-                "MicrosoftService": {
+                "Microsoft_Service": {
                     "service": true,
                     "widgets": {
                         "OutlookWidget": true,
@@ -60,46 +60,53 @@ class Account extends React.Component {
                         "DriveWidget": true
                     }
                 },
-                "GoogleService": {
+                "Google_Service": {
                     "service": true,
                     "widgets": {
                         "IpMapWidget": true,
                         "DistanceMatrixWidget": true
                     }
                 },
-                "FacebookService": {
+                "Facebook_Service": {
                     "service": true,
                     "widgets": {
                         "FacebookWidget": true
                     }
                 },
-                "NewsService": {
+                "News_Service": {
                     "service": true,
                     "widgets": {
                         "BananaWidget": true,
                         "NewsWidget": true
                     }
                 },
-                "PhotoService": {
+                "Photo_Service": {
                     "service": true,
                     "widgets": {
                         "PhotoWidget": true
                     }
                 },
-                "HeroService": {
+                "Hero_Service": {
                     "service": true,
                     "widgets": {
                         "IdWidget": true,
                         "NameWidget": true
                     }
                 },
-                "JikanService": {
+                "Jikan_Service": {
                     "service": true,
                     "widgets": {
                         "AnimeWidget": true,
                         "CharacterWidget": true,
                         "TopAnimeWidget": true,
                         "TopMangaWidget": true
+                    }
+                },
+                "Iss _Service":{
+                    "service": true,
+                    "widgets" :{
+                        "ISS Location": true,
+                        "People in Space": true
                     }
                 }
             }
@@ -113,7 +120,7 @@ class Account extends React.Component {
         });
     }
 
-    _generateService = (services) => {
+    _generate_Service = (services) => {
         if (services) {
             return (
                 Object.keys(services).map((service, i) => {
@@ -141,7 +148,7 @@ class Account extends React.Component {
 
                     <div className="content flex flex-wrap flex-grid">
 
-                        {this._generateService(this.state.obj)}
+                        {this._generate_Service(this.state.obj)}
 
                         <div><div className="card fit-content">
                             <div className="card-header card-header-info card-flex">

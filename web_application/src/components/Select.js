@@ -18,70 +18,73 @@ class Select extends React.Component {
         Object.keys(this.props.tabs).map((tab, i) => {
             return arr[i + 1] = this.props.tabs[tab];
         });
-        this.setState({active: arr});
+        this.setState({ active: arr });
     };
 
     _getService = (title) => {
         switch (title) {
             //CHUCK NORRIS FACTS
-            case 'ChuckService':
-                return [<i className="fa fa-smile-wink"/>, 'ChuckService', 'Joke'];
+            case 'Chuck_Norris_Service':
+                return [<i className="fa fa-smile-wink" />, 'Chuck Norris Service', 'Joke'];
 
             //JOKE
-            case 'JokeService':
-                return [<i className="fa fa-smile-wink"/>, 'JokeService', 'Joke'];
+            case 'Joke_Service':
+                return [<i className="fa fa-smile-wink" />, 'Joke Service', 'Joke'];
 
             //POTTER
-            case 'PotterService':
-                return [<i className="fa fa-magic"/>, 'PotterService', 'Fantasy'];
+            case 'Harry_Potter_Service':
+                return [<i className="fa fa-magic" />, 'Harry Potter Service', 'Fantasy'];
 
             //WEATHER
-            case 'WeatherService':
-                return [<i className="fa fa-cloud-sun-rain"/>, 'WeatherService', 'Weather'];
+            case 'Weather_Service':
+                return [<i className="fa fa-cloud-sun-rain" />, 'Weather Service', 'Weather'];
 
             //JIKAN
-            case 'JikanService':
-                return [<i className="fa fa-film"/>, 'JikanService', 'Movie'];
+            case 'Jikan_Service':
+                return [<i className="fa fa-film" />, 'Jikan Service', 'Movie'];
 
             //MOVIE DATABASE
-            case 'MovieService':
-                return [<i className="fa fa-film"/>, 'MovieService', 'Movie'];
+            case 'The_Movie_Database_Service':
+                return [<i className="fa fa-film" />, 'The_Movie_Databse_Service', 'Movie'];
 
             //POKEMON
-            case 'PokemonService':
-                return [<i className="fa fa-gamepad"/>, 'PokemonService', 'Game'];
+            case 'Pokemon_Service':
+                return [<i className="fa fa-gamepad" />, 'PokemonService', 'Game'];
 
             //MICROSOFT
-            case 'MicrosoftService':
-                return [<i className="fab fa-microsoft"/>, 'MicrosoftService', 'Work'];
+            case 'Microsoft_Service':
+                return [<i className="fab fa-microsoft" />, 'Microsoft_Service', 'Work'];
 
             //PHOTO
-            case 'PhotoService':
-                return [<i className="fa fa-image"/>, 'PhotoService', 'Photo'];
+            case 'Photo_Database_Service':
+                return [<i className="fa fa-image" />, 'Photo_Database_Service', 'Photo'];
 
             //GOOGLE
-            case 'GoogleService':
-                return [<i className="fa fa-map-marked-alt"/>, 'GoogleService', 'Localisation'];
-
-            //IPMAP
-            case 'IpMapService':
-                return [<i className="fa fa-map-marked-alt"/>, 'IpMapService', 'Localisation'];
+            case 'Google_Service':
+                return [<i className="fa fa-map-marked-alt" />, 'Google Service', 'Localisation'];
 
             //NEWS
-            case 'NewsService':
-                return [<i className="fa fa-newspaper"/>, 'NewsService', 'News'];
+            case 'News_Service':
+                return [<i className="fa fa-newspaper" />, 'News Service', 'News'];
 
             //FACEBOOK
-            case 'FacebookService':
-                return [<i className="fab fa-facebook"/>, 'FacebookService', 'Social media'];
+            case 'Facebook_Service':
+                return [<i className="fab fa-facebook" />, 'Facebook Service', 'Social media'];
 
             //HERO
-            case 'HeroService':
-                return [<i className="fa fa-gamepad"/>, 'HeroService', 'Game'];
+            case 'Superhero_Service':
+                return [<i className="fa fa-gamepad" />, 'Superhero Service', 'Game'];
 
+            //ISS
+            case 'ISS_Service':
+                return [<i clasName="fa fa-space-shuttle" />, 'ISS Service', 'Location'];
+
+            //StarWars
+            case 'Star_Wars_Service':
+                return [<i className="fa fa-jedi-order" />, "Star Wars Service", 'Movie'];
 
             default:
-                return [<i className="fa fa-question"/>, 'title', 'category'];
+                return [<i className="fa fa-question" />, 'title', 'category'];
         }
     };
 
@@ -90,12 +93,12 @@ class Select extends React.Component {
             return (
                 Object.keys(tabs).map((tab, i) => {
                     return (
-                        <div className={"flex flex-space-between " +  (i > 0 ? 'separator' : '')} ref={i + 1} key={i + 1}>
+                        <div className={"flex flex-space-between " + (i > 0 ? 'separator' : '')} ref={i + 1} key={i + 1}>
                             <div className="flex-center">{tab}</div>
                             <Switch
                                 id={tab}
                                 isOn={this.state.active[i + 1] || false}
-                                handleToggle={() => this.setState({active: this.state.active.map((el, k) => (k === i + 1 ? !this.state.active[i + 1] : el))})} />
+                                handleToggle={() => this.setState({ active: this.state.active.map((el, k) => (k === i + 1 ? !this.state.active[i + 1] : el)) })} />
                         </div>
                     )
                 })
@@ -120,7 +123,7 @@ class Select extends React.Component {
                         <Switch
                             id={this.props.title}
                             isOn={this.state.active[0] || false}
-                            handleToggle={() => this.setState({active: this.state.active.map((el, k) => (k === 0 ? !this.state.active[0] : el))})} />
+                            handleToggle={() => this.setState({ active: this.state.active.map((el, k) => (k === 0 ? !this.state.active[0] : el)) })} />
                     </div>
                 </div>
                 <div className="card-body">

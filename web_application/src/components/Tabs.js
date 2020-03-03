@@ -30,64 +30,72 @@ class Tabs extends React.Component {
     _getComponent = (type) => {
         switch (type) {
             //CHUCK NORRIS FACTS
-            case 'ChuckWidget':
+            case 'Themed Chuck Norris Jokes':
                 return <ChuckWidget />;
 
             //JOKE
-            case 'JokeWidget':
+            case 'Themed Joke':
                 return <JokeWidget />;
 
             //POTTER
-            case 'SpellWidget':
+            case 'Random Spell':
                 return <SpellWidget />;
-            case 'CharacterWidget':
+            case 'Random Character':
                 return <CharacterWidget />;
 
             //WEATHER
-            case 'WeatherWidget':
+            case 'City Weather':
                 return <WeatherWidget />;
 
             //MOVIE
-            case 'MovieWidget':
+            case 'Movie Information':
                 return <MovieWidget />;
 
             //POKEMON
-            case 'MovesWidget':
-                return <MovesWidget />;
-            case 'DetailWidget':
+            case 'Pokemon Information':
                 return <DetailWidget />;
+            case 'Pokemon Abilities':
+                return <MovesWidget />;
 
             //PICTURE
-            case 'PhotoWidget':
+            case 'Themed Picture':
                 return <PhotoWidget />;
 
             //HERO
-            case 'IdWidget':
+            case 'Random Superhero':
                 return <IdWidget />;
-            case 'NameWidget':
+            case 'Your Superhero':
                 return <NameWidget />;
 
             //JIKAN
-            case 'TopMangaWidget':
+            case 'Highest Scored Mangas':
                 return <TopMangaWidget />;
-            case 'TopAnimeWidget':
+            case 'Highest Scored Animes':
                 return <TopAnimeWidget />;
-            case 'JikanWidget':
+            case 'Character Information':
                 return <JikanWidget />;
-            case 'AnimeWidget':
+            case 'Anime Information':
                 return <AnimeWidget />;
 
             //NEWS
-            case 'NewsWidget':
+            case 'Themed News':
                 return <NewsWidget />;
-            case 'BananaWidget':
+            case 'Bananews':
                 return <BananeWidget />;
 
             //GOOGLE
-            case 'IpMapWidget':
+            case 'Your IP Location':
                 return <IpMapWidget />;
-            case 'DistanceMatrixWidget':
+            case 'Distance and Time between 2 Spots':
                 return <DistanceMatrixWidget />;
+            case 'Place Information':
+                return;
+
+            //ISS
+            case 'ISS Location':
+                return;
+            case 'People in Space':
+                return;
 
             default:
                 return <div>error</div>;

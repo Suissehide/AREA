@@ -45,7 +45,7 @@ class DistanceMatrixWidget extends React.Component {
                 <>
                     <div>
                         <h3> From {d.originAddresses[0]} to {d.destinationAddresses[0]} there is {d.rows[0].elements[0].distance.text} and
-                        it takes {d.rows[0].elements[0].duration.text} by {this.state.mode} </h3>
+                        it takes {d.rows[0].elements[0].duration.text} by {this.state.mode}. </h3>
                         <div className="flex">
                             <input onChange={this._handleChange} name="orgin"
                                 type="text" placeholder="From" />

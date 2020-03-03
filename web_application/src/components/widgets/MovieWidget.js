@@ -3,7 +3,7 @@ import React from 'react';
 class MovieWidget extends React.Component {
 
     state = {
-        movie: 'Pute',
+        movie: 'Interstellar',
         data: null,
     };
 
@@ -12,7 +12,7 @@ class MovieWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,7 +20,7 @@ class MovieWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {movie} = this.state;
+        const { movie } = this.state;
         const url = `http://127.0.0.1:8080/api/movie-database/movie/${movie}`;
 
         fetch(url, {
@@ -29,7 +29,7 @@ class MovieWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -52,7 +52,7 @@ class MovieWidget extends React.Component {
                     </div>
                     <div className="flex">
                         <input onChange={this._handleChange} name="movie"
-                               type="text" placeholder="Movie's title"/>
+                            type="text" placeholder="Movie's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -62,7 +62,7 @@ class MovieWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="movie"
-                               type="text" placeholder="Movie's title"/>
+                            type="text" placeholder="Movie's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
