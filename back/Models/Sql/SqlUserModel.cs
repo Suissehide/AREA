@@ -5,9 +5,9 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace back.Models
+namespace back.Models.Sql
 {
-    public partial class SqlModel
+    public partial class SqlUserModel
     {
         [JsonProperty("users")]
         public User[] Users { get; set; }
