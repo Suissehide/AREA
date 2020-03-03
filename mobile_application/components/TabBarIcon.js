@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
-import Colors from '../constants/Colors';
+import Colors from '../core/Colors';
 
 
 export default function TabBarIcon(props) {

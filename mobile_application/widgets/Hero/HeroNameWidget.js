@@ -13,7 +13,7 @@ export default function HeroRandomWidget(props) {
     const handleChange = () => {
         axios.get(`http://${props.ip}/api/hero/name/${text}`)
             .then(response => {
-                console.log(response)
+
                 setName(response.data.results[0].name);
                 setPowerstats(response.data.results[0].powerstats);
                 setUrl(response.data.results[0].image.url);
