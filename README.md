@@ -9,6 +9,10 @@ docker-compose up
 ```
 
 ## Usage
+Go to for web application :
+```
+localhost:8080
+```
 
 ## Team
 We are 5 students at Epitech, a programming school :
