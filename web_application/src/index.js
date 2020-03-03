@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
 
 import './css/index.css';
 
@@ -26,25 +26,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     )} />
 );
 
-IDOIA VIRUS_DETECTED : ALERT 3000
-
 class Index extends React.Component {
 
-    render () {
+    render() {
         return (
             <Router>
                 <div className={"container"}>
                     <Switch>
-                        <PrivateRoute exact activeClassName="active" path="/" component={Login}/>
-                        <PrivateRoute activeClassName="active" path="/user" component={User}/>
-                        <PrivateRoute activeClassName="active" path="/home" component={Home}/>
-                        <PrivateRoute activeClassName="active" path="/notifications" component={Notifications}/>
-                        <PrivateRoute activeClassName="active" path="/account" component={Account}/>
+                        <PrivateRoute exact activeClassName="active" path="/" component={Login} />
+                        <PrivateRoute activeClassName="active" path="/user" component={User} />
+                        <PrivateRoute activeClassName="active" path="/home" component={Home} />
+                        <PrivateRoute activeClassName="active" path="/notifications" component={Notifications} />
+                        <PrivateRoute activeClassName="active" path="/account" component={Account} />
 
-                        <Route activeClassName="active" path="/microsoft" component={Microsoft}/>
+                        <Route activeClassName="active" path="/microsoft" component={Microsoft} />
 
-                        <Route activeClassName="active" path="/login" component={Login}/>
-                        <Route activeClassName="active" component={Notfound}/>
+                        <Route activeClassName="active" path="/login" component={Login} />
+                        <Route activeClassName="active" component={Notfound} />
                     </Switch>
                 </div>
             </Router>
