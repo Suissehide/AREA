@@ -7,16 +7,88 @@ import ServiceTemplate from './SwitchServiceTemplate';
 import { withWidget } from "../core/Context";
 import axios from 'axios';
 
+
 function CardService(props) {
 
-    // useEffect(() => {
-    //     axios.get(`http://${props.ip}/database/editservice/${props.props.title.replace("\n", " ")}/${props.props.service.service}/`)
-    //         .then(response => {
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }, [props.props.service.service]);
+    useEffect(() => {
+        axios.get(`http://${props.props.ip}/database/editservice/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.service.service}/`)
+            .then(response => {
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [props.props.service.service]);
+
+    if (props.props.widget === undefined) {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.widgetTitle}/${props.props.service.widget}/`)
+                .then(response => {
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.service.widget]);
+    }
+    else {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.widgetTitle}/${props.props.widget}/`)
+                .then(response => {
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.widget]);
+    }
+
+
+    if (props.props.w2 !== undefined) {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.t2}/${props.props.w2}/`)
+                .then(response => {
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.w2]);
+    }
+
+    if (props.props.w3 !== undefined) {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.t3}/${props.props.w3}/`)
+                .then(response => {
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.w3]);
+    }
+
+    if (props.props.w4 !== undefined) {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.t4}/${props.props.w4}/`)
+                .then(response => {
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.w4]);
+    }
+
+    if (props.props.w5 !== undefined) {
+        useEffect(() => {
+            axios.get(`http://${props.props.ip}/database/editwidget/${props.props.token}/${props.props.title.replace(/ |\n/g, "_")}/${props.props.t5}/${props.props.w5}/`)
+                .then(response => {
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, [props.props.w5]);
+    }
 
     return (
         <LinearGradient

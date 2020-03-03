@@ -27,7 +27,7 @@ export default function FacebookWidget(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    });
+    }, []);
 
     return (
         <View style={{ alignItems: 'center', paddingTop: 20 }}>

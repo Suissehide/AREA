@@ -57,7 +57,7 @@ export default withWidget((props) => (
 
                     <Service title="Pokemon Service" service={props.pokemon} setService={props.setPokemonService}
                         widget={props.pokemon.detail} setWidget={props.setPokemonDetail} widgetTitle="Pokemon Information"
-                        w2={props.pokemon.moves} setW2={props.setPokemonMoves} t2="Pokemon Abilites" />
+                        w2={props.pokemon.moves} setW2={props.setPokemonMoves} t2="Pokemon Abilities" />
 
                     <Service title="Harry Potter Service" service={props.potter} setService={props.setPotterService}
                         widget={props.potter.spell} setWidget={props.setPotterSpell} widgetTitle="Random Spell"
