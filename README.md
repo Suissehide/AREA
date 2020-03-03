@@ -14,6 +14,12 @@ Go to for web application :
 localhost:8080
 ```
 
+## API used
+
+### Services
+
+#### Chuck Service
+
 ## Team
 We are 5 students at Epitech, a programming school :
 [Justine Duhieu](https://github.com/Justena40) and [Thomas Lesueur](https://github.com/ThomasLesueur) working on the back-end, creating the controllers and routes to external APIs.
