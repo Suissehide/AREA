@@ -6,6 +6,11 @@ import Sidebar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UserAuth from "../services/UserAuth";
 
+import config from '../services/Config';
+
+import MicrosoftAuth from "../services/Microsoft/Microsoft";
+import FacebookAuth from "../services/Facebook/Facebook";
+
 const AuthButton = withRouter(({history}) => (
     <button className="submit warning-btn" onClick={() => {
         UserAuth.signout(() => history.push('/'));
@@ -18,12 +23,17 @@ const AuthButton = withRouter(({history}) => (
 class User extends React.Component {
     state = {
         profile: false,
-        error: null,
+        error: '',
 
         username: '',
         email: '',
         password: '',
         id: '',
+
+        tokenFacebook: '',
+        usernameFacebook: '',
+
+        tokenMicrosoft: '',
     };
 
     componentDidMount() {
@@ -83,7 +93,7 @@ class User extends React.Component {
 
     _save = async () => {
         const {email, username, password, id} = this.state;
-        const url = `http://127.0.0.1:8080/database/editaccount/${username}/${password}/${email}/${id}`;
+        const url = `${config.serverIp}/database/editaccount/${username}/${password}/${email}/${id}`;
 
         await fetch(url, {
             method: "GET",
@@ -103,6 +113,37 @@ class User extends React.Component {
             .catch(error => {
                 console.error('Error: ', error);
             })
+    };
+
+    responseMicrosoft = (err, data) => {
+        this.setState({tokenMicrosoft: data.authResponseWithAccessToken.accessToken} );
+        const {email} = this.state;
+        const url = `${config.serverIp}/database/editmicrosofttoken/${email}/` + data.authResponseWithAccessToken.accessToken;
+
+        fetch(url, { method: "GET", headers: {}, })
+            .then(response => response.json())
+            .then(responseJson => { console.log(responseJson) })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
+    };
+
+    responseFacebook = (response) => {
+        console.log(response);
+        this.setState({tokenFacebook: response.accessToken, usernameFacebook: response.name} );
+        const {email} = this.state;
+        const url = `${config.serverIp}/database/editmicrosofttoken/${email}/` + response.accessToken;
+
+        fetch(url, { method: "GET", headers: {}, })
+            .then(response => response.json())
+            .then(responseJson => { console.log(responseJson) })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
+    };
+
+    _facebookButton = () => {
+
     };
 
     render() {
@@ -131,6 +172,8 @@ class User extends React.Component {
                                        type="password" autoComplete={"current-password"}/>
                             </label>
                             <p className="error-msg">{this.state.error}</p>
+                            <MicrosoftAuth callback={this.responseMicrosoft}/>
+                            <FacebookAuth callback={this.responseFacebook}/>
                             <button type="button" className="submit success-btn" onClick={this._save}>Save changes</button>
                             <AuthButton />
                             <button type="button" className="submit danger-btn" onClick={this._deleteAccount}>Delete account</button>

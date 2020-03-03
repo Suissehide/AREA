@@ -366,6 +366,20 @@ button {
     background-color: var(--color-white);
 }
 
+.facebook-btn {
+    border: 2px solid #3b5998;
+    background-color: #3b5998;
+}
+
+.facebook-btn .fa, .microsoft-btn .fab {
+    margin-right: 10px;
+}
+
+.facebook-btn:hover {
+    color: #3b5998;
+    background-color: var(--color-white);
+}
+
 /*---------------------------------------------*/
 
 h2 {

@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../services/Config';
 
 class ChuckWidget extends React.Component {
 
@@ -21,7 +22,7 @@ class ChuckWidget extends React.Component {
 
     _fetch = () => {
         const {theme} = this.state;
-        const url = `http://127.0.0.1:8080/api/chuck/${theme}`;
+        const url = `${config.serverIp}/api/chuck/${theme}`;
 
         fetch(url, {
             method: "GET",

@@ -4,5 +4,5 @@ module.exports = {
     scopes: [
         'user.read',
         'calendars.read'
-    ]
+    ],
 };
