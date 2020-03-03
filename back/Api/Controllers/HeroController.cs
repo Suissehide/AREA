@@ -49,7 +49,7 @@ namespace back.Controllers
         }
        
         [HttpGet("name/{name}")]
-        public async Task<IActionResult> HeroById(String name)
+        public async Task<IActionResult> HeroByName(String name)
         {
             try
             {
