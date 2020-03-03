@@ -1,0 +1,95 @@
+{
+    "id": 0,
+        "email": "i@i.i",
+        "preferences": {
+            "ChuckService": {
+                "service": false,
+                "widgets": {
+                    "ChuckNorrisJoke": true
+                }
+            },
+            "FacebookService": {
+                "service": false,
+                "widgets": {
+                    "Like": true
+                }
+            },
+            "GoogleMapService": {
+                "service": false,
+                "widgets": {
+                    "Distance": true,
+                    "Location": true
+                }
+            },
+            "HeroService": {
+                "service": false,
+                "widgets": {
+                    "RandomHero": true,
+                    "Hero": true
+                }
+            },
+            "JikanService": {
+                "service": false,
+                "widgets": {
+                    "Anime": true,
+                    "JikanCharacter": true,
+                    "TopAnime": true,
+                    "Topmanga": true
+                }
+            },
+            "Joke": {
+                "service": false,
+                "widgets": {
+                    "Joke": true
+                }
+            },
+            "MicrosoftService": {
+                "service": false,
+                "widgets": {
+                    "Contacts": true,
+                    "Drive": true,
+                    "Calendar": true,
+                    "Profile": true,
+                    "Outlook": true
+                }
+            },
+             "NewsService": {
+                "service": false,
+                "widgets": {
+                    "Banananews": true,
+                    "News": true
+                }
+            },
+            "PhotoService": {
+                "service": false,
+                "widgets": {
+                    "Photo": true
+                }
+            },
+            "PokemonService": {
+                "service": false,
+                "widgets": {
+                    "Pokemon": true
+                }
+            },
+            "PotterService": {
+                "service": false,
+                "widgets": {
+                    "PotterSpell": true,
+                    "PotterCharacter": true
+                }
+            },
+            "TheMovieDatabaseService": {
+                "service": false,
+                "widgets": {
+                    "TheMovieDatabase": true
+                }
+            },
+            "WheatherService": {
+                "service": false,
+                "widgets": {
+                    "Wheather": true
+                }
+            }
+        }
+    }

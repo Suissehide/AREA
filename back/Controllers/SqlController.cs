@@ -68,9 +68,9 @@ namespace back.Controllers
                 }
                 rdr.Close();
 
-                sql = "INSERT INTO preferences (id, email, ChuckService, FacebookService, GoogleMapService, HeroService, JikanService, JokeService, "+
-                "MicrosoftService, NewsService, PhotoService, PotterService, PokemonService, TheMovieDatabaseService, WheatherService) "+
-                "VALUES ("+id.ToString()+", '"+email+"', '0', '0', '0', '0', '0', '0', '0', '1,17,18', '0', '0', '0', '0', '0');";
+                sql = "INSERT INTO preferences (id, email, Chuck_Norris_Service, Facebook_Service, Google_Service, Superhero_Service, ISS_Service, Jikan_Service, Joke_Service, "+
+                "Microsoft_Service, The_Movie_Database_Service, News_Service, Picture_Database_Service, Pokemon_Service, Harry_Potter_Service, Star_Wars_Service, Weather_Service) "+
+                "VALUES ("+id.ToString()+", '"+email+"', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1,22,23', '0', '0', '0', '0', '0');";
                 Console.WriteLine(sql);
                 cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
@@ -227,7 +227,7 @@ namespace back.Controllers
                     int indexService = 0;
                 
                     List<List<int>> listIds = new List<List<int>>();
-                    for (int indexPref = 2; indexPref <= 14; indexPref++) {
+                    for (int indexPref = 2; indexPref <= 16; indexPref++) {
                         listIds.Add(stringToListInt(rdr[indexPref].ToString()));
                     }
                     rdr.Close();
@@ -354,11 +354,14 @@ namespace back.Controllers
                     }
                     rdr.Close();
 
-                    sql = "select id from widgets where name = '"+widget+"';";
+                    sql = "select id from widgets where service = '"+service+"' AND name = '"+widget+"';";
                     cmd = new MySqlCommand(sql, conn);
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read()) {
                         id = int.Parse(rdr[0].ToString());
+                    }
+                    else {
+                        Console.WriteLine("Error: The widget "+widget+" doesn't exist.");   
                     }
                     rdr.Close();
 
