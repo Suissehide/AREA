@@ -116,7 +116,6 @@ class Account extends React.Component {
     };
 
     componentDidMount() {
-        localStorage.setItem('email', 'idoia.reinares@epitech.eu');
         const token = localStorage.getItem('email') === null ? '' : localStorage.getItem('email');
         const url = `${config.serverIp}/database/preferences/${token}`;
 

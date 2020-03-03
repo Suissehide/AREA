@@ -1,5 +1,16 @@
 import React from 'react';
 import '../css/SideMenu.css';
+import {withRouter} from "react-router-dom";
+import UserAuth from "../services/UserAuth";
+
+const AuthButton = withRouter(({history}) => (
+    <button className="dropdown-item" onClick={() => {
+        UserAuth.signout(() => history.push('/'));
+        localStorage.clear();
+    }}>
+        Log out
+    </button>
+));
 
 class Sidebar extends React.Component {
     state = {
@@ -56,7 +67,8 @@ class Sidebar extends React.Component {
                                     <a className="dropdown-item" href="#0">Profile</a>
                                     <a className="dropdown-item" href="#0">Settings</a>
                                     <div className="dropdown-divider"/>
-                                    <a className="dropdown-item" href="#0">Log out</a>
+                                    <AuthButton />
+                                    {/*<a className="dropdown-item" href="#0">Log out</a>*/}
                                 </div>
                             </li>
                         </ul>

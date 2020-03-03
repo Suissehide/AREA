@@ -21,13 +21,13 @@ class SideMenu extends React.Component {
                             <i className="fas fa-user"/>
                             <p>User profile</p>
                         </a></li>
-                        <li className={"nav-item " + (this.props.active === 3 ? 'active' : '')}><a className="nav-link" href="/notifications">
-                            <i className="fas fa-bell"/>
-                            <p>Notifications</p>
-                        </a></li>
                         <li className={"nav-item " + (this.props.active === 4 ? 'active' : '')}><a className="nav-link" href="/account">
                             <i className="fas fa-cookie"/>
                             <p>Account</p>
+                        </a></li>
+                        <li className={"nav-item " + (this.props.active === 3 ? 'active' : '')}><a className="nav-link" href="/notifications">
+                            <i className="fas fa-bell"/>
+                            <p>Notifications</p>
                         </a></li>
                     </ul>
                 </div>

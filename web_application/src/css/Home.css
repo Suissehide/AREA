@@ -264,6 +264,13 @@
     word-wrap: break-word;
 }
 
+.dropdown-menu button.dropdown-item {
+    border: none;
+    height: auto;
+    font-weight: bold;
+    width: 94%;
+}
+
 .dropdown-divider {
     height: 0;
     margin: .5rem 0;

@@ -46,7 +46,7 @@ class User extends React.Component {
 
     _refresh = async () => {
         const {email} = this.state;
-        const url = `http://127.0.0.1:8080/database/users/${email}`;
+        const url = `${config.serverIp}/database/users/${email}`;
 
         await fetch(url, {
             method: "GET",
@@ -54,11 +54,14 @@ class User extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
+                console.log(responseJson);
                 this.setState({
                     email: responseJson.users[0].email,
                     id: responseJson.users[0].email,
-                    username: responseJson.users[0].username,
-                    password: responseJson.users[0].password,
+                    username: responseJson.users[0].name,
+                    password: responseJson.users[0].pwd,
+                    tokenFacebook: responseJson.users[0].facebookToken,
+                    tokenGoogle: responseJson.users[0].googleToken,
                 });
                 localStorage.setItem('email', responseJson.users[0].email);
             })
@@ -69,7 +72,7 @@ class User extends React.Component {
 
     _deleteAccount = () => {
         const {email} = this.state;
-        const url = `http://127.0.0.1:8080/database/delete/${email}`;
+        const url = `${config.serverIp}/database/delete/${email}`;
 
         fetch(url, {
             method: "GET",
@@ -125,7 +128,7 @@ class User extends React.Component {
 
         fetch(url, { method: "GET", headers: {}, })
             .then(response => response.json())
-            .then(responseJson => { console.log(responseJson) })
+            .then(responseJson => { })
             .catch(error => {
                 console.error('Error: ', error);
             })
@@ -134,14 +137,18 @@ class User extends React.Component {
     responseFacebook = (response) => {
         this.setState({tokenFacebook: response.accessToken, usernameFacebook: response.name} );
         const {email} = this.state;
-        const url = `${config.serverIp}/database/editmicrosofttoken/${email}/` + response.accessToken;
+        const url = `${config.serverIp}/database/editfacebooktoken/${email}/` + response.accessToken;
 
         fetch(url, { method: "GET", headers: {}, })
             .then(response => response.json())
-            .then(responseJson => { console.log(responseJson) })
+            .then(responseJson => { })
             .catch(error => {
                 console.error('Error: ', error);
             })
+    };
+
+    _deleteFacebook = () => {
+        this.setState({tokenFacebook: '', usernameFacebook: ''} );
     };
 
     _facebookButton = () => {
@@ -151,7 +158,7 @@ class User extends React.Component {
             );
         else
             return (
-                <button className="submit facebook-btn">Hello {this.state.usernameFacebook}</button>
+                <button onClick={this._deleteFacebook} className="submit facebook-btn">Hello {this.state.usernameFacebook}</button>
             );
     };
 
