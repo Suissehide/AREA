@@ -12,7 +12,7 @@ class AnimeWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class AnimeWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {anime} = this.state;
-        const url = `http://127.0.0.1:8080/api/jikan/anime/${anime}`;
+        const { anime } = this.state;
+        const url = `${config.serverIp}/api/jikan/anime/${anime}`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class AnimeWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson.result});
+                this.setState({ data: responseJson.result });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,7 +39,7 @@ class AnimeWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul>
@@ -47,13 +47,13 @@ class AnimeWidget extends React.Component {
                             <li key={i} className={i > 0 ? 'separator' : ''}>
                                 <div className="manga-title">{this.state.data[i].title}</div>
                                 <p>{this.state.data[i].synopsis}</p>
-                                <a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right"/></a>
+                                <a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right" /></a>
                             </li>
                         ))}
                     </ul>
                     <div className="flex">
                         <input onChange={this._handleChange} name="anime"
-                               type="text" placeholder="Anime's title"/>
+                            type="text" placeholder="Anime's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -63,7 +63,7 @@ class AnimeWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="anime"
-                               type="text" placeholder="Anime's title"/>
+                            type="text" placeholder="Anime's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

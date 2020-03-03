@@ -12,7 +12,7 @@ class JikanWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class JikanWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {name} = this.state;
-        const url = `http://127.0.0.1:8080/api/jikan/character/${name}`;
+        const { name } = this.state;
+        const url = `${config.serverIp}/api/jikan/character/${name}`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class JikanWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson.characterInfo});
+                this.setState({ data: responseJson.characterInfo });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,7 +39,7 @@ class JikanWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul className="flex">
@@ -52,7 +52,7 @@ class JikanWidget extends React.Component {
                     </ul>
                     <div className="flex">
                         <input onChange={this._handleChange} name="name"
-                               type="text" placeholder="Character's Name"/>
+                            type="text" placeholder="Character's Name" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -62,7 +62,7 @@ class JikanWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="name"
-                               type="text" placeholder="Character's Name"/>
+                            type="text" placeholder="Character's Name" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

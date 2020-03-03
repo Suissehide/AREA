@@ -12,7 +12,7 @@ class WeatherWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class WeatherWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {city} = this.state;
-        const url = `http://127.0.0.1:8080/api/weather/${city}`;
+        const { city } = this.state;
+        const url = `${config.serverIp}/api/weather/${city}`;
 
         fetch(url, {
             method: "GET",
@@ -29,7 +29,7 @@ class WeatherWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,17 +39,17 @@ class WeatherWidget extends React.Component {
     _getIcon(type) {
         switch (type) {
             case 'Clear':
-                return <i className="fas fa-sun"/>;
+                return <i className="fas fa-sun" />;
             case 'Clouds':
-                return <i className="fas fa-cloud"/>;
+                return <i className="fas fa-cloud" />;
             case 'Smog':
-                return <i className="fas fa-smog"/>;
+                return <i className="fas fa-smog" />;
             case 'Wind':
-                return <i className="fas fa-wing"/>;
+                return <i className="fas fa-wing" />;
             case 'Rain':
-                return <i className="fas fa-cloud-rain"/>;
+                return <i className="fas fa-cloud-rain" />;
             default:
-                return <i className="fas fa-sun"/>;
+                return <i className="fas fa-sun" />;
         }
     }
 
@@ -64,7 +64,7 @@ class WeatherWidget extends React.Component {
                     <div className="flex flex-align-items">
                         <div className="weather">
                             {this._getIcon(this.state.data.weather[0].main)}
-                            <p><i className="fas fa-map-marker-alt"/><em>{this.state.data.name}</em> | {this.state.data.weather[0].description}</p>
+                            <p><i className="fas fa-map-marker-alt" /><em>{this.state.data.name}</em> | {this.state.data.weather[0].description}</p>
                         </div>
                         <div>
                             <div className="temp">{this._calcTemp(this.state.data.main.temp)}°</div>
@@ -73,7 +73,7 @@ class WeatherWidget extends React.Component {
                     </div>
                     <div className="flex">
                         <input onChange={this._handleChange} name="city"
-                               type="text" placeholder="City"/>
+                            type="text" placeholder="City" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -83,7 +83,7 @@ class WeatherWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="city"
-                               type="text" placeholder="City"/>
+                            type="text" placeholder="City" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

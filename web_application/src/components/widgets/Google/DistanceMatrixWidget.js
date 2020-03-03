@@ -23,7 +23,7 @@ class DistanceMatrixWidget extends React.Component {
     };
 
     _fetch = () => {
-        const url = `http://127.0.0.1:8080/api/google/maps/distance/mode/origin=${this.state.origin}&destination=${this.state.destination}&mode=${this.state.mode}&key=${this.state.key}`;
+        const url = `${config.serverIp}/api/google/maps/distance/mode/origin=${this.state.origin}&destination=${this.state.destination}&mode=${this.state.mode}&key=${this.state.key}`;
 
         fetch(url, {
             method: "GET",

@@ -21,7 +21,7 @@ class MovieWidget extends React.Component {
 
     _fetch = () => {
         const { movie } = this.state;
-        const url = `http://127.0.0.1:8080/api/movie-database/movie/${movie}`;
+        const url = `${config.serverIp}/api/movie-database/movie/${movie}`;
 
         fetch(url, {
             method: "GET",

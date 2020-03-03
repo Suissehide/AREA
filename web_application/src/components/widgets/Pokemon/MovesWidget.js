@@ -12,7 +12,7 @@ class MovesWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class MovesWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {pokemon} = this.state;
-        const url = `http://127.0.0.1:8080/api/pokemon/${pokemon}/moves`;
+        const { pokemon } = this.state;
+        const url = `${config.serverIp}/api/pokemon/${pokemon}/moves`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class MovesWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson.moves});
+                this.setState({ data: responseJson.moves });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,7 +39,7 @@ class MovesWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul>
@@ -49,7 +49,7 @@ class MovesWidget extends React.Component {
                     </ul>
                     <div className="flex">
                         <input onChange={this._handleChange} name="pokemon"
-                               type="text" placeholder="Pokemon Name or Pokedex Number"/>
+                            type="text" placeholder="Pokemon Name or Pokedex Number" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -59,7 +59,7 @@ class MovesWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="pokemon"
-                               type="text" placeholder="Pokemon Name or Pokedex Number"/>
+                            type="text" placeholder="Pokemon Name or Pokedex Number" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

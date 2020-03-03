@@ -12,7 +12,7 @@ class NameWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class NameWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {name} = this.state;
-        const url = `http://127.0.0.1:8080/api/hero/name/${name}`;
+        const { name } = this.state;
+        const url = `${config.serverIp}/api/hero/name/${name}`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class NameWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson.results[0]});
+                this.setState({ data: responseJson.results[0] });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,13 +39,13 @@ class NameWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <div>
                         <div className="flex">
                             <div className="flex flex-column flex-align-items hero">
-                                <img className="picture" src={this.state.data.image.url} alt=""/>
+                                <img className="picture" src={this.state.data.image.url} alt="" />
                                 <em>{this.state.data.name}</em>
                             </div>
                             <ul>
@@ -60,7 +60,7 @@ class NameWidget extends React.Component {
                     </div>
                     <div className="flex">
                         <input onChange={this._handleChange} name="name"
-                               type="text" placeholder="Superhero's name"/>
+                            type="text" placeholder="Superhero's name" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -70,7 +70,7 @@ class NameWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="name"
-                               type="text" placeholder="Superhero's name"/>
+                            type="text" placeholder="Superhero's name" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

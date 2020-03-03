@@ -12,7 +12,7 @@ class PhotoWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class PhotoWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {theme} = this.state;
-        const url = `http://127.0.0.1:8080/api/photo/${theme}`;
+        const { theme } = this.state;
+        const url = `${config.serverIp}/api/photo/${theme}`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class PhotoWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson.results});
+                this.setState({ data: responseJson.results });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,7 +39,7 @@ class PhotoWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul>
@@ -49,7 +49,7 @@ class PhotoWidget extends React.Component {
                     </ul>
                     <div className="flex">
                         <input onChange={this._handleChange} name="theme"
-                               type="text" placeholder="Theme of the picture"/>
+                            type="text" placeholder="Theme of the picture" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -59,7 +59,7 @@ class PhotoWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="theme"
-                               type="text" placeholder="Theme of the picture"/>
+                            type="text" placeholder="Theme of the picture" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

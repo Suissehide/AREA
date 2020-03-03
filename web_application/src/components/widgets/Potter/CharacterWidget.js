@@ -15,7 +15,7 @@ class CharacterWidget extends React.Component {
     };
 
     _fetch = () => {
-        const url = `http://127.0.0.1:8080/api/potter/character`;
+        const url = `${config.serverIp}/api/potter/character`;
 
         fetch(url, {
             method: "GET",
@@ -23,7 +23,7 @@ class CharacterWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -47,13 +47,13 @@ class CharacterWidget extends React.Component {
                         {d.dumbledoresArmy !== false ? <p>{'['}Dumbledore{"'"}s Army{']'}</p> : null}
                         {d.deathEater !== false ? <p>{'['}Death Eater{']'}</p> : null}
                     </div>
-                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync"/></button>
+                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync" /></button>
                 </>
             );
         } else {
             return (
                 <>
-                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync"/></button>
+                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync" /></button>
                 </>
             )
         }

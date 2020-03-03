@@ -12,7 +12,7 @@ class IpMapWidget extends React.Component {
     }
 
     _fetch = () => {
-        const url = `http://127.0.0.1:8080/api/ip`;
+        const url = `${config.serverIp}/api/ip`;
 
         fetch(url, {
             method: "GET",
@@ -20,7 +20,7 @@ class IpMapWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -44,8 +44,8 @@ class IpMapWidget extends React.Component {
                                     key: "AIzaSyDd8Vt3lX66W7uN9mpU2OmYHDPOiHGOrco",
                                     language: 'fr'
                                 }}
-                                defaultCenter={{lat: this.state.data.lat, lng: this.state.data.lon}}
-                                center={{lat: this.state.data.lat, lng: this.state.data.lon}}
+                                defaultCenter={{ lat: this.state.data.lat, lng: this.state.data.lon }}
+                                center={{ lat: this.state.data.lat, lng: this.state.data.lon }}
                                 defaultZoom={12}
                                 onChildMouseEnter={this.onChildMouseEnter}
                                 onChildMouseLeave={this.onChildMouseLeave}
@@ -56,7 +56,7 @@ class IpMapWidget extends React.Component {
             );
         } else {
             return (
-                <div/>
+                <div />
             );
         }
     }

@@ -12,7 +12,7 @@ class DetailWidget extends React.Component {
     }
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -20,8 +20,8 @@ class DetailWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {pokemon} = this.state;
-        const url = `http://127.0.0.1:8080/api/pokemon/${pokemon}/detail`;
+        const { pokemon } = this.state;
+        const url = `${config.serverIp}/api/pokemon/${pokemon}/detail`;
 
         fetch(url, {
             method: "GET",
@@ -31,7 +31,7 @@ class DetailWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -39,7 +39,7 @@ class DetailWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <div>
@@ -53,12 +53,12 @@ class DetailWidget extends React.Component {
                             ))}
                         </div>
                         <div>
-                            <p>Weight: {Number(this.state.data.weight)/10}kg | Height: {Number(this.state.data.height)/10}m</p>
+                            <p>Weight: {Number(this.state.data.weight) / 10}kg | Height: {Number(this.state.data.height) / 10}m</p>
                         </div>
                     </div>
                     <div className="flex">
                         <input onChange={this._handleChange} name="pokemon"
-                               type="text" placeholder="Pokemon Name or Pokedex Number"/>
+                            type="text" placeholder="Pokemon Name or Pokedex Number" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -68,7 +68,7 @@ class DetailWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="pokemon"
-                               type="text" placeholder="Pokemon Name or Pokedex Number"/>
+                            type="text" placeholder="Pokemon Name or Pokedex Number" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

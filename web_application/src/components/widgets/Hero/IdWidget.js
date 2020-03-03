@@ -15,7 +15,7 @@ class IdWidget extends React.Component {
     };
 
     _fetch = () => {
-        const url = `http://127.0.0.1:8080/api/hero/random`;
+        const url = `${config.serverIp}/api/hero/random`;
 
         fetch(url, {
             method: "GET",
@@ -25,7 +25,7 @@ class IdWidget extends React.Component {
             .then(responseJson => {
                 if (responseJson.status)
                     return;
-                this.setState({data: responseJson});
+                this.setState({ data: responseJson });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -33,12 +33,12 @@ class IdWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <div className="flex">
                         <div className="flex flex-column flex-align-items hero">
-                            <img className="picture" src={this.state.data.image.url} alt=""/>
+                            <img className="picture" src={this.state.data.image.url} alt="" />
                             <em>{this.state.data.name}</em>
                         </div>
                         <ul>
@@ -50,13 +50,13 @@ class IdWidget extends React.Component {
                             <li>Combat: {this.state.data.powerstats.combat}</li>
                         </ul>
                     </div>
-                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync"/></button>
+                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync" /></button>
                 </>
             );
         } else {
             return (
                 <>
-                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync"/></button>
+                    <button type="button" className="submit refresh" onClick={this._handleRefresh}><i className="fa fa-sync" /></button>
                 </>
             )
         }

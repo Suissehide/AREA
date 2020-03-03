@@ -11,7 +11,7 @@ class BananeWidget extends React.Component {
     }
 
     _fetch = () => {
-        const url = `http://127.0.0.1:8080/api/news/banana`;
+        const url = `${config.serverIp}/api/news/banana`;
 
         fetch(url, {
             method: "GET",
@@ -19,7 +19,7 @@ class BananeWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson.articles});
+                this.setState({ data: responseJson.articles });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -27,7 +27,7 @@ class BananeWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul>
@@ -36,7 +36,7 @@ class BananeWidget extends React.Component {
                                 <h3>{this.state.data[i].title}</h3>
                                 <p>{this.state.data[i].description}</p>
                                 <em>{this.state.data[i].source.name} | {this.state.data[i].publishedAt}</em>
-                                <div className="article-link"><a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right"/></a></div>
+                                <div className="article-link"><a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right" /></a></div>
                             </li>
                         ))}
                     </ul>

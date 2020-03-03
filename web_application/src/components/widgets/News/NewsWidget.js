@@ -12,8 +12,8 @@ class NewsWidget extends React.Component {
     }
 
     _fetch = () => {
-        const {theme} = this.state;
-        const url = `http://127.0.0.1:8080/api/news/${theme}`;
+        const { theme } = this.state;
+        const url = `${config.serverIp}/api/news/${theme}`;
 
         fetch(url, {
             method: "GET",
@@ -21,7 +21,7 @@ class NewsWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson.articles});
+                this.setState({ data: responseJson.articles });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -29,7 +29,7 @@ class NewsWidget extends React.Component {
     };
 
     render() {
-        if (typeof(this.state.data) !== 'undefined' && this.state.data) {
+        if (typeof (this.state.data) !== 'undefined' && this.state.data) {
             return (
                 <>
                     <ul>
@@ -38,13 +38,13 @@ class NewsWidget extends React.Component {
                                 <h3>{this.state.data[i].title}</h3>
                                 <p>{this.state.data[i].description}</p>
                                 <em>{this.state.data[i].source.name} | {this.state.data[i].publishedAt}</em>
-                                <div className="article-link"><a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right"/></a></div>
+                                <div className="article-link"><a className="submit refresh" href={this.state.data[i].url}><i className="fas fa-arrow-right" /></a></div>
                             </li>
                         ))}
                     </ul>
                     <div className="flex">
                         <input onChange={this._handleChange} name="theme"
-                               type="text" placeholder="Anime's title"/>
+                            type="text" placeholder="Anime's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>
@@ -54,7 +54,7 @@ class NewsWidget extends React.Component {
                 <>
                     <div className="flex">
                         <input onChange={this._handleChange} name="theme"
-                               type="text" placeholder="Anime's title"/>
+                            type="text" placeholder="Anime's title" />
                         <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </>

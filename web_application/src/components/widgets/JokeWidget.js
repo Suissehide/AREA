@@ -8,7 +8,7 @@ class JokeWidget extends React.Component {
     };
 
     _handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     _handleSubmit = () => {
@@ -16,8 +16,8 @@ class JokeWidget extends React.Component {
     };
 
     _fetch = () => {
-        const {theme} = this.state;
-        const url = `http://127.0.0.1:8080/api/joke/${theme}`;
+        const { theme } = this.state;
+        const url = `${config.serverIp}/api/joke/${theme}`;
 
         fetch(url, {
             method: "GET",
@@ -25,7 +25,7 @@ class JokeWidget extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({data: responseJson.results});
+                this.setState({ data: responseJson.results });
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -42,7 +42,7 @@ class JokeWidget extends React.Component {
                 </ul>
                 <div className="flex">
                     <input onChange={this._handleChange} name="theme"
-                           type="text" placeholder="Theme of the Joke"/>
+                        type="text" placeholder="Theme of the Joke" />
                     <button type="button" className="submit" onClick={this._handleSubmit}>Submit</button>
                 </div>
             </>
