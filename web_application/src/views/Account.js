@@ -64,7 +64,7 @@ class Account extends React.Component {
                     "service": true,
                     "widgets": {
                         "IpMapWidget": true,
-                        "DistanceMatrixService": true
+                        "DistanceMatrixWidget": true
                     }
                 },
                 "FacebookService": {
@@ -120,9 +120,9 @@ class Account extends React.Component {
                     return (
                         <div ref={i + 1} key={i + 1}>
                             <Select
-                                    title={service}
-                                    status={services[service]["service"]}
-                                    tabs={services[service]["widgets"]}
+                                title={service}
+                                status={services[service]["service"]}
+                                tabs={services[service]["widgets"]}
                             />
                         </div>
                     )
@@ -134,10 +134,10 @@ class Account extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                <SideMenu active={4}/>
+                <SideMenu active={4} />
 
                 <div className="main">
-                    <Sidebar title={"Manage your account"}/>
+                    <Sidebar title={"Manage your account"} />
 
                     <div className="content flex flex-wrap flex-grid">
 
@@ -146,7 +146,7 @@ class Account extends React.Component {
                         <div><div className="card fit-content">
                             <div className="card-header card-header-info card-flex">
                                 <div className="card-logo">
-                                    <i className="fab fa-facebook"/>
+                                    <i className="fab fa-facebook" />
                                 </div>
                                 <div>
                                     <h4 className="card-title">Facebook</h4>
@@ -158,14 +158,14 @@ class Account extends React.Component {
                                     <label>
                                         <span>Username</span>
                                         <input value={this.state.registerUsername} onChange={this._handleChange}
-                                               name="registerUsername"
-                                               type="text"/>
+                                            name="registerUsername"
+                                            type="text" />
                                     </label>
                                     <label>
                                         <span>Password</span>
                                         <input value={this.state.registerPassword} onChange={this._handleChange}
-                                               name="registerPassword"
-                                               type="password"/>
+                                            name="registerPassword"
+                                            type="password" />
                                     </label>
                                     <button type="button" className="submit" onClick={this.handleRegister}>Sign Up
                                     </button>
@@ -175,7 +175,7 @@ class Account extends React.Component {
 
                     </div>
 
-                    <Footer/>
+                    <Footer />
                 </div>
 
             </div>

@@ -19,6 +19,7 @@ import AnimeWidget from "./widgets/Jikan/AnimeWidget";
 import NewsWidget from "./widgets/News/NewsWidget";
 import BananeWidget from "./widgets/News/BananaWidget";
 import IpMapWidget from "./widgets/Google/IpMapWidget";
+import DistanceMatrixWidget from './widgets/Google/DistanceMatrixWidget';
 
 class Tabs extends React.Component {
 
@@ -85,6 +86,8 @@ class Tabs extends React.Component {
             //GOOGLE
             case 'IpMapWidget':
                 return <IpMapWidget />;
+            case 'DistanceMatrixWidget':
+                return <DistanceMatrixWidget />;
 
             default:
                 return <div>error</div>;
@@ -92,9 +95,9 @@ class Tabs extends React.Component {
     };
 
     _handleActive = (i) => {
-      this.setState({
-          active: i
-      })
+        this.setState({
+            active: i
+        })
     };
 
     _generateTabs = (tabs) => {
@@ -106,7 +109,7 @@ class Tabs extends React.Component {
                         return (
                             <li className="nav-item" ref={i + 1} key={i + 1}>
                                 <button onClick={this._handleActive.bind(null, i)} className={"nav-link " + (this.state.active === i ? 'active' : '')} data-id={i}
-                                        data-toggle="tab">
+                                    data-toggle="tab">
                                     {tab}
                                 </button>
                             </li>

@@ -64,7 +64,7 @@ class Home extends React.Component {
                     "service": true,
                     "widgets": {
                         "IpMapWidget": true,
-                        "DistanceMatrixService": true
+                        "DistanceMatrixWidget": true
                     }
                 },
                 "FacebookService": {
@@ -114,7 +114,7 @@ class Home extends React.Component {
     }
 
     resetProfile = () => {
-        this.setState({profile: false});
+        this.setState({ profile: false });
     };
 
     _generateService = (services) => {
@@ -124,8 +124,8 @@ class Home extends React.Component {
                     if (services[service]["service"]) {
                         return (
                             <Tabs ref={i + 1} key={i + 1}
-                                  title={service}
-                                  tabs={services[service]["widgets"]}
+                                title={service}
+                                tabs={services[service]["widgets"]}
                             />
                         )
                     } else {
@@ -140,21 +140,21 @@ class Home extends React.Component {
         return (
 
             <div className="wrapper">
-                <SideMenu active={1}/>
+                <SideMenu active={1} />
 
                 <div className="main">
-                    <Sidebar title={"Dashboard"}/>
+                    <Sidebar title={"Dashboard"} />
 
                     <div className="content" onClick={this.resetProfile}>
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col col-4">
                                     <Card type={'card-header-info'} headerIcon={'fab fa-twitter'} category={'Followers'} title={'+245'}
-                                          footerIcon={'fas fa-history'} footerText={' Just Updated'}/>
+                                        footerIcon={'fas fa-history'} footerText={' Just Updated'} />
                                 </div>
                                 <div className="col col-4">
                                     <Card type={'card-header-danger'} headerIcon={'fas fa-info-circle'} category={'Fixed Issues'} title={'75'}
-                                          footerIcon={'fas fa-tag'} footerText={' Tracked from Github'}/>
+                                        footerIcon={'fas fa-tag'} footerText={' Tracked from Github'} />
                                 </div>
                             </div>
                             <div className="row row-2">
@@ -163,7 +163,7 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         );
