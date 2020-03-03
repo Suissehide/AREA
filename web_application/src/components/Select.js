@@ -56,7 +56,7 @@ class Select extends React.Component {
                 return [<i className="fab fa-microsoft" />, 'Microsoft_Service', 'Work'];
 
             //PHOTO
-            case 'Photo_Database_Service':
+            case 'Picture_Database_Service':
                 return [<i className="fa fa-image" />, 'Photo_Database_Service', 'Photo'];
 
             //GOOGLE

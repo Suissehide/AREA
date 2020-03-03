@@ -136,7 +136,7 @@ class Home extends React.Component {
         if (services) {
             return (
                 Object.keys(services).map((service, i) => {
-                    if (services[service]["service"]) {
+                    if (services[service]["state"]) {
                         return (
                             <Tabs ref={i + 1} key={i + 1}
                                 title={service}

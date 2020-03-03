@@ -126,14 +126,14 @@ class Account extends React.Component {
         })
             .then(response => response.json())
             .then(responseJson => {
-                this.setState({ obj: JSON.parse(responseJson) });
+                this.setState({ obj: responseJson.services });
             })
             .catch(error => {
                 console.error('Error: ', error);
             })
     }
 
-    _generate_Service = (services) => {
+    _generateService = (services) => {
         if (services) {
             return (
                 Object.keys(services).map((service, i) => {
@@ -151,6 +151,7 @@ class Account extends React.Component {
         }
     };
 
+
     render() {
         return (
             <div className="wrapper">
@@ -161,7 +162,7 @@ class Account extends React.Component {
 
                     <div className="content flex flex-wrap flex-grid">
 
-                        {this._generate_Service(this.state.obj)}
+                        {this._generateService(this.state.obj)}
 
                         <div><div className="card fit-content">
                             <div className="card-header card-header-info card-flex">

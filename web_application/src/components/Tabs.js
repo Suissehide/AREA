@@ -20,6 +20,7 @@ import NewsWidget from "./widgets/News/NewsWidget";
 import BananeWidget from "./widgets/News/BananaWidget";
 import IpMapWidget from "./widgets/Google/IpMapWidget";
 import DistanceMatrixWidget from './widgets/Google/DistanceMatrixWidget';
+import IssLocationWidget from './widgets/Iss/IssLocationWidget';
 
 class Tabs extends React.Component {
 
@@ -93,7 +94,7 @@ class Tabs extends React.Component {
 
             //ISS
             case 'ISS Location':
-                return;
+                return <IssLocationWidget />;
             case 'People in Space':
                 return;
 
