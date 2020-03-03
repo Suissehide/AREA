@@ -13,7 +13,6 @@ import Notifications from "./views/Notifications";
 
 import * as serviceWorker from './serviceWorker';
 import Account from "./views/Account";
-import Microsoft from "./components/oath2/Microsoft";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -38,8 +37,6 @@ class Index extends React.Component {
                         <PrivateRoute activeClassName="active" path="/home" component={Home} />
                         <PrivateRoute activeClassName="active" path="/notifications" component={Notifications} />
                         <PrivateRoute activeClassName="active" path="/account" component={Account} />
-
-                        <Route activeClassName="active" path="/microsoft" component={Microsoft} />
 
                         <Route activeClassName="active" path="/login" component={Login} />
                         <Route activeClassName="active" component={Notfound} />
