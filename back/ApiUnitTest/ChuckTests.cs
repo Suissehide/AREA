@@ -25,8 +25,7 @@ namespace BackUnitTest
             param.Add("OneWord", "life");
             param.Add("FrenchWord", "bonjour");
             param.Add("NoWord", "");
-            param.Add("NullWord", null);
-            param.Add("MultipleWord", "life");
+            param.Add("MultipleWord", "i'm the best");
             return param;
         }
         
@@ -34,7 +33,6 @@ namespace BackUnitTest
         public async Task OneWord()
         {
             // Arrange
-            
             var logger = new Logger<ChuckController>(new LoggerFactory());
             var param = InitParam()["OneWord"];
             var chuckController = new ChuckController(logger);
@@ -48,6 +46,43 @@ namespace BackUnitTest
             Assert.IsType<int>(myChuckObject.Total);
             Assert.IsType<List<ChuckJokeModel>>(myChuckObject.Result);
             Assert.IsType<string>(myChuckObject.Result[0].Value);
+        }
+        
+        [Fact]
+        public async Task NoWord()
+        {
+            // Arrange
+            var logger = new Logger<ChuckController>(new LoggerFactory());
+            var param = InitParam()["NoWord"];
+            var chuckController = new ChuckController(logger);
+
+            // Act
+            var result = await chuckController.ChuckByTheme(param);
+
+            // Assert
+            var badRequest = result as BadRequestResult;
+            Assert.Equal(400, badRequest.StatusCode);
+        }
+        
+        [Fact]
+        public async Task MultipleWord()
+        {
+            // Arrange
+            
+            var logger = new Logger<ChuckController>(new LoggerFactory());
+            var param = InitParam()["MultipleWord"];
+            var chuckController = new ChuckController(logger);
+
+            // Act
+            var result = await chuckController.ChuckByTheme(param);
+
+            // Assert
+            var okRequest = result as OkObjectResult;
+            Assert.Equal(200, okRequest.StatusCode);
+
+            var myChuckObject = okRequest.Value as ChuckModel;
+            Assert.IsType<int>(myChuckObject.Total);
+            Assert.IsType<List<ChuckJokeModel>>(myChuckObject.Result);
         }
     }
 }
