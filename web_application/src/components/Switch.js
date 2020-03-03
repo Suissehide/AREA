@@ -1,10 +1,34 @@
 import React from 'react';
 import '../css/Switch.css';
+import config from "../services/Config";
 
-const Switch = ({ isOn, handleToggle, id }) => {
+const Switch = ({ isOn, handleToggle, id, service, isService }) => {
+
+    const changeSetting = () => {
+        const email = localStorage.getItem('email') === null ? '' : localStorage.getItem('email');
+        var url = '';
+        if (isService)
+            url = `${config.serverIp}/database/editservice/${email}/${service}/${!isOn}`;
+        else
+            url = `${config.serverIp}/database/editwidget/${email}/${service}/${id}/${!isOn}`;
+
+
+        fetch(url, {
+            method: "GET",
+            headers: {},
+        })
+            .then(response => response.json())
+            .then(responseJson => {
+
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+            })
+    };
+
     return (
         <>
-            <input
+            <input onClick={changeSetting}
                 checked={isOn}
                 onChange={handleToggle}
                 className="react-switch-checkbox"

@@ -77,7 +77,7 @@ class Select extends React.Component {
 
             //ISS
             case 'ISS_Service':
-                return [<i clasName="fa fa-space-shuttle" />, 'ISS Service', 'Location'];
+                return [<i className="fa fa-space-shuttle" />, 'ISS Service', 'Location'];
 
             //StarWars
             case 'Star_Wars_Service':
@@ -97,6 +97,8 @@ class Select extends React.Component {
                             <div className="flex-center">{tab}</div>
                             <Switch
                                 id={tab}
+                                service={this.props.title}
+                                isService={false}
                                 isOn={this.state.active[i + 1] || false}
                                 handleToggle={() => this.setState({ active: this.state.active.map((el, k) => (k === i + 1 ? !this.state.active[i + 1] : el)) })} />
                         </div>
@@ -122,6 +124,8 @@ class Select extends React.Component {
                     <div className="flex-center">
                         <Switch
                             id={this.props.title}
+                            service={this.props.title}
+                            isService={true}
                             isOn={this.state.active[0] || false}
                             handleToggle={() => this.setState({ active: this.state.active.map((el, k) => (k === 0 ? !this.state.active[0] : el)) })} />
                     </div>

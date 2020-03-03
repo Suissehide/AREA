@@ -59,7 +59,8 @@ class User extends React.Component {
                     id: responseJson.users[0].email,
                     username: responseJson.users[0].username,
                     password: responseJson.users[0].password,
-                })
+                });
+                localStorage.setItem('email', responseJson.users[0].email);
             })
             .catch(error => {
                 console.error('Error: ', error);
@@ -105,7 +106,8 @@ class User extends React.Component {
                 if (responseJson === true) {
                     this.setState({
                         id: this.state.email,
-                    })
+                    });
+                    localStorage.setItem('email', responseJson.users[0].email);
                 } else {
                     this.setState({error: 'Email already taken.'});
                 }
@@ -116,6 +118,7 @@ class User extends React.Component {
     };
 
     responseMicrosoft = (err, data) => {
+        console.log(data);
         this.setState({tokenMicrosoft: data.authResponseWithAccessToken.accessToken} );
         const {email} = this.state;
         const url = `${config.serverIp}/database/editmicrosofttoken/${email}/` + data.authResponseWithAccessToken.accessToken;
@@ -129,7 +132,6 @@ class User extends React.Component {
     };
 
     responseFacebook = (response) => {
-        console.log(response);
         this.setState({tokenFacebook: response.accessToken, usernameFacebook: response.name} );
         const {email} = this.state;
         const url = `${config.serverIp}/database/editmicrosofttoken/${email}/` + response.accessToken;
@@ -143,7 +145,14 @@ class User extends React.Component {
     };
 
     _facebookButton = () => {
-
+        if (this.state.tokenFacebook === '')
+            return (
+                <FacebookAuth callback={this.responseFacebook}/>
+            );
+        else
+            return (
+                <button className="submit facebook-btn">Hello {this.state.usernameFacebook}</button>
+            );
     };
 
     render() {
@@ -173,7 +182,7 @@ class User extends React.Component {
                             </label>
                             <p className="error-msg">{this.state.error}</p>
                             <MicrosoftAuth callback={this.responseMicrosoft}/>
-                            <FacebookAuth callback={this.responseFacebook}/>
+                            {this._facebookButton()}
                             <button type="button" className="submit success-btn" onClick={this._save}>Save changes</button>
                             <AuthButton />
                             <button type="button" className="submit danger-btn" onClick={this._deleteAccount}>Delete account</button>
