@@ -90,6 +90,7 @@
     text-transform: capitalize;
     font-size: 13px;
     padding: 10px 15px;
+
 }
 
 .sidebar .nav li.active > a, .sidebar .nav li.active > a i {

@@ -64,6 +64,7 @@ a {
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:focus {

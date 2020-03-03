@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
+import config from '../services/Config';
 import UserAuth from "../services/UserAuth";
 
 class Login extends React.Component {
@@ -23,23 +24,23 @@ class Login extends React.Component {
     handleLogin = (e) => {
         e.preventDefault();
 
-        // this._auth();
-        this._login();
+        this._auth();
+        // this._login();
     };
 
-    _login = () => {
+    _login = (email) => {
         UserAuth.authenticate(() => {
             this.setState(() => ({
                 redirectToReferrer: true
             }))
         });
-
+        localStorage.setItem('email', email);
         this.props.history.push('/home');
     };
 
     _auth = async () => {
         const {loginEmail, loginPassword} = this.state;
-        const url = `http://127.0.0.1:8080/database/login/${loginEmail}/${loginPassword}`;
+        const url = `${config.serverIp}/database/login/${loginEmail}/${loginPassword}`;
 
         await fetch(url, {
             method: "GET",
@@ -48,7 +49,7 @@ class Login extends React.Component {
             .then(response => response.json())
             .then(responseJson => {
                 this.setState({error: null});
-                if (responseJson === true) this._login();
+                if (responseJson === true) this._login(loginEmail);
                 else this.setState({error: 'Email or password invalid.'});
             })
             .catch(error => {
@@ -64,7 +65,7 @@ class Login extends React.Component {
 
     _register = async () => {
         const {registerEmail, registerPassword, registerUsername} = this.state;
-        const url = `http://127.0.0.1:8080/database/signup/${registerEmail}/${registerPassword}/${registerUsername}`;
+        const url = `${config.serverIp}/database/signup/${registerEmail}/${registerPassword}/${registerUsername}`;
 
         await fetch(url, {
             method: "GET",
@@ -73,7 +74,7 @@ class Login extends React.Component {
             .then(response => response.json())
             .then(responseJson => {
                 this.setState({error: null});
-                if (responseJson === true) this._login();
+                if (responseJson === true) this._login(registerEmail);
                 else this.setState({error: 'Email already taken.'});
             })
             .catch(error => {
