@@ -21,6 +21,8 @@ import BananeWidget from "./widgets/News/BananaWidget";
 import IpMapWidget from "./widgets/Google/IpMapWidget";
 import DistanceMatrixWidget from './widgets/Google/DistanceMatrixWidget';
 import IssLocationWidget from './widgets/Iss/IssLocationWidget';
+import GraphWidget from './widgets/Microsoft/AccountWidget';
+import Like from './widgets/FacebookWidget';
 
 class Tabs extends React.Component {
 
@@ -97,6 +99,21 @@ class Tabs extends React.Component {
                 return <IssLocationWidget />;
             case 'People in Space':
                 return;
+
+            //MICROSFT
+            case 'Microsoft Account Information':
+                return <GraphWidget />;
+            case 'Calendar Events':
+                return;
+            case 'Contact List':
+                return;
+            case 'OneDrive Items':
+                return;
+            case 'Outlook Mails':
+                return;
+
+            case 'Liked Pages':
+                return <Like />;
 
             default:
                 return <div>error</div>;
